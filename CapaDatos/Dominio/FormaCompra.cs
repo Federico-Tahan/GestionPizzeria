@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Dominio
 {
-    internal class FormaCompra
+    public class FormaCompra
     {
+        public int IdFormaCompra { get; set; }
+        public string Forma_Compra { get; set; }
     }
 }

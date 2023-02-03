@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Dominio
 {
-    internal class Descuento
+    public class Descuento
     {
+        public int dia { get; set; }
+        public int PorcentajeDescuento { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace CapaDatos.Dominio
     public class Clasificacion
     {
         public int IdClasificacion { get; set; }
-        public string Clasificacion { get; set; }
+        public int BajaLogica { get; set; }
+        public string clasificacion { get; set; }
     }
 }

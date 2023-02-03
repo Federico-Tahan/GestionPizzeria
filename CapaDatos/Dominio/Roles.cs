@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Dominio
 {
-    internal class Roles
+    public class Roles
     {
+        public int Id_Rol { get; set; }
+        public int BajaLogica { get; set; }
+        public string Descripcion { get; set; }
+        public string Rol { get; set; }
     }
 }

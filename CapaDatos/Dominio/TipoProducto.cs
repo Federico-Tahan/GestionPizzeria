@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Dominio
 {
-    internal class TipoProducto
+    public class TipoProducto
     {
+        public int IdTipoProducto { get; set; }
+        public string Tipo_producto { get; set; }
+        public int Baja_logica { get; set; }
     }
 }

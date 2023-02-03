@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Dominio
 {
-    internal class DetalleBitacora
+    public class DetalleBitacora
     {
+        public int IdBitacora { get; set; }
+        public DateTime Fecha_accion { get; set; }
+        public string Accion { get; set; }
     }
 }

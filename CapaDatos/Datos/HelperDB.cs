@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Datos
 {
-    public class Tipo_Cliente
+    internal class HelperDB
     {
-        public int Id_TipoCliente { get; set; }
-        public string TipoCliente { get; set; }
     }
 }

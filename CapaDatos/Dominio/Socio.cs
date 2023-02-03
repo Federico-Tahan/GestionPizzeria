@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Dominio
 {
-    internal class Socio
+    public class Socio
     {
+        public int Id_Socio { get; set; }
+        public long DNI { get; set; }
+        public string Email { get; set; }
+        public DateTime FechaAdhesion { get; set; }
+        public int Baja_logica { get; set; }
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion.Formularios
 {
-    partial class CrudClubSocial
+    partial class CrudClientes
     {
         /// <summary>
         /// Required designer variable.

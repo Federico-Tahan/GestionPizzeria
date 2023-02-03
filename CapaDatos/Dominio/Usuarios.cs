@@ -11,8 +11,8 @@ namespace CapaDatos.Dominio
         public int ID_Usuario { get; set; }
         public string Alias { get; set; }
         public string Contraseña { get; set; }
-        public int Id_Empleado { get; set; }
-        public int Id_Rol { get; set; }
+        public Empleado Empleado { get; set; }
+        public Roles Rol { get; set; }
         public int Baja_Logica { get; set; }
     }
 }

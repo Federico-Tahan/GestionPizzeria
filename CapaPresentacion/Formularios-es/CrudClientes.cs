@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion.Formularios
 {
-    public partial class CrudClubSocial : Form
+    public partial class CrudClientes : Form
     {
-        public CrudClubSocial()
+        public CrudClientes()
         {
             InitializeComponent();
         }

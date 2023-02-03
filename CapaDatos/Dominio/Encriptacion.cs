@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Dominio
 {
-    public class Bitacora
+    internal class Encriptacion
     {
-        public Empleado empleado { get; set; }
-        public List<DetalleBitacora> DetalleBit { get; set; }
     }
 }
