@@ -72,7 +72,7 @@ namespace CapaPresentacion.Formularios
         {
             if (MessageBox.Show("Cerrar el programa", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.Close();
+                Program.log.Close();
             }
         }
 
@@ -85,25 +85,63 @@ namespace CapaPresentacion.Formularios
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             pnlSubmenu.Visible = !pnlSubmenu.Visible;
-            pnlSubmenu2.Visible = false;
+            submenu2.Visible = false;
+            submenu3.Visible = false;
 
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            pnlSubmenu2.Visible = !pnlSubmenu2.Visible;
-            pnlSubmenu.Visible = false;
 
         }
 
         private void BtnBackUp_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new BackUp());
+            AbrirFormEnPanel(new Configuracion());
         }
 
         private void btnDescuento_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new Descuentos());
+
+        }
+
+        private void btnGestion_Click(object sender, EventArgs e)
+        {
+            submenu2.Visible = !submenu2.Visible;
+            pnlSubmenu.Visible = false;
+            submenu3.Visible = false;
+        }
+
+        private void BtnFacturas_Click(object sender, EventArgs e)
+        {
+            submenu3.Visible = !submenu3.Visible;
+            pnlSubmenu.Visible = false;
+            submenu2.Visible = false;
+        }
+
+        private void BtnCliente_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new CrudClubSocial());
+        }
+
+        private void picConfig_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new Configuracion());
+
+        }
+
+        private void btnDescuentos_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new Descuentos());
+
+        }
+
+        private void BtnProductos_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new CrudProductos());
+
+        }
+
+        private void BtnUsuarios_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new CrudUsuarios());
 
         }
     }

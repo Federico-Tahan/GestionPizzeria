@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion.Formularios
 {
-    public partial class CrudEmpleado : Form
+    public partial class Configuracion : Form
     {
-        public CrudEmpleado()
+        public Configuracion()
         {
             InitializeComponent();
         }

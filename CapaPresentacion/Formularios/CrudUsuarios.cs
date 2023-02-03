@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion.Formularios
 {
-    public partial class BackUp : Form
+    public partial class CrudUsuarios : Form
     {
-        public BackUp()
+        public CrudUsuarios()
         {
             InitializeComponent();
         }
