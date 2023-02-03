@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvProd = new System.Windows.Forms.DataGridView();
             this.CodigoSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +63,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.pnlCrud.SuspendLayout();
@@ -76,14 +78,14 @@
             this.dgvProd.AllowUserToDeleteRows = false;
             this.dgvProd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.dgvProd.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodigoSocio,
@@ -208,6 +210,8 @@
             // pnlCrud
             // 
             this.pnlCrud.BackColor = System.Drawing.Color.OliveDrab;
+            this.pnlCrud.Controls.Add(this.label5);
+            this.pnlCrud.Controls.Add(this.comboBox1);
             this.pnlCrud.Controls.Add(this.label1);
             this.pnlCrud.Controls.Add(this.textBox3);
             this.pnlCrud.Controls.Add(this.label2);
@@ -460,6 +464,25 @@
             this.button5.Text = "Guardar";
             this.button5.UseVisualStyleBackColor = false;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(275, 314);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(174, 23);
+            this.comboBox1.TabIndex = 42;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(275, 283);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 19);
+            this.label5.TabIndex = 43;
+            this.label5.Text = "Tipo de Clientes";
+            // 
             // CrudClubSocial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -533,5 +556,7 @@
         private Button button3;
         private Button button4;
         private Button button5;
+        private Label label5;
+        private ComboBox comboBox1;
     }
 }

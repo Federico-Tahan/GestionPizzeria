@@ -173,6 +173,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LogPizza {
+            get {
+                object obj = ResourceManager.GetObject("LogPizza", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LogPizzaUs {
             get {
                 object obj = ResourceManager.GetObject("LogPizzaUs", resourceCulture);

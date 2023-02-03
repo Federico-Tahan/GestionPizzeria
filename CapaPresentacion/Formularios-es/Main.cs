@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaPresentacion.Formularios.Venta;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -142,6 +143,12 @@ namespace CapaPresentacion.Formularios
         private void BtnUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new CrudUsuarios());
+
+        }
+
+        private void btnVender_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new AltaVenta());
 
         }
     }

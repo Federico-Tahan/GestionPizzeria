@@ -46,7 +46,7 @@
             this.pnlSubmenu = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.btnProd = new System.Windows.Forms.Button();
-            this.btnEmpleado = new System.Windows.Forms.Button();
+            this.btnVender = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picConfig = new System.Windows.Forms.PictureBox();
@@ -341,7 +341,7 @@
             // 
             this.pnlSubmenu.Controls.Add(this.button2);
             this.pnlSubmenu.Controls.Add(this.btnProd);
-            this.pnlSubmenu.Controls.Add(this.btnEmpleado);
+            this.pnlSubmenu.Controls.Add(this.btnVender);
             this.pnlSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubmenu.Location = new System.Drawing.Point(0, 201);
             this.pnlSubmenu.Name = "pnlSubmenu";
@@ -389,25 +389,26 @@
             this.btnProd.Text = "Consultar";
             this.btnProd.UseVisualStyleBackColor = false;
             // 
-            // btnEmpleado
+            // btnVender
             // 
-            this.btnEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEmpleado.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnEmpleado.FlatAppearance.BorderSize = 0;
-            this.btnEmpleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpleado.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEmpleado.Image = global::CapaPresentacion.Properties.Resources.cajero;
-            this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEmpleado.Location = new System.Drawing.Point(0, 0);
-            this.btnEmpleado.Name = "btnEmpleado";
-            this.btnEmpleado.Size = new System.Drawing.Size(218, 42);
-            this.btnEmpleado.TabIndex = 14;
-            this.btnEmpleado.Text = "Vender";
-            this.btnEmpleado.UseVisualStyleBackColor = false;
+            this.btnVender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnVender.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVender.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVender.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnVender.FlatAppearance.BorderSize = 0;
+            this.btnVender.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.btnVender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVender.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnVender.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnVender.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.btnVender.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVender.Location = new System.Drawing.Point(0, 0);
+            this.btnVender.Name = "btnVender";
+            this.btnVender.Size = new System.Drawing.Size(218, 42);
+            this.btnVender.TabIndex = 14;
+            this.btnVender.Text = "Vender";
+            this.btnVender.UseVisualStyleBackColor = false;
+            this.btnVender.Click += new System.EventHandler(this.btnVender_Click);
             // 
             // btnAdmin
             // 
@@ -735,7 +736,7 @@
         private Panel panel2;
         private Panel pnlSubmenu;
         private Button btnProd;
-        private Button btnEmpleado;
+        private Button btnVender;
         private Button btnAdmin;
         private Panel panel5;
         private Label label3;

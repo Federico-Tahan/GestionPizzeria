@@ -637,7 +637,7 @@
             this.radioButton5.Text = "Alias";
             this.radioButton5.UseVisualStyleBackColor = true;
             // 
-            // CrudEmpleado
+            // CrudUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -662,7 +662,7 @@
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.txbCodProd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CrudEmpleado";
+            this.Name = "CrudUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrudEmpleado";
             this.pnlHeader.ResumeLayout(false);

@@ -16,5 +16,11 @@ namespace CapaPresentacion.Formularios.Venta
         {
             InitializeComponent();
         }
+
+        private void BtnSig_Click(object sender, EventArgs e)
+        {
+            ConfirmacionVenta form = new ConfirmacionVenta();
+            form.ShowDialog();
+        }
     }
 }
