@@ -59,6 +59,7 @@
             this.pnlBarra.Name = "pnlBarra";
             this.pnlBarra.Size = new System.Drawing.Size(600, 35);
             this.pnlBarra.TabIndex = 0;
+            this.pnlBarra.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBarra_Paint);
             this.pnlBarra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBarra_MouseDown);
             // 
             // Minimizar
@@ -158,7 +159,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.LogoLogin;
+            this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.LogPizzaUs;
             this.pictureBox3.Location = new System.Drawing.Point(175, 15);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(291, 224);
@@ -197,7 +198,7 @@
             this.Controls.Add(this.pnlBarra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LogIn";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
             this.Load += new System.EventHandler(this.LogIn_Load);
             this.pnlBarra.ResumeLayout(false);

@@ -55,5 +55,10 @@ namespace CapaPresentacion
             form.Show();
             this.Hide();
         }
+
+        private void pnlBarra_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
