@@ -64,7 +64,7 @@
             // Minimizar
             // 
             this.Minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Minimizar.Image = global::CapaPresentacion.Properties.Resources.minimizar;
+            this.Minimizar.Image = global::CapaPresentacion.Properties.Resources.minimize_sign;
             this.Minimizar.Location = new System.Drawing.Point(524, 0);
             this.Minimizar.Name = "Minimizar";
             this.Minimizar.Size = new System.Drawing.Size(35, 35);
@@ -77,7 +77,7 @@
             // 
             this.Salir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Salir.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Salir.Image = global::CapaPresentacion.Properties.Resources.cruz_quitar_signo;
+            this.Salir.Image = global::CapaPresentacion.Properties.Resources.close;
             this.Salir.Location = new System.Drawing.Point(565, 0);
             this.Salir.Name = "Salir";
             this.Salir.Size = new System.Drawing.Size(35, 35);
@@ -108,7 +108,7 @@
             this.lbContraseña.AutoSize = true;
             this.lbContraseña.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbContraseña.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbContraseña.Location = new System.Drawing.Point(213, 330);
+            this.lbContraseña.Location = new System.Drawing.Point(209, 330);
             this.lbContraseña.Name = "lbContraseña";
             this.lbContraseña.Size = new System.Drawing.Size(98, 19);
             this.lbContraseña.TabIndex = 0;
@@ -119,7 +119,7 @@
             this.lbUsuario.AutoSize = true;
             this.lbUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbUsuario.Location = new System.Drawing.Point(213, 258);
+            this.lbUsuario.Location = new System.Drawing.Point(209, 258);
             this.lbUsuario.Name = "lbUsuario";
             this.lbUsuario.Size = new System.Drawing.Size(65, 19);
             this.lbUsuario.TabIndex = 0;

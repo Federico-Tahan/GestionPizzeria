@@ -34,10 +34,10 @@
             this.Salir = new System.Windows.Forms.PictureBox();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlSubmenu2 = new System.Windows.Forms.Panel();
-            this.BtnBackUp = new System.Windows.Forms.Button();
+            this.BtnBitacora = new System.Windows.Forms.Button();
             this.btnDescuento = new System.Windows.Forms.Button();
             this.BtnProducot = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnUsuario = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.pnlSubmenu = new System.Windows.Forms.Panel();
             this.btnProd = new System.Windows.Forms.Button();
@@ -65,6 +65,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.BtnBackUp = new System.Windows.Forms.Button();
             this.pnlBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
@@ -99,8 +100,8 @@
             // Minimizar
             // 
             this.Minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Minimizar.Image = global::CapaPresentacion.Properties.Resources.minimizar;
-            this.Minimizar.Location = new System.Drawing.Point(1080, 0);
+            this.Minimizar.Image = global::CapaPresentacion.Properties.Resources.minimize_sign;
+            this.Minimizar.Location = new System.Drawing.Point(1080, 3);
             this.Minimizar.Name = "Minimizar";
             this.Minimizar.Size = new System.Drawing.Size(35, 35);
             this.Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -112,7 +113,7 @@
             // 
             this.Salir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Salir.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Salir.Image = global::CapaPresentacion.Properties.Resources.cruz_quitar_signo;
+            this.Salir.Image = global::CapaPresentacion.Properties.Resources.close;
             this.Salir.Location = new System.Drawing.Point(1126, 0);
             this.Salir.Name = "Salir";
             this.Salir.Size = new System.Drawing.Size(35, 35);
@@ -142,36 +143,37 @@
             // 
             this.pnlSubmenu2.AutoScroll = true;
             this.pnlSubmenu2.Controls.Add(this.BtnBackUp);
+            this.pnlSubmenu2.Controls.Add(this.BtnBitacora);
             this.pnlSubmenu2.Controls.Add(this.btnDescuento);
             this.pnlSubmenu2.Controls.Add(this.BtnProducot);
-            this.pnlSubmenu2.Controls.Add(this.button3);
+            this.pnlSubmenu2.Controls.Add(this.btnUsuario);
             this.pnlSubmenu2.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubmenu2.Location = new System.Drawing.Point(0, 373);
             this.pnlSubmenu2.Name = "pnlSubmenu2";
-            this.pnlSubmenu2.Size = new System.Drawing.Size(218, 164);
+            this.pnlSubmenu2.Size = new System.Drawing.Size(218, 200);
             this.pnlSubmenu2.TabIndex = 18;
             this.pnlSubmenu2.Visible = false;
             // 
-            // BtnBackUp
+            // BtnBitacora
             // 
-            this.BtnBackUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.BtnBackUp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBackUp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnBackUp.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnBackUp.FlatAppearance.BorderSize = 0;
-            this.BtnBackUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.BtnBackUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBackUp.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnBackUp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnBackUp.Image = global::CapaPresentacion.Properties.Resources.cajero;
-            this.BtnBackUp.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnBackUp.Location = new System.Drawing.Point(0, 121);
-            this.BtnBackUp.Name = "BtnBackUp";
-            this.BtnBackUp.Size = new System.Drawing.Size(218, 40);
-            this.BtnBackUp.TabIndex = 17;
-            this.BtnBackUp.Text = "Back-Up";
-            this.BtnBackUp.UseVisualStyleBackColor = false;
-            this.BtnBackUp.Click += new System.EventHandler(this.BtnBackUp_Click);
+            this.BtnBitacora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.BtnBitacora.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBitacora.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnBitacora.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnBitacora.FlatAppearance.BorderSize = 0;
+            this.BtnBitacora.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.BtnBitacora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBitacora.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnBitacora.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnBitacora.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.BtnBitacora.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnBitacora.Location = new System.Drawing.Point(0, 121);
+            this.BtnBitacora.Name = "BtnBitacora";
+            this.BtnBitacora.Size = new System.Drawing.Size(218, 38);
+            this.BtnBitacora.TabIndex = 17;
+            this.BtnBitacora.Text = "Bitacora";
+            this.BtnBitacora.UseVisualStyleBackColor = false;
+            this.BtnBitacora.Click += new System.EventHandler(this.BtnBackUp_Click);
             // 
             // btnDescuento
             // 
@@ -214,25 +216,25 @@
             this.BtnProducot.Text = "Productos";
             this.BtnProducot.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnUsuario
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Image = global::CapaPresentacion.Properties.Resources.cajero;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(218, 42);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Empleado";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsuario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsuario.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnUsuario.FlatAppearance.BorderSize = 0;
+            this.btnUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuario.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUsuario.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.btnUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUsuario.Location = new System.Drawing.Point(0, 0);
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.Size = new System.Drawing.Size(218, 42);
+            this.btnUsuario.TabIndex = 14;
+            this.btnUsuario.Text = "Usuarios";
+            this.btnUsuario.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
@@ -575,6 +577,26 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // BtnBackUp
+            // 
+            this.BtnBackUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.BtnBackUp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBackUp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnBackUp.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnBackUp.FlatAppearance.BorderSize = 0;
+            this.BtnBackUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.BtnBackUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBackUp.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnBackUp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnBackUp.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.BtnBackUp.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnBackUp.Location = new System.Drawing.Point(0, 159);
+            this.BtnBackUp.Name = "BtnBackUp";
+            this.BtnBackUp.Size = new System.Drawing.Size(218, 38);
+            this.BtnBackUp.TabIndex = 18;
+            this.BtnBackUp.Text = "Back-Up";
+            this.BtnBackUp.UseVisualStyleBackColor = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -638,10 +660,10 @@
         private Panel panel4;
         private Panel panel2;
         private Panel pnlSubmenu2;
-        private Button BtnBackUp;
+        private Button BtnBitacora;
         private Button btnDescuento;
         private Button BtnProducot;
-        private Button button3;
+        private Button btnUsuario;
         private Button button4;
         private Panel pnlSubmenu;
         private Button btnProd;
@@ -651,5 +673,6 @@
         private Label label3;
         private Panel panel3;
         private Label label2;
+        private Button BtnBackUp;
     }
 }
