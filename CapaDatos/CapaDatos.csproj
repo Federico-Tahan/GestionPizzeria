@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Datos\" />
-    <Folder Include="Dominio\" />
   </ItemGroup>
 
 </Project>
