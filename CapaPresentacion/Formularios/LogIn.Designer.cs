@@ -59,7 +59,6 @@
             this.pnlBarra.Name = "pnlBarra";
             this.pnlBarra.Size = new System.Drawing.Size(600, 35);
             this.pnlBarra.TabIndex = 0;
-            this.pnlBarra.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBarra_Paint);
             this.pnlBarra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBarra_MouseDown);
             // 
             // Minimizar
@@ -159,7 +158,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.LogPizzaUs;
+            this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.LogoLogin;
             this.pictureBox3.Location = new System.Drawing.Point(175, 15);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(291, 224);
@@ -171,7 +170,7 @@
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.reino_unido;
-            this.pictureBox2.Location = new System.Drawing.Point(559, 451);
+            this.pictureBox2.Location = new System.Drawing.Point(559, 455);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(38, 51);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -182,7 +181,7 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.espana;
-            this.pictureBox1.Location = new System.Drawing.Point(515, 451);
+            this.pictureBox1.Location = new System.Drawing.Point(515, 455);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 51);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

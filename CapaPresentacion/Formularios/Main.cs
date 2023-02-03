@@ -14,6 +14,8 @@ namespace CapaPresentacion.Formularios
 {
     public partial class Main : Form
     {
+        Form FormActual;
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -22,6 +24,22 @@ namespace CapaPresentacion.Formularios
         public Main()
         {
             InitializeComponent();
+        }
+
+        public void AbrirFormEnPanel(Form Formhijo)
+        {
+            if (FormActual != null)
+            {
+                FormActual.Close();
+            }
+            FormActual = Formhijo;
+            Formhijo.TopLevel = false;
+            Formhijo.Dock = DockStyle.Fill;
+            pnlMain.Controls.Add(Formhijo);
+            pnlMain.Tag = Formhijo;
+            this.Size = new Size(Formhijo.Size.Width + 218, Formhijo.Size.Height);
+            Formhijo.BringToFront();
+            Formhijo.Show();
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -75,6 +93,17 @@ namespace CapaPresentacion.Formularios
         {
             pnlSubmenu2.Visible = !pnlSubmenu2.Visible;
             pnlSubmenu.Visible = false;
+
+        }
+
+        private void BtnBackUp_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new BackUp());
+        }
+
+        private void btnDescuento_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new Descuentos());
 
         }
     }

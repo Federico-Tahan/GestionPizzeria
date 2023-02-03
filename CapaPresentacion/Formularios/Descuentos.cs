@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion.Formularios
 {
-    public partial class CrudClubSocial : Form
+    public partial class Descuentos : Form
     {
-        public CrudClubSocial()
+        public Descuentos()
         {
             InitializeComponent();
-        }
-
-        private void CrudClubSocial_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

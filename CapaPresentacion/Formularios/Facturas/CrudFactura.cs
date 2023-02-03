@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CapaPresentacion.Formularios
+namespace CapaPresentacion.Formularios.Facturas
 {
-    public partial class CrudClubSocial : Form
+    public partial class CrudFactura : Form
     {
-        public CrudClubSocial()
+        public CrudFactura()
         {
             InitializeComponent();
-        }
-
-        private void CrudClubSocial_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

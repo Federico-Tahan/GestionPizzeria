@@ -34,9 +34,9 @@
             this.Salir = new System.Windows.Forms.PictureBox();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlSubmenu2 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnBackUp = new System.Windows.Forms.Button();
+            this.btnDescuento = new System.Windows.Forms.Button();
+            this.BtnProducot = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.pnlSubmenu = new System.Windows.Forms.Panel();
@@ -51,15 +51,15 @@
             this.BtnCliente = new System.Windows.Forms.Button();
             this.picMain = new System.Windows.Forms.PictureBox();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.lbfecha = new System.Windows.Forms.Label();
             this.lbHora = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -75,12 +75,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
             this.pnlMain.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -143,76 +141,78 @@
             // pnlSubmenu2
             // 
             this.pnlSubmenu2.AutoScroll = true;
-            this.pnlSubmenu2.Controls.Add(this.button5);
-            this.pnlSubmenu2.Controls.Add(this.button1);
-            this.pnlSubmenu2.Controls.Add(this.button2);
+            this.pnlSubmenu2.Controls.Add(this.BtnBackUp);
+            this.pnlSubmenu2.Controls.Add(this.btnDescuento);
+            this.pnlSubmenu2.Controls.Add(this.BtnProducot);
             this.pnlSubmenu2.Controls.Add(this.button3);
             this.pnlSubmenu2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubmenu2.Location = new System.Drawing.Point(0, 386);
+            this.pnlSubmenu2.Location = new System.Drawing.Point(0, 373);
             this.pnlSubmenu2.Name = "pnlSubmenu2";
             this.pnlSubmenu2.Size = new System.Drawing.Size(218, 164);
             this.pnlSubmenu2.TabIndex = 18;
             this.pnlSubmenu2.Visible = false;
             // 
-            // button5
+            // BtnBackUp
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Image = global::CapaPresentacion.Properties.Resources.cajero;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.Location = new System.Drawing.Point(0, 121);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(218, 40);
-            this.button5.TabIndex = 17;
-            this.button5.Text = "Back-Up";
-            this.button5.UseVisualStyleBackColor = false;
+            this.BtnBackUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.BtnBackUp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBackUp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnBackUp.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnBackUp.FlatAppearance.BorderSize = 0;
+            this.BtnBackUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.BtnBackUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBackUp.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnBackUp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnBackUp.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.BtnBackUp.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnBackUp.Location = new System.Drawing.Point(0, 121);
+            this.BtnBackUp.Name = "BtnBackUp";
+            this.BtnBackUp.Size = new System.Drawing.Size(218, 40);
+            this.BtnBackUp.TabIndex = 17;
+            this.BtnBackUp.Text = "Back-Up";
+            this.BtnBackUp.UseVisualStyleBackColor = false;
+            this.BtnBackUp.Click += new System.EventHandler(this.BtnBackUp_Click);
             // 
-            // button1
+            // btnDescuento
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Image = global::CapaPresentacion.Properties.Resources.cajero;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(0, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(218, 39);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Descuentos";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnDescuento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDescuento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDescuento.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnDescuento.FlatAppearance.BorderSize = 0;
+            this.btnDescuento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.btnDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescuento.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDescuento.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDescuento.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.btnDescuento.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDescuento.Location = new System.Drawing.Point(0, 82);
+            this.btnDescuento.Name = "btnDescuento";
+            this.btnDescuento.Size = new System.Drawing.Size(218, 39);
+            this.btnDescuento.TabIndex = 16;
+            this.btnDescuento.Text = "Descuentos";
+            this.btnDescuento.UseVisualStyleBackColor = false;
+            this.btnDescuento.Click += new System.EventHandler(this.btnDescuento_Click);
             // 
-            // button2
+            // BtnProducot
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Image = global::CapaPresentacion.Properties.Resources.cajero;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(0, 42);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(218, 40);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Productos";
-            this.button2.UseVisualStyleBackColor = false;
+            this.BtnProducot.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.BtnProducot.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnProducot.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnProducot.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnProducot.FlatAppearance.BorderSize = 0;
+            this.BtnProducot.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.BtnProducot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnProducot.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnProducot.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnProducot.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.BtnProducot.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnProducot.Location = new System.Drawing.Point(0, 42);
+            this.BtnProducot.Name = "BtnProducot";
+            this.BtnProducot.Size = new System.Drawing.Size(218, 40);
+            this.BtnProducot.TabIndex = 15;
+            this.BtnProducot.Text = "Productos";
+            this.BtnProducot.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
@@ -247,7 +247,7 @@
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button4.Image = global::CapaPresentacion.Properties.Resources.cajero;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 344);
+            this.button4.Location = new System.Drawing.Point(0, 331);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(218, 42);
             this.button4.TabIndex = 17;
@@ -262,7 +262,7 @@
             this.pnlSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubmenu.Location = new System.Drawing.Point(0, 243);
             this.pnlSubmenu.Name = "pnlSubmenu";
-            this.pnlSubmenu.Size = new System.Drawing.Size(218, 101);
+            this.pnlSubmenu.Size = new System.Drawing.Size(218, 88);
             this.pnlSubmenu.TabIndex = 16;
             this.pnlSubmenu.Visible = false;
             // 
@@ -281,9 +281,9 @@
             this.btnProd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProd.Location = new System.Drawing.Point(0, 42);
             this.btnProd.Name = "btnProd";
-            this.btnProd.Size = new System.Drawing.Size(218, 36);
+            this.btnProd.Size = new System.Drawing.Size(218, 43);
             this.btnProd.TabIndex = 15;
-            this.btnProd.Text = "Consultar";
+            this.btnProd.Text = "Facturas";
             this.btnProd.UseVisualStyleBackColor = false;
             // 
             // btnEmpleado
@@ -426,6 +426,8 @@
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.DarkGreen;
+            this.pnlMain.Controls.Add(this.panel5);
+            this.pnlMain.Controls.Add(this.panel3);
             this.pnlMain.Controls.Add(this.panel6);
             this.pnlMain.Controls.Add(this.panel4);
             this.pnlMain.Controls.Add(this.panel2);
@@ -439,13 +441,53 @@
             this.pnlMain.Size = new System.Drawing.Size(943, 641);
             this.pnlMain.TabIndex = 3;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Location = new System.Drawing.Point(730, 243);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(167, 34);
+            this.panel5.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(22, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(130, 21);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Recaudo Diario";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Location = new System.Drawing.Point(730, 40);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(167, 34);
+            this.panel3.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(22, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(130, 21);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Recaudo Diario";
+            // 
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(736, 430);
+            this.panel6.Location = new System.Drawing.Point(730, 446);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(142, 149);
+            this.panel6.Size = new System.Drawing.Size(167, 183);
             this.panel6.TabIndex = 10;
             // 
             // panel7
@@ -454,7 +496,7 @@
             this.panel7.Controls.Add(this.label4);
             this.panel7.Location = new System.Drawing.Point(-1, -1);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(142, 30);
+            this.panel7.Size = new System.Drawing.Size(167, 34);
             this.panel7.TabIndex = 0;
             // 
             // label4
@@ -462,7 +504,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(6, 5);
+            this.label4.Location = new System.Drawing.Point(22, 5);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 21);
             this.label4.TabIndex = 0;
@@ -471,60 +513,18 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(736, 239);
+            this.panel4.Location = new System.Drawing.Point(730, 241);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(142, 149);
+            this.panel4.Size = new System.Drawing.Size(167, 183);
             this.panel4.TabIndex = 10;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Location = new System.Drawing.Point(-1, -1);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(142, 30);
-            this.panel5.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(4, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 21);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Descuento Club";
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(736, 61);
+            this.panel2.Location = new System.Drawing.Point(730, 40);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(142, 149);
+            this.panel2.Size = new System.Drawing.Size(167, 183);
             this.panel2.TabIndex = 9;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(-1, -1);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(142, 30);
-            this.panel3.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(6, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 21);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Recaudo Diario";
             // 
             // lbfecha
             // 
@@ -552,7 +552,7 @@
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.reino_unido;
-            this.pictureBox2.Location = new System.Drawing.Point(50, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(49, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(38, 46);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -563,7 +563,7 @@
             // 
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.espana;
-            this.pictureBox3.Location = new System.Drawing.Point(6, 0);
+            this.pictureBox3.Location = new System.Drawing.Point(5, 0);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(38, 46);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -600,15 +600,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
@@ -638,20 +636,20 @@
         private Panel panel7;
         private Label label4;
         private Panel panel4;
-        private Panel panel5;
-        private Label label3;
         private Panel panel2;
-        private Panel panel3;
-        private Label label2;
         private Panel pnlSubmenu2;
-        private Button button5;
-        private Button button1;
-        private Button button2;
+        private Button BtnBackUp;
+        private Button btnDescuento;
+        private Button BtnProducot;
         private Button button3;
         private Button button4;
         private Panel pnlSubmenu;
         private Button btnProd;
         private Button btnEmpleado;
         private Button btnAdmin;
+        private Panel panel5;
+        private Label label3;
+        private Panel panel3;
+        private Label label2;
     }
 }

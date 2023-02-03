@@ -1,6 +1,6 @@
-﻿namespace CapaPresentacion.Formularios
+﻿namespace CapaPresentacion.Formularios.Facturas
 {
-    partial class CrudClubSocial
+    partial class CrudFactura
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // CrudClubSocial
+            // CrudFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(943, 641);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CrudClubSocial";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CrudClubSocial";
-            this.Load += new System.EventHandler(this.CrudClubSocial_Load);
+            this.Name = "CrudFactura";
+            this.Text = "CrudFactura";
             this.ResumeLayout(false);
 
         }

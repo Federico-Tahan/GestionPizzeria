@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaPresentacion.Formularios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +9,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CapaPresentacion.Formularios;
 
 namespace CapaPresentacion
 {
@@ -54,11 +54,6 @@ namespace CapaPresentacion
             Main form = new Main();
             form.Show();
             this.Hide();
-        }
-
-        private void pnlBarra_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CapaPresentacion.Formularios
+namespace CapaPresentacion.Formularios.Venta
 {
-    public partial class CrudClubSocial : Form
+    public partial class ConsultaEdicionBajaVentas : Form
     {
-        public CrudClubSocial()
+        public ConsultaEdicionBajaVentas()
         {
             InitializeComponent();
-        }
-
-        private void CrudClubSocial_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

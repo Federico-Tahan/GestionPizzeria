@@ -1,4 +1,4 @@
-namespace CapaPresentacion
+namespace CapaPresentacion.Formularios
 {
     internal static class Program
     {

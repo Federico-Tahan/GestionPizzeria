@@ -1,6 +1,6 @@
-﻿namespace CapaPresentacion.Formularios
+﻿namespace CapaPresentacion.Formularios.Venta
 {
-    partial class CrudClubSocial
+    partial class AltaVenta
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // CrudClubSocial
+            // AltaVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(943, 641);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CrudClubSocial";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CrudClubSocial";
-            this.Load += new System.EventHandler(this.CrudClubSocial_Load);
+            this.Name = "AltaVenta";
+            this.Text = "AltaVenta";
             this.ResumeLayout(false);
 
         }
