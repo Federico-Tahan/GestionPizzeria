@@ -119,7 +119,7 @@ namespace CapaPresentacion.Formularios
 
         private void BtnCliente_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new CrudClubSocial());
+            AbrirFormEnPanel(new CrudClientes());
         }
 
         private void picConfig_Click(object sender, EventArgs e)
