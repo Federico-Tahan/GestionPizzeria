@@ -49,7 +49,14 @@ end
 create or alter procedure SP_Obtener_usuarios
 as
 begin
-	select e.id_empleado,u.id_usuario,dni,nombre,apellido,direccion,fecha_nac,telefono,e.baja_logica,alias,contraseña,id_rol,u.baja_logica
+	select e.id_empleado,u.id_usuario,dni,nombre,apellido,direccion,fecha_nac,telefono,e.baja_logica,alias,contraseña,r.id_rol,u.baja_logica, r.roles
 	from Usuarios u
 	join Empleado E on e.id_empleado = u.id_empleado
+	join Roles r on r.id_rol = u.id_rol
 end
+
+
+
+create or alter procedure SP_Obtener_Roles
+as
+	select * from Roles

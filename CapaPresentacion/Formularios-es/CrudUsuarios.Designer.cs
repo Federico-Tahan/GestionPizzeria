@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lbProd = new System.Windows.Forms.Label();
             this.pnlCrud = new System.Windows.Forms.Panel();
+            this.lbFechaNac = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lbDireccion = new System.Windows.Forms.Label();
+            this.txbDireccion = new System.Windows.Forms.TextBox();
             this.picContraseña = new System.Windows.Forms.PictureBox();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,15 +50,13 @@
             this.TxbDni = new System.Windows.Forms.TextBox();
             this.lbTel = new System.Windows.Forms.Label();
             this.TxbTelefono = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxbEmail = new System.Windows.Forms.TextBox();
             this.lbApellido = new System.Windows.Forms.Label();
             this.txbApellido = new System.Windows.Forms.TextBox();
             this.lbNombre = new System.Windows.Forms.Label();
             this.txbNombre = new System.Windows.Forms.TextBox();
             this.picLimpiar = new System.Windows.Forms.PictureBox();
             this.picBajar = new System.Windows.Forms.PictureBox();
-            this.dgvProd = new System.Windows.Forms.DataGridView();
+            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.codigoUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,7 +66,6 @@
             this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
-            this.BtnBorrar = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.rbtTodos = new System.Windows.Forms.RadioButton();
@@ -77,12 +78,14 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlHeader.SuspendLayout();
             this.pnlCrud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picContraseña)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLimpiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBajar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -108,6 +111,10 @@
             // pnlCrud
             // 
             this.pnlCrud.BackColor = System.Drawing.Color.OliveDrab;
+            this.pnlCrud.Controls.Add(this.lbFechaNac);
+            this.pnlCrud.Controls.Add(this.dateTimePicker1);
+            this.pnlCrud.Controls.Add(this.lbDireccion);
+            this.pnlCrud.Controls.Add(this.txbDireccion);
             this.pnlCrud.Controls.Add(this.picContraseña);
             this.pnlCrud.Controls.Add(this.chkActivo);
             this.pnlCrud.Controls.Add(this.label7);
@@ -122,19 +129,54 @@
             this.pnlCrud.Controls.Add(this.TxbDni);
             this.pnlCrud.Controls.Add(this.lbTel);
             this.pnlCrud.Controls.Add(this.TxbTelefono);
-            this.pnlCrud.Controls.Add(this.label2);
-            this.pnlCrud.Controls.Add(this.TxbEmail);
             this.pnlCrud.Controls.Add(this.lbApellido);
             this.pnlCrud.Controls.Add(this.txbApellido);
             this.pnlCrud.Controls.Add(this.lbNombre);
             this.pnlCrud.Controls.Add(this.txbNombre);
             this.pnlCrud.Controls.Add(this.picLimpiar);
             this.pnlCrud.Controls.Add(this.picBajar);
-            this.pnlCrud.Location = new System.Drawing.Point(39, 114);
+            this.pnlCrud.Location = new System.Drawing.Point(39, 107);
             this.pnlCrud.Name = "pnlCrud";
-            this.pnlCrud.Size = new System.Drawing.Size(935, 441);
+            this.pnlCrud.Size = new System.Drawing.Size(935, 448);
             this.pnlCrud.TabIndex = 25;
             this.pnlCrud.Visible = false;
+            // 
+            // lbFechaNac
+            // 
+            this.lbFechaNac.AutoSize = true;
+            this.lbFechaNac.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbFechaNac.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbFechaNac.Location = new System.Drawing.Point(519, 171);
+            this.lbFechaNac.Name = "lbFechaNac";
+            this.lbFechaNac.Size = new System.Drawing.Size(178, 19);
+            this.lbFechaNac.TabIndex = 44;
+            this.lbFechaNac.Text = "Fecha de Nacimiento";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(519, 202);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(119, 23);
+            this.dateTimePicker1.TabIndex = 43;
+            // 
+            // lbDireccion
+            // 
+            this.lbDireccion.AutoSize = true;
+            this.lbDireccion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbDireccion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbDireccion.Location = new System.Drawing.Point(44, 171);
+            this.lbDireccion.Name = "lbDireccion";
+            this.lbDireccion.Size = new System.Drawing.Size(83, 19);
+            this.lbDireccion.TabIndex = 42;
+            this.lbDireccion.Text = "Direccion";
+            // 
+            // txbDireccion
+            // 
+            this.txbDireccion.Location = new System.Drawing.Point(44, 202);
+            this.txbDireccion.Name = "txbDireccion";
+            this.txbDireccion.Size = new System.Drawing.Size(174, 23);
+            this.txbDireccion.TabIndex = 41;
             // 
             // picContraseña
             // 
@@ -261,7 +303,7 @@
             this.lbTel.AutoSize = true;
             this.lbTel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbTel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbTel.Location = new System.Drawing.Point(44, 165);
+            this.lbTel.Location = new System.Drawing.Point(272, 171);
             this.lbTel.Name = "lbTel";
             this.lbTel.Size = new System.Drawing.Size(74, 19);
             this.lbTel.TabIndex = 28;
@@ -269,28 +311,10 @@
             // 
             // TxbTelefono
             // 
-            this.TxbTelefono.Location = new System.Drawing.Point(44, 196);
+            this.TxbTelefono.Location = new System.Drawing.Point(272, 202);
             this.TxbTelefono.Name = "TxbTelefono";
             this.TxbTelefono.Size = new System.Drawing.Size(174, 23);
             this.TxbTelefono.TabIndex = 27;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(272, 165);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 19);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Email";
-            // 
-            // TxbEmail
-            // 
-            this.TxbEmail.Location = new System.Drawing.Point(272, 196);
-            this.TxbEmail.Name = "TxbEmail";
-            this.TxbEmail.Size = new System.Drawing.Size(174, 23);
-            this.TxbEmail.TabIndex = 25;
             // 
             // lbApellido
             // 
@@ -352,22 +376,22 @@
             this.picBajar.TabStop = false;
             this.picBajar.Click += new System.EventHandler(this.picBajar_Click);
             // 
-            // dgvProd
+            // dgvUsuarios
             // 
-            this.dgvProd.AllowUserToAddRows = false;
-            this.dgvProd.AllowUserToDeleteRows = false;
-            this.dgvProd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.dgvProd.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvUsuarios.AllowUserToAddRows = false;
+            this.dgvUsuarios.AllowUserToDeleteRows = false;
+            this.dgvUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.dgvUsuarios.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigoUser,
             this.dni,
             this.nombre,
@@ -375,14 +399,15 @@
             this.Rol,
             this.activo,
             this.accion});
-            this.dgvProd.Location = new System.Drawing.Point(42, 149);
-            this.dgvProd.Name = "dgvProd";
-            this.dgvProd.ReadOnly = true;
-            this.dgvProd.RowHeadersVisible = false;
-            this.dgvProd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvProd.RowTemplate.Height = 25;
-            this.dgvProd.Size = new System.Drawing.Size(932, 406);
-            this.dgvProd.TabIndex = 24;
+            this.dgvUsuarios.Location = new System.Drawing.Point(42, 149);
+            this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.ReadOnly = true;
+            this.dgvUsuarios.RowHeadersVisible = false;
+            this.dgvUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvUsuarios.RowTemplate.Height = 25;
+            this.dgvUsuarios.Size = new System.Drawing.Size(932, 406);
+            this.dgvUsuarios.TabIndex = 24;
+            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_Detalle);
             // 
             // codigoUser
             // 
@@ -430,12 +455,16 @@
             this.accion.HeaderText = "Accion";
             this.accion.Name = "accion";
             this.accion.ReadOnly = true;
+            this.accion.Text = "Detalle";
+            this.accion.ToolTipText = "Detalle";
+            this.accion.UseColumnTextForButtonValue = true;
             this.accion.Width = 99;
             // 
             // BtnGuardar
             // 
             this.BtnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.BtnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuardar.Enabled = false;
             this.BtnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnGuardar.FlatAppearance.BorderSize = 0;
             this.BtnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
@@ -454,6 +483,7 @@
             // 
             this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.BtnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCancelar.Enabled = false;
             this.BtnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnCancelar.FlatAppearance.BorderSize = 0;
             this.BtnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
@@ -461,7 +491,7 @@
             this.BtnCancelar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelar.Location = new System.Drawing.Point(621, 571);
+            this.BtnCancelar.Location = new System.Drawing.Point(593, 571);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(139, 42);
             this.BtnCancelar.TabIndex = 29;
@@ -469,29 +499,11 @@
             this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // BtnBorrar
-            // 
-            this.BtnBorrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.BtnBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBorrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnBorrar.FlatAppearance.BorderSize = 0;
-            this.BtnBorrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.BtnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBorrar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnBorrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBorrar.Location = new System.Drawing.Point(435, 571);
-            this.BtnBorrar.Name = "BtnBorrar";
-            this.BtnBorrar.Size = new System.Drawing.Size(139, 42);
-            this.BtnBorrar.TabIndex = 28;
-            this.BtnBorrar.Text = "Borrar";
-            this.BtnBorrar.UseVisualStyleBackColor = false;
-            this.BtnBorrar.Click += new System.EventHandler(this.BtnBorrar_Click);
-            // 
             // BtnEditar
             // 
             this.BtnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.BtnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnEditar.Enabled = false;
             this.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnEditar.FlatAppearance.BorderSize = 0;
             this.BtnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
@@ -499,7 +511,7 @@
             this.BtnEditar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnEditar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEditar.Location = new System.Drawing.Point(248, 571);
+            this.BtnEditar.Location = new System.Drawing.Point(370, 571);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(139, 42);
             this.BtnEditar.TabIndex = 27;
@@ -518,7 +530,7 @@
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(60, 571);
+            this.btnNuevo.Location = new System.Drawing.Point(144, 571);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(139, 42);
             this.btnNuevo.TabIndex = 26;
@@ -531,11 +543,10 @@
             this.rbtTodos.AutoSize = true;
             this.rbtTodos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbtTodos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rbtTodos.Location = new System.Drawing.Point(898, 118);
+            this.rbtTodos.Location = new System.Drawing.Point(210, 8);
             this.rbtTodos.Name = "rbtTodos";
             this.rbtTodos.Size = new System.Drawing.Size(73, 25);
             this.rbtTodos.TabIndex = 33;
-            this.rbtTodos.TabStop = true;
             this.rbtTodos.Text = "Todos";
             this.rbtTodos.UseVisualStyleBackColor = true;
             // 
@@ -544,20 +555,20 @@
             this.RbtEliminados.AutoSize = true;
             this.RbtEliminados.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtEliminados.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtEliminados.Location = new System.Drawing.Point(783, 118);
+            this.RbtEliminados.Location = new System.Drawing.Point(95, 8);
             this.RbtEliminados.Name = "RbtEliminados";
             this.RbtEliminados.Size = new System.Drawing.Size(109, 25);
             this.RbtEliminados.TabIndex = 32;
-            this.RbtEliminados.TabStop = true;
             this.RbtEliminados.Text = "Eliminados";
             this.RbtEliminados.UseVisualStyleBackColor = true;
             // 
             // RbtActivos
             // 
             this.RbtActivos.AutoSize = true;
+            this.RbtActivos.Checked = true;
             this.RbtActivos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtActivos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtActivos.Location = new System.Drawing.Point(690, 118);
+            this.RbtActivos.Location = new System.Drawing.Point(3, 8);
             this.RbtActivos.Name = "RbtActivos";
             this.RbtActivos.Size = new System.Drawing.Size(87, 25);
             this.RbtActivos.TabIndex = 31;
@@ -595,7 +606,6 @@
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(87, 24);
             this.radioButton1.TabIndex = 47;
-            this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Apellido";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
@@ -608,13 +618,13 @@
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(86, 24);
             this.radioButton2.TabIndex = 46;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Nombre";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
+            this.radioButton3.Checked = true;
             this.radioButton3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.radioButton3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.radioButton3.Location = new System.Drawing.Point(41, 114);
@@ -634,7 +644,6 @@
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(54, 24);
             this.radioButton4.TabIndex = 48;
-            this.radioButton4.TabStop = true;
             this.radioButton4.Text = "DNI";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
@@ -647,9 +656,18 @@
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(60, 24);
             this.radioButton5.TabIndex = 49;
-            this.radioButton5.TabStop = true;
             this.radioButton5.Text = "Alias";
             this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.RbtActivos);
+            this.panel1.Controls.Add(this.rbtTodos);
+            this.panel1.Controls.Add(this.RbtEliminados);
+            this.panel1.Location = new System.Drawing.Point(672, 107);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(302, 36);
+            this.panel1.TabIndex = 50;
             // 
             // CrudUsuarios
             // 
@@ -659,15 +677,11 @@
             this.ClientSize = new System.Drawing.Size(998, 676);
             this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.BtnCancelar);
-            this.Controls.Add(this.BtnBorrar);
             this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.pnlCrud);
-            this.Controls.Add(this.dgvProd);
+            this.Controls.Add(this.dgvUsuarios);
             this.Controls.Add(this.pnlHeader);
-            this.Controls.Add(this.rbtTodos);
-            this.Controls.Add(this.RbtEliminados);
-            this.Controls.Add(this.RbtActivos);
             this.Controls.Add(this.radioButton5);
             this.Controls.Add(this.radioButton4);
             this.Controls.Add(this.radioButton1);
@@ -675,6 +689,7 @@
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.txbCodProd);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrudUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -687,7 +702,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picContraseña)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLimpiar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBajar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -700,10 +717,9 @@
         private Panel pnlCrud;
         private PictureBox picLimpiar;
         private PictureBox picBajar;
-        private DataGridView dgvProd;
+        private DataGridView dgvUsuarios;
         private Button BtnGuardar;
         private Button BtnCancelar;
-        private Button BtnBorrar;
         private Button BtnEditar;
         private Button btnNuevo;
         private RadioButton rbtTodos;
@@ -721,13 +737,10 @@
         private TextBox TxbDni;
         private Label lbTel;
         private TextBox TxbTelefono;
-        private Label label2;
-        private TextBox TxbEmail;
         private Label lbApellido;
         private TextBox txbApellido;
         private Label lbNombre;
         private TextBox txbNombre;
-        private CheckBox chkActivo;
         private PictureBox picContraseña;
         private Button BtnLogin;
         private TextBox txbCodProd;
@@ -736,6 +749,12 @@
         private RadioButton radioButton3;
         private RadioButton radioButton4;
         private RadioButton radioButton5;
+        private Label lbFechaNac;
+        private DateTimePicker dateTimePicker1;
+        private Label lbDireccion;
+        private TextBox txbDireccion;
+        private CheckBox chkActivo;
+        private Panel panel1;
         private DataGridViewTextBoxColumn codigoUser;
         private DataGridViewTextBoxColumn dni;
         private DataGridViewTextBoxColumn nombre;

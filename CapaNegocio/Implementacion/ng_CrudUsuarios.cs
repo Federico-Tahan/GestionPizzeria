@@ -1,12 +1,36 @@
-﻿using System;
+﻿using CapaDatos.Datos.Implementacion;
+using CapaDatos.Datos.Interfaces;
+using CapaDatos.Dominio;
+using CapaNegocio.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaDatos.Datos.Implementacion
+namespace CapaNegocio.Implementacion
 {
-    internal class Im_CrudUsuarios
+    public class ng_CrudUsuarios : ing_CrudUsuarios
     {
+        private CrudUsuarios lg;
+
+        public ng_CrudUsuarios()
+        {
+            lg = new Im_CrudUsuarios();
+        }
+        public bool AltaUsuario(Usuarios u)
+        {
+            return lg.AltaUsuario(u);
+        }
+
+        public bool ModificarUsuario(Usuarios u)
+        {
+            return lg.ModificarUsuario(u);
+        }
+
+        public List<Usuarios> ObtenerUsuarios()
+        {
+            return lg.ObtenerUsuarios();
+        }
     }
 }

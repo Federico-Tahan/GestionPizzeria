@@ -68,6 +68,7 @@ namespace CapaDatos.Datos.Implementacion
             {
                 Usuarios usuario = new Usuarios();
                 Empleado e = new Empleado();
+                Roles r = new Roles();
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
                 {
                     e.Id_Empleado = HelperDB.ObtenerInstancia().Dr.GetInt32(0);
@@ -111,19 +112,25 @@ namespace CapaDatos.Datos.Implementacion
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(10))
                 {
-                    usuario.Contraseña = encrypt.Desencriptar(HelperDB.ObtenerInstancia().Dr.GetString(10));
+                    usuario.Contraseña = HelperDB.ObtenerInstancia().Dr.GetString(10);
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(11))
                 {
-                    usuario.Rol.Id_Rol = HelperDB.ObtenerInstancia().Dr.GetInt32(11);
+                    r.Id_Rol = HelperDB.ObtenerInstancia().Dr.GetInt32(11);
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(12))
                 {
                     usuario.Baja_Logica = HelperDB.ObtenerInstancia().Dr.GetInt32(12);
 
                 }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(13))
+                {
+                    r.Rol= HelperDB.ObtenerInstancia().Dr.GetString(13);
+
+                }
 
                 usuario.Empleado = e;
+                usuario.Rol = r;
                 lUsuarios.Add(usuario);
             }
             HelperDB.ObtenerInstancia().close();

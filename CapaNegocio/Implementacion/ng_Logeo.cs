@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaDatos.Datos.Implementacion
+namespace CapaNegocio.Implementacion
 {
     internal class ng_Logeo
     {
