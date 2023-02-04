@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaDatos.Datos.Interfaces
+namespace CapaDatos.Datos.Implementacion
 {
-    internal interface CrudProductos
+    internal class ng_Logeo
     {
     }
 }

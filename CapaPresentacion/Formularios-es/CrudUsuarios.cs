@@ -86,5 +86,17 @@ namespace CapaPresentacion.Formularios
                 picContraseña.Image = Properties.Resources.mostrar;
             }
         }
+
+        private void picBajar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+            pnlCrud.Visible = false;
+            Botones(true);
+        }
+
+        private void picLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
     }
 }

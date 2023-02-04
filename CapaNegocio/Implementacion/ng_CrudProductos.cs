@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Datos.Implementacion
 {
-    public class Im_CrudEmpleado
+    internal class ng_CrudProductos
     {
     }
 }

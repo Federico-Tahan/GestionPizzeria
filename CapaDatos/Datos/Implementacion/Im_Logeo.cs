@@ -87,5 +87,10 @@ namespace CapaDatos.Datos.Implementacion
             HelperDB.ObtenerInstancia().close();
             return false;
         }
+
+        public bool registrarBitacora(Usuarios u)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

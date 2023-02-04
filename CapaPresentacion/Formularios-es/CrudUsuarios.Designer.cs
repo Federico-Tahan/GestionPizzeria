@@ -138,6 +138,7 @@
             // 
             // picContraseña
             // 
+            this.picContraseña.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picContraseña.Image = global::CapaPresentacion.Properties.Resources.mostrar;
             this.picContraseña.Location = new System.Drawing.Point(452, 309);
             this.picContraseña.Name = "picContraseña";
@@ -337,6 +338,7 @@
             this.picLimpiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picLimpiar.TabIndex = 20;
             this.picLimpiar.TabStop = false;
+            this.picLimpiar.Click += new System.EventHandler(this.picLimpiar_Click);
             // 
             // picBajar
             // 
@@ -348,6 +350,7 @@
             this.picBajar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBajar.TabIndex = 19;
             this.picBajar.TabStop = false;
+            this.picBajar.Click += new System.EventHandler(this.picBajar_Click);
             // 
             // dgvProd
             // 
