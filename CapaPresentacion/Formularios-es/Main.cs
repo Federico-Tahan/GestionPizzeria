@@ -87,8 +87,6 @@ namespace CapaPresentacion.Formularios
         {
             pnlSubmenu.Visible = !pnlSubmenu.Visible;
             submenu2.Visible = false;
-            submenu3.Visible = false;
-
 
         }
 
@@ -107,19 +105,16 @@ namespace CapaPresentacion.Formularios
         {
             submenu2.Visible = !submenu2.Visible;
             pnlSubmenu.Visible = false;
-            submenu3.Visible = false;
         }
 
         private void BtnFacturas_Click(object sender, EventArgs e)
         {
-            submenu3.Visible = !submenu3.Visible;
-            pnlSubmenu.Visible = false;
-            submenu2.Visible = false;
         }
 
         private void BtnCliente_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new CrudClientes());
+            hidemenus();
         }
 
         private void picConfig_Click(object sender, EventArgs e)
@@ -150,6 +145,32 @@ namespace CapaPresentacion.Formularios
         {
             AbrirFormEnPanel(new AltaVenta());
 
+        }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PicCampana_Click(object sender, EventArgs e)
+        {
+            if(PicCampana.Tag != "vacio")
+            {
+                pnlNoti.Visible = !pnlNoti.Visible;
+
+            }
+        }
+        private void hidemenus()
+        {
+            pnlSubmenu.Visible = false;
+            pnlNoti.Visible = false;
+            submenu2.Visible = false;
+        }
+
+        private void picMain_Click(object sender, EventArgs e)
+        {
+            pnlMain.Controls.Remove(FormActual);
+            hidemenus();
         }
     }
 }

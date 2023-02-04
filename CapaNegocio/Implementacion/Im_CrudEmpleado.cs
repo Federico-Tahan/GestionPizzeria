@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaDatos.Datos.Interfaces
+namespace CapaDatos.Datos.Implementacion
 {
-    public interface CrudProductos
+    internal class Im_CrudEmpleado
     {
     }
 }

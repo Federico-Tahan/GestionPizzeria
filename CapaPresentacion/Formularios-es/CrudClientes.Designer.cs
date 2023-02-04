@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dgvProd = new System.Windows.Forms.DataGridView();
+            this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.CodigoSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,44 +40,44 @@
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lbProd = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnBorrar = new System.Windows.Forms.Button();
             this.pnlCrud = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CboTipoCliente = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxbCodCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxbEmail = new System.Windows.Forms.TextBox();
             this.lbApellido = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxbApellido = new System.Windows.Forms.TextBox();
             this.lbNombre = new System.Windows.Forms.Label();
             this.txbNombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TxbDni = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picLimpar = new System.Windows.Forms.PictureBox();
+            this.picbajar = new System.Windows.Forms.PictureBox();
             this.rbtTodos = new System.Windows.Forms.RadioButton();
             this.RbtEliminados = new System.Windows.Forms.RadioButton();
             this.RbtActivos = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
+            this.BtnEditar = new System.Windows.Forms.Button();
+            this.BtnCancelar = new System.Windows.Forms.Button();
+            this.BtnGuardar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.pnlCrud.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLimpar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbajar)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvProd
+            // dgvCliente
             // 
-            this.dgvProd.AllowUserToAddRows = false;
-            this.dgvProd.AllowUserToDeleteRows = false;
-            this.dgvProd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.dgvProd.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.dgvCliente.AllowUserToAddRows = false;
+            this.dgvCliente.AllowUserToDeleteRows = false;
+            this.dgvCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.dgvCliente.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -85,9 +85,9 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodigoSocio,
             this.dni,
             this.NombreCompleto,
@@ -95,14 +95,15 @@
             this.Email,
             this.Activo,
             this.Acciones});
-            this.dgvProd.Location = new System.Drawing.Point(79, 184);
-            this.dgvProd.Name = "dgvProd";
-            this.dgvProd.ReadOnly = true;
-            this.dgvProd.RowHeadersVisible = false;
-            this.dgvProd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvProd.RowTemplate.Height = 25;
-            this.dgvProd.Size = new System.Drawing.Size(870, 352);
-            this.dgvProd.TabIndex = 25;
+            this.dgvCliente.Location = new System.Drawing.Point(79, 184);
+            this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.ReadOnly = true;
+            this.dgvCliente.RowHeadersVisible = false;
+            this.dgvCliente.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvCliente.RowTemplate.Height = 25;
+            this.dgvCliente.Size = new System.Drawing.Size(870, 352);
+            this.dgvCliente.TabIndex = 25;
+            this.dgvCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_Acciones);
             // 
             // CodigoSocio
             // 
@@ -167,9 +168,9 @@
             this.lbProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbProd.Location = new System.Drawing.Point(61, 9);
             this.lbProd.Name = "lbProd";
-            this.lbProd.Size = new System.Drawing.Size(198, 38);
+            this.lbProd.Size = new System.Drawing.Size(141, 38);
             this.lbProd.TabIndex = 21;
-            this.lbProd.Text = "Club Socios";
+            this.lbProd.Text = "Clientes";
             // 
             // btnNuevo
             // 
@@ -186,109 +187,133 @@
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(139, 42);
             this.btnNuevo.TabIndex = 27;
-            this.btnNuevo.Text = "Adherir";
+            this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // button1
+            // BtnBorrar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(636, 574);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 42);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Desligar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BtnBorrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.BtnBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBorrar.Enabled = false;
+            this.BtnBorrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnBorrar.FlatAppearance.BorderSize = 0;
+            this.BtnBorrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.BtnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBorrar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnBorrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnBorrar.Location = new System.Drawing.Point(636, 574);
+            this.BtnBorrar.Name = "BtnBorrar";
+            this.BtnBorrar.Size = new System.Drawing.Size(139, 42);
+            this.BtnBorrar.TabIndex = 28;
+            this.BtnBorrar.Text = "Borrar";
+            this.BtnBorrar.UseVisualStyleBackColor = false;
             // 
             // pnlCrud
             // 
             this.pnlCrud.BackColor = System.Drawing.Color.OliveDrab;
             this.pnlCrud.Controls.Add(this.label5);
-            this.pnlCrud.Controls.Add(this.comboBox1);
+            this.pnlCrud.Controls.Add(this.CboTipoCliente);
             this.pnlCrud.Controls.Add(this.label1);
-            this.pnlCrud.Controls.Add(this.textBox3);
+            this.pnlCrud.Controls.Add(this.TxbCodCliente);
             this.pnlCrud.Controls.Add(this.label2);
-            this.pnlCrud.Controls.Add(this.textBox2);
+            this.pnlCrud.Controls.Add(this.TxbEmail);
             this.pnlCrud.Controls.Add(this.lbApellido);
-            this.pnlCrud.Controls.Add(this.textBox1);
+            this.pnlCrud.Controls.Add(this.TxbApellido);
             this.pnlCrud.Controls.Add(this.lbNombre);
             this.pnlCrud.Controls.Add(this.txbNombre);
             this.pnlCrud.Controls.Add(this.label4);
             this.pnlCrud.Controls.Add(this.TxbDni);
-            this.pnlCrud.Controls.Add(this.pictureBox2);
-            this.pnlCrud.Controls.Add(this.pictureBox1);
+            this.pnlCrud.Controls.Add(this.picLimpar);
+            this.pnlCrud.Controls.Add(this.picbajar);
             this.pnlCrud.Location = new System.Drawing.Point(79, 124);
             this.pnlCrud.Name = "pnlCrud";
             this.pnlCrud.Size = new System.Drawing.Size(870, 412);
             this.pnlCrud.TabIndex = 29;
+            this.pnlCrud.Visible = false;
+            this.pnlCrud.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCrud_Paint);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(32, 164);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 19);
+            this.label5.TabIndex = 43;
+            this.label5.Text = "Tipo de Clientes";
+            // 
+            // CboTipoCliente
+            // 
+            this.CboTipoCliente.FormattingEnabled = true;
+            this.CboTipoCliente.Location = new System.Drawing.Point(32, 195);
+            this.CboTipoCliente.Name = "CboTipoCliente";
+            this.CboTipoCliente.Size = new System.Drawing.Size(174, 23);
+            this.CboTipoCliente.TabIndex = 42;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(275, 72);
+            this.label1.Location = new System.Drawing.Point(522, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 19);
+            this.label1.Size = new System.Drawing.Size(125, 19);
             this.label1.TabIndex = 41;
-            this.label1.Text = "Codigo Socio";
+            this.label1.Text = "Codigo Cliente";
             // 
-            // textBox3
+            // TxbCodCliente
             // 
-            this.textBox3.Location = new System.Drawing.Point(275, 103);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(174, 23);
-            this.textBox3.TabIndex = 40;
+            this.TxbCodCliente.Enabled = false;
+            this.TxbCodCliente.Location = new System.Drawing.Point(522, 119);
+            this.TxbCodCliente.Name = "TxbCodCliente";
+            this.TxbCodCliente.Size = new System.Drawing.Size(174, 23);
+            this.TxbCodCliente.TabIndex = 40;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(47, 283);
+            this.label2.Location = new System.Drawing.Point(260, 246);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 19);
             this.label2.TabIndex = 39;
             this.label2.Text = "Email";
             // 
-            // textBox2
+            // TxbEmail
             // 
-            this.textBox2.Location = new System.Drawing.Point(47, 314);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(174, 23);
-            this.textBox2.TabIndex = 38;
+            this.TxbEmail.Location = new System.Drawing.Point(260, 277);
+            this.TxbEmail.Name = "TxbEmail";
+            this.TxbEmail.Size = new System.Drawing.Size(174, 23);
+            this.TxbEmail.TabIndex = 38;
             // 
             // lbApellido
             // 
             this.lbApellido.AutoSize = true;
             this.lbApellido.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbApellido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbApellido.Location = new System.Drawing.Point(275, 181);
+            this.lbApellido.Location = new System.Drawing.Point(260, 88);
             this.lbApellido.Name = "lbApellido";
             this.lbApellido.Size = new System.Drawing.Size(75, 19);
             this.lbApellido.TabIndex = 37;
             this.lbApellido.Text = "Apellido";
             // 
-            // textBox1
+            // TxbApellido
             // 
-            this.textBox1.Location = new System.Drawing.Point(275, 212);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 23);
-            this.textBox1.TabIndex = 36;
+            this.TxbApellido.Location = new System.Drawing.Point(260, 119);
+            this.TxbApellido.Name = "TxbApellido";
+            this.TxbApellido.Size = new System.Drawing.Size(174, 23);
+            this.TxbApellido.TabIndex = 36;
             // 
             // lbNombre
             // 
             this.lbNombre.AutoSize = true;
             this.lbNombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbNombre.Location = new System.Drawing.Point(47, 181);
+            this.lbNombre.Location = new System.Drawing.Point(32, 88);
             this.lbNombre.Name = "lbNombre";
             this.lbNombre.Size = new System.Drawing.Size(73, 19);
             this.lbNombre.TabIndex = 35;
@@ -296,7 +321,7 @@
             // 
             // txbNombre
             // 
-            this.txbNombre.Location = new System.Drawing.Point(47, 212);
+            this.txbNombre.Location = new System.Drawing.Point(32, 119);
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(174, 23);
             this.txbNombre.TabIndex = 34;
@@ -306,7 +331,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(47, 72);
+            this.label4.Location = new System.Drawing.Point(32, 246);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 19);
             this.label4.TabIndex = 32;
@@ -314,30 +339,34 @@
             // 
             // TxbDni
             // 
-            this.TxbDni.Location = new System.Drawing.Point(47, 103);
+            this.TxbDni.Location = new System.Drawing.Point(32, 277);
             this.TxbDni.Name = "TxbDni";
             this.TxbDni.Size = new System.Drawing.Size(174, 23);
             this.TxbDni.TabIndex = 31;
             // 
-            // pictureBox2
+            // picLimpar
             // 
-            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.limpieza_de_datos;
-            this.pictureBox2.Location = new System.Drawing.Point(755, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(47, 43);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 20;
-            this.pictureBox2.TabStop = false;
+            this.picLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picLimpar.Image = global::CapaPresentacion.Properties.Resources.limpieza_de_datos;
+            this.picLimpar.Location = new System.Drawing.Point(755, 3);
+            this.picLimpar.Name = "picLimpar";
+            this.picLimpar.Size = new System.Drawing.Size(47, 43);
+            this.picLimpar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLimpar.TabIndex = 20;
+            this.picLimpar.TabStop = false;
+            this.picLimpar.Click += new System.EventHandler(this.picLimpar_Click);
             // 
-            // pictureBox1
+            // picbajar
             // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.abajo1;
-            this.pictureBox1.Location = new System.Drawing.Point(820, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(47, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
+            this.picbajar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picbajar.Image = global::CapaPresentacion.Properties.Resources.abajo1;
+            this.picbajar.Location = new System.Drawing.Point(820, 3);
+            this.picbajar.Name = "picbajar";
+            this.picbajar.Size = new System.Drawing.Size(47, 43);
+            this.picbajar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbajar.TabIndex = 19;
+            this.picbajar.TabStop = false;
+            this.picbajar.Click += new System.EventHandler(this.picbajar_Click);
             // 
             // rbtTodos
             // 
@@ -348,7 +377,6 @@
             this.rbtTodos.Name = "rbtTodos";
             this.rbtTodos.Size = new System.Drawing.Size(73, 25);
             this.rbtTodos.TabIndex = 36;
-            this.rbtTodos.TabStop = true;
             this.rbtTodos.Text = "Todos";
             this.rbtTodos.UseVisualStyleBackColor = true;
             // 
@@ -361,13 +389,13 @@
             this.RbtEliminados.Name = "RbtEliminados";
             this.RbtEliminados.Size = new System.Drawing.Size(109, 25);
             this.RbtEliminados.TabIndex = 35;
-            this.RbtEliminados.TabStop = true;
             this.RbtEliminados.Text = "Eliminados";
             this.RbtEliminados.UseVisualStyleBackColor = true;
             // 
             // RbtActivos
             // 
             this.RbtActivos.AutoSize = true;
+            this.RbtActivos.Checked = true;
             this.RbtActivos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtActivos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.RbtActivos.Location = new System.Drawing.Point(668, 152);
@@ -410,93 +438,79 @@
             this.textBox4.Size = new System.Drawing.Size(174, 23);
             this.textBox4.TabIndex = 37;
             // 
-            // button3
+            // BtnEditar
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(274, 574);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(139, 42);
-            this.button3.TabIndex = 40;
-            this.button3.Text = "Editar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.BtnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.BtnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnEditar.Enabled = false;
+            this.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnEditar.FlatAppearance.BorderSize = 0;
+            this.BtnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEditar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnEditar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEditar.Location = new System.Drawing.Point(274, 574);
+            this.BtnEditar.Name = "BtnEditar";
+            this.BtnEditar.Size = new System.Drawing.Size(139, 42);
+            this.BtnEditar.TabIndex = 40;
+            this.BtnEditar.Text = "Editar";
+            this.BtnEditar.UseVisualStyleBackColor = false;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
-            // button4
+            // BtnCancelar
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(458, 574);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(139, 42);
-            this.button4.TabIndex = 41;
-            this.button4.Text = "Cancelar";
-            this.button4.UseVisualStyleBackColor = false;
+            this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.BtnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCancelar.Enabled = false;
+            this.BtnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnCancelar.FlatAppearance.BorderSize = 0;
+            this.BtnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancelar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCancelar.Location = new System.Drawing.Point(458, 574);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(139, 42);
+            this.BtnCancelar.TabIndex = 41;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // button5
+            // BtnGuardar
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(810, 574);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(139, 42);
-            this.button5.TabIndex = 42;
-            this.button5.Text = "Guardar";
-            this.button5.UseVisualStyleBackColor = false;
+            this.BtnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.BtnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuardar.Enabled = false;
+            this.BtnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnGuardar.FlatAppearance.BorderSize = 0;
+            this.BtnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnGuardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGuardar.Location = new System.Drawing.Point(810, 574);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(139, 42);
+            this.BtnGuardar.TabIndex = 42;
+            this.BtnGuardar.Text = "Guardar";
+            this.BtnGuardar.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(275, 314);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(174, 23);
-            this.comboBox1.TabIndex = 42;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(275, 283);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 19);
-            this.label5.TabIndex = 43;
-            this.label5.Text = "Tipo de Clientes";
-            // 
-            // CrudClubSocial
+            // CrudClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(998, 676);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.BtnGuardar);
+            this.Controls.Add(this.BtnCancelar);
+            this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.pnlCrud);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnBorrar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.pnlHeader);
-            this.Controls.Add(this.dgvProd);
+            this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.rbtTodos);
             this.Controls.Add(this.RbtEliminados);
             this.Controls.Add(this.RbtActivos);
@@ -504,17 +518,17 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CrudClubSocial";
+            this.Name = "CrudClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrudClubSocial";
             this.Load += new System.EventHandler(this.CrudClubSocial_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlCrud.ResumeLayout(false);
             this.pnlCrud.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLimpar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbajar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -522,7 +536,7 @@
 
         #endregion
 
-        private DataGridView dgvProd;
+        private DataGridView dgvCliente;
         private DataGridViewTextBoxColumn CodigoSocio;
         private DataGridViewTextBoxColumn dni;
         private DataGridViewTextBoxColumn NombreCompleto;
@@ -533,18 +547,18 @@
         private Panel pnlHeader;
         private Label lbProd;
         private Button btnNuevo;
-        private Button button1;
+        private Button BtnBorrar;
         private Panel pnlCrud;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
+        private PictureBox picLimpar;
+        private PictureBox picbajar;
         private Label label4;
         private TextBox TxbDni;
         private Label label1;
-        private TextBox textBox3;
+        private TextBox TxbCodCliente;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox TxbEmail;
         private Label lbApellido;
-        private TextBox textBox1;
+        private TextBox TxbApellido;
         private Label lbNombre;
         private TextBox txbNombre;
         private RadioButton rbtTodos;
@@ -553,10 +567,10 @@
         private Button button2;
         private Label label3;
         private TextBox textBox4;
-        private Button button3;
-        private Button button4;
-        private Button button5;
+        private Button BtnEditar;
+        private Button BtnCancelar;
+        private Button BtnGuardar;
         private Label label5;
-        private ComboBox comboBox1;
+        private ComboBox CboTipoCliente;
     }
 }

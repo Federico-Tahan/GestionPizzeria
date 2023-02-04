@@ -55,5 +55,22 @@ namespace CapaPresentacion
             form.Show();
             this.Hide();
         }
+
+        private void picpass_Click(object sender, EventArgs e)
+        {
+            if (picpass.Tag != "Desactivar")
+            {
+                picpass.Tag = "Desactivar";
+                txbContraseña.UseSystemPasswordChar = false;
+                picpass.Image = Properties.Resources.esconder__1_;
+            }
+            else
+            {
+                picpass.Tag = "activar";
+                txbContraseña.UseSystemPasswordChar = true;
+                picpass.Image = Properties.Resources.mostrar;
+            }
+
+        }
     }
 }

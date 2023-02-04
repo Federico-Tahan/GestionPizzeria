@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lbProd = new System.Windows.Forms.Label();
             this.pnlCrud = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.picContraseña = new System.Windows.Forms.PictureBox();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.TxbAlias = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.TxbContraseña = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CboRoles = new System.Windows.Forms.ComboBox();
             this.lbCOD = new System.Windows.Forms.Label();
             this.txbCod = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TxbDni = new System.Windows.Forms.TextBox();
             this.lbTel = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxbTelefono = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxbEmail = new System.Windows.Forms.TextBox();
             this.lbApellido = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbApellido = new System.Windows.Forms.TextBox();
             this.lbNombre = new System.Windows.Forms.Label();
             this.txbNombre = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picLimpiar = new System.Windows.Forms.PictureBox();
+            this.picBajar = new System.Windows.Forms.PictureBox();
             this.dgvProd = new System.Windows.Forms.DataGridView();
             this.codigoUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,9 +79,9 @@
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.pnlHeader.SuspendLayout();
             this.pnlCrud.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picContraseña)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLimpiar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBajar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,51 +108,56 @@
             // pnlCrud
             // 
             this.pnlCrud.BackColor = System.Drawing.Color.OliveDrab;
-            this.pnlCrud.Controls.Add(this.pictureBox3);
+            this.pnlCrud.Controls.Add(this.picContraseña);
             this.pnlCrud.Controls.Add(this.chkActivo);
             this.pnlCrud.Controls.Add(this.label7);
-            this.pnlCrud.Controls.Add(this.textBox6);
+            this.pnlCrud.Controls.Add(this.TxbAlias);
             this.pnlCrud.Controls.Add(this.label8);
-            this.pnlCrud.Controls.Add(this.textBox7);
+            this.pnlCrud.Controls.Add(this.TxbContraseña);
             this.pnlCrud.Controls.Add(this.label6);
-            this.pnlCrud.Controls.Add(this.comboBox1);
+            this.pnlCrud.Controls.Add(this.CboRoles);
             this.pnlCrud.Controls.Add(this.lbCOD);
             this.pnlCrud.Controls.Add(this.txbCod);
             this.pnlCrud.Controls.Add(this.label4);
             this.pnlCrud.Controls.Add(this.TxbDni);
             this.pnlCrud.Controls.Add(this.lbTel);
-            this.pnlCrud.Controls.Add(this.textBox3);
+            this.pnlCrud.Controls.Add(this.TxbTelefono);
             this.pnlCrud.Controls.Add(this.label2);
-            this.pnlCrud.Controls.Add(this.textBox2);
+            this.pnlCrud.Controls.Add(this.TxbEmail);
             this.pnlCrud.Controls.Add(this.lbApellido);
-            this.pnlCrud.Controls.Add(this.textBox1);
+            this.pnlCrud.Controls.Add(this.txbApellido);
             this.pnlCrud.Controls.Add(this.lbNombre);
             this.pnlCrud.Controls.Add(this.txbNombre);
-            this.pnlCrud.Controls.Add(this.pictureBox2);
-            this.pnlCrud.Controls.Add(this.pictureBox1);
+            this.pnlCrud.Controls.Add(this.picLimpiar);
+            this.pnlCrud.Controls.Add(this.picBajar);
             this.pnlCrud.Location = new System.Drawing.Point(39, 114);
             this.pnlCrud.Name = "pnlCrud";
             this.pnlCrud.Size = new System.Drawing.Size(935, 441);
             this.pnlCrud.TabIndex = 25;
+            this.pnlCrud.Visible = false;
             // 
-            // pictureBox3
+            // picContraseña
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(452, 305);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(33, 30);
-            this.pictureBox3.TabIndex = 40;
-            this.pictureBox3.TabStop = false;
+            this.picContraseña.Image = global::CapaPresentacion.Properties.Resources.mostrar;
+            this.picContraseña.Location = new System.Drawing.Point(452, 309);
+            this.picContraseña.Name = "picContraseña";
+            this.picContraseña.Size = new System.Drawing.Size(33, 30);
+            this.picContraseña.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picContraseña.TabIndex = 40;
+            this.picContraseña.TabStop = false;
+            this.picContraseña.Tag = "activar";
+            this.picContraseña.Click += new System.EventHandler(this.picContraseña_Click);
             // 
             // chkActivo
             // 
             this.chkActivo.AutoSize = true;
             this.chkActivo.Checked = true;
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkActivo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.chkActivo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.chkActivo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.chkActivo.Location = new System.Drawing.Point(744, 315);
+            this.chkActivo.Location = new System.Drawing.Point(744, 310);
             this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(67, 20);
+            this.chkActivo.Size = new System.Drawing.Size(77, 23);
             this.chkActivo.TabIndex = 39;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
@@ -168,12 +173,12 @@
             this.label7.TabIndex = 38;
             this.label7.Text = "Alias";
             // 
-            // textBox6
+            // TxbAlias
             // 
-            this.textBox6.Location = new System.Drawing.Point(44, 312);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(174, 23);
-            this.textBox6.TabIndex = 37;
+            this.TxbAlias.Location = new System.Drawing.Point(44, 312);
+            this.TxbAlias.Name = "TxbAlias";
+            this.TxbAlias.Size = new System.Drawing.Size(174, 23);
+            this.TxbAlias.TabIndex = 37;
             // 
             // label8
             // 
@@ -186,13 +191,13 @@
             this.label8.TabIndex = 36;
             this.label8.Text = "Contraseña";
             // 
-            // textBox7
+            // TxbContraseña
             // 
-            this.textBox7.Location = new System.Drawing.Point(272, 312);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(174, 23);
-            this.textBox7.TabIndex = 35;
-            this.textBox7.UseSystemPasswordChar = true;
+            this.TxbContraseña.Location = new System.Drawing.Point(272, 312);
+            this.TxbContraseña.Name = "TxbContraseña";
+            this.TxbContraseña.Size = new System.Drawing.Size(174, 23);
+            this.TxbContraseña.TabIndex = 35;
+            this.TxbContraseña.UseSystemPasswordChar = true;
             // 
             // label6
             // 
@@ -205,13 +210,13 @@
             this.label6.TabIndex = 34;
             this.label6.Text = "Roles";
             // 
-            // comboBox1
+            // CboRoles
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(519, 312);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(174, 23);
-            this.comboBox1.TabIndex = 33;
+            this.CboRoles.FormattingEnabled = true;
+            this.CboRoles.Location = new System.Drawing.Point(519, 312);
+            this.CboRoles.Name = "CboRoles";
+            this.CboRoles.Size = new System.Drawing.Size(174, 23);
+            this.CboRoles.TabIndex = 33;
             // 
             // lbCOD
             // 
@@ -261,12 +266,12 @@
             this.lbTel.TabIndex = 28;
             this.lbTel.Text = "Telefono";
             // 
-            // textBox3
+            // TxbTelefono
             // 
-            this.textBox3.Location = new System.Drawing.Point(44, 196);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(174, 23);
-            this.textBox3.TabIndex = 27;
+            this.TxbTelefono.Location = new System.Drawing.Point(44, 196);
+            this.TxbTelefono.Name = "TxbTelefono";
+            this.TxbTelefono.Size = new System.Drawing.Size(174, 23);
+            this.TxbTelefono.TabIndex = 27;
             // 
             // label2
             // 
@@ -279,12 +284,12 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Email";
             // 
-            // textBox2
+            // TxbEmail
             // 
-            this.textBox2.Location = new System.Drawing.Point(272, 196);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(174, 23);
-            this.textBox2.TabIndex = 25;
+            this.TxbEmail.Location = new System.Drawing.Point(272, 196);
+            this.TxbEmail.Name = "TxbEmail";
+            this.TxbEmail.Size = new System.Drawing.Size(174, 23);
+            this.TxbEmail.TabIndex = 25;
             // 
             // lbApellido
             // 
@@ -297,12 +302,12 @@
             this.lbApellido.TabIndex = 24;
             this.lbApellido.Text = "Apellido";
             // 
-            // textBox1
+            // txbApellido
             // 
-            this.textBox1.Location = new System.Drawing.Point(272, 96);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 23);
-            this.textBox1.TabIndex = 23;
+            this.txbApellido.Location = new System.Drawing.Point(272, 96);
+            this.txbApellido.Name = "txbApellido";
+            this.txbApellido.Size = new System.Drawing.Size(174, 23);
+            this.txbApellido.TabIndex = 23;
             // 
             // lbNombre
             // 
@@ -322,25 +327,27 @@
             this.txbNombre.Size = new System.Drawing.Size(174, 23);
             this.txbNombre.TabIndex = 21;
             // 
-            // pictureBox2
+            // picLimpiar
             // 
-            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.limpieza_de_datos;
-            this.pictureBox2.Location = new System.Drawing.Point(821, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(47, 43);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 20;
-            this.pictureBox2.TabStop = false;
+            this.picLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picLimpiar.Image = global::CapaPresentacion.Properties.Resources.limpieza_de_datos;
+            this.picLimpiar.Location = new System.Drawing.Point(821, 5);
+            this.picLimpiar.Name = "picLimpiar";
+            this.picLimpiar.Size = new System.Drawing.Size(47, 43);
+            this.picLimpiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLimpiar.TabIndex = 20;
+            this.picLimpiar.TabStop = false;
             // 
-            // pictureBox1
+            // picBajar
             // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.abajo1;
-            this.pictureBox1.Location = new System.Drawing.Point(879, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(47, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
+            this.picBajar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBajar.Image = global::CapaPresentacion.Properties.Resources.abajo1;
+            this.picBajar.Location = new System.Drawing.Point(879, 5);
+            this.picBajar.Name = "picBajar";
+            this.picBajar.Size = new System.Drawing.Size(47, 43);
+            this.picBajar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBajar.TabIndex = 19;
+            this.picBajar.TabStop = false;
             // 
             // dgvProd
             // 
@@ -348,14 +355,14 @@
             this.dgvProd.AllowUserToDeleteRows = false;
             this.dgvProd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.dgvProd.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigoUser,
@@ -457,6 +464,7 @@
             this.BtnCancelar.TabIndex = 29;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnBorrar
             // 
@@ -475,6 +483,7 @@
             this.BtnBorrar.TabIndex = 28;
             this.BtnBorrar.Text = "Borrar";
             this.BtnBorrar.UseVisualStyleBackColor = false;
+            this.BtnBorrar.Click += new System.EventHandler(this.BtnBorrar_Click);
             // 
             // BtnEditar
             // 
@@ -493,6 +502,7 @@
             this.BtnEditar.TabIndex = 27;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = false;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -511,6 +521,7 @@
             this.btnNuevo.TabIndex = 26;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // rbtTodos
             // 
@@ -665,13 +676,14 @@
             this.Name = "CrudUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CrudEmpleado";
+            this.Load += new System.EventHandler(this.CrudUsuarios_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlCrud.ResumeLayout(false);
             this.pnlCrud.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picContraseña)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLimpiar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBajar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -683,8 +695,8 @@
         private Panel pnlHeader;
         private Label lbProd;
         private Panel pnlCrud;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
+        private PictureBox picLimpiar;
+        private PictureBox picBajar;
         private DataGridView dgvProd;
         private Button BtnGuardar;
         private Button BtnCancelar;
@@ -695,25 +707,25 @@
         private RadioButton RbtEliminados;
         private RadioButton RbtActivos;
         private Label label7;
-        private TextBox textBox6;
+        private TextBox TxbAlias;
         private Label label8;
-        private TextBox textBox7;
+        private TextBox TxbContraseña;
         private Label label6;
-        private ComboBox comboBox1;
+        private ComboBox CboRoles;
         private Label lbCOD;
         private TextBox txbCod;
         private Label label4;
         private TextBox TxbDni;
         private Label lbTel;
-        private TextBox textBox3;
+        private TextBox TxbTelefono;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox TxbEmail;
         private Label lbApellido;
-        private TextBox textBox1;
+        private TextBox txbApellido;
         private Label lbNombre;
         private TextBox txbNombre;
         private CheckBox chkActivo;
-        private PictureBox pictureBox3;
+        private PictureBox picContraseña;
         private Button BtnLogin;
         private TextBox txbCodProd;
         private RadioButton radioButton1;

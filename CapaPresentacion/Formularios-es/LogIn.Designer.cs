@@ -32,21 +32,19 @@
             this.Minimizar = new System.Windows.Forms.PictureBox();
             this.Salir = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.picpass = new System.Windows.Forms.PictureBox();
             this.lbContraseña = new System.Windows.Forms.Label();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.BtnLogin = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbUsuario = new System.Windows.Forms.TextBox();
+            this.txbContraseña = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picpass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBarra
@@ -89,19 +87,31 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel2.Controls.Add(this.picpass);
             this.panel2.Controls.Add(this.lbContraseña);
             this.panel2.Controls.Add(this.lbUsuario);
             this.panel2.Controls.Add(this.BtnLogin);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.txbUsuario);
+            this.panel2.Controls.Add(this.txbContraseña);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(600, 506);
             this.panel2.TabIndex = 0;
+            // 
+            // picpass
+            // 
+            this.picpass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picpass.Image = global::CapaPresentacion.Properties.Resources.mostrar1;
+            this.picpass.Location = new System.Drawing.Point(423, 348);
+            this.picpass.Name = "picpass";
+            this.picpass.Size = new System.Drawing.Size(33, 30);
+            this.picpass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picpass.TabIndex = 41;
+            this.picpass.TabStop = false;
+            this.picpass.Tag = "activar";
+            this.picpass.Click += new System.EventHandler(this.picpass_Click);
             // 
             // lbContraseña
             // 
@@ -140,22 +150,22 @@
             this.BtnLogin.UseVisualStyleBackColor = false;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
-            // textBox2
+            // txbUsuario
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(209, 280);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(208, 23);
-            this.textBox2.TabIndex = 1;
+            this.txbUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txbUsuario.Location = new System.Drawing.Point(209, 280);
+            this.txbUsuario.Name = "txbUsuario";
+            this.txbUsuario.Size = new System.Drawing.Size(208, 23);
+            this.txbUsuario.TabIndex = 1;
             // 
-            // textBox1
+            // txbContraseña
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(209, 352);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 23);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.txbContraseña.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txbContraseña.Location = new System.Drawing.Point(209, 352);
+            this.txbContraseña.Name = "txbContraseña";
+            this.txbContraseña.Size = new System.Drawing.Size(208, 23);
+            this.txbContraseña.TabIndex = 2;
+            this.txbContraseña.UseSystemPasswordChar = true;
             // 
             // pictureBox3
             // 
@@ -166,28 +176,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.reino_unido;
-            this.pictureBox2.Location = new System.Drawing.Point(559, 455);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 51);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.espana;
-            this.pictureBox1.Location = new System.Drawing.Point(515, 455);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(38, 51);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // LogIn
             // 
@@ -206,9 +194,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picpass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -217,15 +204,14 @@
 
         private Panel pnlBarra;
         private Panel panel2;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txbUsuario;
+        private TextBox txbContraseña;
         private PictureBox pictureBox3;
         private Button BtnLogin;
         private Label lbUsuario;
         private PictureBox Minimizar;
         private PictureBox Salir;
         private Label lbContraseña;
+        private PictureBox picpass;
     }
 }

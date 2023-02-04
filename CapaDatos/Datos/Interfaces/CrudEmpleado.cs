@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Datos.Interfaces
 {
-    internal interface CrudEmpleado
+    public interface CrudEmpleado
     {
     }
 }

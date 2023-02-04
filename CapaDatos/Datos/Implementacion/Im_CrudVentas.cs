@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Datos.Implementacion
 {
-    internal class Im_CrudVentas
+    public class Im_CrudVentas
     {
     }
 }

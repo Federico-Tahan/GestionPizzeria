@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnBorrar = new System.Windows.Forms.Button();
@@ -48,11 +48,11 @@
             this.pnlCrud = new System.Windows.Forms.Panel();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.lbNroProd = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxbCodigoProducto = new System.Windows.Forms.TextBox();
             this.nupStock = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picLimpiar = new System.Windows.Forms.PictureBox();
+            this.picbajar = new System.Windows.Forms.PictureBox();
             this.lbUnidad = new System.Windows.Forms.Label();
             this.lbDesc = new System.Windows.Forms.Label();
             this.lbClasificacion = new System.Windows.Forms.Label();
@@ -78,8 +78,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
             this.pnlCrud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLimpiar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbajar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numpPrecio)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +101,7 @@
             this.btnNuevo.TabIndex = 15;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // BtnEditar
             // 
@@ -119,6 +120,7 @@
             this.BtnEditar.TabIndex = 16;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = false;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // BtnBorrar
             // 
@@ -137,6 +139,7 @@
             this.BtnBorrar.TabIndex = 17;
             this.BtnBorrar.Text = "Borrar";
             this.BtnBorrar.UseVisualStyleBackColor = false;
+            this.BtnBorrar.Click += new System.EventHandler(this.BtnBorrar_Click);
             // 
             // BtnCancelar
             // 
@@ -155,6 +158,7 @@
             this.BtnCancelar.TabIndex = 18;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnGuardar
             // 
@@ -180,14 +184,14 @@
             this.dgvProd.AllowUserToDeleteRows = false;
             this.dgvProd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.dgvProd.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdProducto,
@@ -286,11 +290,11 @@
             this.pnlCrud.BackColor = System.Drawing.Color.OliveDrab;
             this.pnlCrud.Controls.Add(this.chkActivo);
             this.pnlCrud.Controls.Add(this.lbNroProd);
-            this.pnlCrud.Controls.Add(this.textBox1);
+            this.pnlCrud.Controls.Add(this.TxbCodigoProducto);
             this.pnlCrud.Controls.Add(this.nupStock);
             this.pnlCrud.Controls.Add(this.label1);
-            this.pnlCrud.Controls.Add(this.pictureBox2);
-            this.pnlCrud.Controls.Add(this.pictureBox1);
+            this.pnlCrud.Controls.Add(this.picLimpiar);
+            this.pnlCrud.Controls.Add(this.picbajar);
             this.pnlCrud.Controls.Add(this.lbUnidad);
             this.pnlCrud.Controls.Add(this.lbDesc);
             this.pnlCrud.Controls.Add(this.lbClasificacion);
@@ -333,13 +337,13 @@
             this.lbNroProd.TabIndex = 25;
             this.lbNroProd.Text = "Código Producto";
             // 
-            // textBox1
+            // TxbCodigoProducto
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(603, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 23);
-            this.textBox1.TabIndex = 24;
+            this.TxbCodigoProducto.Enabled = false;
+            this.TxbCodigoProducto.Location = new System.Drawing.Point(603, 100);
+            this.TxbCodigoProducto.Name = "TxbCodigoProducto";
+            this.TxbCodigoProducto.Size = new System.Drawing.Size(140, 23);
+            this.TxbCodigoProducto.TabIndex = 24;
             // 
             // nupStock
             // 
@@ -359,25 +363,29 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Stock";
             // 
-            // pictureBox2
+            // picLimpiar
             // 
-            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.limpieza_de_datos;
-            this.pictureBox2.Location = new System.Drawing.Point(821, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(47, 43);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 20;
-            this.pictureBox2.TabStop = false;
+            this.picLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picLimpiar.Image = global::CapaPresentacion.Properties.Resources.limpieza_de_datos;
+            this.picLimpiar.Location = new System.Drawing.Point(821, 5);
+            this.picLimpiar.Name = "picLimpiar";
+            this.picLimpiar.Size = new System.Drawing.Size(47, 43);
+            this.picLimpiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLimpiar.TabIndex = 20;
+            this.picLimpiar.TabStop = false;
+            this.picLimpiar.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // pictureBox1
+            // picbajar
             // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.abajo1;
-            this.pictureBox1.Location = new System.Drawing.Point(879, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(47, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
+            this.picbajar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picbajar.Image = global::CapaPresentacion.Properties.Resources.abajo1;
+            this.picbajar.Location = new System.Drawing.Point(879, 5);
+            this.picbajar.Name = "picbajar";
+            this.picbajar.Size = new System.Drawing.Size(47, 43);
+            this.picbajar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbajar.TabIndex = 19;
+            this.picbajar.TabStop = false;
+            this.picbajar.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lbUnidad
             // 
@@ -635,8 +643,8 @@
             this.pnlCrud.ResumeLayout(false);
             this.pnlCrud.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLimpiar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbajar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numpPrecio)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
@@ -662,8 +670,8 @@
         private TextBox txbNombre;
         private NumericUpDown nupStock;
         private Label label1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
+        private PictureBox picLimpiar;
+        private PictureBox picbajar;
         private Label lbUnidad;
         private Label lbDesc;
         private Label lbClasificacion;
@@ -691,7 +699,7 @@
         private DataGridViewButtonColumn ver;
         private DataGridViewImageColumn Activo;
         private Label lbNroProd;
-        private TextBox textBox1;
+        private TextBox TxbCodigoProducto;
         private CheckBox chkActivo;
     }
 }

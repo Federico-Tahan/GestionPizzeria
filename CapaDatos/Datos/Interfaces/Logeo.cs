@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaDatos.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Datos.Interfaces
 {
-    internal interface Logeo
+    public interface Logeo
     {
+        bool Logeado(Usuarios u);
+        Usuarios GetUsuario(Usuarios u);
+        bool registrarBitacora(Usuarios u);
     }
 }
