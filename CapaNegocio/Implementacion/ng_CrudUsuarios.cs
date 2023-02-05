@@ -23,14 +23,19 @@ namespace CapaNegocio.Implementacion
             return lg.AltaUsuario(u);
         }
 
+        public bool BuscarUsuario(int id)
+        {
+            return lg.BuscarUsuario(id);
+        }
+
         public bool ModificarUsuario(Usuarios u)
         {
             return lg.ModificarUsuario(u);
         }
 
-        public List<Usuarios> ObtenerUsuarios()
+        public List<Usuarios> ObtenerUsuarios(int a)
         {
-            return lg.ObtenerUsuarios();
+            return lg.ObtenerUsuarios(a);
         }
     }
 }

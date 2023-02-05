@@ -55,8 +55,18 @@ begin
 	join Roles r on r.id_rol = u.id_rol
 end
 
+create or alter procedure SP_Buscar_usuario(
+	@id int
+)as
+	select id_usuario
+	from Usuarios
+	where @id = id_usuario
 
 
 create or alter procedure SP_Obtener_Roles
 as
 	select * from Roles
+
+select * from Empleado
+
+

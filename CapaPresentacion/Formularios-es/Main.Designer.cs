@@ -164,7 +164,7 @@
             this.btnDescuentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDescuentos.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDescuentos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDescuentos.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.btnDescuentos.Image = global::CapaPresentacion.Properties.Resources.descuento;
             this.btnDescuentos.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDescuentos.Location = new System.Drawing.Point(0, 96);
             this.btnDescuentos.Name = "btnDescuentos";
@@ -185,7 +185,7 @@
             this.BtnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnProductos.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnProductos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnProductos.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.BtnProductos.Image = global::CapaPresentacion.Properties.Resources.Producto_chico;
             this.BtnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnProductos.Location = new System.Drawing.Point(0, 48);
             this.BtnProductos.Name = "BtnProductos";
@@ -206,7 +206,7 @@
             this.BtnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnUsuarios.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnUsuarios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnUsuarios.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.BtnUsuarios.Image = global::CapaPresentacion.Properties.Resources.Usuarios_chico;
             this.BtnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnUsuarios.Location = new System.Drawing.Point(0, 0);
             this.BtnUsuarios.Name = "BtnUsuarios";
@@ -227,7 +227,7 @@
             this.btnGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestion.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnGestion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGestion.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.btnGestion.Image = global::CapaPresentacion.Properties.Resources.Gestion_chico;
             this.btnGestion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGestion.Location = new System.Drawing.Point(0, 353);
             this.btnGestion.Name = "btnGestion";
@@ -260,7 +260,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.button2.Image = global::CapaPresentacion.Properties.Resources.reporte__1_;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.Location = new System.Drawing.Point(0, 86);
             this.button2.Name = "button2";
@@ -280,7 +280,7 @@
             this.btnProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProd.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnProd.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.btnProd.Image = global::CapaPresentacion.Properties.Resources.Consulta_chico;
             this.btnProd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProd.Location = new System.Drawing.Point(0, 46);
             this.btnProd.Name = "btnProd";
@@ -300,7 +300,7 @@
             this.btnVender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVender.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnVender.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnVender.Image = global::CapaPresentacion.Properties.Resources.cajero;
+            this.btnVender.Image = global::CapaPresentacion.Properties.Resources.compras;
             this.btnVender.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVender.Location = new System.Drawing.Point(0, 0);
             this.btnVender.Name = "btnVender";

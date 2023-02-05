@@ -35,6 +35,23 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
+        public bool BuscarUsuario(int id)
+        {
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id", id);
+            HelperDB.ObtenerInstancia().LeerDB("SP_Buscar_usuario");
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+
+            if (HelperDB.ObtenerInstancia().Dr.Read())
+            {
+                HelperDB.ObtenerInstancia().close();
+                return true;
+
+            }
+            HelperDB.ObtenerInstancia().close();
+            return false;
+        }
+
         public bool ModificarUsuario(Usuarios u)
         {
             try
@@ -59,11 +76,14 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
-        public List<Usuarios> ObtenerUsuarios()
+        public List<Usuarios> ObtenerUsuarios(int a)
         {
             List<Usuarios> lUsuarios = new List<Usuarios>();
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@condicion", a);
             HelperDB.ObtenerInstancia().LeerDB("SP_Obtener_usuarios");
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+
             while (HelperDB.ObtenerInstancia().Dr.Read())
             {
                 Usuarios usuario = new Usuarios();

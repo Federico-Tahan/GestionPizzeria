@@ -156,7 +156,7 @@
             this.lbProd.AutoSize = true;
             this.lbProd.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbProd.Location = new System.Drawing.Point(38, 9);
+            this.lbProd.Location = new System.Drawing.Point(22, 8);
             this.lbProd.Name = "lbProd";
             this.lbProd.Size = new System.Drawing.Size(273, 38);
             this.lbProd.TabIndex = 21;

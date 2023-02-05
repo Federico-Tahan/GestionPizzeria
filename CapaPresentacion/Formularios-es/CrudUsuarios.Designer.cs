@@ -30,8 +30,10 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbProd = new System.Windows.Forms.Label();
             this.pnlCrud = new System.Windows.Forms.Panel();
+            this.txbIDEmpleado = new System.Windows.Forms.TextBox();
             this.lbFechaNac = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lbDireccion = new System.Windows.Forms.Label();
@@ -71,46 +73,60 @@
             this.rbtTodos = new System.Windows.Forms.RadioButton();
             this.RbtEliminados = new System.Windows.Forms.RadioButton();
             this.RbtActivos = new System.Windows.Forms.RadioButton();
-            this.BtnLogin = new System.Windows.Forms.Button();
-            this.txbCodProd = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.txbbusqueda = new System.Windows.Forms.TextBox();
+            this.RbtNombre = new System.Windows.Forms.RadioButton();
+            this.RbtCodigo = new System.Windows.Forms.RadioButton();
+            this.RbtDNI = new System.Windows.Forms.RadioButton();
+            this.RbtAlias = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.picreset = new System.Windows.Forms.PictureBox();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlCrud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picContraseña)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLimpiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBajar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picreset)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.pnlHeader.Controls.Add(this.pictureBox1);
             this.pnlHeader.Controls.Add(this.lbProd);
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(246, 56);
+            this.pnlHeader.Size = new System.Drawing.Size(215, 56);
             this.pnlHeader.TabIndex = 23;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Usuarios;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(51, 51);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
             // 
             // lbProd
             // 
             this.lbProd.AutoSize = true;
             this.lbProd.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbProd.Location = new System.Drawing.Point(56, 8);
+            this.lbProd.Location = new System.Drawing.Point(72, 9);
             this.lbProd.Name = "lbProd";
-            this.lbProd.Size = new System.Drawing.Size(189, 38);
+            this.lbProd.Size = new System.Drawing.Size(143, 38);
             this.lbProd.TabIndex = 21;
-            this.lbProd.Text = "Empleados";
+            this.lbProd.Text = "Usuarios";
             // 
             // pnlCrud
             // 
             this.pnlCrud.BackColor = System.Drawing.Color.OliveDrab;
+            this.pnlCrud.Controls.Add(this.txbIDEmpleado);
             this.pnlCrud.Controls.Add(this.lbFechaNac);
             this.pnlCrud.Controls.Add(this.dateTimePicker1);
             this.pnlCrud.Controls.Add(this.lbDireccion);
@@ -141,6 +157,15 @@
             this.pnlCrud.TabIndex = 25;
             this.pnlCrud.Visible = false;
             // 
+            // txbIDEmpleado
+            // 
+            this.txbIDEmpleado.Enabled = false;
+            this.txbIDEmpleado.Location = new System.Drawing.Point(838, 96);
+            this.txbIDEmpleado.Name = "txbIDEmpleado";
+            this.txbIDEmpleado.Size = new System.Drawing.Size(88, 23);
+            this.txbIDEmpleado.TabIndex = 45;
+            this.txbIDEmpleado.Visible = false;
+            // 
             // lbFechaNac
             // 
             this.lbFechaNac.AutoSize = true;
@@ -154,6 +179,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(519, 202);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -173,6 +199,7 @@
             // 
             // txbDireccion
             // 
+            this.txbDireccion.Enabled = false;
             this.txbDireccion.Location = new System.Drawing.Point(44, 202);
             this.txbDireccion.Name = "txbDireccion";
             this.txbDireccion.Size = new System.Drawing.Size(174, 23);
@@ -196,6 +223,7 @@
             this.chkActivo.AutoSize = true;
             this.chkActivo.Checked = true;
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkActivo.Enabled = false;
             this.chkActivo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.chkActivo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.chkActivo.Location = new System.Drawing.Point(744, 310);
@@ -218,6 +246,7 @@
             // 
             // TxbAlias
             // 
+            this.TxbAlias.Enabled = false;
             this.TxbAlias.Location = new System.Drawing.Point(44, 312);
             this.TxbAlias.Name = "TxbAlias";
             this.TxbAlias.Size = new System.Drawing.Size(174, 23);
@@ -236,6 +265,7 @@
             // 
             // TxbContraseña
             // 
+            this.TxbContraseña.Enabled = false;
             this.TxbContraseña.Location = new System.Drawing.Point(272, 312);
             this.TxbContraseña.Name = "TxbContraseña";
             this.TxbContraseña.Size = new System.Drawing.Size(174, 23);
@@ -255,6 +285,7 @@
             // 
             // CboRoles
             // 
+            this.CboRoles.Enabled = false;
             this.CboRoles.FormattingEnabled = true;
             this.CboRoles.Location = new System.Drawing.Point(519, 312);
             this.CboRoles.Name = "CboRoles";
@@ -277,7 +308,7 @@
             this.txbCod.Enabled = false;
             this.txbCod.Location = new System.Drawing.Point(733, 96);
             this.txbCod.Name = "txbCod";
-            this.txbCod.Size = new System.Drawing.Size(174, 23);
+            this.txbCod.Size = new System.Drawing.Size(88, 23);
             this.txbCod.TabIndex = 31;
             // 
             // label4
@@ -293,6 +324,7 @@
             // 
             // TxbDni
             // 
+            this.TxbDni.Enabled = false;
             this.TxbDni.Location = new System.Drawing.Point(519, 96);
             this.TxbDni.Name = "TxbDni";
             this.TxbDni.Size = new System.Drawing.Size(174, 23);
@@ -311,6 +343,7 @@
             // 
             // TxbTelefono
             // 
+            this.TxbTelefono.Enabled = false;
             this.TxbTelefono.Location = new System.Drawing.Point(272, 202);
             this.TxbTelefono.Name = "TxbTelefono";
             this.TxbTelefono.Size = new System.Drawing.Size(174, 23);
@@ -329,7 +362,8 @@
             // 
             // txbApellido
             // 
-            this.txbApellido.Location = new System.Drawing.Point(272, 96);
+            this.txbApellido.Enabled = false;
+            this.txbApellido.Location = new System.Drawing.Point(273, 96);
             this.txbApellido.Name = "txbApellido";
             this.txbApellido.Size = new System.Drawing.Size(174, 23);
             this.txbApellido.TabIndex = 23;
@@ -347,6 +381,7 @@
             // 
             // txbNombre
             // 
+            this.txbNombre.Enabled = false;
             this.txbNombre.Location = new System.Drawing.Point(44, 96);
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(174, 23);
@@ -478,6 +513,7 @@
             this.BtnGuardar.TabIndex = 30;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = false;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // BtnCancelar
             // 
@@ -549,6 +585,7 @@
             this.rbtTodos.TabIndex = 33;
             this.rbtTodos.Text = "Todos";
             this.rbtTodos.UseVisualStyleBackColor = true;
+            this.rbtTodos.CheckedChanged += new System.EventHandler(this.rbtTodos_CheckedChanged);
             // 
             // RbtEliminados
             // 
@@ -561,6 +598,7 @@
             this.RbtEliminados.TabIndex = 32;
             this.RbtEliminados.Text = "Eliminados";
             this.RbtEliminados.UseVisualStyleBackColor = true;
+            this.RbtEliminados.CheckedChanged += new System.EventHandler(this.RbtEliminados_CheckedChanged);
             // 
             // RbtActivos
             // 
@@ -575,89 +613,79 @@
             this.RbtActivos.TabStop = true;
             this.RbtActivos.Text = "Activos";
             this.RbtActivos.UseVisualStyleBackColor = true;
+            this.RbtActivos.CheckedChanged += new System.EventHandler(this.RbtActivos_CheckedChanged);
             // 
-            // BtnLogin
+            // BtnBuscar
             // 
-            this.BtnLogin.BackColor = System.Drawing.Color.White;
-            this.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnLogin.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
-            this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnLogin.Location = new System.Drawing.Point(590, 117);
-            this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(71, 23);
-            this.BtnLogin.TabIndex = 35;
-            this.BtnLogin.Text = "Buscar";
-            this.BtnLogin.UseVisualStyleBackColor = false;
+            this.BtnBuscar.BackColor = System.Drawing.Color.White;
+            this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Location = new System.Drawing.Point(530, 113);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(71, 23);
+            this.BtnBuscar.TabIndex = 35;
+            this.BtnBuscar.Text = "Buscar";
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
-            // txbCodProd
+            // txbbusqueda
             // 
-            this.txbCodProd.Location = new System.Drawing.Point(440, 117);
-            this.txbCodProd.Name = "txbCodProd";
-            this.txbCodProd.Size = new System.Drawing.Size(134, 23);
-            this.txbCodProd.TabIndex = 34;
+            this.txbbusqueda.Location = new System.Drawing.Point(356, 113);
+            this.txbbusqueda.Name = "txbbusqueda";
+            this.txbbusqueda.Size = new System.Drawing.Size(153, 23);
+            this.txbbusqueda.TabIndex = 34;
             // 
-            // radioButton1
+            // RbtNombre
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton1.Location = new System.Drawing.Point(219, 114);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(87, 24);
-            this.radioButton1.TabIndex = 47;
-            this.radioButton1.Text = "Apellido";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.RbtNombre.AutoSize = true;
+            this.RbtNombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RbtNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RbtNombre.Location = new System.Drawing.Point(135, 110);
+            this.RbtNombre.Name = "RbtNombre";
+            this.RbtNombre.Size = new System.Drawing.Size(86, 24);
+            this.RbtNombre.TabIndex = 46;
+            this.RbtNombre.Text = "Nombre";
+            this.RbtNombre.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // RbtCodigo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton2.Location = new System.Drawing.Point(129, 113);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(86, 24);
-            this.radioButton2.TabIndex = 46;
-            this.radioButton2.Text = "Nombre";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.RbtCodigo.AutoSize = true;
+            this.RbtCodigo.Checked = true;
+            this.RbtCodigo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RbtCodigo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RbtCodigo.Location = new System.Drawing.Point(47, 110);
+            this.RbtCodigo.Name = "RbtCodigo";
+            this.RbtCodigo.Size = new System.Drawing.Size(82, 24);
+            this.RbtCodigo.TabIndex = 45;
+            this.RbtCodigo.TabStop = true;
+            this.RbtCodigo.Text = "Codigo";
+            this.RbtCodigo.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // RbtDNI
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Checked = true;
-            this.radioButton3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton3.Location = new System.Drawing.Point(41, 114);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(82, 24);
-            this.radioButton3.TabIndex = 45;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Codigo";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.RbtDNI.AutoSize = true;
+            this.RbtDNI.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RbtDNI.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RbtDNI.Location = new System.Drawing.Point(227, 111);
+            this.RbtDNI.Name = "RbtDNI";
+            this.RbtDNI.Size = new System.Drawing.Size(54, 24);
+            this.RbtDNI.TabIndex = 48;
+            this.RbtDNI.Text = "DNI";
+            this.RbtDNI.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // RbtAlias
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton4.Location = new System.Drawing.Point(312, 113);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(54, 24);
-            this.radioButton4.TabIndex = 48;
-            this.radioButton4.Text = "DNI";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton5.Location = new System.Drawing.Point(370, 113);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(60, 24);
-            this.radioButton5.TabIndex = 49;
-            this.radioButton5.Text = "Alias";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.RbtAlias.AutoSize = true;
+            this.RbtAlias.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RbtAlias.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RbtAlias.Location = new System.Drawing.Point(287, 110);
+            this.RbtAlias.Name = "RbtAlias";
+            this.RbtAlias.Size = new System.Drawing.Size(60, 24);
+            this.RbtAlias.TabIndex = 49;
+            this.RbtAlias.Text = "Alias";
+            this.RbtAlias.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -668,6 +696,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(302, 36);
             this.panel1.TabIndex = 50;
+            // 
+            // picreset
+            // 
+            this.picreset.Image = global::CapaPresentacion.Properties.Resources.reset;
+            this.picreset.Location = new System.Drawing.Point(617, 107);
+            this.picreset.Name = "picreset";
+            this.picreset.Size = new System.Drawing.Size(38, 33);
+            this.picreset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picreset.TabIndex = 51;
+            this.picreset.TabStop = false;
             // 
             // CrudUsuarios
             // 
@@ -682,14 +720,14 @@
             this.Controls.Add(this.pnlCrud);
             this.Controls.Add(this.dgvUsuarios);
             this.Controls.Add(this.pnlHeader);
-            this.Controls.Add(this.radioButton5);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.BtnLogin);
-            this.Controls.Add(this.txbCodProd);
+            this.Controls.Add(this.BtnBuscar);
+            this.Controls.Add(this.txbbusqueda);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.picreset);
+            this.Controls.Add(this.RbtAlias);
+            this.Controls.Add(this.RbtDNI);
+            this.Controls.Add(this.RbtNombre);
+            this.Controls.Add(this.RbtCodigo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrudUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -697,6 +735,7 @@
             this.Load += new System.EventHandler(this.CrudUsuarios_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlCrud.ResumeLayout(false);
             this.pnlCrud.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picContraseña)).EndInit();
@@ -705,6 +744,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picreset)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -742,13 +782,12 @@
         private Label lbNombre;
         private TextBox txbNombre;
         private PictureBox picContraseña;
-        private Button BtnLogin;
-        private TextBox txbCodProd;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
-        private RadioButton radioButton4;
-        private RadioButton radioButton5;
+        private Button BtnBuscar;
+        private TextBox txbbusqueda;
+        private RadioButton RbtNombre;
+        private RadioButton RbtCodigo;
+        private RadioButton RbtDNI;
+        private RadioButton RbtAlias;
         private Label lbFechaNac;
         private DateTimePicker dateTimePicker1;
         private Label lbDireccion;
@@ -762,5 +801,8 @@
         private DataGridViewTextBoxColumn Rol;
         private DataGridViewTextBoxColumn activo;
         private DataGridViewButtonColumn accion;
+        private TextBox txbIDEmpleado;
+        private PictureBox pictureBox1;
+        private PictureBox picreset;
     }
 }

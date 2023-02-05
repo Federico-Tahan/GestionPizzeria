@@ -11,6 +11,7 @@ namespace CapaDatos.Datos.Interfaces
     {
         bool AltaUsuario(Usuarios u);
         bool ModificarUsuario(Usuarios u);
-        List<Usuarios> ObtenerUsuarios();
+        List<Usuarios> ObtenerUsuarios(int a);
+        bool BuscarUsuario(int id);
     }
 }
