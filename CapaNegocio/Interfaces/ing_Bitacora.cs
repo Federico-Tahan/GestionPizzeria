@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaDatos.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio.Interfaces
 {
-    internal interface Logeo
-    {      
+    public interface ing_Bitacora
+    {
+        Bitacora ObtenerBitacora();
 
     }
 }

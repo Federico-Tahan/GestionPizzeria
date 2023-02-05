@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Datos.Interfaces
 {
-    public interface Logeo
+    public interface IBitacora
     {
-        bool Logeado(Usuarios u);
-        Usuarios GetUsuario(Usuarios u);
+        Bitacora ObtenerBitacora(); 
     }
 }

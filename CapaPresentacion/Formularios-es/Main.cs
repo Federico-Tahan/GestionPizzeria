@@ -172,5 +172,15 @@ namespace CapaPresentacion.Formularios
             pnlMain.Controls.Remove(FormActual);
             hidemenus();
         }
+
+        private void lbCierre_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Desea cerrar Sesion?","Cerrar Sesión",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+                Program.log.Show();
+            }
+
+        }
     }
 }

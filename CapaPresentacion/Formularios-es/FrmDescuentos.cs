@@ -95,18 +95,25 @@ namespace CapaPresentacion.Formularios
             c = new Configuracion();
             d.PorcentajeDescuento = Convert.ToInt32(np1.Value);
             lDescuento.Add(d);
+            d = new Descuento();
+
             d.PorcentajeDescuento = Convert.ToInt32(np2.Value);
-            lDescuento.Add(d);
+            lDescuento.Add(d); d = new Descuento();
+
             d.PorcentajeDescuento = Convert.ToInt32(np3.Value);
-            lDescuento.Add(d);
+            lDescuento.Add(d); d = new Descuento();
+
             d.PorcentajeDescuento = Convert.ToInt32(np4.Value);
-            lDescuento.Add(d);
+            lDescuento.Add(d); d = new Descuento();
+
             d.PorcentajeDescuento = Convert.ToInt32(np5.Value);
-            lDescuento.Add(d);
+            lDescuento.Add(d); d = new Descuento();
+
             d.PorcentajeDescuento = Convert.ToInt32(np6.Value);
-            lDescuento.Add(d);
+            lDescuento.Add(d); d = new Descuento();
+
             d.PorcentajeDescuento = Convert.ToInt32(np7.Value);
-            lDescuento.Add(d);
+            lDescuento.Add(d); d = new Descuento();
 
 
             if (chkSocio.Checked == false)

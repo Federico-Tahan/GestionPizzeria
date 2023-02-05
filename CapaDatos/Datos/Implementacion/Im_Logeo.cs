@@ -73,9 +73,9 @@ namespace CapaDatos.Datos.Implementacion
             Encriptacion e = new Encriptacion();
 
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
-            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@usuario", u.Alias);
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@alias", u.Alias);
             HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@contraseña", e.Encriptar(u.Contraseña));
-            HelperDB.ObtenerInstancia().LeerDB("");
+            HelperDB.ObtenerInstancia().LeerDB("SP_Verificar_Login");
 
             if (HelperDB.ObtenerInstancia().Dr.Read())
             {
@@ -88,9 +88,5 @@ namespace CapaDatos.Datos.Implementacion
             return false;
         }
 
-        public bool registrarBitacora(Usuarios u)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -56,7 +56,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.BtnVer = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
@@ -371,27 +371,28 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button6);
+            this.panel5.Controls.Add(this.BtnVer);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Location = new System.Drawing.Point(0, 298);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(998, 136);
             this.panel5.TabIndex = 30;
             // 
-            // button6
+            // BtnVer
             // 
-            this.button6.BackColor = System.Drawing.Color.White;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button6.Location = new System.Drawing.Point(458, 83);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(69, 30);
-            this.button6.TabIndex = 41;
-            this.button6.Text = "Ver";
-            this.button6.UseVisualStyleBackColor = false;
+            this.BtnVer.BackColor = System.Drawing.Color.White;
+            this.BtnVer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnVer.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnVer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
+            this.BtnVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVer.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtnVer.Location = new System.Drawing.Point(458, 83);
+            this.BtnVer.Name = "BtnVer";
+            this.BtnVer.Size = new System.Drawing.Size(69, 30);
+            this.BtnVer.TabIndex = 41;
+            this.BtnVer.Text = "Ver";
+            this.BtnVer.UseVisualStyleBackColor = false;
+            this.BtnVer.Click += new System.EventHandler(this.BtnVer_Click);
             // 
             // panel6
             // 
@@ -477,7 +478,7 @@
         private Panel panel4;
         private Label label4;
         private Panel panel5;
-        private Button button6;
+        private Button BtnVer;
         private Panel panel6;
         private Label label2;
     }

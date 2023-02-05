@@ -19,6 +19,7 @@ namespace CapaPresentacion.Formularios
 {
     public partial class CrudUsuarios : Form
     {
+        Encriptacion encrypt = new Encriptacion();  
         ing_CrudUsuarios lg = new ng_CrudUsuarios();
         int dgvselectedcondicion = 0;
         ing_Cbos lcbo = new ng_Cbos();
@@ -47,13 +48,16 @@ namespace CapaPresentacion.Formularios
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            picContraseña.Tag = "activar";
+            TxbContraseña.UseSystemPasswordChar = true;
+            picContraseña.Image = Properties.Resources.mostrar;
             habilitar(true);
             picLimpiar.Enabled = true;
             picContraseña.Enabled = true;
             pnlCrud.Visible = true;
             Botones(false);
             BtnCancelar.Enabled = true;
-            BtnGuardar.Enabled = true;
+            BtnGuardar.Enabled = true; Limpiar();
             user = new Usuarios();
         }
 
@@ -99,6 +103,7 @@ namespace CapaPresentacion.Formularios
                 TxbTelefono.Text = string.Empty;
                 CboRoles.SelectedIndex = -1;
                 chkActivo.Checked = true;
+                dateTimePicker1.Value = DateTime.Now;
             }
             else
             {
@@ -165,6 +170,9 @@ namespace CapaPresentacion.Formularios
             user = new Usuarios();
             if (dgvUsuarios.Columns[e.ColumnIndex].Name == "accion")
             {
+                picContraseña.Tag = "activar";
+                TxbContraseña.UseSystemPasswordChar = true;
+                picContraseña.Image = Properties.Resources.mostrar;
                 user.ID_Usuario = Convert.ToInt32(dgvUsuarios.CurrentRow.Cells[0].Value);
                 Cargar_Usuario(user.ID_Usuario);
                 Cargar_PanelUsuarios();
@@ -239,6 +247,7 @@ namespace CapaPresentacion.Formularios
                     us.Empleado = emp;
                     if (lg.ModificarUsuario(us))
                     {
+                        
                         MessageBox.Show("Usuario Modificado con Exito.");
 
                     }
@@ -251,6 +260,7 @@ namespace CapaPresentacion.Formularios
                 {
                     if ( lg.AltaUsuario(us))
                     {
+                        MessageBox.Show(us.Contraseña);
                         MessageBox.Show("Usuario Agregado Correctamente");
                     }
                     else
@@ -479,7 +489,7 @@ namespace CapaPresentacion.Formularios
 
                     foreach (DataGridViewRow row in dgvUsuarios.Rows)
                     {
-                        if (Convert.ToInt32(row.Cells["nombre"].Value) != Convert.ToInt32(txbbusqueda.Text))
+                        if (row.Cells["nombre"].Value != txbbusqueda.Text)
                         {
                             temp.Add(row);
                         }
@@ -503,7 +513,7 @@ namespace CapaPresentacion.Formularios
 
                     foreach (DataGridViewRow row in dgvUsuarios.Rows)
                     {
-                        if (Convert.ToInt32(row.Cells["Alias"].Value) != Convert.ToInt32(txbbusqueda.Text))
+                        if (row.Cells["Alias"].Value != txbbusqueda.Text)
                         {
                             temp.Add(row);
                         }
@@ -526,8 +536,13 @@ namespace CapaPresentacion.Formularios
             lUsuaris.Clear();
             RbtActivos.Checked = true;
             dgvselectedcondicion = 0;
+            txbbusqueda.Text = string.Empty;
             lUsuaris = lg.ObtenerUsuarios(dgvselectedcondicion);
             Cargar_Dgv(lUsuaris);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
         }
     }
 }

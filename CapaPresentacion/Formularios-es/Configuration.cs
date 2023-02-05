@@ -1,6 +1,7 @@
 ﻿using CapaDatos.Dominio;
 using CapaNegocio.Implementacion;
 using CapaNegocio.Interfaces;
+using CapaPresentacion.Formularios_es;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,6 +63,12 @@ namespace CapaPresentacion.Formularios
             c.Twitter= TxbTwitter.Text;
             c.Instagram= TxbInstagram.Text;
             c.Youtube= TxbYoutube.Text;
+        }
+
+        private void BtnVer_Click(object sender, EventArgs e)
+        {
+            FrmBitacora b = new FrmBitacora();
+            b.ShowDialog();
         }
     }
 }

@@ -8,7 +8,6 @@ namespace CapaDatos.Dominio
 {
     public class Bitacora
     {
-        public Empleado empleado { get; set; }
         public List<DetalleBitacora> DetalleBit { get; set; }
     }
 }

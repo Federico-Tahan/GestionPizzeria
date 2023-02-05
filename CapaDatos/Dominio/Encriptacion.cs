@@ -11,7 +11,7 @@ namespace CapaDatos.Dominio
     {
         public string Encriptar(string constraseña)
         {
-            string h = "Pizzeria Formaggio las mejores del planeta";
+            string h = "PizzeriaFormaggiolasmejoresdelplaneta";
             byte[] datos = UTF8Encoding.UTF8.GetBytes(constraseña);
 
             MD5 mD5 = MD5.Create();
@@ -28,7 +28,7 @@ namespace CapaDatos.Dominio
 
         public string Desencriptar(string contraseñaEn)
         {
-            string h = "Pizzeria Formaggio las mejores del planeta";
+            string h = "PizzeriaFormaggiolasmejoresdelplaneta";
             byte[] datos = Convert.FromBase64String(contraseñaEn);
 
             MD5 mD5 = MD5.Create();

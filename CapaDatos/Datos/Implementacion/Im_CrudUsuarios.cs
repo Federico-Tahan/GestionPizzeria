@@ -134,7 +134,7 @@ namespace CapaDatos.Datos.Implementacion
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(10))
                 {
-                    usuario.Contraseña = HelperDB.ObtenerInstancia().Dr.GetString(10);
+                    usuario.Contraseña = encrypt.Desencriptar(HelperDB.ObtenerInstancia().Dr.GetString(10));
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(11))
                 {

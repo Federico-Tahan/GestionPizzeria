@@ -153,27 +153,27 @@ create or alter procedure SP_ActualizarConfigDescuentos(
 
 	update Descuento
 	set porcentaje_descuento = @dia2
-	where id_descuento = 1	
+	where id_descuento = 2	
 
 	update Descuento
 	set porcentaje_descuento = @dia3
-	where id_descuento = 1	
+	where id_descuento = 3	
 
 	update Descuento
 	set porcentaje_descuento = @dia4
-	where id_descuento = 1	
+	where id_descuento = 4	
 	
 	update Descuento
 	set porcentaje_descuento = @dia5
-	where id_descuento = 1	
+	where id_descuento = 5
 	
 	update Descuento
 	set porcentaje_descuento = @dia6
-	where id_descuento = 1	
+	where id_descuento = 6	
 	
 	update Descuento
 	set porcentaje_descuento = @dia7
-	where id_descuento = 1
+	where id_descuento = 7
 
 	update Configuracion
 	set descuentos_socios = @descuentoSocio,
@@ -181,3 +181,38 @@ create or alter procedure SP_ActualizarConfigDescuentos(
 	where id_configuracion = 1
 
 go
+
+create or alter procedure SP_Obtener_Bitacora
+as
+	select id_bitacora, u.id_usuario, e.nombre,e.apellido,fecha,accion from Bitacora b
+	join Usuarios u on  b.id_usuario =u.id_usuario
+	join Empleado e on e.id_empleado = u.id_empleado
+
+
+
+create or alter procedure SP_Verificar_Login(
+	@alias varchar(150),
+	@contraseña varchar(32)
+)as
+	select id_usuario
+	from Usuarios
+	where @alias = alias and contraseña = @contraseña
+
+
+
+
+
+
+
+
+delete Empleado
+
+
+delete Usuarios 
+
+
+delete Bitacora
+
+select * from Usuarios
+
+insert into Bitacora values(7,GETDATE(),'Logeo')

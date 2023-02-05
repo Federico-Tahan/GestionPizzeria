@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaDatos.Datos.Interfaces
+namespace CapaNegocio.Interfaces
 {
-    public interface Logeo
+    public interface ing_Logeo
     {
         bool Logeado(Usuarios u);
         Usuarios GetUsuario(Usuarios u);

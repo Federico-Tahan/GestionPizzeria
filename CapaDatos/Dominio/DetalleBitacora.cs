@@ -9,6 +9,7 @@ namespace CapaDatos.Dominio
     public class DetalleBitacora
     {
         public int IdBitacora { get; set; }
+        public Usuarios user { get; set; }
         public DateTime Fecha_accion { get; set; }
         public string Accion { get; set; }
     }

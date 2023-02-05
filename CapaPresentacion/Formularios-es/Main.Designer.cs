@@ -366,6 +366,7 @@
             this.lbCierre.Size = new System.Drawing.Size(84, 16);
             this.lbCierre.TabIndex = 11;
             this.lbCierre.Text = "Cerrar Sesión";
+            this.lbCierre.Click += new System.EventHandler(this.lbCierre_Click);
             // 
             // label1
             // 
