@@ -92,12 +92,12 @@ namespace CapaPresentacion.Formularios
 
         private void BtnBackUp_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new Configuracion());
+            AbrirFormEnPanel(new Configuration());
         }
 
         private void btnDescuento_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new Descuentos());
+            AbrirFormEnPanel(new FrmDescuentos());
 
         }
 
@@ -119,13 +119,13 @@ namespace CapaPresentacion.Formularios
 
         private void picConfig_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new Configuracion());
+            AbrirFormEnPanel(new Configuration());
 
         }
 
         private void btnDescuentos_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new Descuentos());
+            AbrirFormEnPanel(new FrmDescuentos());
 
         }
 

@@ -1,0 +1,7 @@
+insert into Descuento values ('Lunes',10,0)
+insert into Descuento values ('Martes',10,0)
+insert into Descuento values ('Miercoles',10,0)
+insert into Descuento values ('Jueves',10,0)
+insert into Descuento values ('Viernes',10,0)
+insert into Descuento values ('Sabado',10,0)
+insert into Descuento values ('Domingo',10,0)

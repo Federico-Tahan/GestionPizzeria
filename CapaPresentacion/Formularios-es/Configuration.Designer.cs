@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion.Formularios
 {
-    partial class Configuracion
+    partial class Configuration
     {
         /// <summary>
         /// Required designer variable.
@@ -42,14 +42,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.BtnGuardar = new System.Windows.Forms.Button();
+            this.TxbTwitter = new System.Windows.Forms.TextBox();
+            this.TxbYoutube = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.TxbInstagram = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxbFacebook = new System.Windows.Forms.TextBox();
+            this.TxbEmail = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -197,9 +197,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Location = new System.Drawing.Point(0, 465);
+            this.panel1.Location = new System.Drawing.Point(0, 434);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(998, 197);
+            this.panel1.Size = new System.Drawing.Size(998, 212);
             this.panel1.TabIndex = 28;
             // 
             // panel2
@@ -225,14 +225,14 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button5);
-            this.panel3.Controls.Add(this.textBox7);
-            this.panel3.Controls.Add(this.textBox6);
+            this.panel3.Controls.Add(this.BtnGuardar);
+            this.panel3.Controls.Add(this.TxbTwitter);
+            this.panel3.Controls.Add(this.TxbYoutube);
             this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.textBox5);
+            this.panel3.Controls.Add(this.TxbInstagram);
             this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.textBox4);
-            this.panel3.Controls.Add(this.textBox3);
+            this.panel3.Controls.Add(this.TxbFacebook);
+            this.panel3.Controls.Add(this.TxbEmail);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
@@ -242,34 +242,35 @@
             this.panel3.Size = new System.Drawing.Size(998, 227);
             this.panel3.TabIndex = 29;
             // 
-            // button5
+            // BtnGuardar
             // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button5.Location = new System.Drawing.Point(855, 180);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(80, 31);
-            this.button5.TabIndex = 40;
-            this.button5.Text = "Guardar";
-            this.button5.UseVisualStyleBackColor = false;
+            this.BtnGuardar.BackColor = System.Drawing.Color.White;
+            this.BtnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
+            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGuardar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtnGuardar.Location = new System.Drawing.Point(855, 180);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(80, 31);
+            this.BtnGuardar.TabIndex = 40;
+            this.BtnGuardar.Text = "Guardar";
+            this.BtnGuardar.UseVisualStyleBackColor = false;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
-            // textBox7
+            // TxbTwitter
             // 
-            this.textBox7.Location = new System.Drawing.Point(761, 97);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(174, 23);
-            this.textBox7.TabIndex = 39;
+            this.TxbTwitter.Location = new System.Drawing.Point(761, 97);
+            this.TxbTwitter.Name = "TxbTwitter";
+            this.TxbTwitter.Size = new System.Drawing.Size(174, 23);
+            this.TxbTwitter.TabIndex = 39;
             // 
-            // textBox6
+            // TxbYoutube
             // 
-            this.textBox6.Location = new System.Drawing.Point(166, 160);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(174, 23);
-            this.textBox6.TabIndex = 38;
+            this.TxbYoutube.Location = new System.Drawing.Point(166, 160);
+            this.TxbYoutube.Name = "TxbYoutube";
+            this.TxbYoutube.Size = new System.Drawing.Size(174, 23);
+            this.TxbYoutube.TabIndex = 38;
             // 
             // label10
             // 
@@ -282,12 +283,12 @@
             this.label10.TabIndex = 37;
             this.label10.Text = "Youtube";
             // 
-            // textBox5
+            // TxbInstagram
             // 
-            this.textBox5.Location = new System.Drawing.Point(475, 97);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(174, 23);
-            this.textBox5.TabIndex = 36;
+            this.TxbInstagram.Location = new System.Drawing.Point(475, 97);
+            this.TxbInstagram.Name = "TxbInstagram";
+            this.TxbInstagram.Size = new System.Drawing.Size(174, 23);
+            this.TxbInstagram.TabIndex = 36;
             // 
             // label9
             // 
@@ -300,19 +301,19 @@
             this.label9.TabIndex = 35;
             this.label9.Text = "Instagram";
             // 
-            // textBox4
+            // TxbFacebook
             // 
-            this.textBox4.Location = new System.Drawing.Point(475, 160);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(174, 23);
-            this.textBox4.TabIndex = 34;
+            this.TxbFacebook.Location = new System.Drawing.Point(475, 160);
+            this.TxbFacebook.Name = "TxbFacebook";
+            this.TxbFacebook.Size = new System.Drawing.Size(174, 23);
+            this.TxbFacebook.TabIndex = 34;
             // 
-            // textBox3
+            // TxbEmail
             // 
-            this.textBox3.Location = new System.Drawing.Point(166, 93);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(174, 23);
-            this.textBox3.TabIndex = 33;
+            this.TxbEmail.Location = new System.Drawing.Point(166, 93);
+            this.TxbEmail.Name = "TxbEmail";
+            this.TxbEmail.Size = new System.Drawing.Size(174, 23);
+            this.TxbEmail.TabIndex = 33;
             // 
             // label8
             // 
@@ -374,7 +375,7 @@
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Location = new System.Drawing.Point(0, 298);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(998, 171);
+            this.panel5.Size = new System.Drawing.Size(998, 136);
             this.panel5.TabIndex = 30;
             // 
             // button6
@@ -385,7 +386,7 @@
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button6.Location = new System.Drawing.Point(457, 100);
+            this.button6.Location = new System.Drawing.Point(458, 83);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(69, 30);
             this.button6.TabIndex = 41;
@@ -413,7 +414,7 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "Bitacora";
             // 
-            // Configuracion
+            // Configuration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -425,9 +426,10 @@
             this.Controls.Add(this.pnlHeader);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Configuracion";
+            this.Name = "Configuration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BackUp";
+            this.Load += new System.EventHandler(this.Configuracion_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -461,14 +463,14 @@
         private Panel panel2;
         private Label label3;
         private Panel panel3;
-        private Button button5;
-        private TextBox textBox7;
-        private TextBox textBox6;
+        private Button BtnGuardar;
+        private TextBox TxbTwitter;
+        private TextBox TxbYoutube;
         private Label label10;
-        private TextBox textBox5;
+        private TextBox TxbInstagram;
         private Label label9;
-        private TextBox textBox4;
-        private TextBox textBox3;
+        private TextBox TxbFacebook;
+        private TextBox TxbEmail;
         private Label label8;
         private Label label6;
         private Label label5;

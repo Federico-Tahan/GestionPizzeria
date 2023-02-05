@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion.Formularios
 {
-    partial class Descuentos
+    partial class FrmDescuentos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,23 +29,26 @@
         private void InitializeComponent()
         {
             this.pnlDescento = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbProd = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.chkActivo = new System.Windows.Forms.CheckBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.BtnLogin = new System.Windows.Forms.Button();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.ChkCompraspresenciales = new System.Windows.Forms.CheckBox();
+            this.chkSocio = new System.Windows.Forms.CheckBox();
+            this.BtnRestablecer = new System.Windows.Forms.Button();
+            this.BtnConfirmar = new System.Windows.Forms.Button();
+            this.np7 = new System.Windows.Forms.NumericUpDown();
+            this.np6 = new System.Windows.Forms.NumericUpDown();
+            this.np5 = new System.Windows.Forms.NumericUpDown();
+            this.np3 = new System.Windows.Forms.NumericUpDown();
+            this.np4 = new System.Windows.Forms.NumericUpDown();
+            this.np2 = new System.Windows.Forms.NumericUpDown();
+            this.np1 = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -61,41 +64,40 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pnlDescento.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDescento
             // 
             this.pnlDescento.BackColor = System.Drawing.Color.DarkGreen;
-            this.pnlDescento.Controls.Add(this.pictureBox3);
-            this.pnlDescento.Controls.Add(this.label15);
-            this.pnlDescento.Controls.Add(this.pictureBox2);
+            this.pnlDescento.Controls.Add(this.panel2);
+            this.pnlDescento.Controls.Add(this.panel1);
             this.pnlDescento.Controls.Add(this.pnlHeader);
-            this.pnlDescento.Controls.Add(this.checkBox1);
-            this.pnlDescento.Controls.Add(this.chkActivo);
-            this.pnlDescento.Controls.Add(this.label14);
-            this.pnlDescento.Controls.Add(this.button1);
-            this.pnlDescento.Controls.Add(this.BtnLogin);
-            this.pnlDescento.Controls.Add(this.numericUpDown7);
-            this.pnlDescento.Controls.Add(this.numericUpDown6);
-            this.pnlDescento.Controls.Add(this.numericUpDown5);
-            this.pnlDescento.Controls.Add(this.numericUpDown4);
-            this.pnlDescento.Controls.Add(this.numericUpDown3);
-            this.pnlDescento.Controls.Add(this.numericUpDown2);
-            this.pnlDescento.Controls.Add(this.numericUpDown1);
+            this.pnlDescento.Controls.Add(this.ChkCompraspresenciales);
+            this.pnlDescento.Controls.Add(this.chkSocio);
+            this.pnlDescento.Controls.Add(this.BtnRestablecer);
+            this.pnlDescento.Controls.Add(this.BtnConfirmar);
+            this.pnlDescento.Controls.Add(this.np7);
+            this.pnlDescento.Controls.Add(this.np6);
+            this.pnlDescento.Controls.Add(this.np5);
+            this.pnlDescento.Controls.Add(this.np3);
+            this.pnlDescento.Controls.Add(this.np4);
+            this.pnlDescento.Controls.Add(this.np2);
+            this.pnlDescento.Controls.Add(this.np1);
             this.pnlDescento.Controls.Add(this.label13);
             this.pnlDescento.Controls.Add(this.label12);
             this.pnlDescento.Controls.Add(this.label11);
@@ -116,11 +118,53 @@
             this.pnlDescento.Name = "pnlDescento";
             this.pnlDescento.Size = new System.Drawing.Size(943, 676);
             this.pnlDescento.TabIndex = 0;
+            this.pnlDescento.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDescento_Paint);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Location = new System.Drawing.Point(521, 124);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(370, 52);
+            this.panel2.TabIndex = 52;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label14.Location = new System.Drawing.Point(69, 11);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(294, 28);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "Obtención del beneficio";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.etiqueta;
+            this.pictureBox2.Location = new System.Drawing.Point(11, 7);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(52, 36);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 48;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Location = new System.Drawing.Point(65, 124);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(383, 52);
+            this.panel1.TabIndex = 51;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.calendario;
-            this.pictureBox3.Location = new System.Drawing.Point(47, 140);
+            this.pictureBox3.Location = new System.Drawing.Point(9, 11);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(50, 36);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -132,21 +176,11 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label15.Location = new System.Drawing.Point(103, 141);
+            this.label15.Location = new System.Drawing.Point(63, 11);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(316, 28);
             this.label15.TabIndex = 49;
             this.label15.Text = "Descuentos de la Semana";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.etiqueta;
-            this.pictureBox2.Location = new System.Drawing.Point(528, 140);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(52, 36);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 48;
-            this.pictureBox2.TabStop = false;
             // 
             // pnlHeader
             // 
@@ -157,6 +191,16 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(240, 56);
             this.pnlHeader.TabIndex = 46;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::CapaPresentacion.Properties.Resources.descuento__1_;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(51, 51);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 23;
+            this.pictureBox4.TabStop = false;
             // 
             // lbProd
             // 
@@ -169,124 +213,115 @@
             this.lbProd.TabIndex = 21;
             this.lbProd.Text = "Descuento";
             // 
-            // checkBox1
+            // ChkCompraspresenciales
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.checkBox1.Location = new System.Drawing.Point(586, 250);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(256, 29);
-            this.checkBox1.TabIndex = 45;
-            this.checkBox1.Text = "Compras Presenciales";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.ChkCompraspresenciales.AutoSize = true;
+            this.ChkCompraspresenciales.BackColor = System.Drawing.Color.Transparent;
+            this.ChkCompraspresenciales.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ChkCompraspresenciales.Checked = true;
+            this.ChkCompraspresenciales.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkCompraspresenciales.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ChkCompraspresenciales.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ChkCompraspresenciales.Location = new System.Drawing.Point(586, 250);
+            this.ChkCompraspresenciales.Name = "ChkCompraspresenciales";
+            this.ChkCompraspresenciales.Size = new System.Drawing.Size(256, 29);
+            this.ChkCompraspresenciales.TabIndex = 45;
+            this.ChkCompraspresenciales.Text = "Compras Presenciales";
+            this.ChkCompraspresenciales.UseVisualStyleBackColor = false;
             // 
-            // chkActivo
+            // chkSocio
             // 
-            this.chkActivo.AutoSize = true;
-            this.chkActivo.Checked = true;
-            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkActivo.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.chkActivo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.chkActivo.Location = new System.Drawing.Point(586, 206);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(95, 29);
-            this.chkActivo.TabIndex = 44;
-            this.chkActivo.Text = "Socios";
-            this.chkActivo.UseVisualStyleBackColor = true;
+            this.chkSocio.AutoSize = true;
+            this.chkSocio.Checked = true;
+            this.chkSocio.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkSocio.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.chkSocio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.chkSocio.Location = new System.Drawing.Point(586, 206);
+            this.chkSocio.Name = "chkSocio";
+            this.chkSocio.Size = new System.Drawing.Size(95, 29);
+            this.chkSocio.TabIndex = 44;
+            this.chkSocio.Text = "Socios";
+            this.chkSocio.UseVisualStyleBackColor = true;
             // 
-            // label14
+            // BtnRestablecer
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.Location = new System.Drawing.Point(586, 141);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(294, 28);
-            this.label14.TabIndex = 43;
-            this.label14.Text = "Obtención del beneficio";
+            this.BtnRestablecer.BackColor = System.Drawing.Color.White;
+            this.BtnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRestablecer.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnRestablecer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
+            this.BtnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRestablecer.Location = new System.Drawing.Point(486, 597);
+            this.BtnRestablecer.Name = "BtnRestablecer";
+            this.BtnRestablecer.Size = new System.Drawing.Size(89, 36);
+            this.BtnRestablecer.TabIndex = 42;
+            this.BtnRestablecer.Text = "Restablecer";
+            this.BtnRestablecer.UseVisualStyleBackColor = false;
+            this.BtnRestablecer.Click += new System.EventHandler(this.BtnRestablecer_Click);
             // 
-            // button1
+            // BtnConfirmar
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(485, 581);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 36);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Restablecer";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BtnConfirmar.BackColor = System.Drawing.Color.White;
+            this.BtnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnConfirmar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
+            this.BtnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnConfirmar.Location = new System.Drawing.Point(368, 597);
+            this.BtnConfirmar.Name = "BtnConfirmar";
+            this.BtnConfirmar.Size = new System.Drawing.Size(90, 36);
+            this.BtnConfirmar.TabIndex = 4;
+            this.BtnConfirmar.Text = "Confirmar";
+            this.BtnConfirmar.UseVisualStyleBackColor = false;
+            this.BtnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
-            // BtnLogin
+            // np7
             // 
-            this.BtnLogin.BackColor = System.Drawing.Color.White;
-            this.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnLogin.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
-            this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnLogin.Location = new System.Drawing.Point(367, 581);
-            this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(90, 36);
-            this.BtnLogin.TabIndex = 4;
-            this.BtnLogin.Text = "Confirmar";
-            this.BtnLogin.UseVisualStyleBackColor = false;
+            this.np7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.np7.Location = new System.Drawing.Point(334, 533);
+            this.np7.Name = "np7";
+            this.np7.Size = new System.Drawing.Size(74, 19);
+            this.np7.TabIndex = 38;
             // 
-            // numericUpDown7
+            // np6
             // 
-            this.numericUpDown7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericUpDown7.Location = new System.Drawing.Point(334, 533);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(74, 19);
-            this.numericUpDown7.TabIndex = 38;
+            this.np6.Location = new System.Drawing.Point(334, 477);
+            this.np6.Name = "np6";
+            this.np6.Size = new System.Drawing.Size(74, 23);
+            this.np6.TabIndex = 37;
             // 
-            // numericUpDown6
+            // np5
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(334, 477);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(74, 23);
-            this.numericUpDown6.TabIndex = 37;
+            this.np5.Location = new System.Drawing.Point(334, 426);
+            this.np5.Name = "np5";
+            this.np5.Size = new System.Drawing.Size(74, 23);
+            this.np5.TabIndex = 36;
             // 
-            // numericUpDown5
+            // np3
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(334, 426);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(74, 23);
-            this.numericUpDown5.TabIndex = 36;
+            this.np3.Location = new System.Drawing.Point(334, 314);
+            this.np3.Name = "np3";
+            this.np3.Size = new System.Drawing.Size(74, 23);
+            this.np3.TabIndex = 35;
             // 
-            // numericUpDown4
+            // np4
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(334, 314);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(74, 23);
-            this.numericUpDown4.TabIndex = 35;
+            this.np4.Location = new System.Drawing.Point(334, 371);
+            this.np4.Name = "np4";
+            this.np4.Size = new System.Drawing.Size(74, 23);
+            this.np4.TabIndex = 35;
             // 
-            // numericUpDown3
+            // np2
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(334, 371);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(74, 23);
-            this.numericUpDown3.TabIndex = 35;
+            this.np2.Location = new System.Drawing.Point(334, 262);
+            this.np2.Name = "np2";
+            this.np2.Size = new System.Drawing.Size(74, 23);
+            this.np2.TabIndex = 34;
             // 
-            // numericUpDown2
+            // np1
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(334, 262);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(74, 23);
-            this.numericUpDown2.TabIndex = 34;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(334, 203);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(74, 23);
-            this.numericUpDown1.TabIndex = 33;
+            this.np1.Location = new System.Drawing.Point(334, 203);
+            this.np1.Name = "np1";
+            this.np1.Size = new System.Drawing.Size(74, 23);
+            this.np1.TabIndex = 33;
             // 
             // label13
             // 
@@ -452,40 +487,35 @@
             this.pictureBox1.TabIndex = 47;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::CapaPresentacion.Properties.Resources.descuento__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(51, 51);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 23;
-            this.pictureBox4.TabStop = false;
-            // 
-            // Descuentos
+            // FrmDescuentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(943, 676);
             this.Controls.Add(this.pnlDescento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Descuentos";
+            this.Name = "FrmDescuentos";
             this.Text = "Descuentos";
+            this.Load += new System.EventHandler(this.Descuentos_Load);
             this.pnlDescento.ResumeLayout(false);
             this.pnlDescento.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.np1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -500,13 +530,13 @@
         private Label label2;
         private Label label1;
         private Label lbUsuario;
-        private NumericUpDown numericUpDown7;
-        private NumericUpDown numericUpDown6;
-        private NumericUpDown numericUpDown5;
-        private NumericUpDown numericUpDown4;
-        private NumericUpDown numericUpDown3;
-        private NumericUpDown numericUpDown2;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown np7;
+        private NumericUpDown np6;
+        private NumericUpDown np5;
+        private NumericUpDown np3;
+        private NumericUpDown np4;
+        private NumericUpDown np2;
+        private NumericUpDown np1;
         private Label label13;
         private Label label12;
         private Label label11;
@@ -514,11 +544,11 @@
         private Label label8;
         private Label label7;
         private Label label10;
-        private Button button1;
-        private Button BtnLogin;
+        private Button BtnRestablecer;
+        private Button BtnConfirmar;
         private Label label14;
-        private CheckBox checkBox1;
-        private CheckBox chkActivo;
+        private CheckBox ChkCompraspresenciales;
+        private CheckBox chkSocio;
         private Panel pnlHeader;
         private Label lbProd;
         private PictureBox pictureBox1;
@@ -526,5 +556,7 @@
         private PictureBox pictureBox3;
         private Label label15;
         private PictureBox pictureBox4;
+        private Panel panel2;
+        private Panel panel1;
     }
 }

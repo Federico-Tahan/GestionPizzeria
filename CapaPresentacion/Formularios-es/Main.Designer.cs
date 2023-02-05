@@ -353,7 +353,6 @@
             this.picConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picConfig.TabIndex = 13;
             this.picConfig.TabStop = false;
-            this.picConfig.Visible = false;
             this.picConfig.Click += new System.EventHandler(this.picConfig_Click);
             // 
             // lbCierre

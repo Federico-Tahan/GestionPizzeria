@@ -262,6 +262,7 @@ namespace CapaPresentacion.Formularios
                 Cargar_Usuario(user.ID_Usuario);
                 lUsuaris.Clear();
                 lUsuaris = lg.ObtenerUsuarios(0);
+                RbtActivos.Checked = true;
                 Cargar_Dgv(lUsuaris);
                 Limpiar();
                 pnlCrud.Visible = false;
@@ -472,45 +473,61 @@ namespace CapaPresentacion.Formularios
             }
             else if(RbtNombre.Checked)
             {
-                List<DataGridViewRow> temp = new List<DataGridViewRow>();
-
-                foreach (DataGridViewRow row in dgvUsuarios.Rows)
+                if (txbbusqueda.Text != string.Empty)
                 {
-                    if (Convert.ToInt32(row.Cells["nombre"].Value) != Convert.ToInt32(txbbusqueda.Text))
+                    List<DataGridViewRow> temp = new List<DataGridViewRow>();
+
+                    foreach (DataGridViewRow row in dgvUsuarios.Rows)
                     {
-                        temp.Add(row);
+                        if (Convert.ToInt32(row.Cells["nombre"].Value) != Convert.ToInt32(txbbusqueda.Text))
+                        {
+                            temp.Add(row);
+                        }
+
                     }
 
+                    foreach (DataGridViewRow row in temp)
+                    {
+
+                        dgvUsuarios.Rows.Remove(row);
+
+                    }
                 }
-
-                foreach (DataGridViewRow row in temp)
-                {
-
-                    dgvUsuarios.Rows.Remove(row);
-
-                }
+               
             }
             else if (RbtAlias.Checked)
             {
-                List<DataGridViewRow> temp = new List<DataGridViewRow>();
-
-                foreach (DataGridViewRow row in dgvUsuarios.Rows)
+                if (txbbusqueda.Text != string.Empty)
                 {
-                    if (Convert.ToInt32(row.Cells["Alias"].Value) != Convert.ToInt32(txbbusqueda.Text))
+                    List<DataGridViewRow> temp = new List<DataGridViewRow>();
+
+                    foreach (DataGridViewRow row in dgvUsuarios.Rows)
                     {
-                        temp.Add(row);
+                        if (Convert.ToInt32(row.Cells["Alias"].Value) != Convert.ToInt32(txbbusqueda.Text))
+                        {
+                            temp.Add(row);
+                        }
+
                     }
 
+                    foreach (DataGridViewRow row in temp)
+                    {
+
+                        dgvUsuarios.Rows.Remove(row);
+
+                    }
                 }
 
-                foreach (DataGridViewRow row in temp)
-                {
-
-                    dgvUsuarios.Rows.Remove(row);
-
-                }
             }
         }
 
+        private void picreset_Click(object sender, EventArgs e)
+        {
+            lUsuaris.Clear();
+            RbtActivos.Checked = true;
+            dgvselectedcondicion = 0;
+            lUsuaris = lg.ObtenerUsuarios(dgvselectedcondicion);
+            Cargar_Dgv(lUsuaris);
+        }
     }
 }

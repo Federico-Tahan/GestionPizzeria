@@ -154,4 +154,15 @@ constraint fk_nro_factura foreign key(nro_factura) references factura,
 constraint fk_id_producto foreign key (id_producto) references producto
 )
 
+create table Configuracion(
+id_configuracion int,
+descuentos_socios int,
+compras_presenciales int,
+Email varchar(50),
+youtube varchar(50),
+instagram varchar(50),
+twitter varchar(50),
+facebook varchar(50)
+)
+
 

@@ -25,6 +25,8 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@alias", u.Alias);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@contraseña", encrypt.Encriptar(u.Contraseña));
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_rol", u.Rol.Id_Rol);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica_user", u.Baja_Logica);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica_empleado", u.Empleado.Baja_logica);
                 HelperDB.ObtenerInstancia().updatear_db("SP_Insertar_UsuarioEmpleado");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;

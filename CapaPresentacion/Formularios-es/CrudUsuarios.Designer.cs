@@ -184,7 +184,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(519, 202);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(119, 23);
-            this.dateTimePicker1.TabIndex = 43;
+            this.dateTimePicker1.TabIndex = 5;
             // 
             // lbDireccion
             // 
@@ -203,7 +203,7 @@
             this.txbDireccion.Location = new System.Drawing.Point(44, 202);
             this.txbDireccion.Name = "txbDireccion";
             this.txbDireccion.Size = new System.Drawing.Size(174, 23);
-            this.txbDireccion.TabIndex = 41;
+            this.txbDireccion.TabIndex = 3;
             // 
             // picContraseña
             // 
@@ -229,7 +229,7 @@
             this.chkActivo.Location = new System.Drawing.Point(744, 310);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(77, 23);
-            this.chkActivo.TabIndex = 39;
+            this.chkActivo.TabIndex = 9;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
@@ -250,7 +250,7 @@
             this.TxbAlias.Location = new System.Drawing.Point(44, 312);
             this.TxbAlias.Name = "TxbAlias";
             this.TxbAlias.Size = new System.Drawing.Size(174, 23);
-            this.TxbAlias.TabIndex = 37;
+            this.TxbAlias.TabIndex = 6;
             // 
             // label8
             // 
@@ -269,7 +269,7 @@
             this.TxbContraseña.Location = new System.Drawing.Point(272, 312);
             this.TxbContraseña.Name = "TxbContraseña";
             this.TxbContraseña.Size = new System.Drawing.Size(174, 23);
-            this.TxbContraseña.TabIndex = 35;
+            this.TxbContraseña.TabIndex = 7;
             this.TxbContraseña.UseSystemPasswordChar = true;
             // 
             // label6
@@ -290,7 +290,7 @@
             this.CboRoles.Location = new System.Drawing.Point(519, 312);
             this.CboRoles.Name = "CboRoles";
             this.CboRoles.Size = new System.Drawing.Size(174, 23);
-            this.CboRoles.TabIndex = 33;
+            this.CboRoles.TabIndex = 8;
             // 
             // lbCOD
             // 
@@ -328,7 +328,7 @@
             this.TxbDni.Location = new System.Drawing.Point(519, 96);
             this.TxbDni.Name = "TxbDni";
             this.TxbDni.Size = new System.Drawing.Size(174, 23);
-            this.TxbDni.TabIndex = 29;
+            this.TxbDni.TabIndex = 2;
             // 
             // lbTel
             // 
@@ -347,7 +347,7 @@
             this.TxbTelefono.Location = new System.Drawing.Point(272, 202);
             this.TxbTelefono.Name = "TxbTelefono";
             this.TxbTelefono.Size = new System.Drawing.Size(174, 23);
-            this.TxbTelefono.TabIndex = 27;
+            this.TxbTelefono.TabIndex = 4;
             // 
             // lbApellido
             // 
@@ -366,7 +366,7 @@
             this.txbApellido.Location = new System.Drawing.Point(273, 96);
             this.txbApellido.Name = "txbApellido";
             this.txbApellido.Size = new System.Drawing.Size(174, 23);
-            this.txbApellido.TabIndex = 23;
+            this.txbApellido.TabIndex = 1;
             // 
             // lbNombre
             // 
@@ -385,7 +385,7 @@
             this.txbNombre.Location = new System.Drawing.Point(44, 96);
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(174, 23);
-            this.txbNombre.TabIndex = 21;
+            this.txbNombre.TabIndex = 0;
             // 
             // picLimpiar
             // 
@@ -507,10 +507,10 @@
             this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnGuardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGuardar.Location = new System.Drawing.Point(792, 571);
+            this.BtnGuardar.Location = new System.Drawing.Point(766, 570);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(139, 42);
-            this.BtnGuardar.TabIndex = 30;
+            this.BtnGuardar.TabIndex = 3;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
@@ -527,10 +527,10 @@
             this.BtnCancelar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelar.Location = new System.Drawing.Point(593, 571);
+            this.BtnCancelar.Location = new System.Drawing.Point(567, 570);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(139, 42);
-            this.BtnCancelar.TabIndex = 29;
+            this.BtnCancelar.TabIndex = 2;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -547,10 +547,10 @@
             this.BtnEditar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnEditar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEditar.Location = new System.Drawing.Point(370, 571);
+            this.BtnEditar.Location = new System.Drawing.Point(344, 570);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(139, 42);
-            this.BtnEditar.TabIndex = 27;
+            this.BtnEditar.TabIndex = 1;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = false;
             this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
@@ -566,10 +566,10 @@
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(144, 571);
+            this.btnNuevo.Location = new System.Drawing.Point(118, 570);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(139, 42);
-            this.btnNuevo.TabIndex = 26;
+            this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -699,6 +699,7 @@
             // 
             // picreset
             // 
+            this.picreset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picreset.Image = global::CapaPresentacion.Properties.Resources.reset;
             this.picreset.Location = new System.Drawing.Point(617, 107);
             this.picreset.Name = "picreset";
@@ -706,6 +707,7 @@
             this.picreset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picreset.TabIndex = 51;
             this.picreset.TabStop = false;
+            this.picreset.Click += new System.EventHandler(this.picreset_Click);
             // 
             // CrudUsuarios
             // 
