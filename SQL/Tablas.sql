@@ -53,7 +53,7 @@ id_tipo_cliente int not null,
 nombre varchar(50) not null,
 apellido varchar(50) not null,
 direccion varchar(150) not null,
-telefono bigint not null,
+telefono bigint,
 id_socio int ,
 baja_logica int
 constraint pk_id_cliente primary key (id_cliente),
@@ -164,5 +164,6 @@ instagram varchar(50),
 twitter varchar(50),
 facebook varchar(50)
 )
+
 
 

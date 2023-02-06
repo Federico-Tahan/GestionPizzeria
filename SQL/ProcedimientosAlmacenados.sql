@@ -189,6 +189,7 @@ as
 	join Empleado e on e.id_empleado = u.id_empleado
 
 
+go
 
 create or alter procedure SP_Verificar_Login(
 	@alias varchar(150),
@@ -197,6 +198,143 @@ create or alter procedure SP_Verificar_Login(
 	select id_usuario
 	from Usuarios
 	where @alias = alias and contraseña = @contraseña
+
+
+go
+
+create or alter procedure SP_Insertar_Cliente(
+	@id_tipo_cliente int,
+	@nombre varchar(50),
+	@apellido varchar(50),
+	@direccion varchar(150),
+	@telefono bigint
+)as
+	insert into Cliente values(@id_tipo_cliente,@nombre,@apellido,@direccion,@telefono, null,0)
+
+go
+
+
+create or alter procedure SP_Insertar_ClienteSocio(
+	@id_tipo_cliente int,
+	@nombre varchar(50),
+	@apellido varchar(50),
+	@direccion varchar(150),
+	@telefono bigint,
+	@DNI bigint,
+	@email varchar (100)
+)as
+	insert into Socio values(@DNI,@email,GETDATE(),0)
+	declare @cod int
+	set @cod = SCOPE_IDENTITY()
+
+
+	insert into Cliente values(@id_tipo_cliente,@nombre,@apellido,@direccion,@telefono, @cod,0)
+
+go
+
+
+create or alter procedure SP_Cargar_TodosCLientes
+as
+	select id_cliente,s.id_socio, nombre, apellido,direccion,telefono, s.DNI,s.email, s.fecha_adhesion, s.baja_logica,id_tipo_cliente
+	from Cliente c
+	left join Socio s on s.id_socio = c.id_socio
+
+
+go
+
+create or alter procedure SP_ModificarSocio(
+	@id_cliente int,
+	@id_tipo_cliente int,
+	@direccion varchar(150),
+	@telefono bigint,
+	@email varchar (100)
+)as
+	update Cliente
+	set direccion = @direccion,
+		telefono= @telefono,
+		id_tipo_cliente = @id_tipo_cliente
+
+	update socio
+	set email = @email
+	where id_socio in (select id_socio
+							from Cliente
+							where id_cliente = @id_cliente)
+
+
+	if(@id_tipo_cliente = 1)
+	begin
+		update Socio
+		set baja_logica = 1
+		where id_socio in (select id_socio
+							from Cliente
+							where id_cliente = @id_cliente)
+	end
+
+	if (@id_tipo_cliente = 2)
+	begin
+		update Socio
+		set baja_logica = 0
+		where id_socio in (select id_socio
+							from Cliente
+							where id_cliente = @id_cliente)
+	end
+
+go
+
+
+create or alter procedure SP_Insertar_Socio(
+	@id_cliente int,
+	@dni bigint,
+	@email varchar(100)
+)as	
+	insert into Socio VALUES(@dni,@email,GETDATE(),0)
+
+	declare @cod_socio int
+
+	set @cod_socio = SCOPE_IDENTITY()
+
+	update Cliente
+	set id_socio = @cod_socio
+	where id_cliente = @id_cliente
+
+
+go
+	
+
+
+
+
+
+
+execute  SP_Insertar_Cliente 2,'Fede','Tahan','asdasd',3575417784
+
+select * from Socio
+
+
+
+SELECT GETDATE()
+
+
+
+select * from cliente
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

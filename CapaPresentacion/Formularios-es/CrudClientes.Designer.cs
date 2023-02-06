@@ -38,9 +38,9 @@
             this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbProd = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.BtnBorrar = new System.Windows.Forms.Button();
             this.pnlCrud = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.CboTipoCliente = new System.Windows.Forms.ComboBox();
@@ -57,27 +57,31 @@
             this.picLimpar = new System.Windows.Forms.PictureBox();
             this.picbajar = new System.Windows.Forms.PictureBox();
             this.rbtTodos = new System.Windows.Forms.RadioButton();
-            this.RbtEliminados = new System.Windows.Forms.RadioButton();
-            this.RbtActivos = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.RbtNoSocios = new System.Windows.Forms.RadioButton();
+            this.RbtSocios = new System.Windows.Forms.RadioButton();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.txbBusqueda = new System.Windows.Forms.TextBox();
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.RbtDni = new System.Windows.Forms.RadioButton();
+            this.RbtNombre = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlCrud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLimpar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbajar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvCliente
             // 
             this.dgvCliente.AllowUserToAddRows = false;
             this.dgvCliente.AllowUserToDeleteRows = false;
+            this.dgvCliente.AllowUserToResizeColumns = false;
+            this.dgvCliente.AllowUserToResizeRows = false;
             this.dgvCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.dgvCliente.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -109,18 +113,22 @@
             // 
             // CodigoSocio
             // 
-            this.CodigoSocio.HeaderText = "Codigo Socio";
+            this.CodigoSocio.Frozen = true;
+            this.CodigoSocio.HeaderText = "Codigo Cliente";
             this.CodigoSocio.Name = "CodigoSocio";
             this.CodigoSocio.ReadOnly = true;
             // 
             // dni
             // 
+            this.dni.Frozen = true;
             this.dni.HeaderText = "DNI";
             this.dni.Name = "dni";
             this.dni.ReadOnly = true;
+            this.dni.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // NombreCompleto
             // 
+            this.NombreCompleto.Frozen = true;
             this.NombreCompleto.HeaderText = "Nombre Completo";
             this.NombreCompleto.Name = "NombreCompleto";
             this.NombreCompleto.ReadOnly = true;
@@ -128,9 +136,11 @@
             // 
             // Fecha
             // 
+            this.Fecha.Frozen = true;
             this.Fecha.HeaderText = "Fecha Adhesion";
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
+            this.Fecha.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.Fecha.Width = 140;
             // 
             // Email
@@ -142,7 +152,7 @@
             // 
             // Activo
             // 
-            this.Activo.HeaderText = "Activo";
+            this.Activo.HeaderText = "Socio";
             this.Activo.Name = "Activo";
             this.Activo.ReadOnly = true;
             this.Activo.Width = 82;
@@ -163,6 +173,16 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(259, 56);
             this.pnlHeader.TabIndex = 26;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Usuarios;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(51, 51);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
             // 
             // lbProd
             // 
@@ -186,32 +206,13 @@
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(82, 574);
+            this.btnNuevo.Location = new System.Drawing.Point(141, 574);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(139, 42);
             this.btnNuevo.TabIndex = 27;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // BtnBorrar
-            // 
-            this.BtnBorrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.BtnBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBorrar.Enabled = false;
-            this.BtnBorrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnBorrar.FlatAppearance.BorderSize = 0;
-            this.BtnBorrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.BtnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBorrar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnBorrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBorrar.Location = new System.Drawing.Point(636, 574);
-            this.BtnBorrar.Name = "BtnBorrar";
-            this.BtnBorrar.Size = new System.Drawing.Size(139, 42);
-            this.BtnBorrar.TabIndex = 28;
-            this.BtnBorrar.Text = "Borrar";
-            this.BtnBorrar.UseVisualStyleBackColor = false;
             // 
             // pnlCrud
             // 
@@ -230,9 +231,9 @@
             this.pnlCrud.Controls.Add(this.TxbDni);
             this.pnlCrud.Controls.Add(this.picLimpar);
             this.pnlCrud.Controls.Add(this.picbajar);
-            this.pnlCrud.Location = new System.Drawing.Point(79, 124);
+            this.pnlCrud.Location = new System.Drawing.Point(79, 147);
             this.pnlCrud.Name = "pnlCrud";
-            this.pnlCrud.Size = new System.Drawing.Size(870, 412);
+            this.pnlCrud.Size = new System.Drawing.Size(870, 389);
             this.pnlCrud.TabIndex = 29;
             this.pnlCrud.Visible = false;
             this.pnlCrud.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCrud_Paint);
@@ -244,9 +245,9 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Location = new System.Drawing.Point(32, 164);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 19);
+            this.label5.Size = new System.Drawing.Size(124, 19);
             this.label5.TabIndex = 43;
-            this.label5.Text = "Tipo de Clientes";
+            this.label5.Text = "Tipo de Cliente";
             // 
             // CboTipoCliente
             // 
@@ -374,72 +375,65 @@
             // rbtTodos
             // 
             this.rbtTodos.AutoSize = true;
+            this.rbtTodos.Checked = true;
             this.rbtTodos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbtTodos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rbtTodos.Location = new System.Drawing.Point(876, 152);
+            this.rbtTodos.Location = new System.Drawing.Point(685, 152);
             this.rbtTodos.Name = "rbtTodos";
             this.rbtTodos.Size = new System.Drawing.Size(73, 25);
             this.rbtTodos.TabIndex = 36;
+            this.rbtTodos.TabStop = true;
             this.rbtTodos.Text = "Todos";
             this.rbtTodos.UseVisualStyleBackColor = true;
+            this.rbtTodos.CheckedChanged += new System.EventHandler(this.rbtTodos_CheckedChanged);
             // 
-            // RbtEliminados
+            // RbtNoSocios
             // 
-            this.RbtEliminados.AutoSize = true;
-            this.RbtEliminados.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RbtEliminados.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtEliminados.Location = new System.Drawing.Point(761, 152);
-            this.RbtEliminados.Name = "RbtEliminados";
-            this.RbtEliminados.Size = new System.Drawing.Size(109, 25);
-            this.RbtEliminados.TabIndex = 35;
-            this.RbtEliminados.Text = "Eliminados";
-            this.RbtEliminados.UseVisualStyleBackColor = true;
+            this.RbtNoSocios.AutoSize = true;
+            this.RbtNoSocios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RbtNoSocios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RbtNoSocios.Location = new System.Drawing.Point(845, 153);
+            this.RbtNoSocios.Name = "RbtNoSocios";
+            this.RbtNoSocios.Size = new System.Drawing.Size(101, 25);
+            this.RbtNoSocios.TabIndex = 35;
+            this.RbtNoSocios.Text = "No Socios";
+            this.RbtNoSocios.UseVisualStyleBackColor = true;
+            this.RbtNoSocios.CheckedChanged += new System.EventHandler(this.RbtNoSocios_CheckedChanged);
             // 
-            // RbtActivos
+            // RbtSocios
             // 
-            this.RbtActivos.AutoSize = true;
-            this.RbtActivos.Checked = true;
-            this.RbtActivos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RbtActivos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtActivos.Location = new System.Drawing.Point(668, 152);
-            this.RbtActivos.Name = "RbtActivos";
-            this.RbtActivos.Size = new System.Drawing.Size(87, 25);
-            this.RbtActivos.TabIndex = 34;
-            this.RbtActivos.TabStop = true;
-            this.RbtActivos.Text = "Activos";
-            this.RbtActivos.UseVisualStyleBackColor = true;
+            this.RbtSocios.AutoSize = true;
+            this.RbtSocios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RbtSocios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RbtSocios.Location = new System.Drawing.Point(764, 152);
+            this.RbtSocios.Name = "RbtSocios";
+            this.RbtSocios.Size = new System.Drawing.Size(75, 25);
+            this.RbtSocios.TabIndex = 34;
+            this.RbtSocios.Text = "Socios";
+            this.RbtSocios.UseVisualStyleBackColor = true;
+            this.RbtSocios.CheckedChanged += new System.EventHandler(this.RbtSocios_CheckedChanged);
             // 
-            // button2
+            // BtnBuscar
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(291, 154);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(71, 23);
-            this.button2.TabIndex = 39;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.BtnBuscar.BackColor = System.Drawing.Color.White;
+            this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Location = new System.Drawing.Point(412, 151);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(71, 23);
+            this.BtnBuscar.TabIndex = 39;
+            this.BtnBuscar.Text = "Buscar";
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
-            // label3
+            // txbBusqueda
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(84, 124);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 19);
-            this.label3.TabIndex = 38;
-            this.label3.Text = "DNI";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(84, 155);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(174, 23);
-            this.textBox4.TabIndex = 37;
+            this.txbBusqueda.Location = new System.Drawing.Point(264, 152);
+            this.txbBusqueda.Name = "txbBusqueda";
+            this.txbBusqueda.Size = new System.Drawing.Size(142, 23);
+            this.txbBusqueda.TabIndex = 37;
             // 
             // BtnEditar
             // 
@@ -453,7 +447,7 @@
             this.BtnEditar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnEditar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEditar.Location = new System.Drawing.Point(274, 574);
+            this.BtnEditar.Location = new System.Drawing.Point(339, 574);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(139, 42);
             this.BtnEditar.TabIndex = 40;
@@ -473,7 +467,7 @@
             this.BtnCancelar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelar.Location = new System.Drawing.Point(458, 574);
+            this.BtnCancelar.Location = new System.Drawing.Point(544, 574);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(139, 42);
             this.BtnCancelar.TabIndex = 41;
@@ -493,22 +487,47 @@
             this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnGuardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGuardar.Location = new System.Drawing.Point(810, 574);
+            this.BtnGuardar.Location = new System.Drawing.Point(742, 574);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(139, 42);
             this.BtnGuardar.TabIndex = 42;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // panel1
             // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Usuarios;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(51, 51);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
+            this.panel1.Controls.Add(this.RbtNombre);
+            this.panel1.Controls.Add(this.RbtDni);
+            this.panel1.Location = new System.Drawing.Point(79, 147);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(179, 31);
+            this.panel1.TabIndex = 43;
+            // 
+            // RbtDni
+            // 
+            this.RbtDni.AutoSize = true;
+            this.RbtDni.Checked = true;
+            this.RbtDni.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RbtDni.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RbtDni.Location = new System.Drawing.Point(8, 3);
+            this.RbtDni.Name = "RbtDni";
+            this.RbtDni.Size = new System.Drawing.Size(57, 25);
+            this.RbtDni.TabIndex = 38;
+            this.RbtDni.TabStop = true;
+            this.RbtDni.Text = "DNI";
+            this.RbtDni.UseVisualStyleBackColor = true;
+            // 
+            // RbtNombre
+            // 
+            this.RbtNombre.AutoSize = true;
+            this.RbtNombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RbtNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RbtNombre.Location = new System.Drawing.Point(87, 3);
+            this.RbtNombre.Name = "RbtNombre";
+            this.RbtNombre.Size = new System.Drawing.Size(91, 25);
+            this.RbtNombre.TabIndex = 37;
+            this.RbtNombre.Text = "Nombre";
+            this.RbtNombre.UseVisualStyleBackColor = true;
             // 
             // CrudClientes
             // 
@@ -520,29 +539,30 @@
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.pnlCrud);
-            this.Controls.Add(this.BtnBorrar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.rbtTodos);
-            this.Controls.Add(this.RbtEliminados);
-            this.Controls.Add(this.RbtActivos);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.RbtNoSocios);
+            this.Controls.Add(this.RbtSocios);
+            this.Controls.Add(this.BtnBuscar);
+            this.Controls.Add(this.txbBusqueda);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrudClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CrudClubSocial";
+            this.Text = "w";
             this.Load += new System.EventHandler(this.CrudClubSocial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlCrud.ResumeLayout(false);
             this.pnlCrud.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLimpar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbajar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -551,17 +571,9 @@
         #endregion
 
         private DataGridView dgvCliente;
-        private DataGridViewTextBoxColumn CodigoSocio;
-        private DataGridViewTextBoxColumn dni;
-        private DataGridViewTextBoxColumn NombreCompleto;
-        private DataGridViewTextBoxColumn Fecha;
-        private DataGridViewTextBoxColumn Email;
-        private DataGridViewTextBoxColumn Activo;
-        private DataGridViewButtonColumn Acciones;
         private Panel pnlHeader;
         private Label lbProd;
         private Button btnNuevo;
-        private Button BtnBorrar;
         private Panel pnlCrud;
         private PictureBox picLimpar;
         private PictureBox picbajar;
@@ -576,16 +588,25 @@
         private Label lbNombre;
         private TextBox txbNombre;
         private RadioButton rbtTodos;
-        private RadioButton RbtEliminados;
-        private RadioButton RbtActivos;
-        private Button button2;
-        private Label label3;
-        private TextBox textBox4;
+        private RadioButton RbtNoSocios;
+        private RadioButton RbtSocios;
+        private Button BtnBuscar;
+        private TextBox txbBusqueda;
         private Button BtnEditar;
         private Button BtnCancelar;
         private Button BtnGuardar;
         private Label label5;
         private ComboBox CboTipoCliente;
         private PictureBox pictureBox1;
+        private DataGridViewTextBoxColumn CodigoSocio;
+        private DataGridViewTextBoxColumn dni;
+        private DataGridViewTextBoxColumn NombreCompleto;
+        private DataGridViewTextBoxColumn Fecha;
+        private DataGridViewTextBoxColumn Email;
+        private DataGridViewTextBoxColumn Activo;
+        private DataGridViewButtonColumn Acciones;
+        private Panel panel1;
+        private RadioButton RbtDni;
+        private RadioButton RbtNombre;
     }
 }

@@ -145,7 +145,7 @@ namespace CapaPresentacion.Formularios_es
 
                     foreach (DataGridViewRow row in dgvBitacora.Rows)
                     {
-                        if (row.Cells["Nombre"].Value != txbbusqueda.Text)
+                        if (Convert.ToString(row.Cells["Nombre"].Value) != txbbusqueda.Text)
                         {
                             temp.Add(row);
                         }

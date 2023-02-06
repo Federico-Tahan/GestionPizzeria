@@ -222,7 +222,6 @@ namespace CapaPresentacion.Formularios
             }
         }
 
-
         private void cargar_cboRoles(ComboBox cbo, string display, string value)
         {
             cbo.DataSource = lcbo.ObtenerRoles();
@@ -421,6 +420,9 @@ namespace CapaPresentacion.Formularios
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+            lUsuaris.Clear();
+            lUsuaris = lg.ObtenerUsuarios(dgvselectedcondicion);
+            Cargar_Dgv(lUsuaris);
             if (RbtCodigo.Checked)
             {
                 try
@@ -489,7 +491,7 @@ namespace CapaPresentacion.Formularios
 
                     foreach (DataGridViewRow row in dgvUsuarios.Rows)
                     {
-                        if (row.Cells["nombre"].Value != txbbusqueda.Text)
+                        if (Convert.ToString(row.Cells["nombre"].Value) != txbbusqueda.Text)
                         {
                             temp.Add(row);
                         }
@@ -513,7 +515,7 @@ namespace CapaPresentacion.Formularios
 
                     foreach (DataGridViewRow row in dgvUsuarios.Rows)
                     {
-                        if (row.Cells["Alias"].Value != txbbusqueda.Text)
+                        if (Convert.ToString(row.Cells["Alias"].Value) != txbbusqueda.Text)
                         {
                             temp.Add(row);
                         }
@@ -543,6 +545,11 @@ namespace CapaPresentacion.Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void pnlCrud_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
