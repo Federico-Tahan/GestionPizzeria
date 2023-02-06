@@ -198,6 +198,16 @@ create or alter procedure SP_Verificar_Login(
 	select id_usuario
 	from Usuarios
 	where @alias = alias and contraseña = @contraseña
+go
+
+create or alter procedure SP_DatosUserLogin(
+	@alias varchar(150),
+	@contraseña varchar(32)
+)as
+	select id_usuario, nombre,apellido,dni,direccion,fecha_nac,telefono,e.baja_logica,u.baja_logica
+	from Usuarios u
+	join Empleado e on e.id_empleado = u.id_empleado
+	where @alias = alias and contraseña = @contraseña
 
 
 go
@@ -253,6 +263,7 @@ create or alter procedure SP_ModificarSocio(
 	set direccion = @direccion,
 		telefono= @telefono,
 		id_tipo_cliente = @id_tipo_cliente
+	where id_cliente = @id_cliente
 
 	update socio
 	set email = @email
@@ -294,7 +305,8 @@ create or alter procedure SP_Insertar_Socio(
 	set @cod_socio = SCOPE_IDENTITY()
 
 	update Cliente
-	set id_socio = @cod_socio
+	set id_socio = @cod_socio,
+		id_tipo_cliente = 1
 	where id_cliente = @id_cliente
 
 
@@ -324,21 +336,41 @@ as
 
 go
 
+create or alter procedure SP_BuscarUsuarioDNI(
+	 @DNI bigint
+)as
+	select id_empleado
+	from Empleado 
+	where DNI = @DNI
 
+go
 
+create or alter procedure SP_BuscarUsuarioAlias(
+	 @Alias varchar(50)
+)as
+	select id_usuario
+	from Usuarios 
+	where alias = @Alias
 
+go
+create or alter procedure SP_BuscarUsuarioID(
+	 @id int,
+	 @alias varchar(50)
+)as
+	select id_usuario
+	from Usuarios 
+	where id_usuario = @id and alias = @alias
 
-
-
-
-
+go
 
 
 execute  SP_Insertar_Cliente 2,'Fede','Tahan','asdasd',3575417784
 
-select * from Socio
+select * from Empleado
+select * from Usuarios
 
-
+delete Empleado
+where id_empleado != 11
 
 SELECT GETDATE()
 

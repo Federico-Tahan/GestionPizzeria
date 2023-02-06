@@ -23,6 +23,21 @@ namespace CapaNegocio.Implementacion
             return lg.AltaUsuario(u);
         }
 
+        public bool BuscarAliasUsuario(string alias)
+        {
+            return lg.BuscarAliasUsuario(alias);
+        }
+
+        public bool BuscarDniUsuario(long dni)
+        {
+            return lg.BuscarDniUsuario(dni);
+        }
+
+        public bool buscarId(int id, string alias)
+        {
+            return lg.buscarId(id,alias);
+        }
+
         public bool BuscarUsuario(int id)
         {
             return lg.BuscarUsuario(id);

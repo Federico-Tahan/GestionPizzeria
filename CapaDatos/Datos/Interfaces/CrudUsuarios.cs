@@ -13,5 +13,11 @@ namespace CapaDatos.Datos.Interfaces
         bool ModificarUsuario(Usuarios u);
         List<Usuarios> ObtenerUsuarios(int a);
         bool BuscarUsuario(int id);
+
+        bool BuscarDniUsuario(long dni);
+        bool BuscarAliasUsuario(string alias);
+        bool buscarId(int id, string alias);
+
+
     }
 }

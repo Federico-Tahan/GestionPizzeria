@@ -37,6 +37,40 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
+        public bool BuscarDniUsuario(long dni)
+        {
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@DNI", dni);
+            HelperDB.ObtenerInstancia().LeerDB("SP_BuscarUsuarioDNI");
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+
+            if (HelperDB.ObtenerInstancia().Dr.Read())
+            {
+                HelperDB.ObtenerInstancia().close();
+                return true;
+
+            }
+            HelperDB.ObtenerInstancia().close();
+            return false;
+        }
+
+        public bool BuscarAliasUsuario(string alias)
+        {
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@Alias", alias);
+            HelperDB.ObtenerInstancia().LeerDB("SP_BuscarUsuarioAlias");
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+
+            if (HelperDB.ObtenerInstancia().Dr.Read())
+            {
+                HelperDB.ObtenerInstancia().close();
+                return true;
+
+            }
+            HelperDB.ObtenerInstancia().close();
+            return false;
+        }
+
         public bool BuscarUsuario(int id)
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -157,6 +191,24 @@ namespace CapaDatos.Datos.Implementacion
             }
             HelperDB.ObtenerInstancia().close();
             return lUsuarios;
+        }
+
+        public bool buscarId(int id, string alias)
+        {
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id", id);
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@alias", alias);
+            HelperDB.ObtenerInstancia().LeerDB("SP_BuscarUsuarioID");
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+
+            if (HelperDB.ObtenerInstancia().Dr.Read())
+            {
+                HelperDB.ObtenerInstancia().close();
+                return true;
+
+            }
+            HelperDB.ObtenerInstancia().close();
+            return false;
         }
     }
 }

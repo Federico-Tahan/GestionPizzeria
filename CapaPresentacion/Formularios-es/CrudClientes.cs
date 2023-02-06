@@ -11,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -365,7 +366,7 @@ namespace CapaPresentacion.Formularios
 
             if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 1)
             {
-                if (TxbEmail.Text == "")
+                if (TxbEmail.Text == "" || EsEmail(TxbEmail.Text) is false)
                 {
                     MessageBox.Show("Se debe cargar el email del cliente");
 
@@ -480,16 +481,11 @@ namespace CapaPresentacion.Formularios
                         Limpiar();
                         btnNuevo.Enabled = true;
                         pnlCrud.Visible = false;
-
+                        rbtTodos.Checked = true;
                     }
-
-
-
-
                 }
                 else if (lg.BuscarCliente(cliente))
                 {
-
                     if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 1)
                     {
                         if (lg.AltaSocio(cli))
@@ -502,8 +498,6 @@ namespace CapaPresentacion.Formularios
                         if (lg.ModificacionCliente(cli)) 
                         {
                             MessageBox.Show("Cliente Modificado con Exito.");
-
-
                         }
                     }
                     lClientes = lg.TraerClientes();
@@ -512,6 +506,7 @@ namespace CapaPresentacion.Formularios
                     Limpiar();
                     btnNuevo.Enabled = true;
                     pnlCrud.Visible = false;
+                    rbtTodos.Checked = true;
                 }
                 else
                 {
@@ -520,7 +515,6 @@ namespace CapaPresentacion.Formularios
                         if (lg.AltaClienteSocio(cli))
                         {
                             MessageBox.Show("Socio dado de alta con Exito.");
-
                         }
                     }
                     else if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 2)
@@ -528,7 +522,6 @@ namespace CapaPresentacion.Formularios
                         if (lg.AltaClienteNosocio(cli))
                         {
                             MessageBox.Show("Cliente dado de alta con Exito.");
-
                         }
                     }
                     lClientes = lg.TraerClientes();
@@ -537,8 +530,10 @@ namespace CapaPresentacion.Formularios
                     Limpiar();
                     btnNuevo.Enabled = true;
                     pnlCrud.Visible = false;
-                    cliente = new Cliente();
                 }
+                cliente = new Cliente();
+                s = new Socio();
+                cliente.socio = s;
             }
         }
 
@@ -577,6 +572,28 @@ namespace CapaPresentacion.Formularios
             cbo.ValueMember = value;
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbo.SelectedIndex = -1;
+        }
+
+
+        public bool EsEmail(string comprobarEmail)
+        {
+            string emailFormato;
+            emailFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(comprobarEmail, emailFormato))
+            {
+                if (Regex.Replace(comprobarEmail, emailFormato, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -18,6 +18,8 @@ namespace CapaPresentacion
     public partial class LogIn : Form
     {
         private ing_Logeo lg = new ng_Logeo();
+        public static Usuarios u = new Usuarios();
+
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -54,10 +56,11 @@ namespace CapaPresentacion
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            Usuarios u = new Usuarios();
             if (validacion())
             {
                 AbstraerUsuario(u);
+                u = lg.GetUsuario(u);
+
                 if (lg.Logeado(u))
                 {
                     Main form = new Main();

@@ -71,6 +71,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.RbtNombre = new System.Windows.Forms.RadioButton();
             this.RbtDni = new System.Windows.Forms.RadioButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picLimpiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbajar)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvCliente
@@ -223,6 +225,7 @@
             // pnlCrud
             // 
             this.pnlCrud.BackColor = System.Drawing.Color.OliveDrab;
+            this.pnlCrud.Controls.Add(this.pictureBox2);
             this.pnlCrud.Controls.Add(this.texboxnumero);
             this.pnlCrud.Controls.Add(this.TxbTelefono);
             this.pnlCrud.Controls.Add(this.TxbDireccion);
@@ -584,6 +587,16 @@
             this.RbtDni.Text = "DNI";
             this.RbtDni.UseVisualStyleBackColor = true;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.pizza_truck;
+            this.pictureBox2.Location = new System.Drawing.Point(455, 93);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(415, 296);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 48;
+            this.pictureBox2.TabStop = false;
+            // 
             // CrudClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -618,6 +631,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picbajar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -667,5 +681,6 @@
         private DataGridViewTextBoxColumn Activo;
         private DataGridViewButtonColumn Acciones;
         private TextBox texboxnumero;
+        private PictureBox pictureBox2;
     }
 }

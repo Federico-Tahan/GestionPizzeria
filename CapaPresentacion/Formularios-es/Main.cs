@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using CapaDatos.Dominio;
 
 namespace CapaPresentacion.Formularios
 {
@@ -179,6 +180,7 @@ namespace CapaPresentacion.Formularios
             {
                 this.Close();
                 Program.log.Show();
+                LogIn.u = new Usuarios();
             }
 
         }

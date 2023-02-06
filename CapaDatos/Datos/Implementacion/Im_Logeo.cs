@@ -10,14 +10,16 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_Logeo : Logeo
     {
+        Encriptacion e = new Encriptacion();
 
         public Usuarios GetUsuario(Usuarios u)
         {
             try
             {
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
-                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@usuario", u.Alias);
-                HelperDB.ObtenerInstancia().LeerDB("");
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@alias", u.Alias);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@contraseña", e.Encriptar(u.Contraseña));
+                HelperDB.ObtenerInstancia().LeerDB("SP_DatosUserLogin");
                 HelperDB.ObtenerInstancia().Dr.Read();
                 Empleado em = new Empleado();
 
@@ -70,7 +72,6 @@ namespace CapaDatos.Datos.Implementacion
 
         public bool Logeado(Usuarios u)
         {
-            Encriptacion e = new Encriptacion();
 
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
             HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@alias", u.Alias);

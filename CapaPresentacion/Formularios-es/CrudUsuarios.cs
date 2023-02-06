@@ -14,6 +14,7 @@ using CapaDatos.Dominio;
 using System.Reflection.Metadata;
 using CapaCapaNegocio.Interfaces;
 using System.Collections;
+using Microsoft.Identity.Client;
 
 namespace CapaPresentacion.Formularios
 {
@@ -236,45 +237,106 @@ namespace CapaPresentacion.Formularios
             
             if (Validaciones())
             {
+                string aliasActual;
                 Usuarios us = new Usuarios();
                 Empleado emp = new Empleado();
+                aliasActual = user.Alias;
                 AbstraerUsuario(emp,us);
                 if (lg.BuscarUsuario(user.ID_Usuario))
                 {
                     us.ID_Usuario = user.ID_Usuario;
                     emp.Id_Empleado = Convert.ToInt32(txbIDEmpleado.Text);
                     us.Empleado = emp;
-                    if (lg.ModificarUsuario(us))
+                    if (us.ID_Usuario == LogIn.u.ID_Usuario && us.Baja_Logica == 1)
                     {
-                        
-                        MessageBox.Show("Usuario Modificado con Exito.");
+
+                        MessageBox.Show("Un usuario no puede darse de baja por si mismo del sistema.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     }
                     else
                     {
-                        MessageBox.Show("Problema al cargar datos, corrobore que los datos cargados sean correctos");
+                        if (aliasActual == us.Alias)
+                        {
+
+                            if (lg.ModificarUsuario(us))
+                            {
+
+                                MessageBox.Show("Usuario Modificado con Exito.");
+                                Cargar_Usuario(user.ID_Usuario);
+                                lUsuaris.Clear();
+                                lUsuaris = lg.ObtenerUsuarios(0);
+                                RbtActivos.Checked = true;
+                                Botones(false);
+                                btnNuevo.Enabled = true;
+                                Cargar_Dgv(lUsuaris);
+                                Limpiar();
+                                pnlCrud.Visible = false;
+                            }
+                        }
+                        else if (!lg.BuscarAliasUsuario(us.Alias))
+                        {
+
+                            if (lg.ModificarUsuario(us))
+                            {
+
+                                MessageBox.Show("Usuario Modificado con Exito.");
+                                Cargar_Usuario(user.ID_Usuario);
+                                lUsuaris.Clear();
+                                lUsuaris = lg.ObtenerUsuarios(0);
+                                RbtActivos.Checked = true;
+                                Botones(false);
+                                btnNuevo.Enabled = true;
+                                Cargar_Dgv(lUsuaris);
+                                Limpiar();
+                                pnlCrud.Visible = false;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("El Alias ingresado ya se encunetra registrado por otro Usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
                     }
                 }
                 else
                 {
-                    if ( lg.AltaUsuario(us))
+                    if (!lg.BuscarAliasUsuario(us.Alias))
                     {
-                        MessageBox.Show(us.Contraseña);
-                        MessageBox.Show("Usuario Agregado Correctamente");
+                        if (!lg.BuscarDniUsuario(us.Empleado.DNI))
+                        {
+                            if (lg.AltaUsuario(us))
+                            {
+                                MessageBox.Show("Usuario Agregado Correctamente");
+                                Cargar_Usuario(user.ID_Usuario);
+                                lUsuaris.Clear();
+                                lUsuaris = lg.ObtenerUsuarios(0);
+                                RbtActivos.Checked = true;
+                                Botones(false);
+                                btnNuevo.Enabled = true;
+                                Cargar_Dgv(lUsuaris);
+                                Limpiar();
+                                pnlCrud.Visible = false;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se ha podido agregar el usuario, Intentelo de nuevo más tarde","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("El Dni ingresado ya se encunetra registrado por otro Usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
                     }
                     else
                     {
-                        MessageBox.Show("Problema con el servidor, Intentelo de nuevo más tarde");
-
+                        MessageBox.Show("El Alias ingresado ya se encunetra registrado por otro Usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+
                 }
-                Cargar_Usuario(user.ID_Usuario);
-                lUsuaris.Clear();
-                lUsuaris = lg.ObtenerUsuarios(0);
-                RbtActivos.Checked = true;
-                Cargar_Dgv(lUsuaris);
-                Limpiar();
-                pnlCrud.Visible = false;
+               
             }
         }
 
