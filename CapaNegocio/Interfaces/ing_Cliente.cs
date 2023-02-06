@@ -10,10 +10,15 @@ namespace CapaNegocio.Interfaces
     public interface ing_Cliente
     {
         List<Cliente> TraerClientes();
-        List<Cliente> TraerClientesSocios();
-        List<Cliente> TraerClientesNoSocios();
+        bool AltaClienteSocio(Cliente c);
+        bool AltaClienteNosocio(Cliente c);
 
-        bool AltaCliente(Cliente c);
+        bool AltaSocio(Cliente c);
         bool ModificacionCliente(Cliente c);
+
+        bool BuscarClienteSocioDni(Cliente c);
+        bool BuscarCliente(Cliente c);
+
+
     }
 }

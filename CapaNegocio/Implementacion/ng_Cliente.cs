@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio.Implementacion
 {
+
     public class ng_Cliente : ing_Cliente
     {
         ICliente lg;
@@ -19,29 +20,40 @@ namespace CapaNegocio.Implementacion
             lg = new Im_Cliente();
         }
 
-        public bool AltaCliente(Cliente c)
+        public bool AltaClienteNosocio(Cliente c)
         {
-            throw new NotImplementedException();
+            return lg.AltaClienteNosocio(c);
+        }
+
+        public bool AltaClienteSocio(Cliente c)
+        {
+            return lg.AltaClienteSocio(c);
+        }
+
+        public bool AltaSocio(Cliente c)
+        {
+            return lg.AltaSocio(c);
+        }
+
+        public bool BuscarCliente(Cliente c)
+        {
+            return lg.BuscarCliente(c);
+        }
+
+        public bool BuscarClienteSocioDni(Cliente c)
+        {
+            return lg.BuscarClienteSocioDni(c);
         }
 
         public bool ModificacionCliente(Cliente c)
         {
-            throw new NotImplementedException();
+            return lg.ModificacionCliente(c);
         }
 
         public List<Cliente> TraerClientes()
         {
             return lg.TraerClientes();
-        }
 
-        public List<Cliente> TraerClientesNoSocios()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Cliente> TraerClientesSocios()
-        {
-            throw new NotImplementedException();
         }
     }
 }

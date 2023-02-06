@@ -42,5 +42,31 @@ namespace CapaDatos.Datos.Implementacion
 
             return td;
         }
+
+        public List<Tipo_Cliente> TraerTipoClientes()
+        {
+            List<Tipo_Cliente> td = new List<Tipo_Cliente>();
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().LeerDB("SP_Traer_TipoCliente");
+
+            while (HelperDB.ObtenerInstancia().Dr.Read())
+            {
+                Tipo_Cliente rl = new Tipo_Cliente();
+
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
+                {
+                    rl.Id_TipoCliente = HelperDB.ObtenerInstancia().Dr.GetInt32(0);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(1))
+                {
+                    rl.TipoCliente = HelperDB.ObtenerInstancia().Dr.GetString(1);
+                }
+
+                td.Add(rl);
+            }
+            HelperDB.ObtenerInstancia().close();
+
+            return td;
+        }
     }
 }

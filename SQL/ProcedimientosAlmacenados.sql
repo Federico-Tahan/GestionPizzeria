@@ -299,7 +299,35 @@ create or alter procedure SP_Insertar_Socio(
 
 
 go
-	
+
+create or alter procedure SP_BuscarSocioDni(
+	 @DNI bigint
+)as
+	select id_socio
+	from Socio
+	where DNI = @DNI
+
+go	
+
+create or alter procedure SP_BuscarCliente(
+	@id int
+)as
+	select id_cliente
+	from Cliente
+	where id_cliente = @id
+
+go
+
+create or alter procedure SP_Traer_TipoCliente
+as
+	select* from tipo_cliente
+
+go
+
+
+
+
+
 
 
 
@@ -316,7 +344,7 @@ SELECT GETDATE()
 
 
 
-select * from cliente
+select * from tipo_cliente
 
 
 

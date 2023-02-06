@@ -34,7 +34,7 @@
             this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
@@ -42,19 +42,23 @@
             this.lbProd = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.pnlCrud = new System.Windows.Forms.Panel();
+            this.texboxnumero = new System.Windows.Forms.TextBox();
+            this.TxbTelefono = new System.Windows.Forms.Label();
+            this.TxbDireccion = new System.Windows.Forms.Label();
+            this.TxbDirec = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.CboTipoCliente = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TxbCodCliente = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbEmail = new System.Windows.Forms.Label();
             this.TxbEmail = new System.Windows.Forms.TextBox();
             this.lbApellido = new System.Windows.Forms.Label();
             this.TxbApellido = new System.Windows.Forms.TextBox();
             this.lbNombre = new System.Windows.Forms.Label();
             this.txbNombre = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbdni = new System.Windows.Forms.Label();
             this.TxbDni = new System.Windows.Forms.TextBox();
-            this.picLimpar = new System.Windows.Forms.PictureBox();
+            this.picLimpiar = new System.Windows.Forms.PictureBox();
             this.picbajar = new System.Windows.Forms.PictureBox();
             this.rbtTodos = new System.Windows.Forms.RadioButton();
             this.RbtNoSocios = new System.Windows.Forms.RadioButton();
@@ -65,13 +69,13 @@
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.RbtDni = new System.Windows.Forms.RadioButton();
             this.RbtNombre = new System.Windows.Forms.RadioButton();
+            this.RbtDni = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlCrud.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLimpar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLimpiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbajar)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -98,7 +102,7 @@
             this.dni,
             this.NombreCompleto,
             this.Fecha,
-            this.Email,
+            this.Direccion,
             this.Activo,
             this.Acciones});
             this.dgvCliente.Location = new System.Drawing.Point(79, 184);
@@ -143,12 +147,12 @@
             this.Fecha.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.Fecha.Width = 140;
             // 
-            // Email
+            // Direccion
             // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 190;
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            this.Direccion.Width = 190;
             // 
             // Activo
             // 
@@ -162,6 +166,8 @@
             this.Acciones.HeaderText = "Acciones";
             this.Acciones.Name = "Acciones";
             this.Acciones.ReadOnly = true;
+            this.Acciones.Text = "Detalle";
+            this.Acciones.UseColumnTextForButtonValue = true;
             this.Acciones.Width = 85;
             // 
             // pnlHeader
@@ -171,12 +177,12 @@
             this.pnlHeader.Controls.Add(this.lbProd);
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(259, 56);
+            this.pnlHeader.Size = new System.Drawing.Size(206, 56);
             this.pnlHeader.TabIndex = 26;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Usuarios;
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.cliente64;
             this.pictureBox1.Location = new System.Drawing.Point(3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(51, 51);
@@ -189,7 +195,7 @@
             this.lbProd.AutoSize = true;
             this.lbProd.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbProd.Location = new System.Drawing.Point(84, 9);
+            this.lbProd.Location = new System.Drawing.Point(60, 9);
             this.lbProd.Name = "lbProd";
             this.lbProd.Size = new System.Drawing.Size(141, 38);
             this.lbProd.TabIndex = 21;
@@ -209,7 +215,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(141, 574);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(139, 42);
-            this.btnNuevo.TabIndex = 27;
+            this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -217,19 +223,23 @@
             // pnlCrud
             // 
             this.pnlCrud.BackColor = System.Drawing.Color.OliveDrab;
+            this.pnlCrud.Controls.Add(this.texboxnumero);
+            this.pnlCrud.Controls.Add(this.TxbTelefono);
+            this.pnlCrud.Controls.Add(this.TxbDireccion);
+            this.pnlCrud.Controls.Add(this.TxbDirec);
             this.pnlCrud.Controls.Add(this.label5);
             this.pnlCrud.Controls.Add(this.CboTipoCliente);
             this.pnlCrud.Controls.Add(this.label1);
             this.pnlCrud.Controls.Add(this.TxbCodCliente);
-            this.pnlCrud.Controls.Add(this.label2);
+            this.pnlCrud.Controls.Add(this.lbEmail);
             this.pnlCrud.Controls.Add(this.TxbEmail);
             this.pnlCrud.Controls.Add(this.lbApellido);
             this.pnlCrud.Controls.Add(this.TxbApellido);
             this.pnlCrud.Controls.Add(this.lbNombre);
             this.pnlCrud.Controls.Add(this.txbNombre);
-            this.pnlCrud.Controls.Add(this.label4);
+            this.pnlCrud.Controls.Add(this.lbdni);
             this.pnlCrud.Controls.Add(this.TxbDni);
-            this.pnlCrud.Controls.Add(this.picLimpar);
+            this.pnlCrud.Controls.Add(this.picLimpiar);
             this.pnlCrud.Controls.Add(this.picbajar);
             this.pnlCrud.Location = new System.Drawing.Point(79, 147);
             this.pnlCrud.Name = "pnlCrud";
@@ -238,68 +248,110 @@
             this.pnlCrud.Visible = false;
             this.pnlCrud.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCrud_Paint);
             // 
+            // texboxnumero
+            // 
+            this.texboxnumero.Location = new System.Drawing.Point(260, 148);
+            this.texboxnumero.Name = "texboxnumero";
+            this.texboxnumero.Size = new System.Drawing.Size(175, 23);
+            this.texboxnumero.TabIndex = 3;
+            // 
+            // TxbTelefono
+            // 
+            this.TxbTelefono.AutoSize = true;
+            this.TxbTelefono.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TxbTelefono.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TxbTelefono.Location = new System.Drawing.Point(261, 117);
+            this.TxbTelefono.Name = "TxbTelefono";
+            this.TxbTelefono.Size = new System.Drawing.Size(74, 19);
+            this.TxbTelefono.TabIndex = 47;
+            this.TxbTelefono.Text = "Telefono";
+            // 
+            // TxbDireccion
+            // 
+            this.TxbDireccion.AutoSize = true;
+            this.TxbDireccion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TxbDireccion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TxbDireccion.Location = new System.Drawing.Point(33, 117);
+            this.TxbDireccion.Name = "TxbDireccion";
+            this.TxbDireccion.Size = new System.Drawing.Size(83, 19);
+            this.TxbDireccion.TabIndex = 45;
+            this.TxbDireccion.Text = "Direccion";
+            // 
+            // TxbDirec
+            // 
+            this.TxbDirec.Location = new System.Drawing.Point(33, 148);
+            this.TxbDirec.Name = "TxbDirec";
+            this.TxbDirec.Size = new System.Drawing.Size(174, 23);
+            this.TxbDirec.TabIndex = 2;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(32, 164);
+            this.label5.Location = new System.Drawing.Point(33, 201);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(124, 19);
             this.label5.TabIndex = 43;
             this.label5.Text = "Tipo de Cliente";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // CboTipoCliente
             // 
             this.CboTipoCliente.FormattingEnabled = true;
-            this.CboTipoCliente.Location = new System.Drawing.Point(32, 195);
+            this.CboTipoCliente.Location = new System.Drawing.Point(32, 234);
             this.CboTipoCliente.Name = "CboTipoCliente";
             this.CboTipoCliente.Size = new System.Drawing.Size(174, 23);
-            this.CboTipoCliente.TabIndex = 42;
+            this.CboTipoCliente.TabIndex = 4;
+            this.CboTipoCliente.SelectedIndexChanged += new System.EventHandler(this.CboTipoCliente_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(522, 88);
+            this.label1.Location = new System.Drawing.Point(512, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 19);
             this.label1.TabIndex = 41;
             this.label1.Text = "Codigo Cliente";
+            this.label1.Visible = false;
             // 
             // TxbCodCliente
             // 
             this.TxbCodCliente.Enabled = false;
-            this.TxbCodCliente.Location = new System.Drawing.Point(522, 119);
+            this.TxbCodCliente.Location = new System.Drawing.Point(533, 64);
             this.TxbCodCliente.Name = "TxbCodCliente";
-            this.TxbCodCliente.Size = new System.Drawing.Size(174, 23);
+            this.TxbCodCliente.Size = new System.Drawing.Size(82, 23);
             this.TxbCodCliente.TabIndex = 40;
+            this.TxbCodCliente.Visible = false;
             // 
-            // label2
+            // lbEmail
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(260, 246);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 19);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Email";
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbEmail.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbEmail.Location = new System.Drawing.Point(260, 281);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(52, 19);
+            this.lbEmail.TabIndex = 39;
+            this.lbEmail.Text = "Email";
+            this.lbEmail.Visible = false;
             // 
             // TxbEmail
             // 
-            this.TxbEmail.Location = new System.Drawing.Point(260, 277);
+            this.TxbEmail.Location = new System.Drawing.Point(260, 312);
             this.TxbEmail.Name = "TxbEmail";
             this.TxbEmail.Size = new System.Drawing.Size(174, 23);
-            this.TxbEmail.TabIndex = 38;
+            this.TxbEmail.TabIndex = 6;
+            this.TxbEmail.Visible = false;
             // 
             // lbApellido
             // 
             this.lbApellido.AutoSize = true;
             this.lbApellido.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbApellido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbApellido.Location = new System.Drawing.Point(260, 88);
+            this.lbApellido.Location = new System.Drawing.Point(261, 33);
             this.lbApellido.Name = "lbApellido";
             this.lbApellido.Size = new System.Drawing.Size(75, 19);
             this.lbApellido.TabIndex = 37;
@@ -307,17 +359,17 @@
             // 
             // TxbApellido
             // 
-            this.TxbApellido.Location = new System.Drawing.Point(260, 119);
+            this.TxbApellido.Location = new System.Drawing.Point(261, 64);
             this.TxbApellido.Name = "TxbApellido";
             this.TxbApellido.Size = new System.Drawing.Size(174, 23);
-            this.TxbApellido.TabIndex = 36;
+            this.TxbApellido.TabIndex = 1;
             // 
             // lbNombre
             // 
             this.lbNombre.AutoSize = true;
             this.lbNombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbNombre.Location = new System.Drawing.Point(32, 88);
+            this.lbNombre.Location = new System.Drawing.Point(33, 33);
             this.lbNombre.Name = "lbNombre";
             this.lbNombre.Size = new System.Drawing.Size(73, 19);
             this.lbNombre.TabIndex = 35;
@@ -325,40 +377,42 @@
             // 
             // txbNombre
             // 
-            this.txbNombre.Location = new System.Drawing.Point(32, 119);
+            this.txbNombre.Location = new System.Drawing.Point(33, 64);
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(174, 23);
-            this.txbNombre.TabIndex = 34;
+            this.txbNombre.TabIndex = 0;
             // 
-            // label4
+            // lbdni
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(32, 246);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 19);
-            this.label4.TabIndex = 32;
-            this.label4.Text = "DNI";
+            this.lbdni.AutoSize = true;
+            this.lbdni.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbdni.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbdni.Location = new System.Drawing.Point(32, 281);
+            this.lbdni.Name = "lbdni";
+            this.lbdni.Size = new System.Drawing.Size(36, 19);
+            this.lbdni.TabIndex = 32;
+            this.lbdni.Text = "DNI";
+            this.lbdni.Visible = false;
             // 
             // TxbDni
             // 
-            this.TxbDni.Location = new System.Drawing.Point(32, 277);
+            this.TxbDni.Location = new System.Drawing.Point(32, 312);
             this.TxbDni.Name = "TxbDni";
             this.TxbDni.Size = new System.Drawing.Size(174, 23);
-            this.TxbDni.TabIndex = 31;
+            this.TxbDni.TabIndex = 5;
+            this.TxbDni.Visible = false;
             // 
-            // picLimpar
+            // picLimpiar
             // 
-            this.picLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picLimpar.Image = global::CapaPresentacion.Properties.Resources.limpieza_de_datos;
-            this.picLimpar.Location = new System.Drawing.Point(755, 3);
-            this.picLimpar.Name = "picLimpar";
-            this.picLimpar.Size = new System.Drawing.Size(47, 43);
-            this.picLimpar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLimpar.TabIndex = 20;
-            this.picLimpar.TabStop = false;
-            this.picLimpar.Click += new System.EventHandler(this.picLimpar_Click);
+            this.picLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picLimpiar.Image = global::CapaPresentacion.Properties.Resources.limpieza_de_datos;
+            this.picLimpiar.Location = new System.Drawing.Point(755, 3);
+            this.picLimpiar.Name = "picLimpiar";
+            this.picLimpiar.Size = new System.Drawing.Size(47, 43);
+            this.picLimpiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLimpiar.TabIndex = 20;
+            this.picLimpiar.TabStop = false;
+            this.picLimpiar.Click += new System.EventHandler(this.picLimpar_Click);
             // 
             // picbajar
             // 
@@ -450,7 +504,7 @@
             this.BtnEditar.Location = new System.Drawing.Point(339, 574);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(139, 42);
-            this.BtnEditar.TabIndex = 40;
+            this.BtnEditar.TabIndex = 1;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = false;
             this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
@@ -470,7 +524,7 @@
             this.BtnCancelar.Location = new System.Drawing.Point(544, 574);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(139, 42);
-            this.BtnCancelar.TabIndex = 41;
+            this.BtnCancelar.TabIndex = 2;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -490,9 +544,10 @@
             this.BtnGuardar.Location = new System.Drawing.Point(742, 574);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(139, 42);
-            this.BtnGuardar.TabIndex = 42;
+            this.BtnGuardar.TabIndex = 3;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = false;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // panel1
             // 
@@ -502,6 +557,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(179, 31);
             this.panel1.TabIndex = 43;
+            // 
+            // RbtNombre
+            // 
+            this.RbtNombre.AutoSize = true;
+            this.RbtNombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RbtNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RbtNombre.Location = new System.Drawing.Point(87, 3);
+            this.RbtNombre.Name = "RbtNombre";
+            this.RbtNombre.Size = new System.Drawing.Size(91, 25);
+            this.RbtNombre.TabIndex = 37;
+            this.RbtNombre.Text = "Nombre";
+            this.RbtNombre.UseVisualStyleBackColor = true;
             // 
             // RbtDni
             // 
@@ -516,18 +583,6 @@
             this.RbtDni.TabStop = true;
             this.RbtDni.Text = "DNI";
             this.RbtDni.UseVisualStyleBackColor = true;
-            // 
-            // RbtNombre
-            // 
-            this.RbtNombre.AutoSize = true;
-            this.RbtNombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RbtNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtNombre.Location = new System.Drawing.Point(87, 3);
-            this.RbtNombre.Name = "RbtNombre";
-            this.RbtNombre.Size = new System.Drawing.Size(91, 25);
-            this.RbtNombre.TabIndex = 37;
-            this.RbtNombre.Text = "Nombre";
-            this.RbtNombre.UseVisualStyleBackColor = true;
             // 
             // CrudClientes
             // 
@@ -559,7 +614,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlCrud.ResumeLayout(false);
             this.pnlCrud.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLimpar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLimpiar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbajar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -575,13 +630,13 @@
         private Label lbProd;
         private Button btnNuevo;
         private Panel pnlCrud;
-        private PictureBox picLimpar;
+        private PictureBox picLimpiar;
         private PictureBox picbajar;
-        private Label label4;
+        private Label lbdni;
         private TextBox TxbDni;
         private Label label1;
         private TextBox TxbCodCliente;
-        private Label label2;
+        private Label lbEmail;
         private TextBox TxbEmail;
         private Label lbApellido;
         private TextBox TxbApellido;
@@ -598,15 +653,19 @@
         private Label label5;
         private ComboBox CboTipoCliente;
         private PictureBox pictureBox1;
+        private Panel panel1;
+        private RadioButton RbtDni;
+        private RadioButton RbtNombre;
+        private Label TxbTelefono;
+        private Label TxbDireccion;
+        private TextBox TxbDirec;
         private DataGridViewTextBoxColumn CodigoSocio;
         private DataGridViewTextBoxColumn dni;
         private DataGridViewTextBoxColumn NombreCompleto;
         private DataGridViewTextBoxColumn Fecha;
-        private DataGridViewTextBoxColumn Email;
+        private DataGridViewTextBoxColumn Direccion;
         private DataGridViewTextBoxColumn Activo;
         private DataGridViewButtonColumn Acciones;
-        private Panel panel1;
-        private RadioButton RbtDni;
-        private RadioButton RbtNombre;
+        private TextBox texboxnumero;
     }
 }

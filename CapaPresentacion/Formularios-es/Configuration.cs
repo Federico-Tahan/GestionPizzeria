@@ -21,6 +21,8 @@ namespace CapaPresentacion.Formularios
         public Configuration()
         {
             InitializeComponent();
+            //this.toolTip1.SetToolTip(this.picpreguntaguardar, "Debe seleccionar en donde quiere guardar el Back-Up de la Base de Datos.");
+            //this.toolTip1.SetToolTip(this.picpreguntarestablecer, "Debe seleccionar el Back-Up de la base de datos para restablecerla.");
         }
 
         private void Configuracion_Load(object sender, EventArgs e)

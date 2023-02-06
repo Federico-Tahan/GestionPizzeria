@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaCapaNegocio.Interfaces;
+using CapaDatos.Datos;
 using CapaDatos.Datos.Implementacion;
 using CapaDatos.Datos.Interfaces;
 using CapaDatos.Dominio;
@@ -22,6 +23,11 @@ namespace CapaNegocio.Implementacion
         public List<Roles> ObtenerRoles()
         {
             return lg.ObtenerRoles();
+        }
+
+        public List<Tipo_Cliente> TipoClientes()
+        {
+            return lg.TraerTipoClientes();
         }
     }
 }

@@ -151,9 +151,9 @@
             this.pnlCrud.Controls.Add(this.txbNombre);
             this.pnlCrud.Controls.Add(this.picLimpiar);
             this.pnlCrud.Controls.Add(this.picBajar);
-            this.pnlCrud.Location = new System.Drawing.Point(39, 176);
+            this.pnlCrud.Location = new System.Drawing.Point(39, 107);
             this.pnlCrud.Name = "pnlCrud";
-            this.pnlCrud.Size = new System.Drawing.Size(935, 379);
+            this.pnlCrud.Size = new System.Drawing.Size(935, 448);
             this.pnlCrud.TabIndex = 25;
             this.pnlCrud.Visible = false;
             this.pnlCrud.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCrud_Paint);
@@ -303,6 +303,7 @@
             this.lbCOD.Size = new System.Drawing.Size(67, 19);
             this.lbCOD.TabIndex = 32;
             this.lbCOD.Text = "Código";
+            this.lbCOD.Visible = false;
             // 
             // txbCod
             // 
@@ -311,6 +312,7 @@
             this.txbCod.Name = "txbCod";
             this.txbCod.Size = new System.Drawing.Size(88, 23);
             this.txbCod.TabIndex = 31;
+            this.txbCod.Visible = false;
             // 
             // label4
             // 

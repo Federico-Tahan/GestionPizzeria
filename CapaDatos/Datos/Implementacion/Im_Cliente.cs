@@ -10,14 +10,118 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_Cliente : ICliente
     {
-        public bool AltaCliente(Cliente c)
+        public bool AltaClienteNosocio(Cliente c)
         {
-            throw new NotImplementedException();
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_tipo_cliente", 2);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", c.Nombre);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@apellido", c.Apellido);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@direccion", c.Direccion);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@telefono", c.Telefono);
+                HelperDB.ObtenerInstancia().updatear_db("SP_Insertar_Cliente");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool AltaClienteSocio(Cliente c)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_tipo_cliente", 1);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", c.Nombre );
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@apellido",c.Apellido );
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@direccion",c.Direccion );
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@telefono",c.Telefono );
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@DNI",c.socio.DNI );
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@email",c.socio.Email );
+                HelperDB.ObtenerInstancia().updatear_db("SP_Insertar_ClienteSocio");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool AltaSocio(Cliente c)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_cliente", c.IdCliente);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@dni", c.socio.DNI);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@email", c.socio.Email);
+                HelperDB.ObtenerInstancia().updatear_db("SP_Insertar_Socio");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool BuscarCliente(Cliente c)
+        {
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id", c.IdCliente);
+            HelperDB.ObtenerInstancia().LeerDB("SP_BuscarCliente");
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+
+            if (HelperDB.ObtenerInstancia().Dr.Read())
+            {
+                HelperDB.ObtenerInstancia().close();
+                return true;
+
+            }
+            HelperDB.ObtenerInstancia().close();
+            return false;
+        }
+
+        public bool BuscarClienteSocioDni(Cliente c)
+        {
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@DNI", c.socio.DNI);
+            HelperDB.ObtenerInstancia().LeerDB("SP_BuscarSocioDni");
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+
+            if (HelperDB.ObtenerInstancia().Dr.Read())
+            {
+                HelperDB.ObtenerInstancia().close();
+                return true;
+
+            }
+            HelperDB.ObtenerInstancia().close();
+            return false;
         }
 
         public bool ModificacionCliente(Cliente c)
         {
-            throw new NotImplementedException();
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_cliente", c.IdCliente);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_tipo_cliente", c.TipoCliente.Id_TipoCliente);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@direccion", c.Direccion);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@telefono", c.Telefono);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@email", c.socio.Email);
+                HelperDB.ObtenerInstancia().updatear_db("SP_ModificarSocio");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         public List<Cliente> TraerClientes()
@@ -55,8 +159,7 @@ namespace CapaDatos.Datos.Implementacion
                 {
                     c.Telefono = HelperDB.ObtenerInstancia().Dr.GetInt64(5);
                 }
-                if (HelperDB.ObtenerInstancia().Dr.GetInt32(10) == 1)
-                {
+
                     if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(6))
                     {
                         s.DNI = HelperDB.ObtenerInstancia().Dr.GetInt64(6);
@@ -75,7 +178,6 @@ namespace CapaDatos.Datos.Implementacion
                     }
 
 
-                }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(10))
                 {
                     tc.Id_TipoCliente= HelperDB.ObtenerInstancia().Dr.GetInt32(10);
@@ -88,14 +190,5 @@ namespace CapaDatos.Datos.Implementacion
             return lClientes;
         }
 
-        public List<Cliente> TraerClientesNoSocios()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Cliente> TraerClientesSocios()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

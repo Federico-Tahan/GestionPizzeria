@@ -10,5 +10,6 @@ namespace CapaDatos.Datos.Interfaces
     public interface ICbos
     {
         List<Roles> ObtenerRoles();
+        List<Tipo_Cliente> TraerTipoClientes();
     }
 }

@@ -11,10 +11,11 @@ namespace CapaDatos.Datos.Interfaces
     {
 
         List<Cliente> TraerClientes();
-        List<Cliente> TraerClientesSocios();
-        List<Cliente> TraerClientesNoSocios();
-
-        bool AltaCliente(Cliente c);
+        bool AltaClienteSocio(Cliente c);
+        bool AltaClienteNosocio(Cliente c);
         bool ModificacionCliente(Cliente c);
+        bool AltaSocio(Cliente c);
+        bool BuscarClienteSocioDni(Cliente c);
+        bool BuscarCliente(Cliente c);
     }
 }

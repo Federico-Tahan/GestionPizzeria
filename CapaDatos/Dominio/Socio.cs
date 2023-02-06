@@ -14,5 +14,14 @@ namespace CapaDatos.Dominio
         public DateTime FechaAdhesion { get; set; }
         public int Baja_logica { get; set; }
 
+        public Socio() 
+        { 
+            Id_Socio= 0;
+            DNI= 0;
+            Email= string.Empty;
+            FechaAdhesion= DateTime.MinValue;
+            Baja_logica= 2;
+        }
+
     }
 }

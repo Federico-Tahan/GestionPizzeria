@@ -400,7 +400,7 @@
             this.BtnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCliente.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnCliente.Image = global::CapaPresentacion.Properties.Resources.Client;
+            this.BtnCliente.Image = global::CapaPresentacion.Properties.Resources.cliente;
             this.BtnCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCliente.Location = new System.Drawing.Point(0, 117);
             this.BtnCliente.Name = "BtnCliente";
