@@ -15,5 +15,34 @@ namespace CapaDatos.Dominio
         public FormaCompra Forma_Compra { get; set; }
         public FormaEntrega FormaEntrega { get; set; }
         public Descuento descuento { get; set; }
+        public List<DetalleFactura> DetalleFacturas = new List<DetalleFactura>();
+
+        public bool buscar(int value)
+        {
+            for (int i = 0; i < DetalleFacturas.Count; i++)
+            {
+                if (value == DetalleFacturas[i].Prod.Id_producto)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void remover(DetalleFactura df)
+        {
+            DetalleFacturas.Remove(df);
+        }
+
+        public decimal Calcular_Subtotal()
+        {
+            decimal SubTotal = 0;
+            foreach (DetalleFactura item in DetalleFacturas)
+            {
+                SubTotal += item.Prod.Precio * item.Cantidad;
+            }
+
+            return Math.Round(SubTotal,2);
+        }
     }
 }

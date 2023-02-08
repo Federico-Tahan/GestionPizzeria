@@ -12,7 +12,7 @@ namespace CapaDatos.Dominio
         public int NroFactura { get; set; }
         public Producto Prod { get; set; }
         public int Cantidad { get; set; }
-        public decimal Importe { get; set; }
+        public decimal Precio { get; set; }
         public string Descripcion { get; set; }
         public int BajaLogica { get; set; }
     }

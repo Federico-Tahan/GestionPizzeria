@@ -456,8 +456,50 @@ create or alter procedure SP_ModificarProducto(
 go
 
 
+create or alter procedure SP_DetalleVenta(
+	@id_nrofactura int,
+	@id_producto int,
+	@cantidad int,
+	@importe money,
+	@descripcion varchar(400)
+)as
+	insert into detalle_factura values (@id_nrofactura,@id_producto,@cantidad,@importe,@descripcion,0)
+
+go
+create or alter procedure SP_AltaVenta(
+	@fecha datetime,
+	@id_cliente int,
+	@id_usuario int,
+	@id_forma_compra int,
+	@id_forma_entrega int,
+	@id_descuento int,
+	@IDFACTURA int Output
+)as
+	insert into Factura values(@fecha,@id_cliente,@id_usuario,@id_forma_compra,@id_forma_entrega,@id_descuento,0)
+	set @IDFACTURA = SCOPE_IDENTITY()
+
+go
 
 
 
-select * from Producto
-insert into Producto values('Pizza Mussarela',500,'Pizza con mussa',50,1,1,1,0)
+
+
+
+
+
+
+
+
+
+
+
+select * from Factura
+
+
+
+
+
+
+
+select * from detalle_factura
+
