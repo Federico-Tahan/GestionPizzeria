@@ -250,7 +250,7 @@
             this.BtnRestablecer.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnRestablecer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
             this.BtnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRestablecer.Location = new System.Drawing.Point(486, 597);
+            this.BtnRestablecer.Location = new System.Drawing.Point(495, 581);
             this.BtnRestablecer.Name = "BtnRestablecer";
             this.BtnRestablecer.Size = new System.Drawing.Size(89, 36);
             this.BtnRestablecer.TabIndex = 42;
@@ -265,7 +265,7 @@
             this.BtnConfirmar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
             this.BtnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnConfirmar.Location = new System.Drawing.Point(368, 597);
+            this.BtnConfirmar.Location = new System.Drawing.Point(377, 581);
             this.BtnConfirmar.Name = "BtnConfirmar";
             this.BtnConfirmar.Size = new System.Drawing.Size(90, 36);
             this.BtnConfirmar.TabIndex = 4;

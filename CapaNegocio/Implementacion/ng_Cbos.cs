@@ -20,9 +20,25 @@ namespace CapaNegocio.Implementacion
         {
             lg = new Im_Cbos();
         }
+
+        public List<Clasificacion> ObtenerClasificacion()
+        {
+            return lg.ObtenerClasificacion();
+        }
+
         public List<Roles> ObtenerRoles()
         {
             return lg.ObtenerRoles();
+        }
+
+        public List<TipoProducto> ObtenerTipoProducto()
+        {
+            return lg.ObtenerTipoProducto();
+        }
+
+        public List<UnidadMedida> ObtenerUnidadMedida()
+        {
+            return lg.ObtenerUnidadMedida();
         }
 
         public List<Tipo_Cliente> TipoClientes()

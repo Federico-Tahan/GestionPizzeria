@@ -46,7 +46,7 @@ namespace CapaPresentacion.Formularios
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            lbUsuario.Text = LogIn.u.Empleado.Nombre + " " + LogIn.u.Empleado.Apellido;
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -46,7 +46,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.picConfig = new System.Windows.Forms.PictureBox();
             this.lbCierre = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbUsuario = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnCliente = new System.Windows.Forms.Button();
             this.picMain = new System.Windows.Forms.PictureBox();
@@ -335,7 +335,7 @@
             // 
             this.panel1.Controls.Add(this.picConfig);
             this.panel1.Controls.Add(this.lbCierre);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lbUsuario);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 543);
@@ -368,16 +368,16 @@
             this.lbCierre.Text = "Cerrar Sesión";
             this.lbCierre.Click += new System.EventHandler(this.lbCierre_Click);
             // 
-            // label1
+            // lbUsuario
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(82, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 18);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "label1";
+            this.lbUsuario.AutoSize = true;
+            this.lbUsuario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbUsuario.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbUsuario.Location = new System.Drawing.Point(82, 12);
+            this.lbUsuario.Name = "lbUsuario";
+            this.lbUsuario.Size = new System.Drawing.Size(54, 18);
+            this.lbUsuario.TabIndex = 10;
+            this.lbUsuario.Text = "label1";
             // 
             // pictureBox1
             // 
@@ -639,7 +639,7 @@
         private Button BtnCliente;
         private Panel panel1;
         private Label lbCierre;
-        private Label label1;
+        private Label lbUsuario;
         private PictureBox pictureBox1;
         private Label lbfecha;
         private Label lbHora;

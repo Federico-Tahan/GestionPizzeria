@@ -151,9 +151,9 @@
             this.pnlCrud.Controls.Add(this.txbNombre);
             this.pnlCrud.Controls.Add(this.picLimpiar);
             this.pnlCrud.Controls.Add(this.picBajar);
-            this.pnlCrud.Location = new System.Drawing.Point(39, 107);
+            this.pnlCrud.Location = new System.Drawing.Point(39, 195);
             this.pnlCrud.Name = "pnlCrud";
-            this.pnlCrud.Size = new System.Drawing.Size(935, 448);
+            this.pnlCrud.Size = new System.Drawing.Size(935, 360);
             this.pnlCrud.TabIndex = 25;
             this.pnlCrud.Visible = false;
             this.pnlCrud.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCrud_Paint);

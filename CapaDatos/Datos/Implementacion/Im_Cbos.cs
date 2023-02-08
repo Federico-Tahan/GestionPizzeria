@@ -10,6 +10,31 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_Cbos : ICbos
     {
+        public List<Clasificacion> ObtenerClasificacion()
+        {
+            List<Clasificacion> td = new List<Clasificacion>();
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().LeerDB("SP_ObtenerClasificacion");
+
+            while (HelperDB.ObtenerInstancia().Dr.Read())
+            {
+                Clasificacion rl = new Clasificacion();
+
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
+                {
+                    rl.IdClasificacion = HelperDB.ObtenerInstancia().Dr.GetInt32(0);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(1))
+                {
+                    rl.clasificacion = HelperDB.ObtenerInstancia().Dr.GetString(1);
+                }
+                td.Add(rl);
+            }
+            HelperDB.ObtenerInstancia().close();
+
+            return td;
+        }
+
         public List<Roles> ObtenerRoles()
         {
             List<Roles> td = new List<Roles>();
@@ -35,6 +60,56 @@ namespace CapaDatos.Datos.Implementacion
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(3))
                 {
                     rl.BajaLogica = HelperDB.ObtenerInstancia().Dr.GetInt32(3);
+                }
+                td.Add(rl);
+            }
+            HelperDB.ObtenerInstancia().close();
+
+            return td;
+        }
+
+        public List<TipoProducto> ObtenerTipoProducto()
+        {
+            List<TipoProducto> td = new List<TipoProducto>();
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().LeerDB("SP_ObtenerTipoProducto");
+
+            while (HelperDB.ObtenerInstancia().Dr.Read())
+            {
+                TipoProducto rl = new TipoProducto();
+
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
+                {
+                    rl.IdTipoProducto = HelperDB.ObtenerInstancia().Dr.GetInt32(0);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(1))
+                {
+                    rl.Tipo_producto = HelperDB.ObtenerInstancia().Dr.GetString(1);
+                }
+                td.Add(rl);
+            }
+            HelperDB.ObtenerInstancia().close();
+
+            return td;
+        }
+
+        public List<UnidadMedida> ObtenerUnidadMedida()
+        {
+            List<UnidadMedida> td = new List<UnidadMedida>();
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().LeerDB("SP_ObtenerUnidadMedida");
+
+            while (HelperDB.ObtenerInstancia().Dr.Read())
+            {
+                UnidadMedida rl = new UnidadMedida();
+
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
+                {
+                    rl.IdUnidadMedida = HelperDB.ObtenerInstancia().Dr.GetInt32(0);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(1))
+                {
+                    rl.Unidad_Medida = HelperDB.ObtenerInstancia().Dr.GetString(1);
                 }
                 td.Add(rl);
             }

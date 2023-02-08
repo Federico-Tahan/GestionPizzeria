@@ -148,7 +148,7 @@
             this.pnlHeader.Controls.Add(this.lbProd);
             this.pnlHeader.Location = new System.Drawing.Point(0, 35);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(316, 56);
+            this.pnlHeader.Size = new System.Drawing.Size(296, 56);
             this.pnlHeader.TabIndex = 43;
             // 
             // lbProd
@@ -156,7 +156,7 @@
             this.lbProd.AutoSize = true;
             this.lbProd.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbProd.Location = new System.Drawing.Point(22, 8);
+            this.lbProd.Location = new System.Drawing.Point(10, 9);
             this.lbProd.Name = "lbProd";
             this.lbProd.Size = new System.Drawing.Size(273, 38);
             this.lbProd.TabIndex = 21;

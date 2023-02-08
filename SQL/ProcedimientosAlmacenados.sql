@@ -197,7 +197,7 @@ create or alter procedure SP_Verificar_Login(
 )as
 	select id_usuario
 	from Usuarios
-	where @alias = alias and contraseña = @contraseña
+	where (@alias = alias and contraseña = @contraseña) and baja_logica = 0
 go
 
 create or alter procedure SP_DatosUserLogin(
@@ -364,53 +364,100 @@ create or alter procedure SP_BuscarUsuarioID(
 go
 
 
-execute  SP_Insertar_Cliente 2,'Fede','Tahan','asdasd',3575417784
-
-select * from Empleado
-select * from Usuarios
-
-delete Empleado
-where id_empleado != 11
-
-SELECT GETDATE()
+create or alter procedure SP_ObtenerClasificacion
+as
+	select * from Clasificacion where baja_logica = 0
 
 
+go
+create or alter procedure SP_ObtenerTipoProducto
+as
+	select * from Tipo_producto where baja_logica = 0
 
-select * from tipo_cliente
+go
+create or alter procedure SP_ObtenerUnidadMedida
+as
+	select * from Unidad_Medida where baja_logica = 0
 
-
-
-
-
+go
 
 
 
+create or alter procedure SP_ObtenerProducto(
+	@codicion int
+)
+as
+	if (@codicion = 2)
+	begin
+		select id_producto,nombre,precio,detalle,stock,p.id_unidad_medida,um.unidad_Medida,c.id_clasificacion,c.clasificacion,tp.id_tipo_producto,tp.tipo_producto,p.baja_logica
+		from Producto p 
+		join unidad_Medida um on um.id_unidad_medida = p.id_unidad_medida
+		join Clasificacion c on c.id_clasificacion = p.id_clasificacion
+		join Tipo_producto tp on tp.id_tipo_producto = p.id_tipo_producto
+	end
+	else if(@codicion = 1)
+	begin
+		select id_producto,nombre,precio,detalle,stock,p.id_unidad_medida,um.unidad_Medida,c.id_clasificacion,c.clasificacion,tp.id_tipo_producto,tp.tipo_producto,p.baja_logica
+		from Producto p 
+		join unidad_Medida um on um.id_unidad_medida = p.id_unidad_medida
+		join Clasificacion c on c.id_clasificacion = p.id_clasificacion
+		join Tipo_producto tp on tp.id_tipo_producto = p.id_tipo_producto
+		where p.baja_logica = 1
+
+	end
+	else if (@codicion = 0)
+	begin
+		select id_producto,nombre,precio,detalle,stock,p.id_unidad_medida,um.unidad_Medida,c.id_clasificacion,c.clasificacion,tp.id_tipo_producto,tp.tipo_producto,p.baja_logica
+		from Producto p 
+		join unidad_Medida um on um.id_unidad_medida = p.id_unidad_medida
+		join Clasificacion c on c.id_clasificacion = p.id_clasificacion
+		join Tipo_producto tp on tp.id_tipo_producto = p.id_tipo_producto
+		where p.baja_logica = 0
+	end
+
+go
+
+create or alter procedure SP_AltaProducto(
+	@nombre varchar(100) ,
+	@precio money ,
+	@detalle varchar(600),
+	@stock int,
+	@id_unidad_medida int,
+	@id_tipo_producto int,
+	@id_clasificacion int ,
+	@baja_logica int
+)as
+	insert into Producto values (@nombre,@precio,@detalle,@stock,@id_unidad_medida,@id_tipo_producto,@id_clasificacion,@baja_logica)
+
+go
+
+create or alter procedure SP_ModificarProducto(
+	@id_producto int,
+	@nombre varchar(100) ,
+	@precio money ,
+	@detalle varchar(600),
+	@stock int,
+	@id_unidad_medida int,
+	@id_tipo_producto int,
+	@id_clasificacion int ,
+	@baja_logica int
+)as
+	update Producto
+	set nombre = @nombre,
+		precio = @precio,
+		detalle = @detalle,
+		stock = @stock,
+		id_unidad_medida = @id_unidad_medida,
+		id_tipo_producto = @id_tipo_producto,
+		id_clasificacion = @id_clasificacion,
+		baja_logica = @baja_logica
+	where id_producto = @id_producto
+
+go
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-delete Empleado
-
-
-delete Usuarios 
-
-
-delete Bitacora
-
-select * from Usuarios
-
-insert into Bitacora values(7,GETDATE(),'Logeo')
+select * from Producto
+insert into Producto values('Pizza Mussarela',500,'Pizza con mussa',50,1,1,1,0)

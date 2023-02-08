@@ -14,18 +14,32 @@ baja_logica int,
 constraint pk_id_tipo_p primary key(id_tipo_producto)
 )
 
+go
+
+Create table Unidad_Medida
+(
+id_unidad_medida int identity(1,1) not null,
+Unidad_Medida varchar(50) not null,
+baja_logica int,
+constraint pk_id_unidad_medida primary key(id_unidad_medida)
+)
+
+
 Create table Producto
 (
 id_producto int identity (1,1) not null,
 nombre varchar(100) not null,
 precio money not null,
 detalle varchar(600) not null,
+stock int not null,
+id_unidad_medida int not null,
 id_tipo_producto int not null,
 id_clasificacion int not null,
 baja_logica int,
 constraint pk_id_producto primary key(id_producto),
 constraint fk_id_tipo_producto foreign key (id_tipo_producto) references Tipo_producto,
-constraint fk_id_clasificacion foreign key (id_clasificacion) references Clasificacion
+constraint fk_id_clasificacion foreign key (id_clasificacion) references Clasificacion,
+constraint fk_id_unidad_medida foreign key (id_unidad_medida) references Unidad_Medida
 )
 
 Create table Socio 

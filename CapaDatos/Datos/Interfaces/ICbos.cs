@@ -11,5 +11,9 @@ namespace CapaDatos.Datos.Interfaces
     {
         List<Roles> ObtenerRoles();
         List<Tipo_Cliente> TraerTipoClientes();
+        List<Clasificacion> ObtenerClasificacion();
+        List<TipoProducto> ObtenerTipoProducto();
+        List<UnidadMedida> ObtenerUnidadMedida();
+
     }
 }

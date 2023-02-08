@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
-            this.BtnBorrar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.dgvProd = new System.Windows.Forms.DataGridView();
@@ -43,8 +42,8 @@
             this.Clasificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Activo = new System.Windows.Forms.DataGridViewImageColumn();
+            this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlCrud = new System.Windows.Forms.Panel();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.lbNroProd = new System.Windows.Forms.Label();
@@ -71,11 +70,11 @@
             this.RbtActivos = new System.Windows.Forms.RadioButton();
             this.RbtEliminados = new System.Windows.Forms.RadioButton();
             this.rbtTodos = new System.Windows.Forms.RadioButton();
-            this.txbCodProd = new System.Windows.Forms.TextBox();
             this.BtnLogin = new System.Windows.Forms.Button();
-            this.CodProducto = new System.Windows.Forms.Label();
-            this.lbNombreprod = new System.Windows.Forms.Label();
-            this.txbNombreProd = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbtNombre = new System.Windows.Forms.RadioButton();
+            this.rbtCodigo = new System.Windows.Forms.RadioButton();
+            this.txbbusqueda = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
             this.pnlCrud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupStock)).BeginInit();
@@ -84,6 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numpPrecio)).BeginInit();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNuevo
@@ -97,7 +97,7 @@
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(69, 579);
+            this.btnNuevo.Location = new System.Drawing.Point(144, 560);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(139, 42);
             this.btnNuevo.TabIndex = 15;
@@ -116,32 +116,13 @@
             this.BtnEditar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnEditar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEditar.Location = new System.Drawing.Point(257, 579);
+            this.BtnEditar.Location = new System.Drawing.Point(346, 560);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(139, 42);
             this.BtnEditar.TabIndex = 16;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = false;
             this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
-            // 
-            // BtnBorrar
-            // 
-            this.BtnBorrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.BtnBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBorrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnBorrar.FlatAppearance.BorderSize = 0;
-            this.BtnBorrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.BtnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBorrar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnBorrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBorrar.Location = new System.Drawing.Point(444, 579);
-            this.BtnBorrar.Name = "BtnBorrar";
-            this.BtnBorrar.Size = new System.Drawing.Size(139, 42);
-            this.BtnBorrar.TabIndex = 17;
-            this.BtnBorrar.Text = "Borrar";
-            this.BtnBorrar.UseVisualStyleBackColor = false;
-            this.BtnBorrar.Click += new System.EventHandler(this.BtnBorrar_Click);
             // 
             // BtnCancelar
             // 
@@ -154,7 +135,7 @@
             this.BtnCancelar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelar.Location = new System.Drawing.Point(630, 579);
+            this.BtnCancelar.Location = new System.Drawing.Point(538, 560);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(139, 42);
             this.BtnCancelar.TabIndex = 18;
@@ -173,12 +154,13 @@
             this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnGuardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGuardar.Location = new System.Drawing.Point(801, 579);
+            this.BtnGuardar.Location = new System.Drawing.Point(717, 560);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(139, 42);
             this.BtnGuardar.TabIndex = 19;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = false;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // dgvProd
             // 
@@ -204,9 +186,9 @@
             this.Clasificacion,
             this.Stock,
             this.monto,
-            this.ver,
-            this.Activo});
-            this.dgvProd.Location = new System.Drawing.Point(41, 168);
+            this.Activo,
+            this.accion});
+            this.dgvProd.Location = new System.Drawing.Point(43, 149);
             this.dgvProd.Name = "dgvProd";
             this.dgvProd.ReadOnly = true;
             this.dgvProd.RowHeadersVisible = false;
@@ -214,6 +196,7 @@
             this.dgvProd.RowTemplate.Height = 25;
             this.dgvProd.Size = new System.Drawing.Size(932, 383);
             this.dgvProd.TabIndex = 20;
+            this.dgvProd.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Click_Detalle);
             // 
             // IdProducto
             // 
@@ -269,15 +252,6 @@
             this.monto.Name = "monto";
             this.monto.ReadOnly = true;
             // 
-            // ver
-            // 
-            this.ver.HeaderText = "Accion";
-            this.ver.Name = "ver";
-            this.ver.ReadOnly = true;
-            this.ver.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ver.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ver.Width = 60;
-            // 
             // Activo
             // 
             this.Activo.HeaderText = "Activo";
@@ -286,6 +260,17 @@
             this.Activo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Activo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Activo.Width = 65;
+            // 
+            // accion
+            // 
+            this.accion.HeaderText = "Accion";
+            this.accion.Name = "accion";
+            this.accion.ReadOnly = true;
+            this.accion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.accion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.accion.Text = "Detalle";
+            this.accion.UseColumnTextForButtonValue = true;
+            this.accion.Width = 60;
             // 
             // pnlCrud
             // 
@@ -309,9 +294,9 @@
             this.pnlCrud.Controls.Add(this.txbDescripcion);
             this.pnlCrud.Controls.Add(this.numpPrecio);
             this.pnlCrud.Controls.Add(this.txbNombre);
-            this.pnlCrud.Location = new System.Drawing.Point(41, 113);
+            this.pnlCrud.Location = new System.Drawing.Point(43, 102);
             this.pnlCrud.Name = "pnlCrud";
-            this.pnlCrud.Size = new System.Drawing.Size(932, 451);
+            this.pnlCrud.Size = new System.Drawing.Size(932, 443);
             this.pnlCrud.TabIndex = 21;
             this.pnlCrud.Visible = false;
             // 
@@ -320,11 +305,11 @@
             this.chkActivo.AutoSize = true;
             this.chkActivo.Checked = true;
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkActivo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.chkActivo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.chkActivo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.chkActivo.Location = new System.Drawing.Point(423, 331);
+            this.chkActivo.Location = new System.Drawing.Point(287, 331);
             this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(67, 20);
+            this.chkActivo.Size = new System.Drawing.Size(77, 23);
             this.chkActivo.TabIndex = 26;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
@@ -339,6 +324,7 @@
             this.lbNroProd.Size = new System.Drawing.Size(140, 19);
             this.lbNroProd.TabIndex = 25;
             this.lbNroProd.Text = "Código Producto";
+            this.lbNroProd.Visible = false;
             // 
             // TxbCodigoProducto
             // 
@@ -347,12 +333,18 @@
             this.TxbCodigoProducto.Name = "TxbCodigoProducto";
             this.TxbCodigoProducto.Size = new System.Drawing.Size(140, 23);
             this.TxbCodigoProducto.TabIndex = 24;
+            this.TxbCodigoProducto.Visible = false;
             // 
             // nupStock
             // 
-            this.nupStock.Location = new System.Drawing.Point(248, 331);
+            this.nupStock.Location = new System.Drawing.Point(179, 331);
+            this.nupStock.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.nupStock.Name = "nupStock";
-            this.nupStock.Size = new System.Drawing.Size(131, 23);
+            this.nupStock.Size = new System.Drawing.Size(72, 23);
             this.nupStock.TabIndex = 23;
             // 
             // label1
@@ -360,7 +352,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(248, 300);
+            this.label1.Location = new System.Drawing.Point(179, 300);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 19);
             this.label1.TabIndex = 22;
@@ -484,7 +476,7 @@
             // 
             this.txbDescripcion.Location = new System.Drawing.Point(603, 226);
             this.txbDescripcion.Name = "txbDescripcion";
-            this.txbDescripcion.Size = new System.Drawing.Size(265, 194);
+            this.txbDescripcion.Size = new System.Drawing.Size(265, 128);
             this.txbDescripcion.TabIndex = 9;
             this.txbDescripcion.Text = "";
             // 
@@ -498,7 +490,7 @@
             0,
             0});
             this.numpPrecio.Name = "numpPrecio";
-            this.numpPrecio.Size = new System.Drawing.Size(149, 23);
+            this.numpPrecio.Size = new System.Drawing.Size(88, 23);
             this.numpPrecio.TabIndex = 8;
             // 
             // txbNombre
@@ -542,48 +534,43 @@
             // RbtActivos
             // 
             this.RbtActivos.AutoSize = true;
+            this.RbtActivos.Checked = true;
             this.RbtActivos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtActivos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtActivos.Location = new System.Drawing.Point(692, 137);
+            this.RbtActivos.Location = new System.Drawing.Point(694, 118);
             this.RbtActivos.Name = "RbtActivos";
             this.RbtActivos.Size = new System.Drawing.Size(87, 25);
             this.RbtActivos.TabIndex = 23;
             this.RbtActivos.TabStop = true;
             this.RbtActivos.Text = "Activos";
             this.RbtActivos.UseVisualStyleBackColor = true;
+            this.RbtActivos.CheckedChanged += new System.EventHandler(this.RbtActivos_CheckedChanged);
             // 
             // RbtEliminados
             // 
             this.RbtEliminados.AutoSize = true;
             this.RbtEliminados.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtEliminados.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtEliminados.Location = new System.Drawing.Point(785, 137);
+            this.RbtEliminados.Location = new System.Drawing.Point(787, 118);
             this.RbtEliminados.Name = "RbtEliminados";
             this.RbtEliminados.Size = new System.Drawing.Size(109, 25);
             this.RbtEliminados.TabIndex = 24;
-            this.RbtEliminados.TabStop = true;
             this.RbtEliminados.Text = "Eliminados";
             this.RbtEliminados.UseVisualStyleBackColor = true;
+            this.RbtEliminados.CheckedChanged += new System.EventHandler(this.RbtEliminados_CheckedChanged);
             // 
             // rbtTodos
             // 
             this.rbtTodos.AutoSize = true;
             this.rbtTodos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbtTodos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rbtTodos.Location = new System.Drawing.Point(900, 137);
+            this.rbtTodos.Location = new System.Drawing.Point(902, 118);
             this.rbtTodos.Name = "rbtTodos";
             this.rbtTodos.Size = new System.Drawing.Size(73, 25);
             this.rbtTodos.TabIndex = 25;
-            this.rbtTodos.TabStop = true;
             this.rbtTodos.Text = "Todos";
             this.rbtTodos.UseVisualStyleBackColor = true;
-            // 
-            // txbCodProd
-            // 
-            this.txbCodProd.Location = new System.Drawing.Point(41, 135);
-            this.txbCodProd.Name = "txbCodProd";
-            this.txbCodProd.Size = new System.Drawing.Size(180, 23);
-            this.txbCodProd.TabIndex = 26;
+            this.rbtTodos.CheckedChanged += new System.EventHandler(this.rbtTodos_CheckedChanged);
             // 
             // BtnLogin
             // 
@@ -592,41 +579,55 @@
             this.BtnLogin.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
             this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnLogin.Location = new System.Drawing.Point(464, 134);
+            this.BtnLogin.Location = new System.Drawing.Point(395, 119);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(71, 23);
             this.BtnLogin.TabIndex = 28;
             this.BtnLogin.Text = "Buscar";
             this.BtnLogin.UseVisualStyleBackColor = false;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
-            // CodProducto
+            // panel1
             // 
-            this.CodProducto.AutoSize = true;
-            this.CodProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CodProducto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.CodProducto.Location = new System.Drawing.Point(41, 113);
-            this.CodProducto.Name = "CodProducto";
-            this.CodProducto.Size = new System.Drawing.Size(67, 19);
-            this.CodProducto.TabIndex = 29;
-            this.CodProducto.Text = "Codigo";
+            this.panel1.Controls.Add(this.rbtNombre);
+            this.panel1.Controls.Add(this.rbtCodigo);
+            this.panel1.Location = new System.Drawing.Point(47, 102);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(185, 44);
+            this.panel1.TabIndex = 32;
             // 
-            // lbNombreprod
+            // rbtNombre
             // 
-            this.lbNombreprod.AutoSize = true;
-            this.lbNombreprod.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbNombreprod.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbNombreprod.Location = new System.Drawing.Point(251, 113);
-            this.lbNombreprod.Name = "lbNombreprod";
-            this.lbNombreprod.Size = new System.Drawing.Size(73, 19);
-            this.lbNombreprod.TabIndex = 31;
-            this.lbNombreprod.Text = "Nombre";
+            this.rbtNombre.AutoSize = true;
+            this.rbtNombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbtNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbtNombre.Location = new System.Drawing.Point(92, 14);
+            this.rbtNombre.Name = "rbtNombre";
+            this.rbtNombre.Size = new System.Drawing.Size(91, 25);
+            this.rbtNombre.TabIndex = 26;
+            this.rbtNombre.TabStop = true;
+            this.rbtNombre.Text = "Nombre";
+            this.rbtNombre.UseVisualStyleBackColor = true;
             // 
-            // txbNombreProd
+            // rbtCodigo
             // 
-            this.txbNombreProd.Location = new System.Drawing.Point(251, 135);
-            this.txbNombreProd.Name = "txbNombreProd";
-            this.txbNombreProd.Size = new System.Drawing.Size(180, 23);
-            this.txbNombreProd.TabIndex = 30;
+            this.rbtCodigo.AutoSize = true;
+            this.rbtCodigo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbtCodigo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbtCodigo.Location = new System.Drawing.Point(3, 14);
+            this.rbtCodigo.Name = "rbtCodigo";
+            this.rbtCodigo.Size = new System.Drawing.Size(86, 25);
+            this.rbtCodigo.TabIndex = 25;
+            this.rbtCodigo.TabStop = true;
+            this.rbtCodigo.Text = "Codigo";
+            this.rbtCodigo.UseVisualStyleBackColor = true;
+            // 
+            // txbbusqueda
+            // 
+            this.txbbusqueda.Location = new System.Drawing.Point(239, 118);
+            this.txbbusqueda.Name = "txbbusqueda";
+            this.txbbusqueda.Size = new System.Drawing.Size(149, 23);
+            this.txbbusqueda.TabIndex = 33;
             // 
             // CrudProductos
             // 
@@ -639,20 +640,18 @@
             this.Controls.Add(this.dgvProd);
             this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.BtnCancelar);
-            this.Controls.Add(this.BtnBorrar);
             this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.lbNombreprod);
-            this.Controls.Add(this.txbNombreProd);
-            this.Controls.Add(this.CodProducto);
-            this.Controls.Add(this.BtnLogin);
-            this.Controls.Add(this.txbCodProd);
             this.Controls.Add(this.rbtTodos);
             this.Controls.Add(this.RbtEliminados);
             this.Controls.Add(this.RbtActivos);
+            this.Controls.Add(this.txbbusqueda);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.BtnLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrudProductos";
             this.Text = "CrudProductos";
+            this.Load += new System.EventHandler(this.CrudProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).EndInit();
             this.pnlCrud.ResumeLayout(false);
             this.pnlCrud.PerformLayout();
@@ -663,6 +662,8 @@
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -672,7 +673,6 @@
 
         private Button btnNuevo;
         private Button BtnEditar;
-        private Button BtnBorrar;
         private Button BtnCancelar;
         private Button BtnGuardar;
         private DataGridView dgvProd;
@@ -698,11 +698,11 @@
         private RadioButton RbtActivos;
         private RadioButton RbtEliminados;
         private RadioButton rbtTodos;
-        private TextBox txbCodProd;
         private Button BtnLogin;
-        private Label CodProducto;
-        private Label lbNombreprod;
-        private TextBox txbNombreProd;
+        private Label lbNroProd;
+        private TextBox TxbCodigoProducto;
+        private CheckBox chkActivo;
+        private PictureBox pictureBox1;
         private DataGridViewTextBoxColumn IdProducto;
         private DataGridViewTextBoxColumn nombreprod;
         private DataGridViewTextBoxColumn descripcion;
@@ -711,11 +711,11 @@
         private DataGridViewTextBoxColumn Clasificacion;
         private DataGridViewTextBoxColumn Stock;
         private DataGridViewTextBoxColumn monto;
-        private DataGridViewButtonColumn ver;
         private DataGridViewImageColumn Activo;
-        private Label lbNroProd;
-        private TextBox TxbCodigoProducto;
-        private CheckBox chkActivo;
-        private PictureBox pictureBox1;
+        private DataGridViewButtonColumn accion;
+        private Panel panel1;
+        private RadioButton rbtNombre;
+        private RadioButton rbtCodigo;
+        private TextBox txbbusqueda;
     }
 }
