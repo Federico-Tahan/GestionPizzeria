@@ -12,9 +12,12 @@ namespace CapaCapaNegocio.Interfaces
     {
         List<Roles> ObtenerRoles();
         List<Tipo_Cliente> TipoClientes();
+        List<FormaCompra> TipoCompra();
+        List<FormaEntrega> TipoEntregas();
+
         List<Clasificacion> ObtenerClasificacion();
         List<TipoProducto> ObtenerTipoProducto();
         List<UnidadMedida> ObtenerUnidadMedida();
-
+        List<Cliente> TraerClientesCbo(int a);
     }
 }

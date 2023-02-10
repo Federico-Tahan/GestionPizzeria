@@ -145,7 +145,7 @@ id_cliente int not null,
 id_usuario int not null,
 id_forma_compra int not null,
 id_forma_entrega int  not null,
-id_descuento int not null,
+id_descuento int,
 baja_logica int 
 Constraint pk_id_nro_factura primary key (nro_factura),
 constraint fk_id_cliente foreign key (id_cliente) references cliente,

@@ -2,6 +2,7 @@
 using CapaDatos.Dominio;
 using CapaNegocio.Implementacion;
 using CapaNegocio.Interfaces;
+using Microsoft.Data.SqlClient;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -39,17 +40,51 @@ namespace CapaPresentacion.Formularios.Venta
         }
         private void BtnSig_Click(object sender, EventArgs e)
         {
-            ConfirmacionVenta form = new ConfirmacionVenta();
-            form.ShowDialog();
+            if (f.DetalleFacturas.Count !=0)
+            {
+                ConfirmacionVenta form = new ConfirmacionVenta(f);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    f = new Factura();
+                    productoSelected = new Producto();
+                    df = new DetalleFactura();
+                    f.DetalleFacturas.Clear();
+                    dgvDetalle.Rows.Clear();
+                    numpCantidad.Value = 0;
+                    txbDetalle.Text = "";
+                    lproductos = lp.GetProductos(0);
+                    cargar_cboProductos(cboProductos, "Nombre", "Id_producto");
+                    cboProductos.SelectedIndex = -1;
+                    txbStock.Text = "";
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debe haber almenos un producto por adquirir.");
+            }
+
         }
         
         private void AltaVenta_Load(object sender, EventArgs e)
         {
-            
+            productoSelected = new Producto();
+            cboProductos.SelectedIndex = -1;
+            numpCantidad.Value = 0;
+            txbStock.Text = "";
+            txbDetalle.Text = "";
         }
 
         private void Producto_Cambia(object sender, EventArgs e)
         {
+            try
+            {
+                if (cboProductos.SelectedIndex != -1)
+                {
+                    CargarProductoSelected(Convert.ToInt32(cboProductos.SelectedValue));
+                    txbStock.Text = productoSelected.Stock.ToString();
+                }
+            }catch(Exception ex) { }
         }
 
         private void CargarProductoSelected(int id)

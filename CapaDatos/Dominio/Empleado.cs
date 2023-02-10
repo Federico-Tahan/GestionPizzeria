@@ -17,5 +17,6 @@ namespace CapaDatos.Dominio
         public long DNI { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public int Baja_logica { get; set; }
+        public string NombreCompleto { get; set; }
     }
 }

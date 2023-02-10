@@ -15,6 +15,7 @@ namespace CapaDatos.Dominio
         public string Facebook { get; set; }
         public int DescuentoSocios { get; set; }
         public int DescuentoPresencial { get; set; }
+        public int PorcentajeDescuentoHoy { get; set; }
 
     }
 }

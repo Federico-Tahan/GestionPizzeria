@@ -6,6 +6,7 @@ insert into Descuento values ('Viernes',0,0)
 insert into Descuento values ('Sabado',0,0)
 insert into Descuento values ('Domingo',0,0)
 
+
 insert into Roles values('Gerente','Encargado de la gestión del negocio, teniendo acceso a todos los módulos del sistema',0)
 insert into Roles values('Representante Tècnico','Responsable de darle mantenimiento y futuras actualizaciones al sistema',0)
 insert into Roles values('Administrativo','Responsable de la parte administrativa del negocio',0)
@@ -27,4 +28,8 @@ insert into Unidad_medida values('Litros',0)
 insert into Tipo_producto values ('Verdura',0)
 insert into Tipo_producto values ('Bebida',0)
 
+insert into forma_entrega values ('Delivery a Domicilio')
+insert into forma_entrega values ('Retiro en el local')
 
+insert into Forma_compra values ('Telefonica')
+insert into Forma_compra values ('Presencial')

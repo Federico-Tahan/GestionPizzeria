@@ -14,6 +14,9 @@ namespace CapaDatos.Datos.Interfaces
         List<Clasificacion> ObtenerClasificacion();
         List<TipoProducto> ObtenerTipoProducto();
         List<UnidadMedida> ObtenerUnidadMedida();
+        List<FormaCompra> TipoCompra();
+        List<FormaEntrega> TipoEntregas();
+        List<Cliente> TraerClientesCbo(int a);
 
     }
 }

@@ -272,22 +272,30 @@ create or alter procedure SP_ModificarSocio(
 							where id_cliente = @id_cliente)
 
 
-	if(@id_tipo_cliente = 1)
+	if(@id_tipo_cliente = 2)
 	begin
 		update Socio
 		set baja_logica = 1
 		where id_socio in (select id_socio
 							from Cliente
 							where id_cliente = @id_cliente)
+
+		update Cliente
+		set id_tipo_cliente = @id_tipo_cliente
+		where id_cliente = @id_cliente
 	end
 
-	if (@id_tipo_cliente = 2)
+	if (@id_tipo_cliente = 1)
 	begin
 		update Socio
 		set baja_logica = 0
 		where id_socio in (select id_socio
 							from Cliente
 							where id_cliente = @id_cliente)
+
+		update Cliente
+		set id_tipo_cliente = @id_tipo_cliente
+		where id_cliente = @id_cliente
 	end
 
 go
@@ -465,41 +473,136 @@ create or alter procedure SP_DetalleVenta(
 )as
 	insert into detalle_factura values (@id_nrofactura,@id_producto,@cantidad,@importe,@descripcion,0)
 
+	update Producto
+	set stock = stock - @cantidad
+	where id_producto = @id_producto
+
+	declare @stockactual int
+
+	select @stockactual = stock 
+	from Producto
+	where id_producto = @id_producto
+
+	if(@stockactual = 0)
+	begin
+		update Producto
+		set baja_logica = 1
+		where id_producto = @id_producto
+	end
+
+
 go
 create or alter procedure SP_AltaVenta(
-	@fecha datetime,
 	@id_cliente int,
 	@id_usuario int,
 	@id_forma_compra int,
 	@id_forma_entrega int,
-	@id_descuento int,
+	@tienedescuento int,
 	@IDFACTURA int Output
 )as
-	insert into Factura values(@fecha,@id_cliente,@id_usuario,@id_forma_compra,@id_forma_entrega,@id_descuento,0)
+	declare @diaweek int
+	if (DATEPART(DW,GETDATE()) = 0)
+		begin
+			set @diaweek = 7
+		end
+	else
+		begin
+			set @diaweek = DATEPART(DW,GETDATE() - 1)
+		end
+
+	if(@tienedescuento = 0)
+	begin 
+		insert into Factura values(GETDATE(),@id_cliente,@id_usuario,@id_forma_compra,@id_forma_entrega,@diaweek,0)
 	set @IDFACTURA = SCOPE_IDENTITY()
+	end
+	else
+	begin
+		insert into Factura values(GETDATE(),@id_cliente,@id_usuario,@id_forma_compra,@id_forma_entrega,null,0)
+	set @IDFACTURA = SCOPE_IDENTITY()
+	end
+
+go
+
+create or alter procedure SP_ObtenerFormaCompra
+as
+	select * from Forma_compra 
+
+go
+
+create or alter procedure SP_ObtenerFormaEntrega
+as
+	select * from forma_entrega 
 
 go
 
 
+create or alter procedure SP_ObtenerCondicionesDescuento
+as
+begin
+	declare @diaweek int
+	if (DATEPART(DW,GETDATE()) = 0)
+		begin
+			set @diaweek = 7
+		end
+	else
+		begin
+			set @diaweek = DATEPART(DW,GETDATE() - 1)
+		end
+
+	
+	SELECT descuentos_socios,compras_presenciales, d.porcentaje_descuento
+	from Configuracion C
+	join Descuento d on d.id_descuento = @diaweek
+end
+
+go
+
+
+create or alter procedure SP_TraerClientesCbo(
+	@socios int
+)
+as
+	if(@socios = 0)
+	begin
+		select id_cliente, nombre + SPACE(1) + apellido'Nombre Completo'
+		from Cliente c
+		join Socio s on c.id_socio = s.id_socio
+		where s.baja_logica = 0
+	end
+	else
+	begin
+		select id_cliente, c.nombre + SPACE(1) + c.apellido'Nombre Completo'
+		from Cliente c
+		left join Socio s on s.id_socio = c.id_socio
+		where s.baja_logica = 1
+	end
+go
 
 
 
+create or alter procedure SP_ObtenerFactura
+as
+	select nro_factura, CONVERT(VARCHAR, fecha, 108)'Hora',CONVERT(VARCHAR, fecha, 105)'Fecha', c.nombre + SPACE(1) + c.apellido'Nombre_Completo'
+	, e.nombre + SPACE(1) + e.apellido 'Nombre_CompletoUsuario', fc.forma_compra,fe.forma_entrega, d.porcentaje_descuento,fecha
+	from Factura f
+	left join Descuento d on f.id_descuento = d.id_descuento
+	join Cliente c on c.id_cliente = f.id_cliente
+	join Usuarios u on u.id_usuario = f.id_usuario
+	join Empleado e on e.id_empleado = u.id_empleado
+	join forma_entrega fe on fe.id_forma_entrega = f.id_forma_entrega
+	join Forma_compra fc on fc.id_forma_compra = f.id_forma_compra
 
 
+create or alter procedure SP_ObtenerDetalles(
+	@id_f int
+)as
+		select df.id_producto,nombre,detalle,p.id_unidad_medida,um.unidad_Medida,c.id_clasificacion,c.clasificacion,tp.id_tipo_producto,tp.tipo_producto,df.cantidad,df.descripcion,df.importe
+		from Producto p 
+		join unidad_Medida um on um.id_unidad_medida = p.id_unidad_medida
+		join Clasificacion c on c.id_clasificacion = p.id_clasificacion
+		join Tipo_producto tp on tp.id_tipo_producto = p.id_tipo_producto
+		join detalle_factura df on df.id_producto = p.id_producto
+		where nro_factura = @id_f
 
 
-
-
-
-
-
-select * from Factura
-
-
-
-
-
-
-
-select * from detalle_factura
 

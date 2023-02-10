@@ -45,5 +45,20 @@ namespace CapaNegocio.Implementacion
         {
             return lg.TraerTipoClientes();
         }
+
+        public List<FormaCompra> TipoCompra()
+        {
+            return lg.TipoCompra();
+        }
+
+        public List<FormaEntrega> TipoEntregas()
+        {
+            return lg.TipoEntregas();
+        }
+
+        public List<Cliente> TraerClientesCbo(int a)
+        {
+            return lg.TraerClientesCbo(a);
+        }
     }
 }

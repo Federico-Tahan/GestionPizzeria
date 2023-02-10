@@ -30,6 +30,16 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipoprod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Medidaprod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clasi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cboProductos = new System.Windows.Forms.ComboBox();
             this.numpCantidad = new System.Windows.Forms.NumericUpDown();
             this.txbTotal = new System.Windows.Forms.TextBox();
@@ -45,16 +55,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txbStock = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipoprod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Medidaprod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clasi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Accion = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numpCantidad)).BeginInit();
             this.pnlHeader.SuspendLayout();
@@ -97,10 +97,79 @@
             this.dgvDetalle.TabIndex = 21;
             this.dgvDetalle.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Boton_Quitar);
             // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo Producto";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 70;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // detalle
+            // 
+            this.detalle.HeaderText = "Detalle";
+            this.detalle.Name = "detalle";
+            this.detalle.ReadOnly = true;
+            this.detalle.Width = 149;
+            // 
+            // Tipoprod
+            // 
+            this.Tipoprod.HeaderText = "Tipo Producto";
+            this.Tipoprod.Name = "Tipoprod";
+            this.Tipoprod.ReadOnly = true;
+            // 
+            // Medidaprod
+            // 
+            this.Medidaprod.HeaderText = "Unidad Medida";
+            this.Medidaprod.Name = "Medidaprod";
+            this.Medidaprod.ReadOnly = true;
+            this.Medidaprod.Width = 70;
+            // 
+            // clasi
+            // 
+            this.clasi.HeaderText = "Clasificacion";
+            this.clasi.Name = "clasi";
+            this.clasi.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Width = 70;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // Tot
+            // 
+            this.Tot.HeaderText = "Total";
+            this.Tot.Name = "Tot";
+            this.Tot.ReadOnly = true;
+            // 
+            // Accion
+            // 
+            this.Accion.HeaderText = "Accion";
+            this.Accion.Name = "Accion";
+            this.Accion.ReadOnly = true;
+            this.Accion.Text = "Quitar";
+            this.Accion.UseColumnTextForButtonValue = true;
+            this.Accion.Width = 70;
+            // 
             // cboProductos
             // 
+            this.cboProductos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboProductos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboProductos.FormattingEnabled = true;
-            this.cboProductos.Location = new System.Drawing.Point(37, 142);
+            this.cboProductos.Location = new System.Drawing.Point(37, 144);
             this.cboProductos.Name = "cboProductos";
             this.cboProductos.Size = new System.Drawing.Size(198, 23);
             this.cboProductos.TabIndex = 22;
@@ -257,73 +326,6 @@
             this.label5.Size = new System.Drawing.Size(61, 23);
             this.label5.TabIndex = 40;
             this.label5.Text = "Stock";
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo Producto";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 70;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // detalle
-            // 
-            this.detalle.HeaderText = "Detalle";
-            this.detalle.Name = "detalle";
-            this.detalle.ReadOnly = true;
-            this.detalle.Width = 149;
-            // 
-            // Tipoprod
-            // 
-            this.Tipoprod.HeaderText = "Tipo Producto";
-            this.Tipoprod.Name = "Tipoprod";
-            this.Tipoprod.ReadOnly = true;
-            // 
-            // Medidaprod
-            // 
-            this.Medidaprod.HeaderText = "Unidad Medida";
-            this.Medidaprod.Name = "Medidaprod";
-            this.Medidaprod.ReadOnly = true;
-            this.Medidaprod.Width = 70;
-            // 
-            // clasi
-            // 
-            this.clasi.HeaderText = "Clasificacion";
-            this.clasi.Name = "clasi";
-            this.clasi.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Width = 70;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // Tot
-            // 
-            this.Tot.HeaderText = "Total";
-            this.Tot.Name = "Tot";
-            this.Tot.ReadOnly = true;
-            // 
-            // Accion
-            // 
-            this.Accion.HeaderText = "Accion";
-            this.Accion.Name = "Accion";
-            this.Accion.ReadOnly = true;
-            this.Accion.Text = "Quitar";
-            this.Accion.UseColumnTextForButtonValue = true;
-            this.Accion.Width = 70;
             // 
             // AltaVenta
             // 

@@ -22,5 +22,25 @@ namespace CapaNegocio.Implementacion
         {
             return lg.AltaVenta(f);
         }
+
+        public bool BuscarClienteSocioDni(Cliente c)
+        {
+            return lg.BuscarClienteSocioDni(c);
+        }
+
+        public Configuracion TraerConfig()
+        {
+            return lg.TraerConfig();
+        }
+
+        public List<DetalleFactura> TraerDetalles(int a)
+        {
+            return lg.TraerDetalles(a);
+        }
+
+        public List<Factura> TraerFactura()
+        {
+            return lg.TraerFactura();
+        }
     }
 }

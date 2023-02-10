@@ -15,8 +15,9 @@ namespace CapaDatos.Dominio
         public Tipo_Cliente TipoCliente { get; set; }
         public string Direccion { get; set; }
         public long Telefono { get; set; }
-        public Socio socio { get; set; }
+        public Socio socio = new Socio();
         public int Baja_logica { get; set; }
+        public string NombreCompleto { get; set; }
 
     }
 }

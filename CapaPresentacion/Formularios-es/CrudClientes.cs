@@ -37,6 +37,7 @@ namespace CapaPresentacion.Formularios
             lClientes = lg.TraerClientes();
             cargarDgv(lClientes);
             cargar_cboTipOclIENTE(CboTipoCliente, "TipoCliente", "Id_TipoCliente");
+
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -183,11 +184,11 @@ namespace CapaPresentacion.Formularios
 
             foreach (Cliente c in lClientes)
             {
-                if (c.TipoCliente.Id_TipoCliente == 2)
+                if (c.socio.Baja_logica == 1)
                 {
                     dgvCliente.Rows.Add(c.IdCliente, " ",c.Nombre + " "+ c.Apellido," ",c.Direccion, "No");
 
-                }else if (c.TipoCliente.Id_TipoCliente == 1)
+                }else if (c.socio.Baja_logica == 0)
                 {
                     dgvCliente.Rows.Add(c.IdCliente, c.socio.DNI, c.Nombre + " " + c.Apellido, c.socio.FechaAdhesion, c.Direccion, "Si");
 

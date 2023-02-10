@@ -9,7 +9,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using CapaDatos.Dominio;
 
 namespace CapaPresentacion.Formularios
@@ -155,16 +154,11 @@ namespace CapaPresentacion.Formularios
 
         private void PicCampana_Click(object sender, EventArgs e)
         {
-            if(PicCampana.Tag != "vacio")
-            {
-                pnlNoti.Visible = !pnlNoti.Visible;
 
-            }
         }
         private void hidemenus()
         {
             pnlSubmenu.Visible = false;
-            pnlNoti.Visible = false;
             submenu2.Visible = false;
         }
 
@@ -182,6 +176,12 @@ namespace CapaPresentacion.Formularios
                 Program.log.Show();
                 LogIn.u = new Usuarios();
             }
+
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new ConsultaVentas());
 
         }
     }

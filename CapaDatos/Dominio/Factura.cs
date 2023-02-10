@@ -15,6 +15,7 @@ namespace CapaDatos.Dominio
         public FormaCompra Forma_Compra { get; set; }
         public FormaEntrega FormaEntrega { get; set; }
         public Descuento descuento { get; set; }
+        public int tieneDescuento { get; set; }
         public List<DetalleFactura> DetalleFacturas = new List<DetalleFactura>();
 
         public bool buscar(int value)
@@ -39,10 +40,32 @@ namespace CapaDatos.Dominio
             decimal SubTotal = 0;
             foreach (DetalleFactura item in DetalleFacturas)
             {
-                SubTotal += item.Prod.Precio * item.Cantidad;
+                SubTotal += item.Precio * item.Cantidad;
             }
 
             return Math.Round(SubTotal,2);
+        }
+        public decimal Calcular_total()
+        {
+            decimal Total = 0;
+            decimal subtotal = 0;
+            foreach (DetalleFactura item in DetalleFacturas)
+            {
+                subtotal += item.Precio * item.Cantidad;
+            }
+            if (descuento.PorcentajeDescuento > 0)
+            {
+                Total = subtotal - (subtotal * descuento.PorcentajeDescuento) / 100 ;
+
+            }
+            else
+            {
+                Total= subtotal;
+            }
+
+
+
+            return Math.Round(Total, 2);
         }
     }
 }

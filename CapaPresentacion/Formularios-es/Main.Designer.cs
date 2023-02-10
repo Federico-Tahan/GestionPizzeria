@@ -39,8 +39,7 @@
             this.BtnUsuarios = new System.Windows.Forms.Button();
             this.btnGestion = new System.Windows.Forms.Button();
             this.pnlSubmenu = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnProd = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.btnVender = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -51,9 +50,6 @@
             this.BtnCliente = new System.Windows.Forms.Button();
             this.picMain = new System.Windows.Forms.PictureBox();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.pnlNoti = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.PicCampana = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -77,8 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
             this.pnlMain.SuspendLayout();
-            this.pnlNoti.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicCampana)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -147,7 +141,7 @@
             this.submenu2.Controls.Add(this.BtnProductos);
             this.submenu2.Controls.Add(this.BtnUsuarios);
             this.submenu2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.submenu2.Location = new System.Drawing.Point(0, 400);
+            this.submenu2.Location = new System.Drawing.Point(0, 361);
             this.submenu2.Name = "submenu2";
             this.submenu2.Size = new System.Drawing.Size(218, 142);
             this.submenu2.TabIndex = 22;
@@ -229,7 +223,7 @@
             this.btnGestion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnGestion.Image = global::CapaPresentacion.Properties.Resources.Gestion_chico;
             this.btnGestion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestion.Location = new System.Drawing.Point(0, 353);
+            this.btnGestion.Location = new System.Drawing.Point(0, 314);
             this.btnGestion.Name = "btnGestion";
             this.btnGestion.Size = new System.Drawing.Size(218, 47);
             this.btnGestion.TabIndex = 21;
@@ -239,55 +233,35 @@
             // 
             // pnlSubmenu
             // 
-            this.pnlSubmenu.Controls.Add(this.button2);
-            this.pnlSubmenu.Controls.Add(this.btnProd);
+            this.pnlSubmenu.Controls.Add(this.btnConsultar);
             this.pnlSubmenu.Controls.Add(this.btnVender);
             this.pnlSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubmenu.Location = new System.Drawing.Point(0, 223);
             this.pnlSubmenu.Name = "pnlSubmenu";
-            this.pnlSubmenu.Size = new System.Drawing.Size(218, 130);
+            this.pnlSubmenu.Size = new System.Drawing.Size(218, 91);
             this.pnlSubmenu.TabIndex = 16;
             this.pnlSubmenu.Visible = false;
             // 
-            // button2
+            // btnConsultar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Image = global::CapaPresentacion.Properties.Resources.reporte__1_;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(0, 86);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(218, 44);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Reporte";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // btnProd
-            // 
-            this.btnProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnProd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProd.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnProd.FlatAppearance.BorderSize = 0;
-            this.btnProd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.btnProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProd.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnProd.Image = global::CapaPresentacion.Properties.Resources.Consulta_chico;
-            this.btnProd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnProd.Location = new System.Drawing.Point(0, 46);
-            this.btnProd.Name = "btnProd";
-            this.btnProd.Size = new System.Drawing.Size(218, 40);
-            this.btnProd.TabIndex = 15;
-            this.btnProd.Text = "Consultar";
-            this.btnProd.UseVisualStyleBackColor = false;
+            this.btnConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsultar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConsultar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnConsultar.FlatAppearance.BorderSize = 0;
+            this.btnConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnConsultar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnConsultar.Image = global::CapaPresentacion.Properties.Resources.Consulta_chico;
+            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnConsultar.Location = new System.Drawing.Point(0, 46);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(218, 40);
+            this.btnConsultar.TabIndex = 15;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnVender
             // 
@@ -426,8 +400,6 @@
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.DarkGreen;
-            this.pnlMain.Controls.Add(this.pnlNoti);
-            this.pnlMain.Controls.Add(this.PicCampana);
             this.pnlMain.Controls.Add(this.panel5);
             this.pnlMain.Controls.Add(this.panel3);
             this.pnlMain.Controls.Add(this.panel6);
@@ -442,45 +414,11 @@
             this.pnlMain.TabIndex = 3;
             this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
-            // pnlNoti
-            // 
-            this.pnlNoti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.pnlNoti.Controls.Add(this.label5);
-            this.pnlNoti.Location = new System.Drawing.Point(757, 53);
-            this.pnlNoti.Name = "pnlNoti";
-            this.pnlNoti.Size = new System.Drawing.Size(219, 75);
-            this.pnlNoti.TabIndex = 11;
-            this.pnlNoti.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(22, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(179, 50);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Productos bajos \r\n       en stock!";
-            // 
-            // PicCampana
-            // 
-            this.PicCampana.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PicCampana.Image = global::CapaPresentacion.Properties.Resources.campana1;
-            this.PicCampana.Location = new System.Drawing.Point(935, 14);
-            this.PicCampana.Name = "PicCampana";
-            this.PicCampana.Size = new System.Drawing.Size(41, 44);
-            this.PicCampana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PicCampana.TabIndex = 12;
-            this.PicCampana.TabStop = false;
-            this.PicCampana.Tag = "vacio";
-            this.PicCampana.Click += new System.EventHandler(this.PicCampana_Click);
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Location = new System.Drawing.Point(757, 275);
+            this.panel5.Location = new System.Drawing.Point(779, 256);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(167, 34);
             this.panel5.TabIndex = 1;
@@ -500,7 +438,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(757, 83);
+            this.panel3.Location = new System.Drawing.Point(779, 64);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(167, 34);
             this.panel3.TabIndex = 1;
@@ -520,7 +458,7 @@
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(757, 463);
+            this.panel6.Location = new System.Drawing.Point(779, 444);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(167, 164);
             this.panel6.TabIndex = 10;
@@ -548,7 +486,7 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Location = new System.Drawing.Point(757, 273);
+            this.panel4.Location = new System.Drawing.Point(779, 254);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(167, 170);
             this.panel4.TabIndex = 10;
@@ -556,7 +494,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(757, 83);
+            this.panel2.Location = new System.Drawing.Point(779, 64);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(167, 162);
             this.panel2.TabIndex = 9;
@@ -614,9 +552,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
-            this.pnlNoti.ResumeLayout(false);
-            this.pnlNoti.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicCampana)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -650,7 +585,7 @@
         private Panel panel4;
         private Panel panel2;
         private Panel pnlSubmenu;
-        private Button btnProd;
+        private Button btnConsultar;
         private Button btnVender;
         private Button btnAdmin;
         private Panel panel5;
@@ -663,9 +598,5 @@
         private Button BtnProductos;
         private Button BtnUsuarios;
         private Button btnGestion;
-        private Button button2;
-        private Panel pnlNoti;
-        private Label label5;
-        private PictureBox PicCampana;
     }
 }
