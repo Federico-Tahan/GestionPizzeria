@@ -176,7 +176,8 @@ Email varchar(50),
 youtube varchar(50),
 instagram varchar(50),
 twitter varchar(50),
-facebook varchar(50)
+facebook varchar(50),
+contraseña varchar(50)
 )
 
 

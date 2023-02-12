@@ -106,5 +106,7 @@ namespace CapaDatos.Datos
         {
             return this.conn;
         }
+
+
     }
 }

@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -184,7 +185,7 @@ namespace CapaPresentacion.Formularios
 
             foreach (Cliente c in lClientes)
             {
-                if (c.socio.Baja_logica == 1)
+                if (c.socio.Baja_logica == 1 || c.socio.Baja_logica == 2)
                 {
                     dgvCliente.Rows.Add(c.IdCliente, " ",c.Nombre + " "+ c.Apellido," ",c.Direccion, "No");
 
@@ -473,8 +474,22 @@ namespace CapaPresentacion.Formularios
                     {
                         MessageBox.Show("El DNI ya se encuentra registado.");
                     }
-                    else if (lg.ModificacionCliente(cli)) //Modifica los datos del socio, ya que accedio al apartado Editar.
+                    else if (lg.ModificacionCliente(cli,LogIn.u)) //Modifica los datos del socio, ya que accedio al apartado Editar.
                     {
+                        if (cli.socio.Email != "")
+                        {
+
+
+                            if (lg.EmailSender(cli))
+                            {
+                                MessageBox.Show("Email Enviado con Exito.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Email no se pudo enviar.");
+
+                            }
+                        }
                         MessageBox.Show("Cliente Modificado con Exito.");
                         lClientes = lg.TraerClientes();
                         cargarDgv(lClientes);
@@ -489,14 +504,27 @@ namespace CapaPresentacion.Formularios
                 {
                     if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 1)
                     {
-                        if (lg.AltaSocio(cli))
+                        if (lg.AltaSocio(cli, LogIn.u))
                         {
-                            MessageBox.Show("Socio dado de alta con Exito.");
+                            if (cli.socio.Email != "")
+                            {
 
+                            
+                            if (lg.EmailSender(cli))
+                            {
+                                MessageBox.Show("Email Enviado con Exito.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Email no se pudo enviar.");
+
+                            }
+                            MessageBox.Show("Socio dado de alta con Exito.");
+                            }
                         }
                     }else if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 2)
                     {
-                        if (lg.ModificacionCliente(cli)) 
+                        if (lg.ModificacionCliente(cli, LogIn.u)) 
                         {
                             MessageBox.Show("Cliente Modificado con Exito.");
                         }
@@ -513,14 +541,24 @@ namespace CapaPresentacion.Formularios
                 {
                     if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 1)
                     {
-                        if (lg.AltaClienteSocio(cli))
+                        if (lg.AltaClienteSocio(cli, LogIn.u))
                         {
+
                             MessageBox.Show("Socio dado de alta con Exito.");
+                            if (lg.EmailSender(cli))
+                            {
+                                MessageBox.Show("Email Enviado con Exito.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Email no se pudo enviar.");
+
+                            }
                         }
                     }
                     else if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 2)
                     {
-                        if (lg.AltaClienteNosocio(cli))
+                        if (lg.AltaClienteNosocio(cli, LogIn.u))
                         {
                             MessageBox.Show("Cliente dado de alta con Exito.");
                         }

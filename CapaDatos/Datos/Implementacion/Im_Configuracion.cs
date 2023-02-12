@@ -1,5 +1,6 @@
 ﻿using CapaDatos.Datos.Interfaces;
 using CapaDatos.Dominio;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Datos.Implementacion
 {
+
     public class Im_Configuracion : IConfiguracion
     {
         public bool ActualizarDescuentosConfig(List<Descuento> d, Configuracion c)
@@ -44,6 +46,7 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@facebook", c.Facebook);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@twitter", c.Twitter);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@youtube", c.Youtube);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@contraseña", c.Contraseña);
                 HelperDB.ObtenerInstancia().updatear_db("SP_Actualizar_Redes");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -52,6 +55,11 @@ namespace CapaDatos.Datos.Implementacion
             {
                 return false;
             }
+        }
+
+        public SqlConnection Conexion()
+        {
+            return HelperDB.ObtenerInstancia().conexion();
         }
 
         public Configuracion TraerConfiguracion()
@@ -69,6 +77,7 @@ namespace CapaDatos.Datos.Implementacion
               c.Instagram = HelperDB.ObtenerInstancia().Dr.GetString(5);
               c.Twitter = HelperDB.ObtenerInstancia().Dr.GetString(6);
               c.Facebook = HelperDB.ObtenerInstancia().Dr.GetString(7);
+              c.Contraseña = HelperDB.ObtenerInstancia().Dr.GetString(8);
             }
             HelperDB.ObtenerInstancia().close();
             return c;

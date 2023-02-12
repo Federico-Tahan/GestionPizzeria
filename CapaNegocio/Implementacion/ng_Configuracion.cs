@@ -2,6 +2,7 @@
 using CapaDatos.Datos.Interfaces;
 using CapaDatos.Dominio;
 using CapaNegocio.Interfaces;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,11 @@ namespace CapaNegocio.Implementacion
         public bool ActualizarRedes(Configuracion c)
         {
             return lg.ActualizarRedes(c);
+        }
+
+        public SqlConnection Conexion()
+        {
+            return lg.Conexion();
         }
 
         public Configuracion TraerConfiguracion()

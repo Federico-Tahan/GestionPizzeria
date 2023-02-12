@@ -10,5 +10,6 @@ namespace CapaDatos.Dominio
     {
         public int IdUnidadMedida { get; set; }
         public string Unidad_Medida { get; set; }
+        public int Baja_Logica { get; set; }
     }
 }

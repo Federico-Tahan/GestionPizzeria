@@ -11,7 +11,7 @@ namespace CapaDatos.Datos.Implementacion
     public class Im_CrudUsuarios : CrudUsuarios
     {
         Encriptacion encrypt = new Encriptacion();
-        public bool AltaUsuario(Usuarios u)
+        public bool AltaUsuario(Usuarios u, Usuarios admin)
         {
             try
             {
@@ -27,6 +27,8 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_rol", u.Rol.Id_Rol);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica_user", u.Baja_Logica);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica_empleado", u.Empleado.Baja_logica);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario_admin", admin.ID_Usuario);
+
                 HelperDB.ObtenerInstancia().updatear_db("SP_Insertar_UsuarioEmpleado");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -88,7 +90,7 @@ namespace CapaDatos.Datos.Implementacion
             return false;
         }
 
-        public bool ModificarUsuario(Usuarios u)
+        public bool ModificarUsuario(Usuarios u, Usuarios admin)
         {
             try
             {
@@ -102,6 +104,7 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_rol", u.Rol.Id_Rol);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica_usuario", u.Baja_Logica);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica_empleado", u.Empleado.Baja_logica);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario_admin", admin.ID_Usuario);
                 HelperDB.ObtenerInstancia().updatear_db("SP_Actualizar_UsuarioEmpleado");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;

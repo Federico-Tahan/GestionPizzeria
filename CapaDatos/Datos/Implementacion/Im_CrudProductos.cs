@@ -10,7 +10,7 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_CrudProductos : CrudProductos
     {
-        public bool AltaProducto(Producto p)
+        public bool AltaProducto(Producto p, Usuarios u)
         {
             try
             {
@@ -23,6 +23,7 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_tipo_producto", p.Tipo_producto.IdTipoProducto);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_clasificacion", p.clasificacion.IdClasificacion);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", p.Baja_logica);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
                 HelperDB.ObtenerInstancia().updatear_db("SP_AltaProducto");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -104,7 +105,7 @@ namespace CapaDatos.Datos.Implementacion
             return lproducto;
         }
 
-        public bool Modificacion(Producto p)
+        public bool Modificacion(Producto p,Usuarios u)
         {
             try
             {
@@ -118,6 +119,7 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_tipo_producto", p.Tipo_producto.IdTipoProducto);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_clasificacion", p.clasificacion.IdClasificacion);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", p.Baja_logica);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
                 HelperDB.ObtenerInstancia().updatear_db("SP_ModificarProducto");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;

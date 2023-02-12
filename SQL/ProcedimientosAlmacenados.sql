@@ -9,7 +9,8 @@ create or alter procedure SP_Insertar_UsuarioEmpleado(
 	@contraseña varchar(32),
 	@id_rol int,
 	@baja_logica_user int,
-	@baja_logica_empleado int
+	@baja_logica_empleado int,
+	@id_usuario_admin int
 )as
 begin
 	declare @UltimoId int
@@ -19,6 +20,8 @@ begin
 	set @UltimoId = SCOPE_IDENTITY()
 
 	insert into Usuarios values(@alias,@contraseña,@UltimoId,@id_rol,@baja_logica_user)
+	insert into Bitacora values(@id_usuario_admin,GETDATE(),'Registrar usuario')
+
 end
 
 go
@@ -32,7 +35,9 @@ create or alter procedure SP_Actualizar_UsuarioEmpleado(
 	@contraseña varchar(32),
 	@id_rol int,
 	@baja_logica_usuario int,
-	@baja_logica_empleado int
+	@baja_logica_empleado int,
+	@id_usuario_admin int
+
 )as
 begin
 	update Usuarios
@@ -47,6 +52,8 @@ begin
 		telefono = @telefono,
 		baja_logica = @baja_logica_empleado
 	where id_empleado = @id_empleado	
+
+	insert into Bitacora values(@id_usuario_admin,GETDATE(),'Modificar Usuario')
 end
 
 go
@@ -96,6 +103,7 @@ create or alter procedure SP_Buscar_usuario(
 
 go
 
+
 create or alter procedure SP_Obtener_Roles
 as
 	select * from Roles
@@ -114,14 +122,16 @@ create or alter procedure SP_Actualizar_Redes(
 	@instagram varchar(50),
 	@facebook varchar(50),
 	@twitter varchar(50),
-	@youtube varchar(50)
+	@youtube varchar(50),
+	@contraseña varchar(50)
 )as
 	update Configuracion
 	set Email = @email,
 		instagram = @instagram,
 		facebook = @facebook,
 		twitter = @twitter,
-		youtube = @youtube
+		youtube = @youtube,
+		contraseña = @contraseña
 	where id_configuracion = 1
 
 
@@ -187,6 +197,7 @@ as
 	select id_bitacora, u.id_usuario, e.nombre,e.apellido,fecha,accion from Bitacora b
 	join Usuarios u on  b.id_usuario =u.id_usuario
 	join Empleado e on e.id_empleado = u.id_empleado
+	order by fecha desc
 
 
 go
@@ -204,12 +215,11 @@ create or alter procedure SP_DatosUserLogin(
 	@alias varchar(150),
 	@contraseña varchar(32)
 )as
-	select id_usuario, nombre,apellido,dni,direccion,fecha_nac,telefono,e.baja_logica,u.baja_logica
+
+	select id_usuario, nombre,apellido,dni,direccion,fecha_nac,telefono,e.baja_logica,u.baja_logica, u.id_rol
 	from Usuarios u
 	join Empleado e on e.id_empleado = u.id_empleado
 	where @alias = alias and contraseña = @contraseña
-
-
 go
 
 create or alter procedure SP_Insertar_Cliente(
@@ -217,9 +227,12 @@ create or alter procedure SP_Insertar_Cliente(
 	@nombre varchar(50),
 	@apellido varchar(50),
 	@direccion varchar(150),
-	@telefono bigint
+	@telefono bigint,
+	@id_usuario int
 )as
 	insert into Cliente values(@id_tipo_cliente,@nombre,@apellido,@direccion,@telefono, null,0)
+		insert into Bitacora values(@id_usuario,GETDATE(),'Ingreso Cliente')
+
 
 go
 
@@ -231,7 +244,8 @@ create or alter procedure SP_Insertar_ClienteSocio(
 	@direccion varchar(150),
 	@telefono bigint,
 	@DNI bigint,
-	@email varchar (100)
+	@email varchar (100),
+	@id_usuario int
 )as
 	insert into Socio values(@DNI,@email,GETDATE(),0)
 	declare @cod int
@@ -239,6 +253,7 @@ create or alter procedure SP_Insertar_ClienteSocio(
 
 
 	insert into Cliente values(@id_tipo_cliente,@nombre,@apellido,@direccion,@telefono, @cod,0)
+	insert into Bitacora values(@id_usuario,GETDATE(),'Adhesion al club')
 
 go
 
@@ -248,6 +263,7 @@ as
 	select id_cliente,s.id_socio, nombre, apellido,direccion,telefono, s.DNI,s.email, s.fecha_adhesion, s.baja_logica,id_tipo_cliente
 	from Cliente c
 	left join Socio s on s.id_socio = c.id_socio
+	ORDER by id_cliente desc
 
 
 go
@@ -257,7 +273,8 @@ create or alter procedure SP_ModificarSocio(
 	@id_tipo_cliente int,
 	@direccion varchar(150),
 	@telefono bigint,
-	@email varchar (100)
+	@email varchar (100),
+	@id_usuario int
 )as
 	update Cliente
 	set direccion = @direccion,
@@ -297,6 +314,7 @@ create or alter procedure SP_ModificarSocio(
 		set id_tipo_cliente = @id_tipo_cliente
 		where id_cliente = @id_cliente
 	end
+	insert into Bitacora values(@id_usuario,GETDATE(),'Modificacion Cliente')
 
 go
 
@@ -304,7 +322,8 @@ go
 create or alter procedure SP_Insertar_Socio(
 	@id_cliente int,
 	@dni bigint,
-	@email varchar(100)
+	@email varchar(100),
+	@id_usuario int
 )as	
 	insert into Socio VALUES(@dni,@email,GETDATE(),0)
 
@@ -316,6 +335,8 @@ create or alter procedure SP_Insertar_Socio(
 	set id_socio = @cod_socio,
 		id_tipo_cliente = 1
 	where id_cliente = @id_cliente
+	insert into Bitacora values(@id_usuario,GETDATE(),'Adhesion al club')
+
 
 
 go
@@ -433,9 +454,12 @@ create or alter procedure SP_AltaProducto(
 	@id_unidad_medida int,
 	@id_tipo_producto int,
 	@id_clasificacion int ,
-	@baja_logica int
+	@baja_logica int,
+	@id_usuario int
 )as
 	insert into Producto values (@nombre,@precio,@detalle,@stock,@id_unidad_medida,@id_tipo_producto,@id_clasificacion,@baja_logica)
+	insert into Bitacora values(@id_usuario,GETDATE(),'Ingresar Producto')
+
 
 go
 
@@ -448,7 +472,8 @@ create or alter procedure SP_ModificarProducto(
 	@id_unidad_medida int,
 	@id_tipo_producto int,
 	@id_clasificacion int ,
-	@baja_logica int
+	@baja_logica int,
+	@id_usuario int
 )as
 	update Producto
 	set nombre = @nombre,
@@ -460,9 +485,10 @@ create or alter procedure SP_ModificarProducto(
 		id_clasificacion = @id_clasificacion,
 		baja_logica = @baja_logica
 	where id_producto = @id_producto
+	insert into Bitacora values(@id_usuario,GETDATE(),'Modificacion del producto')
+
 
 go
-
 
 create or alter procedure SP_DetalleVenta(
 	@id_nrofactura int,
@@ -498,6 +524,7 @@ create or alter procedure SP_AltaVenta(
 	@id_forma_compra int,
 	@id_forma_entrega int,
 	@tienedescuento int,
+	@id_usuario_admin int,
 	@IDFACTURA int Output
 )as
 	declare @diaweek int
@@ -520,6 +547,9 @@ create or alter procedure SP_AltaVenta(
 		insert into Factura values(GETDATE(),@id_cliente,@id_usuario,@id_forma_compra,@id_forma_entrega,null,0)
 	set @IDFACTURA = SCOPE_IDENTITY()
 	end
+
+	insert into Bitacora values(@id_usuario_admin,GETDATE(),'Registro de venta')
+
 
 go
 
@@ -557,7 +587,6 @@ end
 
 go
 
-
 create or alter procedure SP_TraerClientesCbo(
 	@socios int
 )
@@ -574,7 +603,7 @@ as
 		select id_cliente, c.nombre + SPACE(1) + c.apellido'Nombre Completo'
 		from Cliente c
 		left join Socio s on s.id_socio = c.id_socio
-		where s.baja_logica = 1
+		where (s.id_socio is null) or (s.baja_logica = 1)
 	end
 go
 
@@ -592,6 +621,7 @@ as
 	join forma_entrega fe on fe.id_forma_entrega = f.id_forma_entrega
 	join Forma_compra fc on fc.id_forma_compra = f.id_forma_compra
 
+go
 
 create or alter procedure SP_ObtenerDetalles(
 	@id_f int
@@ -604,5 +634,75 @@ create or alter procedure SP_ObtenerDetalles(
 		join detalle_factura df on df.id_producto = p.id_producto
 		where nro_factura = @id_f
 
+go
 
 
+create or alter procedure SP_RegistroBitacoraLogin(
+	@id_usuario int
+)as
+	insert into Bitacora values(@id_usuario,GETDATE(),'Inicio de sesion')
+
+
+go
+
+create or alter procedure SP_RegistroBitacoraLogout(
+	@id_usuario int
+)as
+	insert into Bitacora values(@id_usuario,GETDATE(),'Cierre de sesion')
+
+go
+
+create or alter procedure SP_GetTipoProducto(
+	@a int
+)as
+	if(@a = 0)
+	begin
+		select * from Tipo_producto where baja_logica = 0
+	end
+	else if (@a = 1)
+	begin
+			select * from Tipo_producto where baja_logica = 1
+
+	end
+	else 
+	begin
+			select * from Tipo_producto
+	end
+
+go
+
+create or alter procedure SP_GetClasificacion(
+	@a int
+)as
+	if(@a = 0)
+	begin
+		select * from Clasificacion where baja_logica = 0
+	end
+	else if (@a = 1)
+	begin
+			select * from Clasificacion where baja_logica = 1
+
+	end
+	else 
+	begin
+			select * from Clasificacion
+	end
+
+go
+
+create or alter procedure SP_GetUnidadMedida(
+	@a int
+)as
+	if(@a = 0)
+	begin
+		select * from Unidad_Medida where baja_logica = 0
+	end
+	else if (@a = 1)
+	begin
+			select * from Unidad_Medida where baja_logica = 1
+
+	end
+	else 
+	begin
+			select * from Unidad_Medida
+	end

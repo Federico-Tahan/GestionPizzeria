@@ -27,5 +27,15 @@ namespace CapaNegocio.Implementacion
         {
             return lg.Logeado(u);
         }
+
+        public void RegistroInicio(int usuario)
+        {
+            lg.RegistroInicio(usuario);
+        }
+
+        public void RegistroSalida(int usuario)
+        {
+            lg.RegistroSalida(usuario);
+        }
     }
 }

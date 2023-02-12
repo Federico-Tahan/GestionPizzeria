@@ -9,8 +9,8 @@ namespace CapaDatos.Datos.Interfaces
 {
     public interface CrudUsuarios
     {
-        bool AltaUsuario(Usuarios u);
-        bool ModificarUsuario(Usuarios u);
+        bool AltaUsuario(Usuarios u, Usuarios admin);
+        bool ModificarUsuario(Usuarios u, Usuarios admin);
         List<Usuarios> ObtenerUsuarios(int a);
         bool BuscarUsuario(int id);
 

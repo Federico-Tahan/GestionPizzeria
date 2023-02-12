@@ -10,8 +10,8 @@ namespace CapaDatos.Datos.Interfaces
     public interface CrudProductos
     {
         List<Producto> GetProductos(int cond);
-        bool AltaProducto(Producto p);
-        bool Modificacion(Producto p);
+        bool AltaProducto(Producto p, Usuarios u);
+        bool Modificacion(Producto p, Usuarios u);
 
 
     }

@@ -55,11 +55,16 @@
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picreset = new System.Windows.Forms.PictureBox();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.txbbusqueda = new System.Windows.Forms.TextBox();
+            this.RbtCodigo = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picreset)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProd
@@ -98,7 +103,7 @@
             // 
             // Nroventa
             // 
-            this.Nroventa.HeaderText = "Nro Venta";
+            this.Nroventa.HeaderText = "Nro Factura";
             this.Nroventa.Name = "Nroventa";
             this.Nroventa.ReadOnly = true;
             // 
@@ -179,9 +184,9 @@
             this.panel1.Controls.Add(this.BtnVovler);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.dgvDetalle);
-            this.panel1.Location = new System.Drawing.Point(0, -6);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 681);
+            this.panel1.Size = new System.Drawing.Size(1000, 675);
             this.panel1.TabIndex = 39;
             this.panel1.Visible = false;
             // 
@@ -316,6 +321,54 @@
             this.dataGridViewButtonColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewButtonColumn1.Width = 80;
             // 
+            // picreset
+            // 
+            this.picreset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picreset.Image = global::CapaPresentacion.Properties.Resources.reset;
+            this.picreset.Location = new System.Drawing.Point(421, 124);
+            this.picreset.Name = "picreset";
+            this.picreset.Size = new System.Drawing.Size(38, 33);
+            this.picreset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picreset.TabIndex = 62;
+            this.picreset.TabStop = false;
+            this.picreset.Click += new System.EventHandler(this.picreset_Click);
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.BackColor = System.Drawing.Color.White;
+            this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Location = new System.Drawing.Point(335, 134);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(71, 23);
+            this.BtnBuscar.TabIndex = 60;
+            this.BtnBuscar.Text = "Aplicar";
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // txbbusqueda
+            // 
+            this.txbbusqueda.Location = new System.Drawing.Point(197, 133);
+            this.txbbusqueda.Name = "txbbusqueda";
+            this.txbbusqueda.Size = new System.Drawing.Size(121, 23);
+            this.txbbusqueda.TabIndex = 59;
+            // 
+            // RbtCodigo
+            // 
+            this.RbtCodigo.AutoSize = true;
+            this.RbtCodigo.Checked = true;
+            this.RbtCodigo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RbtCodigo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RbtCodigo.Location = new System.Drawing.Point(73, 133);
+            this.RbtCodigo.Name = "RbtCodigo";
+            this.RbtCodigo.Size = new System.Drawing.Size(113, 24);
+            this.RbtCodigo.TabIndex = 61;
+            this.RbtCodigo.TabStop = true;
+            this.RbtCodigo.Text = "Nro Factura";
+            this.RbtCodigo.UseVisualStyleBackColor = true;
+            // 
             // ConsultaVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -325,6 +378,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.dgvProd);
+            this.Controls.Add(this.picreset);
+            this.Controls.Add(this.BtnBuscar);
+            this.Controls.Add(this.txbbusqueda);
+            this.Controls.Add(this.RbtCodigo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConsultaVentas";
             this.Text = "ConsultaEdicionBajaVentas";
@@ -336,7 +393,9 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picreset)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -345,14 +404,6 @@
         private DataGridView dgvProd;
         private Panel pnlHeader;
         private Label lbProd;
-        private DataGridViewTextBoxColumn Nroventa;
-        private DataGridViewTextBoxColumn Cliente;
-        private DataGridViewTextBoxColumn fecha;
-        private DataGridViewTextBoxColumn Formapedido;
-        private DataGridViewTextBoxColumn Descuento;
-        private DataGridViewTextBoxColumn Total;
-        private DataGridViewButtonColumn Ticket;
-        private DataGridViewButtonColumn Accion;
         private Panel panel1;
         private Panel panel2;
         private Label Det;
@@ -367,5 +418,17 @@
         private DataGridViewTextBoxColumn monto;
         private DataGridViewTextBoxColumn dataGridViewButtonColumn1;
         private Button BtnVovler;
+        private DataGridViewTextBoxColumn Nroventa;
+        private DataGridViewTextBoxColumn Cliente;
+        private DataGridViewTextBoxColumn fecha;
+        private DataGridViewTextBoxColumn Formapedido;
+        private DataGridViewTextBoxColumn Descuento;
+        private DataGridViewTextBoxColumn Total;
+        private DataGridViewButtonColumn Ticket;
+        private DataGridViewButtonColumn Accion;
+        private PictureBox picreset;
+        private Button BtnBuscar;
+        private TextBox txbbusqueda;
+        private RadioButton RbtCodigo;
     }
 }

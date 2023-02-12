@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -63,6 +64,7 @@ namespace CapaPresentacion
 
                 if (lg.Logeado(u))
                 {
+                    lg.RegistroInicio(u.ID_Usuario);
                     Main form = new Main();
                     form.Show();
                     txbContraseña.Text = string.Empty;
@@ -114,5 +116,11 @@ namespace CapaPresentacion
             u.Alias = txbUsuario.Text;
             u.Contraseña = txbContraseña.Text;
         }
+
+        public void Cerrar()
+        {
+            this.Close();
+        }
+
     }
 }

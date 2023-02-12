@@ -18,9 +18,9 @@ namespace CapaNegocio.Implementacion
             lg = new Im_CrudProductos();
         }
 
-        public bool AltaProducto(Producto p)
+        public bool AltaProducto(Producto p, Usuarios u)
         {
-            return lg.AltaProducto(p);
+            return lg.AltaProducto(p,u);
         }
 
         public List<Producto> GetProductos(int cond)
@@ -28,9 +28,9 @@ namespace CapaNegocio.Implementacion
             return lg.GetProductos(cond);
         }
 
-        public bool Modificacion(Producto p)
+        public bool Modificacion(Producto p, Usuarios u)
         {
-            return lg.Modificacion(p);
+            return lg.Modificacion(p,u);
         }
     }
 }

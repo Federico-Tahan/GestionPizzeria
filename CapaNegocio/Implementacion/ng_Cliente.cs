@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace CapaNegocio.Implementacion
 {
 
+
     public class ng_Cliente : ing_Cliente
     {
         ICliente lg;
@@ -20,19 +21,19 @@ namespace CapaNegocio.Implementacion
             lg = new Im_Cliente();
         }
 
-        public bool AltaClienteNosocio(Cliente c)
+        public bool AltaClienteNosocio(Cliente c, Usuarios u)
         {
-            return lg.AltaClienteNosocio(c);
+            return lg.AltaClienteNosocio(c, u);
         }
 
-        public bool AltaClienteSocio(Cliente c)
+        public bool AltaClienteSocio(Cliente c, Usuarios u)
         {
-            return lg.AltaClienteSocio(c);
+            return lg.AltaClienteSocio(c, u);
         }
 
-        public bool AltaSocio(Cliente c)
+        public bool AltaSocio(Cliente c, Usuarios u)
         {
-            return lg.AltaSocio(c);
+            return lg.AltaSocio(c,u);
         }
 
         public bool BuscarCliente(Cliente c)
@@ -45,9 +46,14 @@ namespace CapaNegocio.Implementacion
             return lg.BuscarClienteSocioDni(c);
         }
 
-        public bool ModificacionCliente(Cliente c)
+        public bool EmailSender(Cliente c)
         {
-            return lg.ModificacionCliente(c);
+            return lg.EmailSender(c);
+        }
+
+        public bool ModificacionCliente(Cliente c, Usuarios u)
+        {
+            return lg.ModificacionCliente(c,u);
         }
 
         public List<Cliente> TraerClientes()

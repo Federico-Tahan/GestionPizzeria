@@ -33,7 +33,6 @@ namespace ticket_o_factura
             doc.PrintPage += new PrintPageEventHandler(imprimeticket);
             vista.Document = doc;
             vista.Show();
-            //doc.Print();
         }
 
         public void imprimeticket(object sender, PrintPageEventArgs e)

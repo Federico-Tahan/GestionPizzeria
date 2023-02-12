@@ -22,6 +22,7 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().LeerDB("SP_DatosUserLogin");
                 HelperDB.ObtenerInstancia().Dr.Read();
                 Empleado em = new Empleado();
+                Roles r = new Roles();
 
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
                 {
@@ -59,6 +60,11 @@ namespace CapaDatos.Datos.Implementacion
                 {
                     u.Baja_Logica = HelperDB.ObtenerInstancia().Dr.GetInt32(8);
                 }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(9))
+                {
+                    r.Id_Rol= HelperDB.ObtenerInstancia().Dr.GetInt32(9);
+                }
+                u.Rol = r;
                 u.Empleado = em;
             }
             catch (Exception ex)
@@ -89,5 +95,32 @@ namespace CapaDatos.Datos.Implementacion
             return false;
         }
 
+        public void RegistroInicio(int usuario)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", usuario);
+                HelperDB.ObtenerInstancia().updatear_db("SP_RegistroBitacoraLogin");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        public void RegistroSalida(int usuario)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", usuario);
+                HelperDB.ObtenerInstancia().updatear_db("SP_RegistroBitacoraLogout");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            }
+            catch (Exception ex)
+            {
+            }
+        }
     }
 }

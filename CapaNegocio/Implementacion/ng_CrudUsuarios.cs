@@ -18,9 +18,9 @@ namespace CapaNegocio.Implementacion
         {
             lg = new Im_CrudUsuarios();
         }
-        public bool AltaUsuario(Usuarios u)
+        public bool AltaUsuario(Usuarios u, Usuarios admin)
         {
-            return lg.AltaUsuario(u);
+            return lg.AltaUsuario(u, admin);
         }
 
         public bool BuscarAliasUsuario(string alias)
@@ -43,9 +43,9 @@ namespace CapaNegocio.Implementacion
             return lg.BuscarUsuario(id);
         }
 
-        public bool ModificarUsuario(Usuarios u)
+        public bool ModificarUsuario(Usuarios u, Usuarios admin)
         {
-            return lg.ModificarUsuario(u);
+            return lg.ModificarUsuario(u,admin);
         }
 
         public List<Usuarios> ObtenerUsuarios(int a)

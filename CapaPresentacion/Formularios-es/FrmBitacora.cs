@@ -63,37 +63,28 @@ namespace CapaPresentacion.Formularios_es
 
         private void RbtCodigo_CheckedChanged(object sender, EventArgs e)
         {
-            txbbusqueda.Visible = true;
-            CboAccion.Visible = false;
-            dtpFecha.Visible = false;
+
         }
 
         private void RbtNombre_CheckedChanged(object sender, EventArgs e)
         {
-            txbbusqueda.Visible = true;
-            CboAccion.Visible = false;
-            dtpFecha.Visible = false;
+
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            txbbusqueda.Visible = false;
-            CboAccion.Visible = false;
-            dtpFecha.Visible = true;
+
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            txbbusqueda.Visible = false;
-            CboAccion.Visible = true;
-            dtpFecha.Visible = false;
+
         }
 
         private void picreset_Click(object sender, EventArgs e)
         {
             txbbusqueda.Visible = true;
-            CboAccion.Visible = false;
-            dtpFecha.Visible = false;
+
             RbtCodigo.Checked = true;
             bitacora = lg.ObtenerBitacora();
             CargarDgv();
@@ -137,80 +128,7 @@ namespace CapaPresentacion.Formularios_es
                     MessageBox.Show("Debe cargar un codigo para filtrar.");
                 }
             }
-            else if (RbtNombre.Checked)
-            {
-                if (txbbusqueda.Text != "")
-                {
-                    List<DataGridViewRow> temp = new List<DataGridViewRow>();
-
-                    foreach (DataGridViewRow row in dgvBitacora.Rows)
-                    {
-                        if (Convert.ToString(row.Cells["Nombre"].Value) != txbbusqueda.Text)
-                        {
-                            temp.Add(row);
-                        }
-
-                    }
-
-                    foreach (DataGridViewRow row in temp)
-                    {
-
-                        dgvBitacora.Rows.Remove(row);
-
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Debe cargar un Nombre para filtrar.");
-                }
-            }
-            else if (rbtFecha.Checked)
-            {
-                List<DataGridViewRow> temp = new List<DataGridViewRow>();
-
-                foreach (DataGridViewRow row in dgvBitacora.Rows)
-                {
-                    if (Convert.ToDateTime(row.Cells["fecha"].Value).ToShortDateString() != dtpFecha.Value.ToShortDateString())
-                    {
-                        temp.Add(row);
-                    }
-
-                }
-
-                foreach (DataGridViewRow row in temp)
-                {
-
-                    dgvBitacora.Rows.Remove(row);
-
-                }
-            }
-            else if (rbtAccion.Checked)
-            {
-                if (CboAccion.SelectedIndex == -1)
-                {
-                    List<DataGridViewRow> temp = new List<DataGridViewRow>();
-
-                    foreach (DataGridViewRow row in dgvBitacora.Rows)
-                    {
-                        if (Convert.ToString(row.Cells["Accion"].Value) != CboAccion.Text)
-                        {
-                            temp.Add(row);
-                        }
-
-                    }
-
-                    foreach (DataGridViewRow row in temp)
-                    {
-
-                        dgvBitacora.Rows.Remove(row);
-
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Debe cargar una accion para filtrar.");
-                }
-            }
+           
         }
     }
 }

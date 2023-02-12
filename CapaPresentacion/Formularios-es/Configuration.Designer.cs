@@ -29,20 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbRespaldo = new System.Windows.Forms.TextBox();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtRestauracion = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lbProd = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnRespaldo = new System.Windows.Forms.Button();
+            this.btnRestauracion = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.picpass = new System.Windows.Forms.PictureBox();
+            this.txbContraseña = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.TxbTwitter = new System.Windows.Forms.TextBox();
             this.TxbYoutube = new System.Windows.Forms.TextBox();
@@ -65,18 +68,19 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picpass)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txbRespaldo
             // 
-            this.textBox1.Location = new System.Drawing.Point(76, 113);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(295, 27);
-            this.textBox1.TabIndex = 0;
+            this.txbRespaldo.Location = new System.Drawing.Point(76, 113);
+            this.txbRespaldo.Multiline = true;
+            this.txbRespaldo.Name = "txbRespaldo";
+            this.txbRespaldo.Size = new System.Drawing.Size(295, 27);
+            this.txbRespaldo.TabIndex = 0;
             // 
             // lbUsuario
             // 
@@ -100,13 +104,13 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Ruta de Restauracion";
             // 
-            // textBox2
+            // txtRestauracion
             // 
-            this.textBox2.Location = new System.Drawing.Point(552, 111);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(278, 27);
-            this.textBox2.TabIndex = 5;
+            this.txtRestauracion.Location = new System.Drawing.Point(552, 111);
+            this.txtRestauracion.Multiline = true;
+            this.txtRestauracion.Name = "txtRestauracion";
+            this.txtRestauracion.Size = new System.Drawing.Size(278, 27);
+            this.txtRestauracion.TabIndex = 5;
             // 
             // button3
             // 
@@ -122,6 +126,7 @@
             this.button3.TabIndex = 10;
             this.button3.Text = "Seleccionar";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // pnlHeader
             // 
@@ -143,35 +148,38 @@
             this.lbProd.TabIndex = 21;
             this.lbProd.Text = "Configuracion";
             // 
-            // button1
+            // BtnRespaldo
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(177, 146);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 31);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Seleccionar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BtnRespaldo.BackColor = System.Drawing.Color.White;
+            this.BtnRespaldo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRespaldo.Enabled = false;
+            this.BtnRespaldo.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnRespaldo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
+            this.BtnRespaldo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRespaldo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtnRespaldo.Location = new System.Drawing.Point(175, 146);
+            this.BtnRespaldo.Name = "BtnRespaldo";
+            this.BtnRespaldo.Size = new System.Drawing.Size(80, 31);
+            this.BtnRespaldo.TabIndex = 24;
+            this.BtnRespaldo.Text = "Respaldo";
+            this.BtnRespaldo.UseVisualStyleBackColor = false;
+            this.BtnRespaldo.Click += new System.EventHandler(this.BtnRespaldo_Click);
             // 
-            // button2
+            // btnRestauracion
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(654, 152);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 31);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Seleccionar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnRestauracion.BackColor = System.Drawing.Color.White;
+            this.btnRestauracion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestauracion.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnRestauracion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
+            this.btnRestauracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestauracion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRestauracion.Location = new System.Drawing.Point(654, 152);
+            this.btnRestauracion.Name = "btnRestauracion";
+            this.btnRestauracion.Size = new System.Drawing.Size(88, 31);
+            this.btnRestauracion.TabIndex = 26;
+            this.btnRestauracion.Text = "Restauracion";
+            this.btnRestauracion.UseVisualStyleBackColor = false;
+            this.btnRestauracion.Click += new System.EventHandler(this.btnRestauracion_Click);
             // 
             // button4
             // 
@@ -187,17 +195,18 @@
             this.button4.TabIndex = 25;
             this.button4.Text = "Seleccionar";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txbRespaldo);
             this.panel1.Controls.Add(this.lbUsuario);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.btnRestauracion);
+            this.panel1.Controls.Add(this.txtRestauracion);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.BtnRespaldo);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Location = new System.Drawing.Point(0, 434);
             this.panel1.Name = "panel1";
@@ -227,6 +236,9 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.picpass);
+            this.panel3.Controls.Add(this.txbContraseña);
+            this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.BtnGuardar);
             this.panel3.Controls.Add(this.TxbTwitter);
             this.panel3.Controls.Add(this.TxbYoutube);
@@ -243,6 +255,38 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(998, 227);
             this.panel3.TabIndex = 29;
+            // 
+            // picpass
+            // 
+            this.picpass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picpass.Image = global::CapaPresentacion.Properties.Resources.mostrar1;
+            this.picpass.Location = new System.Drawing.Point(311, 144);
+            this.picpass.Name = "picpass";
+            this.picpass.Size = new System.Drawing.Size(33, 30);
+            this.picpass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picpass.TabIndex = 43;
+            this.picpass.TabStop = false;
+            this.picpass.Tag = "activar";
+            this.picpass.Click += new System.EventHandler(this.picpass_Click);
+            // 
+            // txbContraseña
+            // 
+            this.txbContraseña.Location = new System.Drawing.Point(131, 147);
+            this.txbContraseña.Name = "txbContraseña";
+            this.txbContraseña.Size = new System.Drawing.Size(174, 23);
+            this.txbContraseña.TabIndex = 42;
+            this.txbContraseña.UseSystemPasswordChar = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(8, 147);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(117, 23);
+            this.label7.TabIndex = 41;
+            this.label7.Text = "Contraseña";
             // 
             // BtnGuardar
             // 
@@ -269,7 +313,7 @@
             // 
             // TxbYoutube
             // 
-            this.TxbYoutube.Location = new System.Drawing.Point(166, 160);
+            this.TxbYoutube.Location = new System.Drawing.Point(475, 151);
             this.TxbYoutube.Name = "TxbYoutube";
             this.TxbYoutube.Size = new System.Drawing.Size(174, 23);
             this.TxbYoutube.TabIndex = 38;
@@ -279,7 +323,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(56, 155);
+            this.label10.Location = new System.Drawing.Point(366, 147);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(87, 23);
             this.label10.TabIndex = 37;
@@ -305,14 +349,14 @@
             // 
             // TxbFacebook
             // 
-            this.TxbFacebook.Location = new System.Drawing.Point(475, 160);
+            this.TxbFacebook.Location = new System.Drawing.Point(765, 151);
             this.TxbFacebook.Name = "TxbFacebook";
             this.TxbFacebook.Size = new System.Drawing.Size(174, 23);
             this.TxbFacebook.TabIndex = 34;
             // 
             // TxbEmail
             // 
-            this.TxbEmail.Location = new System.Drawing.Point(166, 93);
+            this.TxbEmail.Location = new System.Drawing.Point(131, 93);
             this.TxbEmail.Name = "TxbEmail";
             this.TxbEmail.Size = new System.Drawing.Size(174, 23);
             this.TxbEmail.TabIndex = 33;
@@ -333,7 +377,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(365, 156);
+            this.label6.Location = new System.Drawing.Point(655, 147);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 23);
             this.label6.TabIndex = 30;
@@ -365,11 +409,11 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(359, 9);
+            this.label4.Location = new System.Drawing.Point(443, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(286, 38);
+            this.label4.Size = new System.Drawing.Size(111, 38);
             this.label4.TabIndex = 21;
-            this.label4.Text = "Redes Formaggio";
+            this.label4.Text = "Redes";
             // 
             // panel5
             // 
@@ -441,6 +485,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picpass)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -452,15 +497,15 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox txbRespaldo;
         private Label lbUsuario;
         private Label label1;
-        private TextBox textBox2;
+        private TextBox txtRestauracion;
         private Button button3;
         private Panel pnlHeader;
         private Label lbProd;
-        private Button button1;
-        private Button button2;
+        private Button BtnRespaldo;
+        private Button btnRestauracion;
         private Button button4;
         private Panel panel1;
         private Panel panel2;
@@ -484,5 +529,8 @@
         private Panel panel6;
         private Label label2;
         private ToolTip toolTip1;
+        private TextBox txbContraseña;
+        private Label label7;
+        private PictureBox picpass;
     }
 }

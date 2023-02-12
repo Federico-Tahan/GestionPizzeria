@@ -9,7 +9,7 @@ namespace CapaNegocio.Interfaces
 {
     public interface ing_CrudVentas
     {
-        bool AltaVenta(Factura f);
+        bool AltaVenta(Factura f,Usuarios u);
         Configuracion TraerConfig();
         bool BuscarClienteSocioDni(Cliente c);
         List<Factura> TraerFactura();

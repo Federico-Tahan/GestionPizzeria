@@ -11,5 +11,8 @@ namespace CapaNegocio.Interfaces
     {
         bool Logeado(Usuarios u);
         Usuarios GetUsuario(Usuarios u);
+
+        void RegistroInicio(int usuario);
+        void RegistroSalida(int usuario);
     }
 }

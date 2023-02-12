@@ -30,6 +30,10 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvBitacora = new System.Windows.Forms.DataGridView();
+            this.codigouser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Accion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBarra = new System.Windows.Forms.Panel();
             this.Salir = new System.Windows.Forms.PictureBox();
             this.pnlHeader = new System.Windows.Forms.Panel();
@@ -37,17 +41,8 @@
             this.lbProd = new System.Windows.Forms.Label();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.txbbusqueda = new System.Windows.Forms.TextBox();
-            this.RbtNombre = new System.Windows.Forms.RadioButton();
             this.RbtCodigo = new System.Windows.Forms.RadioButton();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.rbtFecha = new System.Windows.Forms.RadioButton();
-            this.rbtAccion = new System.Windows.Forms.RadioButton();
-            this.CboAccion = new System.Windows.Forms.ComboBox();
             this.picreset = new System.Windows.Forms.PictureBox();
-            this.codigouser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Accion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitacora)).BeginInit();
             this.pnlBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
@@ -84,6 +79,34 @@
             this.dgvBitacora.RowTemplate.Height = 25;
             this.dgvBitacora.Size = new System.Drawing.Size(762, 406);
             this.dgvBitacora.TabIndex = 25;
+            // 
+            // codigouser
+            // 
+            this.codigouser.HeaderText = "Codigo Usuario";
+            this.codigouser.Name = "codigouser";
+            this.codigouser.ReadOnly = true;
+            this.codigouser.Width = 130;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre Completo";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 200;
+            // 
+            // fecha
+            // 
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            this.fecha.Width = 140;
+            // 
+            // Accion
+            // 
+            this.Accion.HeaderText = "Accion";
+            this.Accion.Name = "Accion";
+            this.Accion.ReadOnly = true;
+            this.Accion.Width = 288;
             // 
             // pnlBarra
             // 
@@ -147,7 +170,7 @@
             this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
             this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscar.Location = new System.Drawing.Point(562, 145);
+            this.BtnBuscar.Location = new System.Drawing.Point(314, 147);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(71, 23);
             this.BtnBuscar.TabIndex = 51;
@@ -157,23 +180,10 @@
             // 
             // txbbusqueda
             // 
-            this.txbbusqueda.Location = new System.Drawing.Point(435, 144);
+            this.txbbusqueda.Location = new System.Drawing.Point(176, 146);
             this.txbbusqueda.Name = "txbbusqueda";
             this.txbbusqueda.Size = new System.Drawing.Size(121, 23);
             this.txbbusqueda.TabIndex = 50;
-            // 
-            // RbtNombre
-            // 
-            this.RbtNombre.AutoSize = true;
-            this.RbtNombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RbtNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtNombre.Location = new System.Drawing.Point(167, 143);
-            this.RbtNombre.Name = "RbtNombre";
-            this.RbtNombre.Size = new System.Drawing.Size(86, 24);
-            this.RbtNombre.TabIndex = 53;
-            this.RbtNombre.Text = "Nombre";
-            this.RbtNombre.UseVisualStyleBackColor = true;
-            this.RbtNombre.CheckedChanged += new System.EventHandler(this.RbtNombre_CheckedChanged);
             // 
             // RbtCodigo
             // 
@@ -190,55 +200,11 @@
             this.RbtCodigo.UseVisualStyleBackColor = true;
             this.RbtCodigo.CheckedChanged += new System.EventHandler(this.RbtCodigo_CheckedChanged);
             // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(435, 145);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(121, 23);
-            this.dtpFecha.TabIndex = 54;
-            this.dtpFecha.Visible = false;
-            // 
-            // rbtFecha
-            // 
-            this.rbtFecha.AutoSize = true;
-            this.rbtFecha.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbtFecha.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rbtFecha.Location = new System.Drawing.Point(259, 144);
-            this.rbtFecha.Name = "rbtFecha";
-            this.rbtFecha.Size = new System.Drawing.Size(73, 24);
-            this.rbtFecha.TabIndex = 55;
-            this.rbtFecha.Text = "Fecha";
-            this.rbtFecha.UseVisualStyleBackColor = true;
-            this.rbtFecha.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // rbtAccion
-            // 
-            this.rbtAccion.AutoSize = true;
-            this.rbtAccion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbtAccion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rbtAccion.Location = new System.Drawing.Point(338, 144);
-            this.rbtAccion.Name = "rbtAccion";
-            this.rbtAccion.Size = new System.Drawing.Size(80, 24);
-            this.rbtAccion.TabIndex = 56;
-            this.rbtAccion.Text = "Accion";
-            this.rbtAccion.UseVisualStyleBackColor = true;
-            this.rbtAccion.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // CboAccion
-            // 
-            this.CboAccion.FormattingEnabled = true;
-            this.CboAccion.Location = new System.Drawing.Point(435, 144);
-            this.CboAccion.Name = "CboAccion";
-            this.CboAccion.Size = new System.Drawing.Size(121, 23);
-            this.CboAccion.TabIndex = 57;
-            this.CboAccion.Visible = false;
-            // 
             // picreset
             // 
             this.picreset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picreset.Image = global::CapaPresentacion.Properties.Resources.reset;
-            this.picreset.Location = new System.Drawing.Point(645, 137);
+            this.picreset.Location = new System.Drawing.Point(400, 137);
             this.picreset.Name = "picreset";
             this.picreset.Size = new System.Drawing.Size(38, 33);
             this.picreset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -246,48 +212,15 @@
             this.picreset.TabStop = false;
             this.picreset.Click += new System.EventHandler(this.picreset_Click);
             // 
-            // codigouser
-            // 
-            this.codigouser.HeaderText = "Codigo Usuario";
-            this.codigouser.Name = "codigouser";
-            this.codigouser.ReadOnly = true;
-            this.codigouser.Width = 130;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre Completo";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 200;
-            // 
-            // fecha
-            // 
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            this.fecha.Width = 140;
-            // 
-            // Accion
-            // 
-            this.Accion.HeaderText = "Accion";
-            this.Accion.Name = "Accion";
-            this.Accion.ReadOnly = true;
-            this.Accion.Width = 288;
-            // 
             // FrmBitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkGreen;
+            this.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.ClientSize = new System.Drawing.Size(803, 596);
             this.Controls.Add(this.picreset);
-            this.Controls.Add(this.CboAccion);
-            this.Controls.Add(this.rbtAccion);
-            this.Controls.Add(this.rbtFecha);
-            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.BtnBuscar);
             this.Controls.Add(this.txbbusqueda);
-            this.Controls.Add(this.RbtNombre);
             this.Controls.Add(this.RbtCodigo);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlBarra);
@@ -319,12 +252,7 @@
         private Label lbProd;
         private Button BtnBuscar;
         private TextBox txbbusqueda;
-        private RadioButton RbtNombre;
         private RadioButton RbtCodigo;
-        private DateTimePicker dtpFecha;
-        private RadioButton rbtFecha;
-        private RadioButton rbtAccion;
-        private ComboBox CboAccion;
         private PictureBox picreset;
         private DataGridViewTextBoxColumn codigouser;
         private DataGridViewTextBoxColumn Nombre;

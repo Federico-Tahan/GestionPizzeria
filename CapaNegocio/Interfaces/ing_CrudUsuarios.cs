@@ -10,8 +10,8 @@ namespace CapaNegocio.Interfaces
 {
     public interface ing_CrudUsuarios
     {
-        bool AltaUsuario(Usuarios u);
-        bool ModificarUsuario(Usuarios u);
+        bool AltaUsuario(Usuarios u, Usuarios admin);
+        bool ModificarUsuario(Usuarios u, Usuarios admin);
         List<Usuarios> ObtenerUsuarios(int a);
         bool BuscarUsuario(int id);
         bool BuscarDniUsuario(long dni);

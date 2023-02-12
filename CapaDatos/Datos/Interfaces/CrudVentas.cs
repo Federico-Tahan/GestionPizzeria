@@ -9,7 +9,7 @@ namespace CapaDatos.Datos.Interfaces
 {
     public interface CrudVentas
     {
-        bool AltaVenta(Factura f);
+        bool AltaVenta(Factura f, Usuarios u);
         Configuracion TraerConfig();
         bool BuscarClienteSocioDni(Cliente c);
 

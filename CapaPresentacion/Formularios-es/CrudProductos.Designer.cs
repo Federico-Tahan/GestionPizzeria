@@ -34,16 +34,6 @@
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.dgvProd = new System.Windows.Forms.DataGridView();
-            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreprod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo_Prod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidadMEd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Clasificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Activo = new System.Windows.Forms.DataGridViewImageColumn();
-            this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlCrud = new System.Windows.Forms.Panel();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.lbNroProd = new System.Windows.Forms.Label();
@@ -75,6 +65,19 @@
             this.rbtNombre = new System.Windows.Forms.RadioButton();
             this.rbtCodigo = new System.Windows.Forms.RadioButton();
             this.txbbusqueda = new System.Windows.Forms.TextBox();
+            this.btnUnidadMedida = new System.Windows.Forms.Button();
+            this.BtnClasificacion = new System.Windows.Forms.Button();
+            this.BtnTipoProd = new System.Windows.Forms.Button();
+            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreprod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo_Prod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unidadMEd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Clasificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
             this.pnlCrud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupStock)).BeginInit();
@@ -197,80 +200,6 @@
             this.dgvProd.Size = new System.Drawing.Size(932, 383);
             this.dgvProd.TabIndex = 20;
             this.dgvProd.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Click_Detalle);
-            // 
-            // IdProducto
-            // 
-            this.IdProducto.HeaderText = "Nro Producto";
-            this.IdProducto.Name = "IdProducto";
-            this.IdProducto.ReadOnly = true;
-            this.IdProducto.Width = 80;
-            // 
-            // nombreprod
-            // 
-            this.nombreprod.HeaderText = "Nombre";
-            this.nombreprod.Name = "nombreprod";
-            this.nombreprod.ReadOnly = true;
-            this.nombreprod.Width = 120;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            this.descripcion.Width = 140;
-            // 
-            // tipo_Prod
-            // 
-            this.tipo_Prod.HeaderText = "Tipo Producto";
-            this.tipo_Prod.Name = "tipo_Prod";
-            this.tipo_Prod.ReadOnly = true;
-            this.tipo_Prod.Width = 104;
-            // 
-            // unidadMEd
-            // 
-            this.unidadMEd.HeaderText = "Unidad Medida";
-            this.unidadMEd.Name = "unidadMEd";
-            this.unidadMEd.ReadOnly = true;
-            this.unidadMEd.Width = 80;
-            // 
-            // Clasificacion
-            // 
-            this.Clasificacion.HeaderText = "Clasificacion";
-            this.Clasificacion.Name = "Clasificacion";
-            this.Clasificacion.ReadOnly = true;
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            this.Stock.Width = 80;
-            // 
-            // monto
-            // 
-            this.monto.HeaderText = "Precio";
-            this.monto.Name = "monto";
-            this.monto.ReadOnly = true;
-            // 
-            // Activo
-            // 
-            this.Activo.HeaderText = "Activo";
-            this.Activo.Name = "Activo";
-            this.Activo.ReadOnly = true;
-            this.Activo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Activo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Activo.Width = 65;
-            // 
-            // accion
-            // 
-            this.accion.HeaderText = "Accion";
-            this.accion.Name = "accion";
-            this.accion.ReadOnly = true;
-            this.accion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.accion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.accion.Text = "Detalle";
-            this.accion.UseColumnTextForButtonValue = true;
-            this.accion.Width = 60;
             // 
             // pnlCrud
             // 
@@ -629,12 +558,144 @@
             this.txbbusqueda.Size = new System.Drawing.Size(149, 23);
             this.txbbusqueda.TabIndex = 33;
             // 
+            // btnUnidadMedida
+            // 
+            this.btnUnidadMedida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnUnidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUnidadMedida.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnUnidadMedida.FlatAppearance.BorderSize = 0;
+            this.btnUnidadMedida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.btnUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUnidadMedida.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUnidadMedida.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUnidadMedida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUnidadMedida.Location = new System.Drawing.Point(864, 0);
+            this.btnUnidadMedida.Name = "btnUnidadMedida";
+            this.btnUnidadMedida.Size = new System.Drawing.Size(127, 28);
+            this.btnUnidadMedida.TabIndex = 34;
+            this.btnUnidadMedida.Text = "Unidad Medida";
+            this.btnUnidadMedida.UseVisualStyleBackColor = false;
+            // 
+            // BtnClasificacion
+            // 
+            this.BtnClasificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.BtnClasificacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnClasificacion.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnClasificacion.FlatAppearance.BorderSize = 0;
+            this.BtnClasificacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.BtnClasificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClasificacion.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnClasificacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnClasificacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnClasificacion.Location = new System.Drawing.Point(731, 0);
+            this.BtnClasificacion.Name = "BtnClasificacion";
+            this.BtnClasificacion.Size = new System.Drawing.Size(127, 28);
+            this.BtnClasificacion.TabIndex = 35;
+            this.BtnClasificacion.Text = "Clasificacion";
+            this.BtnClasificacion.UseVisualStyleBackColor = false;
+            this.BtnClasificacion.Click += new System.EventHandler(this.BtnClasificacion_Click);
+            // 
+            // BtnTipoProd
+            // 
+            this.BtnTipoProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.BtnTipoProd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTipoProd.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnTipoProd.FlatAppearance.BorderSize = 0;
+            this.BtnTipoProd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.BtnTipoProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTipoProd.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnTipoProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnTipoProd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTipoProd.Location = new System.Drawing.Point(598, 0);
+            this.BtnTipoProd.Name = "BtnTipoProd";
+            this.BtnTipoProd.Size = new System.Drawing.Size(127, 28);
+            this.BtnTipoProd.TabIndex = 36;
+            this.BtnTipoProd.Text = "Tipo Producto";
+            this.BtnTipoProd.UseVisualStyleBackColor = false;
+            this.BtnTipoProd.Click += new System.EventHandler(this.BtnTipoProd_Click);
+            // 
+            // IdProducto
+            // 
+            this.IdProducto.HeaderText = "Nro Producto";
+            this.IdProducto.Name = "IdProducto";
+            this.IdProducto.ReadOnly = true;
+            this.IdProducto.Width = 80;
+            // 
+            // nombreprod
+            // 
+            this.nombreprod.HeaderText = "Nombre";
+            this.nombreprod.Name = "nombreprod";
+            this.nombreprod.ReadOnly = true;
+            this.nombreprod.Width = 120;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            this.descripcion.Width = 140;
+            // 
+            // tipo_Prod
+            // 
+            this.tipo_Prod.HeaderText = "Tipo Producto";
+            this.tipo_Prod.Name = "tipo_Prod";
+            this.tipo_Prod.ReadOnly = true;
+            this.tipo_Prod.Width = 104;
+            // 
+            // unidadMEd
+            // 
+            this.unidadMEd.HeaderText = "Unidad Medida";
+            this.unidadMEd.Name = "unidadMEd";
+            this.unidadMEd.ReadOnly = true;
+            this.unidadMEd.Width = 80;
+            // 
+            // Clasificacion
+            // 
+            this.Clasificacion.HeaderText = "Clasificacion";
+            this.Clasificacion.Name = "Clasificacion";
+            this.Clasificacion.ReadOnly = true;
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Width = 80;
+            // 
+            // monto
+            // 
+            this.monto.HeaderText = "Precio";
+            this.monto.Name = "monto";
+            this.monto.ReadOnly = true;
+            // 
+            // Activo
+            // 
+            this.Activo.HeaderText = "Activo";
+            this.Activo.Name = "Activo";
+            this.Activo.ReadOnly = true;
+            this.Activo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Activo.Width = 65;
+            // 
+            // accion
+            // 
+            this.accion.HeaderText = "Accion";
+            this.accion.Name = "accion";
+            this.accion.ReadOnly = true;
+            this.accion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.accion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.accion.Text = "Detalle";
+            this.accion.UseColumnTextForButtonValue = true;
+            this.accion.Width = 60;
+            // 
             // CrudProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(998, 676);
+            this.Controls.Add(this.BtnTipoProd);
+            this.Controls.Add(this.BtnClasificacion);
+            this.Controls.Add(this.btnUnidadMedida);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlCrud);
             this.Controls.Add(this.dgvProd);
@@ -703,6 +764,13 @@
         private TextBox TxbCodigoProducto;
         private CheckBox chkActivo;
         private PictureBox pictureBox1;
+        private Panel panel1;
+        private RadioButton rbtNombre;
+        private RadioButton rbtCodigo;
+        private TextBox txbbusqueda;
+        private Button btnUnidadMedida;
+        private Button BtnClasificacion;
+        private Button BtnTipoProd;
         private DataGridViewTextBoxColumn IdProducto;
         private DataGridViewTextBoxColumn nombreprod;
         private DataGridViewTextBoxColumn descripcion;
@@ -711,11 +779,7 @@
         private DataGridViewTextBoxColumn Clasificacion;
         private DataGridViewTextBoxColumn Stock;
         private DataGridViewTextBoxColumn monto;
-        private DataGridViewImageColumn Activo;
+        private DataGridViewTextBoxColumn Activo;
         private DataGridViewButtonColumn accion;
-        private Panel panel1;
-        private RadioButton rbtNombre;
-        private RadioButton rbtCodigo;
-        private TextBox txbbusqueda;
     }
 }

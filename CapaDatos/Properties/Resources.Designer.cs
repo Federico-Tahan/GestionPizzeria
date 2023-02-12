@@ -61,7 +61,7 @@ namespace CapaDatos.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data Source=FEDET\SQLEXPRESS;Initial Catalog=Pizzeria;Integrated Security=True;Encrypt=false.
+        ///   Looks up a localized string similar to Data Source=.;Initial Catalog=PizzeriaRoggio;Integrated Security=True;Encrypt=false.
         /// </summary>
         internal static string Connection {
             get {

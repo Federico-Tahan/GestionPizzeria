@@ -115,5 +115,53 @@ namespace CapaPresentacion.Formularios.Venta
             panel1.Visible = false;
             facturaselected = new Factura();
         }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            lFacturas = lg.TraerFactura();
+            cargarDgv();
+            if (RbtCodigo.Checked)
+            {
+                if (txbbusqueda.Text != "")
+                {
+                    try
+                    {
+                        Convert.ToInt32(txbbusqueda.Text);
+                        List<DataGridViewRow> temp = new List<DataGridViewRow>();
+
+                        foreach (DataGridViewRow row in dgvProd.Rows)
+                        {
+                            if (Convert.ToInt32(row.Cells["Nroventa"].Value) != Convert.ToInt32(txbbusqueda.Text))
+                            {
+                                temp.Add(row);
+                            }
+
+                        }
+
+                        foreach (DataGridViewRow row in temp)
+                        {
+
+                            dgvProd.Rows.Remove(row);
+
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Debe cargar un codigo para filtrar.");
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe cargar un codigo para filtrar.");
+                }
+            }
+        }
+
+        private void picreset_Click(object sender, EventArgs e)
+        {
+            lFacturas = lg.TraerFactura();
+            cargarDgv();
+        }
     }
 }

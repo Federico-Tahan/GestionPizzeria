@@ -118,37 +118,42 @@ namespace CapaPresentacion.Formularios.Venta
 
         private void btnConfirmarVenta_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(cbocliente.SelectedValue) != 0)
+            if (MessageBox.Show("Desea confirmar la Venta?","Confirmacion",MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                clienteSelected = (Cliente)cbocliente.SelectedItem;
-                if (validacion())
+
+            
+                if (Convert.ToInt32(cbocliente.SelectedValue) != 0)
                 {
-                    FormaEntrega fe = new FormaEntrega();
-                    FormaCompra fc = new FormaCompra();
-                    if (tienedescuento)
+                    clienteSelected = (Cliente)cbocliente.SelectedItem;
+                    if (validacion())
                     {
-                        fac.tieneDescuento = 0;
-                    }
-                    else { fac.tieneDescuento = 1; }
-                    fac.FormaEntrega= fe;
-                    fac.Forma_Compra= fc;
-                    fac.cliente = clienteSelected;
-                    fac.FormaEntrega.IdFormaEntrega = Convert.ToInt32(cbotipoentrega.SelectedValue);
-                    fac.Usuario = LogIn.u;
-                    fac.Forma_Compra.IdFormaCompra = Convert.ToInt32(cbotipocompra.SelectedValue);
-                    if (lg.AltaVenta(fac))
-                    {
-                        if (MessageBox.Show("Venta realizada con Exito", "", MessageBoxButtons.OK) == DialogResult.OK)
+                        FormaEntrega fe = new FormaEntrega();
+                        FormaCompra fc = new FormaCompra();
+                        if (tienedescuento)
                         {
-                            this.DialogResult = DialogResult.OK;
-                            this.Close();
+                            fac.tieneDescuento = 0;
+                        }
+                        else { fac.tieneDescuento = 1; }
+                        fac.FormaEntrega= fe;
+                        fac.Forma_Compra= fc;
+                        fac.cliente = clienteSelected;
+                        fac.FormaEntrega.IdFormaEntrega = Convert.ToInt32(cbotipoentrega.SelectedValue);
+                        fac.Usuario = LogIn.u;
+                        fac.Forma_Compra.IdFormaCompra = Convert.ToInt32(cbotipocompra.SelectedValue);
+                        if (lg.AltaVenta(fac,LogIn.u))
+                        {
+                            if (MessageBox.Show("Venta realizada con Exito", "", MessageBoxButtons.OK) == DialogResult.OK)
+                            {
+                                this.DialogResult = DialogResult.OK;
+                                this.Close();
+                            }
                         }
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Debe cargar un cliente");
+                else
+                {
+                    MessageBox.Show("Debe cargar un cliente");
+                }
             }
         }
 

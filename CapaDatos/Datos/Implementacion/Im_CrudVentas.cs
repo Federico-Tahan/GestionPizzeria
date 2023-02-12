@@ -12,7 +12,7 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_CrudVentas : CrudVentas
     {
-        public bool AltaVenta(Factura f)
+        public bool AltaVenta(Factura f, Usuarios u)
         {
             bool bandera = false;
             SqlConnection conn = HelperDB.ObtenerInstancia().conexion();
@@ -28,6 +28,8 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_forma_compra", f.Forma_Compra.IdFormaCompra);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_forma_entrega", f.FormaEntrega.IdFormaEntrega);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@tienedescuento", f.tieneDescuento);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario_admin", u.ID_Usuario);
+
 
 
                 SqlParameter pOut = new SqlParameter();

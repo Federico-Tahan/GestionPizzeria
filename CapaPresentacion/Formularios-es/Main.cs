@@ -10,6 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaDatos.Dominio;
+using CapaNegocio.Implementacion;
+using CapaNegocio.Interfaces;
+using Microsoft.VisualBasic.Logging;
 
 namespace CapaPresentacion.Formularios
 {
@@ -20,7 +23,11 @@ namespace CapaPresentacion.Formularios
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+
+        private ing_Logeo lg = new ng_Logeo();
 
         public Main()
         {
@@ -46,6 +53,7 @@ namespace CapaPresentacion.Formularios
         private void Main_Load(object sender, EventArgs e)
         {
             lbUsuario.Text = LogIn.u.Empleado.Nombre + " " + LogIn.u.Empleado.Apellido;
+            visibilidadRoles();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -73,7 +81,9 @@ namespace CapaPresentacion.Formularios
         {
             if (MessageBox.Show("Cerrar el programa", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                lg.RegistroSalida(LogIn.u.ID_Usuario);
                 Program.log.Close();
+                
             }
         }
 
@@ -172,6 +182,7 @@ namespace CapaPresentacion.Formularios
         {
             if (MessageBox.Show("Desea cerrar Sesion?","Cerrar Sesión",MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                lg.RegistroSalida(LogIn.u.ID_Usuario);
                 this.Close();
                 Program.log.Show();
                 LogIn.u = new Usuarios();
@@ -183,6 +194,30 @@ namespace CapaPresentacion.Formularios
         {
             AbrirFormEnPanel(new ConsultaVentas());
 
+        }
+
+
+        private void visibilidadRoles()
+        {
+            if (LogIn.u.Rol.Id_Rol == 4 )
+            {
+                btnVender.Visible = false;
+                BtnCliente.Visible = false;
+                btnGestion.Visible = false;
+                picConfig.Visible = false;
+
+            }else if (LogIn.u.Rol.Id_Rol == 5)
+            {
+                picConfig.Visible = false;
+                btnDescuentos.Visible = false;
+
+            }
+            else if (LogIn.u.Rol.Id_Rol == 6)
+            {
+                picConfig.Visible = false;
+                btnGestion.Visible = false;
+
+            }
         }
     }
 }

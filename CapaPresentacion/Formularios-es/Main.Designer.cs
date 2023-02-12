@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.pnlBarra = new System.Windows.Forms.Panel();
             this.Minimizar = new System.Windows.Forms.PictureBox();
             this.Salir = new System.Windows.Forms.PictureBox();
@@ -55,13 +56,21 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbfecha = new System.Windows.Forms.Label();
             this.lbHora = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.pnlBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
@@ -76,7 +85,13 @@
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel7.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBarra
@@ -109,7 +124,7 @@
             // 
             this.Salir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Salir.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Salir.Image = global::CapaPresentacion.Properties.Resources.close;
+            this.Salir.Image = ((System.Drawing.Image)(resources.GetObject("Salir.Image")));
             this.Salir.Location = new System.Drawing.Point(1181, 0);
             this.Salir.Name = "Salir";
             this.Salir.Size = new System.Drawing.Size(35, 35);
@@ -457,11 +472,35 @@
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.panel10);
+            this.panel6.Controls.Add(this.label5);
+            this.panel6.Controls.Add(this.pictureBox4);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Location = new System.Drawing.Point(779, 444);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(167, 164);
+            this.panel6.Size = new System.Drawing.Size(167, 178);
             this.panel6.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(29, 140);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(17, 20);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "$";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::CapaPresentacion.Properties.Resources.punto_de_venta__1_;
+            this.pictureBox4.Location = new System.Drawing.Point(28, 38);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(103, 90);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 11;
+            this.pictureBox4.TabStop = false;
             // 
             // panel7
             // 
@@ -486,18 +525,42 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.panel8);
+            this.panel4.Controls.Add(this.pictureBox3);
             this.panel4.Location = new System.Drawing.Point(779, 254);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(167, 170);
             this.panel4.TabIndex = 10;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.punto_de_venta;
+            this.pictureBox3.Location = new System.Drawing.Point(28, 39);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(103, 90);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 11;
+            this.pictureBox3.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.panel9);
+            this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Location = new System.Drawing.Point(779, 64);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(167, 162);
             this.panel2.TabIndex = 9;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.recaudacion_de_fondos;
+            this.pictureBox2.Location = new System.Drawing.Point(28, 33);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(103, 90);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // lbfecha
             // 
@@ -525,6 +588,42 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel8.Location = new System.Drawing.Point(22, 137);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(118, 25);
+            this.panel8.TabIndex = 11;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel9.Controls.Add(this.label6);
+            this.panel9.Location = new System.Drawing.Point(22, 129);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(118, 25);
+            this.panel9.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(17, 20);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "$";
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel10.Location = new System.Drawing.Point(26, 135);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(118, 25);
+            this.panel10.TabIndex = 12;
             // 
             // Main
             // 
@@ -557,8 +656,16 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -598,5 +705,13 @@
         private Button BtnProductos;
         private Button BtnUsuarios;
         private Button btnGestion;
+        private Label label5;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private Panel panel10;
+        private Panel panel8;
+        private Panel panel9;
+        private Label label6;
     }
 }

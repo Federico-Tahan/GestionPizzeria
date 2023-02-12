@@ -3,6 +3,7 @@ using CapaDatos.Datos.Interfaces;
 using CapaDatos.Dominio;
 using CapaNegocio.Implementacion;
 using CapaNegocio.Interfaces;
+using CapaPresentacion.Formularios_es.CombosProducto;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -128,7 +129,12 @@ namespace CapaPresentacion.Formularios
 
             foreach (Producto p in lp)
             {
-               dgvProd.Rows.Add(p.Id_producto,p.Nombre,p.Detalle,p.Tipo_producto.Tipo_producto,p.Unidadmedida.Unidad_Medida,p.clasificacion.clasificacion,p.Stock,p.Precio);
+                string baj = "No";
+                if (p.Baja_logica == 0)
+                {
+                    baj = "Si";
+                }
+               dgvProd.Rows.Add(p.Id_producto,p.Nombre,p.Detalle,p.Tipo_producto.Tipo_producto,p.Unidadmedida.Unidad_Medida,p.clasificacion.clasificacion,p.Stock,p.Precio,baj);
 
             }
         }
@@ -217,7 +223,7 @@ namespace CapaPresentacion.Formularios
                 if (prodSelect.Id_producto != 0)
                 {
                     prod.Id_producto = prodSelect.Id_producto; 
-                    if (lg.Modificacion(prod))
+                    if (lg.Modificacion(prod,LogIn.u))
                     {
                         MessageBox.Show("Producto Modificado con Exito.");
                         lproductos = lg.GetProductos(0);
@@ -232,7 +238,7 @@ namespace CapaPresentacion.Formularios
                 }
                 else
                 {
-                    if (lg.AltaProducto(prod))
+                    if (lg.AltaProducto(prod, LogIn.u))
                     {
                         MessageBox.Show("Producto dado de alta con Exito.");
                         lproductos = lg.GetProductos(0);
@@ -382,6 +388,18 @@ namespace CapaPresentacion.Formularios
             int dgvselectedcondicion = 2;
             lproductos = lg.GetProductos(dgvselectedcondicion);
             cargarDgv(lproductos);
+        }
+
+        private void BtnClasificacion_Click(object sender, EventArgs e)
+        {
+            FormClasificacion fc = new FormClasificacion();
+            fc.ShowDialog();
+        }
+
+        private void BtnTipoProd_Click(object sender, EventArgs e)
+        {
+            FormTipoProd ftp = new FormTipoProd();
+            ftp.ShowDialog();
         }
     }
 }

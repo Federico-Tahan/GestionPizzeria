@@ -258,7 +258,7 @@ namespace CapaPresentacion.Formularios
                         if (aliasActual == us.Alias)
                         {
 
-                            if (lg.ModificarUsuario(us))
+                            if (lg.ModificarUsuario(us,LogIn.u))
                             {
 
                                 MessageBox.Show("Usuario Modificado con Exito.");
@@ -276,7 +276,7 @@ namespace CapaPresentacion.Formularios
                         else if (!lg.BuscarAliasUsuario(us.Alias))
                         {
 
-                            if (lg.ModificarUsuario(us))
+                            if (lg.ModificarUsuario(us,LogIn.u))
                             {
 
                                 MessageBox.Show("Usuario Modificado con Exito.");
@@ -304,7 +304,7 @@ namespace CapaPresentacion.Formularios
                     {
                         if (!lg.BuscarDniUsuario(us.Empleado.DNI))
                         {
-                            if (lg.AltaUsuario(us))
+                            if (lg.AltaUsuario(us,LogIn.u))
                             {
                                 MessageBox.Show("Usuario Agregado Correctamente");
                                 Cargar_Usuario(user.ID_Usuario);

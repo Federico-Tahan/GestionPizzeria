@@ -18,9 +18,9 @@ namespace CapaNegocio.Implementacion
             lg = new Im_CrudVentas();
         }
 
-        public bool AltaVenta(Factura f)
+        public bool AltaVenta(Factura f, Usuarios u)
         {
-            return lg.AltaVenta(f);
+            return lg.AltaVenta(f, u);
         }
 
         public bool BuscarClienteSocioDni(Cliente c)
