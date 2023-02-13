@@ -10,6 +10,54 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_TipoProdClasiUnidadMed : ITipoProdClasiUnidadMed
     {
+        public bool AltaClasificacion(Clasificacion c)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", c.clasificacion);
+                HelperDB.ObtenerInstancia().updatear_db("SP_AltaClasificacion");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool AltaTipoProducto(TipoProducto tp)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", tp.Tipo_producto);
+                HelperDB.ObtenerInstancia().updatear_db("SP_AltaTipoProd");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool AltaUnidadMedida(UnidadMedida md)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", md.Unidad_Medida);
+                HelperDB.ObtenerInstancia().updatear_db("SP_AltaUnidadMed");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         public List<Clasificacion> GetClasificacion(int a)
         {
             List<Clasificacion> lclasificacion = new List<Clasificacion>();
@@ -98,6 +146,60 @@ namespace CapaDatos.Datos.Implementacion
             }
             HelperDB.ObtenerInstancia().close();
             return lunidadmed;
+        }
+
+        public bool ModificacionClasificacion(Clasificacion c)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id", c.IdClasificacion);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", c.clasificacion);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", c.BajaLogica);
+                HelperDB.ObtenerInstancia().updatear_db("SP_MODClasificacion");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool ModificacionTipoProducto(TipoProducto tp)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id", tp.IdTipoProducto);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", tp.Tipo_producto);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", tp.Baja_logica);
+                HelperDB.ObtenerInstancia().updatear_db("SP_MODTipoProd");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool ModificacionUnidadMedida(UnidadMedida md)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id", md.IdUnidadMedida);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", md.Unidad_Medida);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", md.Baja_Logica);
+                HelperDB.ObtenerInstancia().updatear_db("SP_MODUnidadMed");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

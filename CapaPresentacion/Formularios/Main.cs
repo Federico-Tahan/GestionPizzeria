@@ -28,6 +28,8 @@ namespace CapaPresentacion.Formularios
 
 
         private ing_Logeo lg = new ng_Logeo();
+        private ing_DatosExtra dt = new ng_DatosExtra();
+
 
         public Main()
         {
@@ -54,12 +56,15 @@ namespace CapaPresentacion.Formularios
         {
             lbUsuario.Text = LogIn.u.Empleado.Nombre + " " + LogIn.u.Empleado.Apellido;
             visibilidadRoles();
+            lbrecaudodiario.Text = dt.RecaudadoDiario().ToString();
+            lbventasdeldia.Text = dt.VentasdelDia().ToString();
+            lbventasdelmes.Text = dt.VentasdelMes().ToString();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lbHora.Text = DateTime.Now.ToLongTimeString();
-            lbfecha.Text = DateTime.Now.ToString("dddd MMMM  yyyy");
+            lbfecha.Text = DateTime.Now.ToString("yyyy MMMM dddd");
         }
 
         private void pnlBarra_MouseDown(object sender, MouseEventArgs e)
@@ -82,7 +87,7 @@ namespace CapaPresentacion.Formularios
             if (MessageBox.Show("Cerrar el programa", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 lg.RegistroSalida(LogIn.u.ID_Usuario);
-                Program.log.Close();
+                Program.select.Close();
                 
             }
         }
@@ -176,6 +181,9 @@ namespace CapaPresentacion.Formularios
         {
             pnlMain.Controls.Remove(FormActual);
             hidemenus();
+            lbrecaudodiario.Text = dt.RecaudadoDiario().ToString();
+            lbventasdeldia.Text = dt.VentasdelDia().ToString();
+            lbventasdelmes.Text = dt.VentasdelMes().ToString();
         }
 
         private void lbCierre_Click(object sender, EventArgs e)
@@ -184,7 +192,7 @@ namespace CapaPresentacion.Formularios
             {
                 lg.RegistroSalida(LogIn.u.ID_Usuario);
                 this.Close();
-                Program.log.Show();
+                Program.select.Show();
                 LogIn.u = new Usuarios();
             }
 

@@ -34,6 +34,16 @@
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.dgvProd = new System.Windows.Forms.DataGridView();
+            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreprod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo_Prod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unidadMEd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Clasificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlCrud = new System.Windows.Forms.Panel();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.lbNroProd = new System.Windows.Forms.Label();
@@ -68,16 +78,6 @@
             this.btnUnidadMedida = new System.Windows.Forms.Button();
             this.BtnClasificacion = new System.Windows.Forms.Button();
             this.BtnTipoProd = new System.Windows.Forms.Button();
-            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreprod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo_Prod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidadMEd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Clasificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
             this.pnlCrud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupStock)).BeginInit();
@@ -112,6 +112,7 @@
             // 
             this.BtnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.BtnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnEditar.Enabled = false;
             this.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnEditar.FlatAppearance.BorderSize = 0;
             this.BtnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
@@ -131,6 +132,7 @@
             // 
             this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.BtnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCancelar.Enabled = false;
             this.BtnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnCancelar.FlatAppearance.BorderSize = 0;
             this.BtnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
@@ -150,6 +152,7 @@
             // 
             this.BtnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.BtnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuardar.Enabled = false;
             this.BtnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnGuardar.FlatAppearance.BorderSize = 0;
             this.BtnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
@@ -200,6 +203,79 @@
             this.dgvProd.Size = new System.Drawing.Size(932, 383);
             this.dgvProd.TabIndex = 20;
             this.dgvProd.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Click_Detalle);
+            // 
+            // IdProducto
+            // 
+            this.IdProducto.HeaderText = "Nro Producto";
+            this.IdProducto.Name = "IdProducto";
+            this.IdProducto.ReadOnly = true;
+            this.IdProducto.Width = 80;
+            // 
+            // nombreprod
+            // 
+            this.nombreprod.HeaderText = "Nombre";
+            this.nombreprod.Name = "nombreprod";
+            this.nombreprod.ReadOnly = true;
+            this.nombreprod.Width = 120;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            this.descripcion.Width = 140;
+            // 
+            // tipo_Prod
+            // 
+            this.tipo_Prod.HeaderText = "Tipo Producto";
+            this.tipo_Prod.Name = "tipo_Prod";
+            this.tipo_Prod.ReadOnly = true;
+            this.tipo_Prod.Width = 104;
+            // 
+            // unidadMEd
+            // 
+            this.unidadMEd.HeaderText = "Unidad Medida";
+            this.unidadMEd.Name = "unidadMEd";
+            this.unidadMEd.ReadOnly = true;
+            this.unidadMEd.Width = 80;
+            // 
+            // Clasificacion
+            // 
+            this.Clasificacion.HeaderText = "Clasificacion";
+            this.Clasificacion.Name = "Clasificacion";
+            this.Clasificacion.ReadOnly = true;
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Width = 80;
+            // 
+            // monto
+            // 
+            this.monto.HeaderText = "Precio";
+            this.monto.Name = "monto";
+            this.monto.ReadOnly = true;
+            // 
+            // Activo
+            // 
+            this.Activo.HeaderText = "Activo";
+            this.Activo.Name = "Activo";
+            this.Activo.ReadOnly = true;
+            this.Activo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Activo.Width = 65;
+            // 
+            // accion
+            // 
+            this.accion.HeaderText = "Accion";
+            this.accion.Name = "accion";
+            this.accion.ReadOnly = true;
+            this.accion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.accion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.accion.Text = "Detalle";
+            this.accion.UseColumnTextForButtonValue = true;
+            this.accion.Width = 60;
             // 
             // pnlCrud
             // 
@@ -575,6 +651,7 @@
             this.btnUnidadMedida.TabIndex = 34;
             this.btnUnidadMedida.Text = "Unidad Medida";
             this.btnUnidadMedida.UseVisualStyleBackColor = false;
+            this.btnUnidadMedida.Click += new System.EventHandler(this.btnUnidadMedida_Click);
             // 
             // BtnClasificacion
             // 
@@ -613,79 +690,6 @@
             this.BtnTipoProd.Text = "Tipo Producto";
             this.BtnTipoProd.UseVisualStyleBackColor = false;
             this.BtnTipoProd.Click += new System.EventHandler(this.BtnTipoProd_Click);
-            // 
-            // IdProducto
-            // 
-            this.IdProducto.HeaderText = "Nro Producto";
-            this.IdProducto.Name = "IdProducto";
-            this.IdProducto.ReadOnly = true;
-            this.IdProducto.Width = 80;
-            // 
-            // nombreprod
-            // 
-            this.nombreprod.HeaderText = "Nombre";
-            this.nombreprod.Name = "nombreprod";
-            this.nombreprod.ReadOnly = true;
-            this.nombreprod.Width = 120;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            this.descripcion.Width = 140;
-            // 
-            // tipo_Prod
-            // 
-            this.tipo_Prod.HeaderText = "Tipo Producto";
-            this.tipo_Prod.Name = "tipo_Prod";
-            this.tipo_Prod.ReadOnly = true;
-            this.tipo_Prod.Width = 104;
-            // 
-            // unidadMEd
-            // 
-            this.unidadMEd.HeaderText = "Unidad Medida";
-            this.unidadMEd.Name = "unidadMEd";
-            this.unidadMEd.ReadOnly = true;
-            this.unidadMEd.Width = 80;
-            // 
-            // Clasificacion
-            // 
-            this.Clasificacion.HeaderText = "Clasificacion";
-            this.Clasificacion.Name = "Clasificacion";
-            this.Clasificacion.ReadOnly = true;
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            this.Stock.Width = 80;
-            // 
-            // monto
-            // 
-            this.monto.HeaderText = "Precio";
-            this.monto.Name = "monto";
-            this.monto.ReadOnly = true;
-            // 
-            // Activo
-            // 
-            this.Activo.HeaderText = "Activo";
-            this.Activo.Name = "Activo";
-            this.Activo.ReadOnly = true;
-            this.Activo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Activo.Width = 65;
-            // 
-            // accion
-            // 
-            this.accion.HeaderText = "Accion";
-            this.accion.Name = "accion";
-            this.accion.ReadOnly = true;
-            this.accion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.accion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.accion.Text = "Detalle";
-            this.accion.UseColumnTextForButtonValue = true;
-            this.accion.Width = 60;
             // 
             // CrudProductos
             // 

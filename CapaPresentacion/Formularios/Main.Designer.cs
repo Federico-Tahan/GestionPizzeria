@@ -56,21 +56,24 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.lbrecaudodiario = new System.Windows.Forms.Label();
+            this.lb = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbfecha = new System.Windows.Forms.Label();
             this.lbHora = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
+            this.lbventasdeldia = new System.Windows.Forms.Label();
+            this.lbventasdelmes = new System.Windows.Forms.Label();
             this.pnlBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
@@ -85,13 +88,15 @@
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBarra
@@ -481,6 +486,15 @@
             this.panel6.Size = new System.Drawing.Size(167, 178);
             this.panel6.TabIndex = 10;
             // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel10.Controls.Add(this.lbventasdelmes);
+            this.panel10.Location = new System.Drawing.Point(26, 135);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(118, 25);
+            this.panel10.TabIndex = 12;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -532,6 +546,15 @@
             this.panel4.Size = new System.Drawing.Size(167, 170);
             this.panel4.TabIndex = 10;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel8.Controls.Add(this.lbventasdeldia);
+            this.panel8.Location = new System.Drawing.Point(22, 137);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(118, 25);
+            this.panel8.TabIndex = 11;
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.punto_de_venta;
@@ -551,6 +574,38 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(167, 162);
             this.panel2.TabIndex = 9;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel9.Controls.Add(this.lbrecaudodiario);
+            this.panel9.Controls.Add(this.lb);
+            this.panel9.Location = new System.Drawing.Point(22, 129);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(118, 25);
+            this.panel9.TabIndex = 12;
+            // 
+            // lbrecaudodiario
+            // 
+            this.lbrecaudodiario.AutoSize = true;
+            this.lbrecaudodiario.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbrecaudodiario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbrecaudodiario.Location = new System.Drawing.Point(27, 0);
+            this.lbrecaudodiario.Name = "lbrecaudodiario";
+            this.lbrecaudodiario.Size = new System.Drawing.Size(17, 20);
+            this.lbrecaudodiario.TabIndex = 12;
+            this.lbrecaudodiario.Text = "$";
+            // 
+            // lb
+            // 
+            this.lb.AutoSize = true;
+            this.lb.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lb.Location = new System.Drawing.Point(4, 0);
+            this.lb.Name = "lb";
+            this.lb.Size = new System.Drawing.Size(17, 20);
+            this.lb.TabIndex = 11;
+            this.lb.Text = "$";
             // 
             // pictureBox2
             // 
@@ -589,41 +644,27 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // panel8
+            // lbventasdeldia
             // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.panel8.Location = new System.Drawing.Point(22, 137);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(118, 25);
-            this.panel8.TabIndex = 11;
+            this.lbventasdeldia.AutoSize = true;
+            this.lbventasdeldia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbventasdeldia.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbventasdeldia.Location = new System.Drawing.Point(40, 2);
+            this.lbventasdeldia.Name = "lbventasdeldia";
+            this.lbventasdeldia.Size = new System.Drawing.Size(17, 20);
+            this.lbventasdeldia.TabIndex = 13;
+            this.lbventasdeldia.Text = "$";
             // 
-            // panel9
+            // lbventasdelmes
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.panel9.Controls.Add(this.label6);
-            this.panel9.Location = new System.Drawing.Point(22, 129);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(118, 25);
-            this.panel9.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 20);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "$";
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.panel10.Location = new System.Drawing.Point(26, 135);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(118, 25);
-            this.panel10.TabIndex = 12;
+            this.lbventasdelmes.AutoSize = true;
+            this.lbventasdelmes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbventasdelmes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbventasdelmes.Location = new System.Drawing.Point(45, 3);
+            this.lbventasdelmes.Name = "lbventasdelmes";
+            this.lbventasdelmes.Size = new System.Drawing.Size(17, 20);
+            this.lbventasdelmes.TabIndex = 12;
+            this.lbventasdelmes.Text = "$";
             // 
             // Main
             // 
@@ -657,15 +698,19 @@
             this.panel3.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -712,6 +757,9 @@
         private Panel panel10;
         private Panel panel8;
         private Panel panel9;
-        private Label label6;
+        private Label lb;
+        private Label lbrecaudodiario;
+        private Label lbventasdelmes;
+        private Label lbventasdeldia;
     }
 }

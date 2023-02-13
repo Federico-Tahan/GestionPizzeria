@@ -706,3 +706,97 @@ create or alter procedure SP_GetUnidadMedida(
 	begin
 			select * from Unidad_Medida
 	end
+
+go
+
+
+create or alter procedure SP_AltaClasificacion(
+	@nombre varchar(50)
+)as
+	insert into Clasificacion values(@nombre,0)
+
+go
+
+
+create or alter procedure SP_AltaUnidadMed(
+	@nombre varchar(50)
+)as
+	insert into Unidad_Medida values(@nombre,0)
+
+go
+
+
+create or alter procedure SP_AltaTipoProd(
+	@nombre varchar(50)
+)as
+	insert into Tipo_producto values(@nombre,0)
+
+
+go
+
+create or alter procedure SP_MODClasificacion(
+	@id int,
+	@nombre  varchar(50),
+	@baja_logica int
+)as	
+	update Clasificacion
+	set baja_logica = @baja_logica,
+		clasificacion = @nombre
+	where id_clasificacion = @id
+
+go
+
+create or alter procedure SP_MODUnidadMed(
+	@id int,
+	@nombre  varchar(50),
+	@baja_logica int
+)as	
+	update Unidad_Medida
+	set baja_logica = @baja_logica,
+		Unidad_Medida = @nombre
+	where id_unidad_medida = @id
+
+
+go
+
+
+create or alter procedure SP_MODTipoProd(
+	@id int,
+	@nombre  varchar(50),
+	@baja_logica int
+)as	
+	update Tipo_producto
+	set baja_logica = @baja_logica,
+		tipo_producto = @nombre
+	where id_tipo_producto = @id
+
+go
+
+
+create or alter procedure SP_RecaudoDiario
+as
+	Select SUM(cantidad * importe)'Recaudado Hoy'
+	from detalle_factura df
+	join Factura f on df.nro_factura = f.nro_factura
+	where day(f.fecha) = day(GETDATE()) and MONTH(f.fecha) = Month(GETDATE()) and YEAR(f.fecha) = Year(GETDATE())
+	group by day(f.fecha), MONTH(f.fecha),YEAR(f.fecha)
+
+go
+
+create or alter procedure SP_VentasHoy
+as
+	Select COUNT(nro_factura)'Ventas Hoy'
+	from Factura
+	where day(fecha) = day(GETDATE()) and MONTH(fecha) = Month(GETDATE()) and YEAR(fecha) = Year(GETDATE())
+	group by day(fecha), MONTH(fecha),YEAR(fecha)
+
+go
+
+create or alter procedure SP_VentasMes
+as
+	Select COUNT(nro_factura)'Ventas Mes'
+	from Factura
+	where MONTH(fecha) = Month(GETDATE()) and YEAR(fecha) = Year(GETDATE())
+	group by MONTH(fecha),YEAR(fecha)
+
+go

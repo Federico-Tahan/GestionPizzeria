@@ -163,7 +163,7 @@
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.pnlHeader.Controls.Add(this.lbProd);
-            this.pnlHeader.Location = new System.Drawing.Point(0, 3);
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(202, 56);
             this.pnlHeader.TabIndex = 38;

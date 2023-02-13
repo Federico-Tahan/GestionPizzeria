@@ -31,9 +31,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClasificacion));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.picbajar = new System.Windows.Forms.PictureBox();
             this.TxbtipoProd = new System.Windows.Forms.Label();
             this.chkActivo = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbClasificacion = new System.Windows.Forms.TextBox();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lbProd = new System.Windows.Forms.Label();
             this.BtnGuardar = new System.Windows.Forms.Button();
@@ -48,8 +49,14 @@
             this.pnlBarra = new System.Windows.Forms.Panel();
             this.Minimizar = new System.Windows.Forms.PictureBox();
             this.Salir = new System.Windows.Forms.PictureBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbBusqeuda = new System.Windows.Forms.TextBox();
+            this.rbtTodos = new System.Windows.Forms.RadioButton();
+            this.RbtNoActivo = new System.Windows.Forms.RadioButton();
+            this.RbtActivo = new System.Windows.Forms.RadioButton();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbajar)).BeginInit();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClasi)).BeginInit();
             this.pnlBarra.SuspendLayout();
@@ -60,14 +67,27 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.OliveDrab;
+            this.panel1.Controls.Add(this.picbajar);
             this.panel1.Controls.Add(this.TxbtipoProd);
             this.panel1.Controls.Add(this.chkActivo);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(82, 159);
+            this.panel1.Controls.Add(this.txbClasificacion);
+            this.panel1.Location = new System.Drawing.Point(82, 137);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(554, 334);
+            this.panel1.Size = new System.Drawing.Size(554, 356);
             this.panel1.TabIndex = 40;
             this.panel1.Visible = false;
+            // 
+            // picbajar
+            // 
+            this.picbajar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picbajar.Image = global::CapaPresentacion.Properties.Resources.abajo1;
+            this.picbajar.Location = new System.Drawing.Point(507, 0);
+            this.picbajar.Name = "picbajar";
+            this.picbajar.Size = new System.Drawing.Size(47, 43);
+            this.picbajar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbajar.TabIndex = 47;
+            this.picbajar.TabStop = false;
+            this.picbajar.Click += new System.EventHandler(this.picbajar_Click);
             // 
             // TxbtipoProd
             // 
@@ -94,12 +114,12 @@
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txbClasificacion
             // 
-            this.textBox1.Location = new System.Drawing.Point(52, 160);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 23);
-            this.textBox1.TabIndex = 0;
+            this.txbClasificacion.Location = new System.Drawing.Point(52, 160);
+            this.txbClasificacion.Name = "txbClasificacion";
+            this.txbClasificacion.Size = new System.Drawing.Size(204, 23);
+            this.txbClasificacion.TabIndex = 0;
             // 
             // pnlHeader
             // 
@@ -107,7 +127,7 @@
             this.pnlHeader.Controls.Add(this.lbProd);
             this.pnlHeader.Location = new System.Drawing.Point(0, 35);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(285, 56);
+            this.pnlHeader.Size = new System.Drawing.Size(226, 56);
             this.pnlHeader.TabIndex = 39;
             // 
             // lbProd
@@ -115,7 +135,7 @@
             this.lbProd.AutoSize = true;
             this.lbProd.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbProd.Location = new System.Drawing.Point(68, 9);
+            this.lbProd.Location = new System.Drawing.Point(7, 10);
             this.lbProd.Name = "lbProd";
             this.lbProd.Size = new System.Drawing.Size(218, 38);
             this.lbProd.TabIndex = 21;
@@ -230,6 +250,7 @@
             this.dgvClasi.RowTemplate.Height = 25;
             this.dgvClasi.Size = new System.Drawing.Size(554, 305);
             this.dgvClasi.TabIndex = 34;
+            this.dgvClasi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClasi_CellContentClick);
             // 
             // CodigoClasificacion
             // 
@@ -259,6 +280,7 @@
             this.Accion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Accion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Accion.Text = "Detalle";
+            this.Accion.UseColumnTextForButtonValue = true;
             // 
             // pnlBarra
             // 
@@ -297,12 +319,79 @@
             this.Salir.TabStop = false;
             this.Salir.Click += new System.EventHandler(this.Salir_Click);
             // 
-            // textBox2
+            // txbBusqeuda
             // 
-            this.textBox2.Location = new System.Drawing.Point(81, 159);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(106, 23);
-            this.textBox2.TabIndex = 41;
+            this.txbBusqeuda.Location = new System.Drawing.Point(81, 159);
+            this.txbBusqeuda.Name = "txbBusqeuda";
+            this.txbBusqeuda.Size = new System.Drawing.Size(128, 23);
+            this.txbBusqeuda.TabIndex = 41;
+            // 
+            // rbtTodos
+            // 
+            this.rbtTodos.AutoSize = true;
+            this.rbtTodos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbtTodos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbtTodos.Location = new System.Drawing.Point(563, 159);
+            this.rbtTodos.Name = "rbtTodos";
+            this.rbtTodos.Size = new System.Drawing.Size(73, 25);
+            this.rbtTodos.TabIndex = 44;
+            this.rbtTodos.Text = "Todos";
+            this.rbtTodos.UseVisualStyleBackColor = true;
+            this.rbtTodos.CheckedChanged += new System.EventHandler(this.rbtTodos_CheckedChanged);
+            // 
+            // RbtNoActivo
+            // 
+            this.RbtNoActivo.AutoSize = true;
+            this.RbtNoActivo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RbtNoActivo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RbtNoActivo.Location = new System.Drawing.Point(450, 159);
+            this.RbtNoActivo.Name = "RbtNoActivo";
+            this.RbtNoActivo.Size = new System.Drawing.Size(107, 25);
+            this.RbtNoActivo.TabIndex = 43;
+            this.RbtNoActivo.Text = "No Activo";
+            this.RbtNoActivo.UseVisualStyleBackColor = true;
+            this.RbtNoActivo.CheckedChanged += new System.EventHandler(this.RbtNoActivo_CheckedChanged);
+            // 
+            // RbtActivo
+            // 
+            this.RbtActivo.AutoSize = true;
+            this.RbtActivo.Checked = true;
+            this.RbtActivo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RbtActivo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RbtActivo.Location = new System.Drawing.Point(354, 159);
+            this.RbtActivo.Name = "RbtActivo";
+            this.RbtActivo.Size = new System.Drawing.Size(81, 25);
+            this.RbtActivo.TabIndex = 42;
+            this.RbtActivo.TabStop = true;
+            this.RbtActivo.Text = "Activo";
+            this.RbtActivo.UseVisualStyleBackColor = true;
+            this.RbtActivo.CheckedChanged += new System.EventHandler(this.RbtActivo_CheckedChanged);
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.BackColor = System.Drawing.Color.White;
+            this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Location = new System.Drawing.Point(215, 159);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(71, 23);
+            this.BtnBuscar.TabIndex = 45;
+            this.BtnBuscar.Text = "Buscar";
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(81, 137);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(171, 19);
+            this.label1.TabIndex = 47;
+            this.label1.Text = "Codigo Clasificacion";
             // 
             // FormClasificacion
             // 
@@ -318,7 +407,12 @@
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dgvClasi);
             this.Controls.Add(this.pnlBarra);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.BtnBuscar);
+            this.Controls.Add(this.rbtTodos);
+            this.Controls.Add(this.RbtNoActivo);
+            this.Controls.Add(this.RbtActivo);
+            this.Controls.Add(this.txbBusqeuda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormClasificacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -326,6 +420,7 @@
             this.Load += new System.EventHandler(this.FormClasificacion_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbajar)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClasi)).EndInit();
@@ -342,7 +437,7 @@
         private Panel panel1;
         private Label TxbtipoProd;
         private CheckBox chkActivo;
-        private TextBox textBox1;
+        private TextBox txbClasificacion;
         private Panel pnlHeader;
         private Label lbProd;
         private Button BtnGuardar;
@@ -353,7 +448,13 @@
         private Panel pnlBarra;
         private PictureBox Minimizar;
         private PictureBox Salir;
-        private TextBox textBox2;
+        private TextBox txbBusqeuda;
+        private PictureBox picbajar;
+        private RadioButton rbtTodos;
+        private RadioButton RbtNoActivo;
+        private RadioButton RbtActivo;
+        private Button BtnBuscar;
+        private Label label1;
         private DataGridViewTextBoxColumn CodigoClasificacion;
         private DataGridViewTextBoxColumn Clasificacion;
         private DataGridViewTextBoxColumn activo;

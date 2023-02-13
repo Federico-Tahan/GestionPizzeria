@@ -18,6 +18,21 @@ namespace CapaNegocio.Implementacion
             lg = new Im_TipoProdClasiUnidadMed();
         }
 
+        public bool AltaClasificacion(Clasificacion c)
+        {
+            return lg.AltaClasificacion(c);
+        }
+
+        public bool AltaTipoProducto(TipoProducto tp)
+        {
+            return lg.AltaTipoProducto(tp);
+        }
+
+        public bool AltaUnidadMedida(UnidadMedida md)
+        {
+            return lg.AltaUnidadMedida(md);
+        }
+
         public List<Clasificacion> GetClasificacion(int a)
         {
             return lg.GetClasificacion(a);
@@ -31,6 +46,21 @@ namespace CapaNegocio.Implementacion
         public List<UnidadMedida> GetUnidadMedida(int a)
         {
             return lg.GetUnidadMedida(a);
+        }
+
+        public bool ModificacionClasificacion(Clasificacion c)
+        {
+            return lg.ModificacionClasificacion(c);
+        }
+
+        public bool ModificacionTipoProducto(TipoProducto tp)
+        {
+            return lg.ModificacionTipoProducto(tp);
+        }
+
+        public bool ModificacionUnidadMedida(UnidadMedida md)
+        {
+            return lg.ModificacionUnidadMedida(md);
         }
     }
 }

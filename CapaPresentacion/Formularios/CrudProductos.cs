@@ -3,6 +3,7 @@ using CapaDatos.Datos.Interfaces;
 using CapaDatos.Dominio;
 using CapaNegocio.Implementacion;
 using CapaNegocio.Interfaces;
+using CapaPresentacion.Formularios.CombosProducto;
 using CapaPresentacion.Formularios_es.CombosProducto;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
@@ -14,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace CapaPresentacion.Formularios
 {
@@ -394,12 +396,36 @@ namespace CapaPresentacion.Formularios
         {
             FormClasificacion fc = new FormClasificacion();
             fc.ShowDialog();
+            if (fc.DialogResult == DialogResult.OK)
+            {
+                cargar_cboClasificacion(cboClasificacion, "clasificacion", "IdClasificacion");
+                cargar_cboTipoProducto(cboTipoProd, "Tipo_Producto", "IdTipoProducto");
+                cargar_cboUnidadMedida(cboUnidadMeidda, "Unidad_Medida", "IdUnidadMedida");
+            }
         }
 
         private void BtnTipoProd_Click(object sender, EventArgs e)
         {
             FormTipoProd ftp = new FormTipoProd();
             ftp.ShowDialog();
+            if (ftp.DialogResult == DialogResult.OK)
+            {
+                cargar_cboClasificacion(cboClasificacion, "clasificacion", "IdClasificacion");
+                cargar_cboTipoProducto(cboTipoProd, "Tipo_Producto", "IdTipoProducto");
+                cargar_cboUnidadMedida(cboUnidadMeidda, "Unidad_Medida", "IdUnidadMedida");
+            }
+        }
+
+        private void btnUnidadMedida_Click(object sender, EventArgs e)
+        {
+            FormUnidadMedida fum = new FormUnidadMedida();
+            fum.ShowDialog();
+            if (fum.DialogResult == DialogResult.OK)
+            {
+                cargar_cboClasificacion(cboClasificacion, "clasificacion", "IdClasificacion");
+                cargar_cboTipoProducto(cboTipoProd, "Tipo_Producto", "IdTipoProducto");
+                cargar_cboUnidadMedida(cboUnidadMeidda, "Unidad_Medida", "IdUnidadMedida");
+            }
         }
     }
 }
