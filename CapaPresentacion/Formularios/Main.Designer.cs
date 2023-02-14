@@ -57,12 +57,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.lbventasdelmes = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.lbventasdeldia = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -72,8 +74,6 @@
             this.lbfecha = new System.Windows.Forms.Label();
             this.lbHora = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lbventasdeldia = new System.Windows.Forms.Label();
-            this.lbventasdelmes = new System.Windows.Forms.Label();
             this.pnlBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
@@ -495,6 +495,17 @@
             this.panel10.Size = new System.Drawing.Size(118, 25);
             this.panel10.TabIndex = 12;
             // 
+            // lbventasdelmes
+            // 
+            this.lbventasdelmes.AutoSize = true;
+            this.lbventasdelmes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbventasdelmes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbventasdelmes.Location = new System.Drawing.Point(43, 4);
+            this.lbventasdelmes.Name = "lbventasdelmes";
+            this.lbventasdelmes.Size = new System.Drawing.Size(17, 20);
+            this.lbventasdelmes.TabIndex = 12;
+            this.lbventasdelmes.Text = "$";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -554,6 +565,17 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(118, 25);
             this.panel8.TabIndex = 11;
+            // 
+            // lbventasdeldia
+            // 
+            this.lbventasdeldia.AutoSize = true;
+            this.lbventasdeldia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbventasdeldia.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbventasdeldia.Location = new System.Drawing.Point(47, 2);
+            this.lbventasdeldia.Name = "lbventasdeldia";
+            this.lbventasdeldia.Size = new System.Drawing.Size(17, 20);
+            this.lbventasdeldia.TabIndex = 13;
+            this.lbventasdeldia.Text = "$";
             // 
             // pictureBox3
             // 
@@ -643,28 +665,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // lbventasdeldia
-            // 
-            this.lbventasdeldia.AutoSize = true;
-            this.lbventasdeldia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbventasdeldia.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbventasdeldia.Location = new System.Drawing.Point(40, 2);
-            this.lbventasdeldia.Name = "lbventasdeldia";
-            this.lbventasdeldia.Size = new System.Drawing.Size(17, 20);
-            this.lbventasdeldia.TabIndex = 13;
-            this.lbventasdeldia.Text = "$";
-            // 
-            // lbventasdelmes
-            // 
-            this.lbventasdelmes.AutoSize = true;
-            this.lbventasdelmes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbventasdelmes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbventasdelmes.Location = new System.Drawing.Point(45, 3);
-            this.lbventasdelmes.Name = "lbventasdelmes";
-            this.lbventasdelmes.Size = new System.Drawing.Size(17, 20);
-            this.lbventasdelmes.TabIndex = 12;
-            this.lbventasdelmes.Text = "$";
             // 
             // Main
             // 

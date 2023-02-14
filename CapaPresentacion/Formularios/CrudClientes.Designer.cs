@@ -72,6 +72,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.RbtNombre = new System.Windows.Forms.RadioButton();
             this.RbtDni = new System.Windows.Forms.RadioButton();
+            this.picreset = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picLimpiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbajar)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picreset)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvCliente
@@ -244,9 +246,9 @@
             this.pnlCrud.Controls.Add(this.TxbDni);
             this.pnlCrud.Controls.Add(this.picLimpiar);
             this.pnlCrud.Controls.Add(this.picbajar);
-            this.pnlCrud.Location = new System.Drawing.Point(79, 140);
+            this.pnlCrud.Location = new System.Drawing.Point(79, 144);
             this.pnlCrud.Name = "pnlCrud";
-            this.pnlCrud.Size = new System.Drawing.Size(870, 396);
+            this.pnlCrud.Size = new System.Drawing.Size(870, 392);
             this.pnlCrud.TabIndex = 29;
             this.pnlCrud.Visible = false;
             this.pnlCrud.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCrud_Paint);
@@ -597,6 +599,18 @@
             this.RbtDni.Text = "DNI";
             this.RbtDni.UseVisualStyleBackColor = true;
             // 
+            // picreset
+            // 
+            this.picreset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picreset.Image = global::CapaPresentacion.Properties.Resources.reset;
+            this.picreset.Location = new System.Drawing.Point(498, 144);
+            this.picreset.Name = "picreset";
+            this.picreset.Size = new System.Drawing.Size(38, 33);
+            this.picreset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picreset.TabIndex = 52;
+            this.picreset.TabStop = false;
+            this.picreset.Click += new System.EventHandler(this.picreset_Click);
+            // 
             // CrudClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -616,6 +630,7 @@
             this.Controls.Add(this.BtnBuscar);
             this.Controls.Add(this.txbBusqueda);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.picreset);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrudClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -632,6 +647,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picbajar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picreset)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -682,5 +698,6 @@
         private DataGridViewButtonColumn Acciones;
         private TextBox texboxnumero;
         private PictureBox pictureBox2;
+        private PictureBox picreset;
     }
 }

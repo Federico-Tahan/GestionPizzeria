@@ -674,5 +674,13 @@ namespace CapaPresentacion.Formularios
             dgvCliente.Columns[5].HeaderText = Rec.Socio;
             dgvCliente.Columns[6].HeaderText = Rec.Accion;
         }
+
+        private void picreset_Click(object sender, EventArgs e)
+        {
+            rbtTodos.Checked = true;
+            lClientes = lg.TraerClientes();
+            cargarDgv(lClientes);
+
+        }
     }
 }

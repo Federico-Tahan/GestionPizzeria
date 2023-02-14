@@ -105,6 +105,11 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica_usuario", u.Baja_Logica);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica_empleado", u.Empleado.Baja_logica);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario_admin", admin.ID_Usuario);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", u.Empleado.Nombre);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@apellido", u.Empleado.Apellido);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@dni", u.Empleado.DNI);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@fecha_nac", u.Empleado.FechaNacimiento);
+
                 HelperDB.ObtenerInstancia().updatear_db("SP_Actualizar_UsuarioEmpleado");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;

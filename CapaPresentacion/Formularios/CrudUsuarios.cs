@@ -64,7 +64,7 @@ namespace CapaPresentacion.Formularios
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             Botones(false);
-            habilitar(false);
+            habilitar(true);
             picContraseña.Enabled = true;
             picLimpiar.Enabled = true;
             chkActivo.Enabled = true;

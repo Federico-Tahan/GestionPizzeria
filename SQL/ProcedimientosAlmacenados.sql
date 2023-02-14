@@ -808,3 +808,5 @@ create or alter procedure SP_BajarAlias(
 	update Usuarios
 	set baja_logica = 1
 	where alias = @Alias
+
+select * from Usuarios
