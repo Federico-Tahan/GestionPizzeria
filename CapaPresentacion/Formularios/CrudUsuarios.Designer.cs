@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbProd = new System.Windows.Forms.Label();
+            this.lbusuarios = new System.Windows.Forms.Label();
             this.pnlCrud = new System.Windows.Forms.Panel();
             this.txbIDEmpleado = new System.Windows.Forms.TextBox();
             this.lbFechaNac = new System.Windows.Forms.Label();
@@ -40,15 +40,15 @@
             this.txbDireccion = new System.Windows.Forms.TextBox();
             this.picContraseña = new System.Windows.Forms.PictureBox();
             this.chkActivo = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbalias = new System.Windows.Forms.Label();
             this.TxbAlias = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbcontraseña = new System.Windows.Forms.Label();
             this.TxbContraseña = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbroles = new System.Windows.Forms.Label();
             this.CboRoles = new System.Windows.Forms.ComboBox();
             this.lbCOD = new System.Windows.Forms.Label();
             this.txbCod = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbdni = new System.Windows.Forms.Label();
             this.TxbDni = new System.Windows.Forms.TextBox();
             this.lbTel = new System.Windows.Forms.Label();
             this.TxbTelefono = new System.Windows.Forms.TextBox();
@@ -96,7 +96,7 @@
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.pnlHeader.Controls.Add(this.pictureBox1);
-            this.pnlHeader.Controls.Add(this.lbProd);
+            this.pnlHeader.Controls.Add(this.lbusuarios);
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(215, 56);
@@ -112,16 +112,16 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
-            // lbProd
+            // lbusuarios
             // 
-            this.lbProd.AutoSize = true;
-            this.lbProd.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbProd.Location = new System.Drawing.Point(72, 9);
-            this.lbProd.Name = "lbProd";
-            this.lbProd.Size = new System.Drawing.Size(143, 38);
-            this.lbProd.TabIndex = 21;
-            this.lbProd.Text = "Usuarios";
+            this.lbusuarios.AutoSize = true;
+            this.lbusuarios.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbusuarios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbusuarios.Location = new System.Drawing.Point(72, 9);
+            this.lbusuarios.Name = "lbusuarios";
+            this.lbusuarios.Size = new System.Drawing.Size(143, 38);
+            this.lbusuarios.TabIndex = 21;
+            this.lbusuarios.Text = "Usuarios";
             // 
             // pnlCrud
             // 
@@ -133,15 +133,15 @@
             this.pnlCrud.Controls.Add(this.txbDireccion);
             this.pnlCrud.Controls.Add(this.picContraseña);
             this.pnlCrud.Controls.Add(this.chkActivo);
-            this.pnlCrud.Controls.Add(this.label7);
+            this.pnlCrud.Controls.Add(this.lbalias);
             this.pnlCrud.Controls.Add(this.TxbAlias);
-            this.pnlCrud.Controls.Add(this.label8);
+            this.pnlCrud.Controls.Add(this.lbcontraseña);
             this.pnlCrud.Controls.Add(this.TxbContraseña);
-            this.pnlCrud.Controls.Add(this.label6);
+            this.pnlCrud.Controls.Add(this.lbroles);
             this.pnlCrud.Controls.Add(this.CboRoles);
             this.pnlCrud.Controls.Add(this.lbCOD);
             this.pnlCrud.Controls.Add(this.txbCod);
-            this.pnlCrud.Controls.Add(this.label4);
+            this.pnlCrud.Controls.Add(this.lbdni);
             this.pnlCrud.Controls.Add(this.TxbDni);
             this.pnlCrud.Controls.Add(this.lbTel);
             this.pnlCrud.Controls.Add(this.TxbTelefono);
@@ -234,16 +234,16 @@
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // lbalias
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(44, 281);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 19);
-            this.label7.TabIndex = 38;
-            this.label7.Text = "Alias";
+            this.lbalias.AutoSize = true;
+            this.lbalias.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbalias.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbalias.Location = new System.Drawing.Point(44, 281);
+            this.lbalias.Name = "lbalias";
+            this.lbalias.Size = new System.Drawing.Size(46, 19);
+            this.lbalias.TabIndex = 38;
+            this.lbalias.Text = "Alias";
             // 
             // TxbAlias
             // 
@@ -253,16 +253,16 @@
             this.TxbAlias.Size = new System.Drawing.Size(174, 23);
             this.TxbAlias.TabIndex = 6;
             // 
-            // label8
+            // lbcontraseña
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(272, 281);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 19);
-            this.label8.TabIndex = 36;
-            this.label8.Text = "Contraseña";
+            this.lbcontraseña.AutoSize = true;
+            this.lbcontraseña.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbcontraseña.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbcontraseña.Location = new System.Drawing.Point(272, 281);
+            this.lbcontraseña.Name = "lbcontraseña";
+            this.lbcontraseña.Size = new System.Drawing.Size(98, 19);
+            this.lbcontraseña.TabIndex = 36;
+            this.lbcontraseña.Text = "Contraseña";
             // 
             // TxbContraseña
             // 
@@ -273,16 +273,16 @@
             this.TxbContraseña.TabIndex = 7;
             this.TxbContraseña.UseSystemPasswordChar = true;
             // 
-            // label6
+            // lbroles
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(519, 290);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 19);
-            this.label6.TabIndex = 34;
-            this.label6.Text = "Roles";
+            this.lbroles.AutoSize = true;
+            this.lbroles.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbroles.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbroles.Location = new System.Drawing.Point(519, 290);
+            this.lbroles.Name = "lbroles";
+            this.lbroles.Size = new System.Drawing.Size(48, 19);
+            this.lbroles.TabIndex = 34;
+            this.lbroles.Text = "Roles";
             // 
             // CboRoles
             // 
@@ -314,16 +314,16 @@
             this.txbCod.TabIndex = 31;
             this.txbCod.Visible = false;
             // 
-            // label4
+            // lbdni
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(519, 65);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 19);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "DNI";
+            this.lbdni.AutoSize = true;
+            this.lbdni.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbdni.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbdni.Location = new System.Drawing.Point(519, 65);
+            this.lbdni.Name = "lbdni";
+            this.lbdni.Size = new System.Drawing.Size(36, 19);
+            this.lbdni.TabIndex = 30;
+            this.lbdni.Text = "DNI";
             // 
             // TxbDni
             // 
@@ -422,14 +422,14 @@
             this.dgvUsuarios.AllowUserToResizeRows = false;
             this.dgvUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.dgvUsuarios.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigoUser,
@@ -760,7 +760,7 @@
         #endregion
 
         private Panel pnlHeader;
-        private Label lbProd;
+        private Label lbusuarios;
         private Panel pnlCrud;
         private PictureBox picLimpiar;
         private PictureBox picBajar;
@@ -772,15 +772,15 @@
         private RadioButton rbtTodos;
         private RadioButton RbtEliminados;
         private RadioButton RbtActivos;
-        private Label label7;
+        private Label lbalias;
         private TextBox TxbAlias;
-        private Label label8;
+        private Label lbcontraseña;
         private TextBox TxbContraseña;
-        private Label label6;
+        private Label lbroles;
         private ComboBox CboRoles;
         private Label lbCOD;
         private TextBox txbCod;
-        private Label label4;
+        private Label lbdni;
         private TextBox TxbDni;
         private Label lbTel;
         private TextBox TxbTelefono;

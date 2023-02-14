@@ -64,7 +64,7 @@ namespace CapaPresentacion.Formularios
         private void timer1_Tick(object sender, EventArgs e)
         {
             lbHora.Text = DateTime.Now.ToLongTimeString();
-            lbfecha.Text = DateTime.Now.ToString("yyyy MMMM dddd");
+            lbfecha.Text = DateTime.Now.ToString("dddd MMMM  yyyy");
         }
 
         private void pnlBarra_MouseDown(object sender, MouseEventArgs e)

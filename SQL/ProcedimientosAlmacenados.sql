@@ -800,3 +800,11 @@ as
 	group by MONTH(fecha),YEAR(fecha)
 
 go
+
+
+create or alter procedure SP_BajarAlias(
+	@Alias varchar(50)
+)as
+	update Usuarios
+	set baja_logica = 1
+	where alias = @Alias

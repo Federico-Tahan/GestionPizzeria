@@ -393,6 +393,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imagenlogoinicio {
+            get {
+                object obj = ResourceManager.GetObject("imagenlogoinicio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap limpieza_de_datos {
             get {
                 object obj = ResourceManager.GetObject("limpieza-de-datos", resourceCulture);
@@ -406,6 +416,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap LogoLogin {
             get {
                 object obj = ResourceManager.GetObject("LogoLogin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LogoTest {
+            get {
+                object obj = ResourceManager.GetObject("LogoTest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -566,6 +586,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap pizzaGrandeLogo1 {
             get {
                 object obj = ResourceManager.GetObject("pizzaGrandeLogo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pizzalogograndee {
+            get {
+                object obj = ResourceManager.GetObject("pizzalogograndee", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

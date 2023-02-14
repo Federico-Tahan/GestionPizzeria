@@ -1,6 +1,7 @@
 ﻿using CapaDatos.Dominio;
 using CapaNegocio.Implementacion;
 using CapaNegocio.Interfaces;
+using CapaPresentacion.RecursoIdioma;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -135,6 +136,25 @@ namespace CapaPresentacion.Formularios
                 c.DescuentoPresencial = 0;
 
             }
+        }
+
+        public void AplicarIdioma()
+        {
+            lblunes.Text = Rec.Lunes;
+            lbMartes.Text = Rec.Martes;
+            lbMiercoles.Text = Rec.Miercoles;
+            lbJueves.Text = Rec.Jueves;
+            lbViernes.Text = Rec.Viernes;
+            lbSabado.Text = Rec.Sabado;
+            lbDomingo.Text = Rec.Domingo;
+            lbdescuento.Text = Rec.Descuento;
+            lbdescuentosdelasemana.Text = Rec.DescuentodelaSemana;
+            lbobtencion.Text = Rec.ObtenciondelBeneficio;
+            BtnConfirmar.Text = Rec.Confirmar;
+            BtnRestablecer.Text = Rec.Restablecer;
+            chkSocio.Text = Rec.Socios;
+            ChkCompraspresenciales.Text = Rec.ComprasPresenciales;
+
         }
     }
 }

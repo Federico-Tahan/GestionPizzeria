@@ -30,22 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txbRespaldo = new System.Windows.Forms.TextBox();
-            this.lbUsuario = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbrutaguardado = new System.Windows.Forms.Label();
+            this.lbrutarestauracion = new System.Windows.Forms.Label();
             this.txtRestauracion = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.lbProd = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbConfiguracion = new System.Windows.Forms.Label();
             this.BtnRespaldo = new System.Windows.Forms.Button();
             this.btnRestauracion = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.picpass = new System.Windows.Forms.PictureBox();
             this.txbContraseña = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbcontraseña = new System.Windows.Forms.Label();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.TxbTwitter = new System.Windows.Forms.TextBox();
             this.TxbYoutube = new System.Windows.Forms.TextBox();
@@ -58,28 +60,26 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lbredes = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.BtnVer = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lbbitacora = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picpass)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // txbRespaldo
@@ -90,27 +90,27 @@
             this.txbRespaldo.Size = new System.Drawing.Size(295, 27);
             this.txbRespaldo.TabIndex = 0;
             // 
-            // lbUsuario
+            // lbrutaguardado
             // 
-            this.lbUsuario.AutoSize = true;
-            this.lbUsuario.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbUsuario.Location = new System.Drawing.Point(76, 82);
-            this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(229, 28);
-            this.lbUsuario.TabIndex = 1;
-            this.lbUsuario.Text = "Ruta de Guardado";
+            this.lbrutaguardado.AutoSize = true;
+            this.lbrutaguardado.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbrutaguardado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbrutaguardado.Location = new System.Drawing.Point(76, 82);
+            this.lbrutaguardado.Name = "lbrutaguardado";
+            this.lbrutaguardado.Size = new System.Drawing.Size(229, 28);
+            this.lbrutaguardado.TabIndex = 1;
+            this.lbrutaguardado.Text = "Ruta de Guardado";
             // 
-            // label1
+            // lbrutarestauracion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(552, 80);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(259, 28);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Ruta de Restauracion";
+            this.lbrutarestauracion.AutoSize = true;
+            this.lbrutarestauracion.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbrutarestauracion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbrutarestauracion.Location = new System.Drawing.Point(552, 80);
+            this.lbrutarestauracion.Name = "lbrutarestauracion";
+            this.lbrutarestauracion.Size = new System.Drawing.Size(259, 28);
+            this.lbrutarestauracion.TabIndex = 6;
+            this.lbrutarestauracion.Text = "Ruta de Restauracion";
             // 
             // txtRestauracion
             // 
@@ -140,22 +140,32 @@
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.pnlHeader.Controls.Add(this.pictureBox1);
-            this.pnlHeader.Controls.Add(this.lbProd);
+            this.pnlHeader.Controls.Add(this.lbConfiguracion);
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(301, 56);
             this.pnlHeader.TabIndex = 23;
             // 
-            // lbProd
+            // pictureBox1
             // 
-            this.lbProd.AutoSize = true;
-            this.lbProd.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbProd.Location = new System.Drawing.Point(68, 9);
-            this.lbProd.Name = "lbProd";
-            this.lbProd.Size = new System.Drawing.Size(236, 38);
-            this.lbProd.TabIndex = 21;
-            this.lbProd.Text = "Configuracion";
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.configuraciones__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(5, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(57, 51);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lbConfiguracion
+            // 
+            this.lbConfiguracion.AutoSize = true;
+            this.lbConfiguracion.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbConfiguracion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbConfiguracion.Location = new System.Drawing.Point(68, 9);
+            this.lbConfiguracion.Name = "lbConfiguracion";
+            this.lbConfiguracion.Size = new System.Drawing.Size(236, 38);
+            this.lbConfiguracion.TabIndex = 21;
+            this.lbConfiguracion.Text = "Configuracion";
             // 
             // BtnRespaldo
             // 
@@ -211,10 +221,10 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.txbRespaldo);
-            this.panel1.Controls.Add(this.lbUsuario);
+            this.panel1.Controls.Add(this.lbrutaguardado);
             this.panel1.Controls.Add(this.btnRestauracion);
             this.panel1.Controls.Add(this.txtRestauracion);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lbrutarestauracion);
             this.panel1.Controls.Add(this.BtnRespaldo);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Location = new System.Drawing.Point(0, 434);
@@ -233,6 +243,16 @@
             this.panel2.Size = new System.Drawing.Size(998, 56);
             this.panel2.TabIndex = 27;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::CapaPresentacion.Properties.Resources.base_de_datos;
+            this.pictureBox4.Location = new System.Drawing.Point(354, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(57, 51);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 23;
+            this.pictureBox4.TabStop = false;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -248,7 +268,7 @@
             // 
             this.panel3.Controls.Add(this.picpass);
             this.panel3.Controls.Add(this.txbContraseña);
-            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.lbcontraseña);
             this.panel3.Controls.Add(this.BtnGuardar);
             this.panel3.Controls.Add(this.TxbTwitter);
             this.panel3.Controls.Add(this.TxbYoutube);
@@ -287,16 +307,16 @@
             this.txbContraseña.TabIndex = 42;
             this.txbContraseña.UseSystemPasswordChar = true;
             // 
-            // label7
+            // lbcontraseña
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(8, 147);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 23);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "Contraseña";
+            this.lbcontraseña.AutoSize = true;
+            this.lbcontraseña.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbcontraseña.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbcontraseña.Location = new System.Drawing.Point(8, 147);
+            this.lbcontraseña.Name = "lbcontraseña";
+            this.lbcontraseña.Size = new System.Drawing.Size(117, 23);
+            this.lbcontraseña.TabIndex = 41;
+            this.lbcontraseña.Text = "Contraseña";
             // 
             // BtnGuardar
             // 
@@ -408,23 +428,33 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panel4.Controls.Add(this.pictureBox2);
-            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.lbredes);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(998, 56);
             this.panel4.TabIndex = 28;
             // 
-            // label4
+            // pictureBox2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(443, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 38);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Redes";
+            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.medios_de_comunicacion_social;
+            this.pictureBox2.Location = new System.Drawing.Point(386, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(57, 51);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 23;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lbredes
+            // 
+            this.lbredes.AutoSize = true;
+            this.lbredes.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbredes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbredes.Location = new System.Drawing.Point(443, 9);
+            this.lbredes.Name = "lbredes";
+            this.lbredes.Size = new System.Drawing.Size(111, 38);
+            this.lbredes.TabIndex = 21;
+            this.lbredes.Text = "Redes";
             // 
             // panel5
             // 
@@ -455,43 +485,12 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panel6.Controls.Add(this.pictureBox3);
-            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.lbbitacora);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(998, 56);
             this.panel6.TabIndex = 28;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(418, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 38);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Bitacora";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.configuraciones__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 51);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.medios_de_comunicacion_social;
-            this.pictureBox2.Location = new System.Drawing.Point(386, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(57, 51);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 23;
-            this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -503,15 +502,16 @@
             this.pictureBox3.TabIndex = 24;
             this.pictureBox3.TabStop = false;
             // 
-            // pictureBox4
+            // lbbitacora
             // 
-            this.pictureBox4.Image = global::CapaPresentacion.Properties.Resources.base_de_datos;
-            this.pictureBox4.Location = new System.Drawing.Point(354, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(57, 51);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 23;
-            this.pictureBox4.TabStop = false;
+            this.lbbitacora.AutoSize = true;
+            this.lbbitacora.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbbitacora.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbbitacora.Location = new System.Drawing.Point(418, 12);
+            this.lbbitacora.Name = "lbbitacora";
+            this.lbbitacora.Size = new System.Drawing.Size(146, 38);
+            this.lbbitacora.TabIndex = 21;
+            this.lbbitacora.Text = "Bitacora";
             // 
             // Configuration
             // 
@@ -531,22 +531,22 @@
             this.Load += new System.EventHandler(this.Configuracion_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picpass)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -554,12 +554,12 @@
         #endregion
 
         private TextBox txbRespaldo;
-        private Label lbUsuario;
-        private Label label1;
+        private Label lbrutaguardado;
+        private Label lbrutarestauracion;
         private TextBox txtRestauracion;
         private Button button3;
         private Panel pnlHeader;
-        private Label lbProd;
+        private Label lbConfiguracion;
         private Button BtnRespaldo;
         private Button btnRestauracion;
         private Button button4;
@@ -579,14 +579,14 @@
         private Label label6;
         private Label label5;
         private Panel panel4;
-        private Label label4;
+        private Label lbredes;
         private Panel panel5;
         private Button BtnVer;
         private Panel panel6;
-        private Label label2;
+        private Label lbbitacora;
         private ToolTip toolTip1;
         private TextBox txbContraseña;
-        private Label label7;
+        private Label lbcontraseña;
         private PictureBox picpass;
         private PictureBox pictureBox1;
         private PictureBox pictureBox4;

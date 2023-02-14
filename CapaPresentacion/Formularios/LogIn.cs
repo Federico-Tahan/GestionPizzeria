@@ -13,11 +13,14 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaPresentacion.RecursoIdioma;
 
 namespace CapaPresentacion
 {
     public partial class LogIn : Form
     {
+        ing_CrudUsuarios log = new ng_CrudUsuarios();
+        int cont = 0;
         private ing_Logeo lg = new ng_Logeo();
         public static Usuarios u = new Usuarios();
 
@@ -33,7 +36,7 @@ namespace CapaPresentacion
 
         private void LogIn_Load(object sender, EventArgs e)
         {
-
+            AplicarIdioma();
         }
 
         private void pnlBarra_MouseDown(object sender, MouseEventArgs e)
@@ -46,7 +49,7 @@ namespace CapaPresentacion
         {
             if (MessageBox.Show("Cerrar el programa", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.Close();
+                Program.select.Close();
             }
         }
 
@@ -64,6 +67,7 @@ namespace CapaPresentacion
 
                 if (lg.Logeado(u))
                 {
+                    cont = 0;
                     lg.RegistroInicio(u.ID_Usuario);
                     Main form = new Main();
                     form.Show();
@@ -74,6 +78,7 @@ namespace CapaPresentacion
                 else
                 {
                     MessageBox.Show("Error al iniciar sesion, Verifique Usuario o Contraseña","Error");
+                    BloqueoCuenta();
                 }
             }
         }
@@ -120,6 +125,35 @@ namespace CapaPresentacion
         public void Cerrar()
         {
             this.Close();
+        }
+
+        public void AplicarIdioma()
+        {
+            lbContraseña.Text = Rec.Contraseña;
+            lbUsuario.Text = Rec.Usuario;
+            BtnLogin.Text = Rec.IniciarSesion;
+        }
+
+        private void BloqueoCuenta()
+        {
+            if (log.BuscarAliasUsuario(txbUsuario.Text))
+            {
+                cont++;
+                if (cont == 3)
+                {
+                    if (log.BloquearUsuario(txbUsuario.Text))
+                    {
+                        MessageBox.Show("El usuario se ha bloqueado temporalmente, por favor contacta con el gerente.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    };
+                }
+                else
+                {
+                    int tope = 3;
+                    MessageBox.Show("Tiene " + (tope - cont) + " intentos restantes.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+
         }
 
     }

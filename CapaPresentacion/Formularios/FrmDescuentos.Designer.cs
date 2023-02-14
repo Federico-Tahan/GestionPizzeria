@@ -30,14 +30,14 @@
         {
             this.pnlDescento = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lbobtencion = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lbdescuentosdelasemana = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.lbProd = new System.Windows.Forms.Label();
+            this.lbdescuento = new System.Windows.Forms.Label();
             this.ChkCompraspresenciales = new System.Windows.Forms.CheckBox();
             this.chkSocio = new System.Windows.Forms.CheckBox();
             this.BtnRestablecer = new System.Windows.Forms.Button();
@@ -56,13 +56,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbUsuario = new System.Windows.Forms.Label();
+            this.lbDomingo = new System.Windows.Forms.Label();
+            this.lbViernes = new System.Windows.Forms.Label();
+            this.lbJueves = new System.Windows.Forms.Label();
+            this.lbSabado = new System.Windows.Forms.Label();
+            this.lbMiercoles = new System.Windows.Forms.Label();
+            this.lbMartes = new System.Windows.Forms.Label();
+            this.lblunes = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlDescento.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -105,13 +105,13 @@
             this.pnlDescento.Controls.Add(this.label8);
             this.pnlDescento.Controls.Add(this.label7);
             this.pnlDescento.Controls.Add(this.label10);
-            this.pnlDescento.Controls.Add(this.label6);
-            this.pnlDescento.Controls.Add(this.label5);
-            this.pnlDescento.Controls.Add(this.label4);
-            this.pnlDescento.Controls.Add(this.label3);
-            this.pnlDescento.Controls.Add(this.label2);
-            this.pnlDescento.Controls.Add(this.label1);
-            this.pnlDescento.Controls.Add(this.lbUsuario);
+            this.pnlDescento.Controls.Add(this.lbDomingo);
+            this.pnlDescento.Controls.Add(this.lbViernes);
+            this.pnlDescento.Controls.Add(this.lbJueves);
+            this.pnlDescento.Controls.Add(this.lbSabado);
+            this.pnlDescento.Controls.Add(this.lbMiercoles);
+            this.pnlDescento.Controls.Add(this.lbMartes);
+            this.pnlDescento.Controls.Add(this.lblunes);
             this.pnlDescento.Controls.Add(this.pictureBox1);
             this.pnlDescento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDescento.Location = new System.Drawing.Point(0, 0);
@@ -123,23 +123,23 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.lbobtencion);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Location = new System.Drawing.Point(521, 124);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(370, 52);
             this.panel2.TabIndex = 52;
             // 
-            // label14
+            // lbobtencion
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.Location = new System.Drawing.Point(69, 11);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(294, 28);
-            this.label14.TabIndex = 43;
-            this.label14.Text = "Obtención del beneficio";
+            this.lbobtencion.AutoSize = true;
+            this.lbobtencion.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbobtencion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbobtencion.Location = new System.Drawing.Point(69, 11);
+            this.lbobtencion.Name = "lbobtencion";
+            this.lbobtencion.Size = new System.Drawing.Size(294, 28);
+            this.lbobtencion.TabIndex = 43;
+            this.lbobtencion.Text = "Obtención del beneficio";
             // 
             // pictureBox2
             // 
@@ -155,7 +155,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.lbdescuentosdelasemana);
             this.panel1.Location = new System.Drawing.Point(65, 124);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(383, 52);
@@ -171,22 +171,22 @@
             this.pictureBox3.TabIndex = 50;
             this.pictureBox3.TabStop = false;
             // 
-            // label15
+            // lbdescuentosdelasemana
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label15.Location = new System.Drawing.Point(63, 11);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(316, 28);
-            this.label15.TabIndex = 49;
-            this.label15.Text = "Descuentos de la Semana";
+            this.lbdescuentosdelasemana.AutoSize = true;
+            this.lbdescuentosdelasemana.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbdescuentosdelasemana.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbdescuentosdelasemana.Location = new System.Drawing.Point(63, 11);
+            this.lbdescuentosdelasemana.Name = "lbdescuentosdelasemana";
+            this.lbdescuentosdelasemana.Size = new System.Drawing.Size(316, 28);
+            this.lbdescuentosdelasemana.TabIndex = 49;
+            this.lbdescuentosdelasemana.Text = "Descuentos de la Semana";
             // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.pnlHeader.Controls.Add(this.pictureBox4);
-            this.pnlHeader.Controls.Add(this.lbProd);
+            this.pnlHeader.Controls.Add(this.lbdescuento);
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(240, 56);
@@ -202,16 +202,16 @@
             this.pictureBox4.TabIndex = 23;
             this.pictureBox4.TabStop = false;
             // 
-            // lbProd
+            // lbdescuento
             // 
-            this.lbProd.AutoSize = true;
-            this.lbProd.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbProd.Location = new System.Drawing.Point(53, 9);
-            this.lbProd.Name = "lbProd";
-            this.lbProd.Size = new System.Drawing.Size(181, 38);
-            this.lbProd.TabIndex = 21;
-            this.lbProd.Text = "Descuento";
+            this.lbdescuento.AutoSize = true;
+            this.lbdescuento.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbdescuento.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbdescuento.Location = new System.Drawing.Point(53, 9);
+            this.lbdescuento.Name = "lbdescuento";
+            this.lbdescuento.Size = new System.Drawing.Size(181, 38);
+            this.lbdescuento.TabIndex = 21;
+            this.lbdescuento.Text = "Descuento";
             // 
             // ChkCompraspresenciales
             // 
@@ -400,82 +400,82 @@
             this.label10.TabIndex = 26;
             this.label10.Text = "%";
             // 
-            // label6
+            // lbDomingo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(88, 528);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 28);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Domingo";
+            this.lbDomingo.AutoSize = true;
+            this.lbDomingo.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbDomingo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbDomingo.Location = new System.Drawing.Point(88, 528);
+            this.lbDomingo.Name = "lbDomingo";
+            this.lbDomingo.Size = new System.Drawing.Size(118, 28);
+            this.lbDomingo.TabIndex = 12;
+            this.lbDomingo.Text = "Domingo";
             // 
-            // label5
+            // lbViernes
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(88, 421);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 28);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Viernes";
+            this.lbViernes.AutoSize = true;
+            this.lbViernes.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbViernes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbViernes.Location = new System.Drawing.Point(88, 421);
+            this.lbViernes.Name = "lbViernes";
+            this.lbViernes.Size = new System.Drawing.Size(98, 28);
+            this.lbViernes.TabIndex = 11;
+            this.lbViernes.Text = "Viernes";
             // 
-            // label4
+            // lbJueves
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(88, 369);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 28);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Jueves";
+            this.lbJueves.AutoSize = true;
+            this.lbJueves.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbJueves.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbJueves.Location = new System.Drawing.Point(88, 369);
+            this.lbJueves.Name = "lbJueves";
+            this.lbJueves.Size = new System.Drawing.Size(92, 28);
+            this.lbJueves.TabIndex = 10;
+            this.lbJueves.Text = "Jueves";
             // 
-            // label3
+            // lbSabado
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(88, 472);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 28);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Sabado";
+            this.lbSabado.AutoSize = true;
+            this.lbSabado.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbSabado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbSabado.Location = new System.Drawing.Point(88, 472);
+            this.lbSabado.Name = "lbSabado";
+            this.lbSabado.Size = new System.Drawing.Size(103, 28);
+            this.lbSabado.TabIndex = 10;
+            this.lbSabado.Text = "Sabado";
             // 
-            // label2
+            // lbMiercoles
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(88, 312);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 28);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Miercoles";
+            this.lbMiercoles.AutoSize = true;
+            this.lbMiercoles.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbMiercoles.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbMiercoles.Location = new System.Drawing.Point(88, 312);
+            this.lbMiercoles.Name = "lbMiercoles";
+            this.lbMiercoles.Size = new System.Drawing.Size(125, 28);
+            this.lbMiercoles.TabIndex = 9;
+            this.lbMiercoles.Text = "Miercoles";
             // 
-            // label1
+            // lbMartes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(88, 257);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 28);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Martes";
+            this.lbMartes.AutoSize = true;
+            this.lbMartes.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbMartes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbMartes.Location = new System.Drawing.Point(88, 257);
+            this.lbMartes.Name = "lbMartes";
+            this.lbMartes.Size = new System.Drawing.Size(91, 28);
+            this.lbMartes.TabIndex = 8;
+            this.lbMartes.Text = "Martes";
             // 
-            // lbUsuario
+            // lblunes
             // 
-            this.lbUsuario.AutoSize = true;
-            this.lbUsuario.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbUsuario.Location = new System.Drawing.Point(88, 198);
-            this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(77, 28);
-            this.lbUsuario.TabIndex = 7;
-            this.lbUsuario.Text = "Lunes";
+            this.lblunes.AutoSize = true;
+            this.lblunes.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblunes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblunes.Location = new System.Drawing.Point(88, 198);
+            this.lblunes.Name = "lblunes";
+            this.lblunes.Size = new System.Drawing.Size(77, 28);
+            this.lblunes.TabIndex = 7;
+            this.lblunes.Text = "Lunes";
             // 
             // pictureBox1
             // 
@@ -523,13 +523,13 @@
         #endregion
 
         private Panel pnlDescento;
-        private Label label6;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
-        private Label lbUsuario;
+        private Label lbDomingo;
+        private Label lbViernes;
+        private Label lbJueves;
+        private Label lbSabado;
+        private Label lbMiercoles;
+        private Label lbMartes;
+        private Label lblunes;
         private NumericUpDown np7;
         private NumericUpDown np6;
         private NumericUpDown np5;
@@ -546,15 +546,15 @@
         private Label label10;
         private Button BtnRestablecer;
         private Button BtnConfirmar;
-        private Label label14;
+        private Label lbobtencion;
         private CheckBox ChkCompraspresenciales;
         private CheckBox chkSocio;
         private Panel pnlHeader;
-        private Label lbProd;
+        private Label lbdescuento;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
-        private Label label15;
+        private Label lbdescuentosdelasemana;
         private PictureBox pictureBox4;
         private Panel panel2;
         private Panel panel1;

@@ -39,7 +39,7 @@
             this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbProd = new System.Windows.Forms.Label();
+            this.lbClientes = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.pnlCrud = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -47,7 +47,7 @@
             this.TxbTelefono = new System.Windows.Forms.Label();
             this.TxbDireccion = new System.Windows.Forms.Label();
             this.TxbDirec = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbtipocliente = new System.Windows.Forms.Label();
             this.CboTipoCliente = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TxbCodCliente = new System.Windows.Forms.TextBox();
@@ -176,7 +176,7 @@
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.pnlHeader.Controls.Add(this.pictureBox1);
-            this.pnlHeader.Controls.Add(this.lbProd);
+            this.pnlHeader.Controls.Add(this.lbClientes);
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(206, 56);
@@ -192,16 +192,16 @@
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
-            // lbProd
+            // lbClientes
             // 
-            this.lbProd.AutoSize = true;
-            this.lbProd.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbProd.Location = new System.Drawing.Point(60, 9);
-            this.lbProd.Name = "lbProd";
-            this.lbProd.Size = new System.Drawing.Size(141, 38);
-            this.lbProd.TabIndex = 21;
-            this.lbProd.Text = "Clientes";
+            this.lbClientes.AutoSize = true;
+            this.lbClientes.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbClientes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbClientes.Location = new System.Drawing.Point(60, 9);
+            this.lbClientes.Name = "lbClientes";
+            this.lbClientes.Size = new System.Drawing.Size(141, 38);
+            this.lbClientes.TabIndex = 21;
+            this.lbClientes.Text = "Clientes";
             // 
             // btnNuevo
             // 
@@ -230,7 +230,7 @@
             this.pnlCrud.Controls.Add(this.TxbTelefono);
             this.pnlCrud.Controls.Add(this.TxbDireccion);
             this.pnlCrud.Controls.Add(this.TxbDirec);
-            this.pnlCrud.Controls.Add(this.label5);
+            this.pnlCrud.Controls.Add(this.lbtipocliente);
             this.pnlCrud.Controls.Add(this.CboTipoCliente);
             this.pnlCrud.Controls.Add(this.label1);
             this.pnlCrud.Controls.Add(this.TxbCodCliente);
@@ -244,9 +244,9 @@
             this.pnlCrud.Controls.Add(this.TxbDni);
             this.pnlCrud.Controls.Add(this.picLimpiar);
             this.pnlCrud.Controls.Add(this.picbajar);
-            this.pnlCrud.Location = new System.Drawing.Point(79, 147);
+            this.pnlCrud.Location = new System.Drawing.Point(79, 140);
             this.pnlCrud.Name = "pnlCrud";
-            this.pnlCrud.Size = new System.Drawing.Size(870, 389);
+            this.pnlCrud.Size = new System.Drawing.Size(870, 396);
             this.pnlCrud.TabIndex = 29;
             this.pnlCrud.Visible = false;
             this.pnlCrud.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCrud_Paint);
@@ -297,17 +297,17 @@
             this.TxbDirec.Size = new System.Drawing.Size(174, 23);
             this.TxbDirec.TabIndex = 2;
             // 
-            // label5
+            // lbtipocliente
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(33, 201);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 19);
-            this.label5.TabIndex = 43;
-            this.label5.Text = "Tipo de Cliente";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.lbtipocliente.AutoSize = true;
+            this.lbtipocliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbtipocliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbtipocliente.Location = new System.Drawing.Point(33, 201);
+            this.lbtipocliente.Name = "lbtipocliente";
+            this.lbtipocliente.Size = new System.Drawing.Size(124, 19);
+            this.lbtipocliente.TabIndex = 43;
+            this.lbtipocliente.Text = "Tipo de Cliente";
+            this.lbtipocliente.Click += new System.EventHandler(this.label5_Click);
             // 
             // CboTipoCliente
             // 
@@ -641,7 +641,7 @@
 
         private DataGridView dgvCliente;
         private Panel pnlHeader;
-        private Label lbProd;
+        private Label lbClientes;
         private Button btnNuevo;
         private Panel pnlCrud;
         private PictureBox picLimpiar;
@@ -664,7 +664,7 @@
         private Button BtnEditar;
         private Button BtnCancelar;
         private Button BtnGuardar;
-        private Label label5;
+        private Label lbtipocliente;
         private ComboBox CboTipoCliente;
         private PictureBox pictureBox1;
         private Panel panel1;

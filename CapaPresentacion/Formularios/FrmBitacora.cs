@@ -2,6 +2,7 @@
 using CapaNegocio.Implementacion;
 using CapaNegocio.Interfaces;
 using CapaPresentacion.Formularios;
+using CapaPresentacion.RecursoIdioma;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -129,6 +130,19 @@ namespace CapaPresentacion.Formularios_es
                 }
             }
            
+        }
+
+        public void AplicarIdioma()
+        {
+            RbtCodigo.Text = Rec.CodigoUsuario;
+            BtnBuscar.Text = Rec.Aplicar;
+            lbBitacora.Text = Rec.Bitacora;
+            dgvBitacora.Columns[0].HeaderText = Rec.CodigoUsuario;
+            dgvBitacora.Columns[1].HeaderText = Rec.NombreCompleto;
+            dgvBitacora.Columns[2].HeaderText = Rec.Fecha;
+            dgvBitacora.Columns[3].HeaderText = Rec.Accion;
+
+
         }
     }
 }

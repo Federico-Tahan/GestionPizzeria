@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeleccionIdioma));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.piclogo = new System.Windows.Forms.PictureBox();
             this.pnlBarra = new System.Windows.Forms.Panel();
             this.Minimizar = new System.Windows.Forms.PictureBox();
             this.Salir = new System.Windows.Forms.PictureBox();
@@ -37,7 +37,7 @@
             this.picEspaña = new System.Windows.Forms.PictureBox();
             this.lbselect = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.piclogo)).BeginInit();
             this.pnlBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
@@ -45,15 +45,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEspaña)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // piclogo
             // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.pizzaGrandeLogo1;
-            this.pictureBox1.Location = new System.Drawing.Point(259, 127);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(317, 233);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.piclogo.Image = global::CapaPresentacion.Properties.Resources.pizzaGrandeLogo1;
+            this.piclogo.Location = new System.Drawing.Point(259, 114);
+            this.piclogo.Name = "piclogo";
+            this.piclogo.Size = new System.Drawing.Size(317, 233);
+            this.piclogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.piclogo.TabIndex = 0;
+            this.piclogo.TabStop = false;
             // 
             // pnlBarra
             // 
@@ -78,6 +78,7 @@
             this.Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Minimizar.TabIndex = 2;
             this.Minimizar.TabStop = false;
+            this.Minimizar.Click += new System.EventHandler(this.Minimizar_Click);
             // 
             // Salir
             // 
@@ -90,6 +91,7 @@
             this.Salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Salir.TabIndex = 0;
             this.Salir.TabStop = false;
+            this.Salir.Click += new System.EventHandler(this.Salir_Click);
             // 
             // picIngles
             // 
@@ -148,12 +150,13 @@
             this.Controls.Add(this.picEspaña);
             this.Controls.Add(this.picIngles);
             this.Controls.Add(this.pnlBarra);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.piclogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SeleccionIdioma";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SeleccionIdioma";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.SeleccionIdioma_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.piclogo)).EndInit();
             this.pnlBarra.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).EndInit();
@@ -166,7 +169,7 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox piclogo;
         private Panel pnlBarra;
         private PictureBox Minimizar;
         private PictureBox Salir;

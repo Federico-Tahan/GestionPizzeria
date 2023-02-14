@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaDatos.Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,11 +15,12 @@ namespace CapaPresentacion.Formularios
     public partial class SeleccionIdioma : Form
     {
         public static LogIn log;
+        public static Idioma i;
+
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-
 
 
 
@@ -36,6 +38,9 @@ namespace CapaPresentacion.Formularios
 
         private void picEspaña_Click(object sender, EventArgs e)
         {
+            i = new Idioma();
+            i.IdIdioma = 1;
+            i.NombreIdioma = "Español";
             log = new LogIn();
             log.Show();
             this.Hide();
@@ -43,9 +48,27 @@ namespace CapaPresentacion.Formularios
 
         private void picIngles_Click(object sender, EventArgs e)
         {
+            i = new Idioma();
+            i.IdIdioma = 2;
+            i.NombreIdioma = "Ingles";
             log = new LogIn();
             log.Show();
             this.Hide();
+        }
+
+        private void SeleccionIdioma_Load(object sender, EventArgs e)
+        {
+            piclogo.Image = Properties.Resources.pizzalogograndee;
+        }
+
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

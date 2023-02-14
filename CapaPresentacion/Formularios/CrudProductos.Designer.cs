@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@
             this.lbNroProd = new System.Windows.Forms.Label();
             this.TxbCodigoProducto = new System.Windows.Forms.TextBox();
             this.nupStock = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbstock = new System.Windows.Forms.Label();
             this.picLimpiar = new System.Windows.Forms.PictureBox();
             this.picbajar = new System.Windows.Forms.PictureBox();
             this.lbUnidad = new System.Windows.Forms.Label();
@@ -174,14 +174,14 @@
             this.dgvProd.AllowUserToDeleteRows = false;
             this.dgvProd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.dgvProd.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdProducto,
@@ -284,7 +284,7 @@
             this.pnlCrud.Controls.Add(this.lbNroProd);
             this.pnlCrud.Controls.Add(this.TxbCodigoProducto);
             this.pnlCrud.Controls.Add(this.nupStock);
-            this.pnlCrud.Controls.Add(this.label1);
+            this.pnlCrud.Controls.Add(this.lbstock);
             this.pnlCrud.Controls.Add(this.picLimpiar);
             this.pnlCrud.Controls.Add(this.picbajar);
             this.pnlCrud.Controls.Add(this.lbUnidad);
@@ -352,16 +352,16 @@
             this.nupStock.Size = new System.Drawing.Size(72, 23);
             this.nupStock.TabIndex = 23;
             // 
-            // label1
+            // lbstock
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(179, 300);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 19);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Stock";
+            this.lbstock.AutoSize = true;
+            this.lbstock.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbstock.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbstock.Location = new System.Drawing.Point(179, 300);
+            this.lbstock.Name = "lbstock";
+            this.lbstock.Size = new System.Drawing.Size(50, 19);
+            this.lbstock.TabIndex = 22;
+            this.lbstock.Text = "Stock";
             // 
             // picLimpiar
             // 
@@ -512,7 +512,7 @@
             this.pnlHeader.Controls.Add(this.lbProd);
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(221, 56);
+            this.pnlHeader.Size = new System.Drawing.Size(230, 56);
             this.pnlHeader.TabIndex = 22;
             // 
             // pictureBox1
@@ -532,9 +532,9 @@
             this.lbProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbProd.Location = new System.Drawing.Point(63, 9);
             this.lbProd.Name = "lbProd";
-            this.lbProd.Size = new System.Drawing.Size(155, 38);
+            this.lbProd.Size = new System.Drawing.Size(169, 38);
             this.lbProd.TabIndex = 21;
-            this.lbProd.Text = "Producto";
+            this.lbProd.Text = "Productos";
             // 
             // RbtActivos
             // 
@@ -749,7 +749,7 @@
         private NumericUpDown numpPrecio;
         private TextBox txbNombre;
         private NumericUpDown nupStock;
-        private Label label1;
+        private Label lbstock;
         private PictureBox picLimpiar;
         private PictureBox picbajar;
         private Label lbUnidad;

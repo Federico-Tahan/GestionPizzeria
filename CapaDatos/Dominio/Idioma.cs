@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Dominio
 {
-    internal class Idioma
+    public class Idioma
     {
+        public int IdIdioma { get; set; }
+        public string NombreIdioma { get; set; }
     }
 }

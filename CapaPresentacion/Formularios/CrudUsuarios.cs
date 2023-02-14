@@ -15,18 +15,17 @@ using System.Reflection.Metadata;
 using CapaCapaNegocio.Interfaces;
 using System.Collections;
 using Microsoft.Identity.Client;
+using CapaPresentacion.RecursoIdioma;
 
 namespace CapaPresentacion.Formularios
 {
     public partial class CrudUsuarios : Form
     {
-        Encriptacion encrypt = new Encriptacion();  
         ing_CrudUsuarios lg = new ng_CrudUsuarios();
         int dgvselectedcondicion = 0;
         ing_Cbos lcbo = new ng_Cbos();
         List<Usuarios> lUsuaris= new List<Usuarios>();  
         Usuarios user = new Usuarios();
-        Empleado e = new Empleado();
         public CrudUsuarios()
         {
             InitializeComponent();
@@ -105,6 +104,7 @@ namespace CapaPresentacion.Formularios
                 CboRoles.SelectedIndex = -1;
                 chkActivo.Checked = true;
                 dateTimePicker1.Value = DateTime.Now;
+
             }
             else
             {
@@ -271,6 +271,7 @@ namespace CapaPresentacion.Formularios
                                 Cargar_Dgv(lUsuaris);
                                 Limpiar();
                                 pnlCrud.Visible = false;
+                                user = new Usuarios();
                             }
                         }
                         else if (!lg.BuscarAliasUsuario(us.Alias))
@@ -289,6 +290,8 @@ namespace CapaPresentacion.Formularios
                                 Cargar_Dgv(lUsuaris);
                                 Limpiar();
                                 pnlCrud.Visible = false;
+                                user = new Usuarios();
+
                             }
                         }
                         else
@@ -316,6 +319,8 @@ namespace CapaPresentacion.Formularios
                                 Cargar_Dgv(lUsuaris);
                                 Limpiar();
                                 pnlCrud.Visible = false;
+                                user = new Usuarios();
+
                             }
                             else
                             {
@@ -611,6 +616,41 @@ namespace CapaPresentacion.Formularios
 
         private void pnlCrud_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+        public void AplicarIdioma()
+        {
+            lbusuarios.Text = Rec.Usuarios;
+            RbtCodigo.Text = Rec.Codigo;
+            RbtNombre.Text = Rec.Nombre;
+            RbtDNI.Text = Rec.DNI;
+            RbtAlias.Text= Rec.Alias;
+            BtnBuscar.Text = Rec.Buscar;
+            rbtTodos.Text = Rec.Todos;
+            RbtActivos.Text= Rec.Activos;
+            RbtEliminados.Text = Rec.Eliminados;
+            lbNombre.Text = Rec.Nombre;
+            lbApellido.Text = Rec.Apellido;
+            lbdni.Text = Rec.DNI;
+            lbDireccion.Text = Rec.Direccion;
+            lbTel.Text = Rec.Telefono;
+            lbFechaNac.Text = Rec.FechaNacimineto;
+            lbalias.Text = Rec.Alias;
+            lbcontraseña.Text = Rec.Contraseña;
+            lbroles.Text = Rec.Roles;
+            chkActivo.Text = Rec.Activo;
+            btnNuevo.Text = Rec.Nuevo;
+            BtnEditar.Text = Rec.Editar;
+            BtnCancelar.Text = Rec.Cancelar;
+            BtnGuardar.Text = Rec.Guardar;
+            dgvUsuarios.Columns[0].HeaderText = Rec.CodigoUsuario;
+            dgvUsuarios.Columns[1].HeaderText = Rec.DNI;
+            dgvUsuarios.Columns[2].HeaderText = Rec.NombreCompleto;
+            dgvUsuarios.Columns[3].HeaderText = Rec.Alias;
+            dgvUsuarios.Columns[4].HeaderText = Rec.Rol;
+            dgvUsuarios.Columns[5].HeaderText = Rec.Activo;
+            dgvUsuarios.Columns[6].HeaderText = Rec.Accion;
+            dgvUsuarios.Columns[6].ToolTipText = Rec.Detalle;
 
         }
     }

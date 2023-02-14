@@ -23,6 +23,11 @@ namespace CapaNegocio.Implementacion
             return lg.AltaUsuario(u, admin);
         }
 
+        public bool BloquearUsuario(string Alias)
+        {
+            return lg.BloquearUsuario(Alias);
+        }
+
         public bool BuscarAliasUsuario(string alias)
         {
             return lg.BuscarAliasUsuario(alias);

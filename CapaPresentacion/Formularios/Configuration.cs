@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-
+using CapaPresentacion.RecursoIdioma;
 
 namespace CapaPresentacion.Formularios
 {
@@ -172,6 +172,21 @@ namespace CapaPresentacion.Formularios
                     picpass.Image = Properties.Resources.mostrar;
                 }
             }
+        }
+
+        public void AplicarIdioma()
+        {
+            lbConfiguracion.Text = Rec.Configuracion;
+            lbredes.Text = Rec.Redes;
+            BtnVer.Text = Rec.Ver;
+            lbcontraseña.Text = Rec.Contraseña;
+            lbrutaguardado.Text = Rec.RutadeGuardado;
+            BtnRespaldo.Text = Rec.Respaldo;
+            button3.Text = Rec.Seleccionar;
+            lbrutarestauracion.Text = Rec.RutadeRestauracion;
+            btnRestauracion.Text = Rec.Restauracion;
+            button4.Text = Rec.Seleccionar;
+
         }
     }
 }

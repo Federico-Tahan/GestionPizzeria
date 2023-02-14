@@ -90,7 +90,7 @@ namespace CapaPresentacion.Formularios.Venta
                 Ticket.Fecha = "Fecha de Compra: " + facturaselected.Fecha.ToShortDateString();
                 Ticket.Hora = "Hora de Compra: " + facturaselected.Fecha.Hour +":" + facturaselected.Fecha.Minute + ":" +facturaselected.Fecha.Second;
                 Ticket.listaProducto = facturaselected.DetalleFacturas;
-                Ticket.logotipo = Properties.Resources.Formaggio;
+                Ticket.logotipo = Properties.Resources.LogoTest;
                 Ticket.Empleado = "Vendedor: " +facturaselected.Usuario.Empleado.NombreCompleto;
                 Ticket.imprimir(Ticket);
 

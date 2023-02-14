@@ -49,8 +49,8 @@ namespace ticket_o_factura
                 posY += 20;
                 e.Graphics.DrawString(Fecha, fuente, Brushes.Black, posX, posY);
                 posY += 20;
-                posY += 20;
                 e.Graphics.DrawString(Hora, fuente, Brushes.Black, posX, posY);
+                posY += 20;
                 posY += 20;
                 e.Graphics.DrawString(Empleado, fuente, Brushes.Black, posX, posY);
 
@@ -104,7 +104,7 @@ namespace ticket_o_factura
                 posY += 45;
 
                 fuente = new Font("consola", 10, FontStyle.Bold);
-                e.Graphics.DrawString("                                                            GRACIAS POR SU COMPRA. ", fuente, Brushes.Black, posX, posY);
+                e.Graphics.DrawString("                                                                    GRACIAS POR SU COMPRA. ", fuente, Brushes.Black, posX, posY);
                 posY += 25;
               
             }

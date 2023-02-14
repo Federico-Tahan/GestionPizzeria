@@ -5,6 +5,7 @@ using CapaNegocio.Implementacion;
 using CapaNegocio.Interfaces;
 using CapaPresentacion.Formularios.CombosProducto;
 using CapaPresentacion.Formularios_es.CombosProducto;
+using CapaPresentacion.RecursoIdioma;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -426,6 +427,43 @@ namespace CapaPresentacion.Formularios
                 cargar_cboTipoProducto(cboTipoProd, "Tipo_Producto", "IdTipoProducto");
                 cargar_cboUnidadMedida(cboUnidadMeidda, "Unidad_Medida", "IdUnidadMedida");
             }
+        }
+
+        public void AplicarIdioma()
+        {
+            lbProd.Text = Rec.Productos;
+            BtnTipoProd.Text = Rec.TipoProducto;
+            BtnClasificacion.Text = Rec.Clasificacion;
+            btnUnidadMedida.Text = Rec.UnidadMedida;
+            chkActivo.Text = Rec.Activo;
+            btnNuevo.Text = Rec.Nuevo;
+            BtnEditar.Text = Rec.Editar;
+            BtnCancelar.Text = Rec.Cancelar;
+            BtnGuardar.Text = Rec.Guardar;
+            lbNombre.Text = Rec.Nombre;
+            lbClasificacion.Text= Rec.Clasificacion;
+            lbUnidad.Text = Rec.UnidadMedida;
+            lbTipoProd.Text = Rec.TipoProducto;
+            lbDesc.Text = Rec.Descripcion;
+            lbPrecio.Text = Rec.Precio;
+            lbstock.Text = Rec.Stock;
+            chkActivo.Text = Rec.Activo;
+            rbtTodos.Text = Rec.Todos;
+            RbtActivos.Text = Rec.Activos;
+            RbtEliminados.Text = Rec.Eliminados;
+            rbtCodigo.Text = Rec.Codigo;
+            rbtNombre.Text = Rec.Nombre;
+            BtnLogin.Text = Rec.Buscar;
+            dgvProd.Columns[0].HeaderText = Rec.CodigoProdutco;
+            dgvProd.Columns[1].HeaderText = Rec.Nombre;
+            dgvProd.Columns[2].HeaderText = Rec.Descripcion;
+            dgvProd.Columns[3].HeaderText = Rec.TipoProducto;
+            dgvProd.Columns[4].HeaderText = Rec.UnidadMedida;
+            dgvProd.Columns[5].HeaderText = Rec.Clasificacion;
+            dgvProd.Columns[6].HeaderText = Rec.Stock;
+            dgvProd.Columns[7].HeaderText = Rec.Precio;
+            dgvProd.Columns[8].HeaderText = Rec.Activo;
+            dgvProd.Columns[9].HeaderText = Rec.Accion;
         }
     }
 }

@@ -3,6 +3,7 @@ using CapaDatos.Datos;
 using CapaDatos.Dominio;
 using CapaNegocio.Implementacion;
 using CapaNegocio.Interfaces;
+using CapaPresentacion.RecursoIdioma;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,11 @@ namespace CapaPresentacion.Formularios
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            cliente = new Cliente();
+            s = new Socio();
+            TxbDni.Enabled = true;
             Limpiar();
+            
             txbNombre.Text = string.Empty;
             TxbApellido.Text = string.Empty;
             pnlCrud.Visible = true;
@@ -55,6 +60,8 @@ namespace CapaPresentacion.Formularios
 
         private void picbajar_Click(object sender, EventArgs e)
         {
+            TxbDni.Text = string.Empty;
+
             Limpiar();
             pnlCrud.Visible = false;
             Botones(false);
@@ -70,6 +77,7 @@ namespace CapaPresentacion.Formularios
         private void Click_Acciones(object sender, DataGridViewCellEventArgs e)
         {
             cliente = new Cliente();
+            s = new Socio();
             cliente.socio = s;
             cliente.TipoCliente = tp;
             if (dgvCliente.Columns[e.ColumnIndex].Name == "Acciones")
@@ -145,6 +153,7 @@ namespace CapaPresentacion.Formularios
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
+            TxbDni.Text = string.Empty;
             Limpiar();
             pnlCrud.Visible = false;
             Botones(true);
@@ -423,6 +432,8 @@ namespace CapaPresentacion.Formularios
                 {
                     TxbDni.Text = string.Empty;
                     TxbEmail.Text = string.Empty;
+                    TxbDni.Enabled = true;
+
                 }
                 else
                 {
@@ -633,6 +644,35 @@ namespace CapaPresentacion.Formularios
             {
                 return false;
             }
+        }
+
+        public void AplicarIdioma()
+        {
+            lbClientes.Text = Rec.Clientes;
+            btnNuevo.Text = Rec.Nuevo;
+            BtnEditar.Text = Rec.Editar;
+            BtnCancelar.Text = Rec.Cancelar;
+            BtnGuardar.Text = Rec.Guardar;
+            lbNombre.Text = Rec.Nombre;
+            rbtTodos.Text = Rec.Todos;
+            RbtSocios.Text = Rec.Socios;
+            RbtNoSocios.Text = Rec.NoSocios;
+            RbtDni.Text = Rec.DNI;
+            RbtNombre.Text = Rec.Nombre;
+            BtnBuscar.Text = Rec.Buscar;
+            lbApellido.Text = Rec.Apellido;
+            TxbDireccion.Text = Rec.Direccion;
+            TxbTelefono.Text = Rec.Telefono;
+            lbtipocliente.Text = Rec.TipodeCliente;
+            lbdni.Text = Rec.DNI;
+            lbEmail.Text = Rec.Email;
+            dgvCliente.Columns[0].HeaderText = Rec.CodigoCliente;
+            dgvCliente.Columns[1].HeaderText = Rec.DNI;
+            dgvCliente.Columns[2].HeaderText = Rec.NombreCompleto;
+            dgvCliente.Columns[3].HeaderText = Rec.FechaAdhesion;
+            dgvCliente.Columns[4].HeaderText = Rec.Direccion;
+            dgvCliente.Columns[5].HeaderText = Rec.Socio;
+            dgvCliente.Columns[6].HeaderText = Rec.Accion;
         }
     }
 }
