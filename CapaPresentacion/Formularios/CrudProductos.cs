@@ -36,6 +36,7 @@ namespace CapaPresentacion.Formularios
             pnlCrud.Visible = true;
             Limpiar();
             Botones(false);
+            picLimpiar.Enabled = true;
             BtnCancelar.Enabled = true;
             BtnGuardar.Enabled = true;
             Habilitar(true);
@@ -339,6 +340,7 @@ namespace CapaPresentacion.Formularios
                         dgvProd.Rows.Remove(row);
 
                     }
+                    rbtTodos.Checked = true;
 
                 }
                 catch (Exception ex)
@@ -368,7 +370,9 @@ namespace CapaPresentacion.Formularios
                     dgvProd.Rows.Remove(row);
 
                 }
+                rbtTodos.Checked = true;
             }
+
         }
 
         private void RbtActivos_CheckedChanged(object sender, EventArgs e)

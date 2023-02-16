@@ -41,6 +41,8 @@ namespace CapaPresentacion.Formularios_es
         {
             bitacora = lg.ObtenerBitacora();
             CargarDgv();
+            DetectarIdioma();
+            AplicarIdioma();
         }
 
         private void CargarDgv()
@@ -144,5 +146,20 @@ namespace CapaPresentacion.Formularios_es
 
 
         }
+
+        private void DetectarIdioma()
+        {
+            if (SeleccionIdioma.i.IdIdioma == 2)
+            {
+
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+            }
+            else
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-AR");
+
+            }
+        }
     }
 }
+

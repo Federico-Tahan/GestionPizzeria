@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.pnlBarra = new System.Windows.Forms.Panel();
             this.Minimizar = new System.Windows.Forms.PictureBox();
             this.Salir = new System.Windows.Forms.PictureBox();
@@ -111,7 +112,7 @@
             this.btncambiaridioma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncambiaridioma.Location = new System.Drawing.Point(9, 469);
             this.btncambiaridioma.Name = "btncambiaridioma";
-            this.btncambiaridioma.Size = new System.Drawing.Size(104, 27);
+            this.btncambiaridioma.Size = new System.Drawing.Size(100, 27);
             this.btncambiaridioma.TabIndex = 42;
             this.btncambiaridioma.Text = "Cambiar Idioma";
             this.btncambiaridioma.UseVisualStyleBackColor = false;
@@ -202,6 +203,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlBarra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";

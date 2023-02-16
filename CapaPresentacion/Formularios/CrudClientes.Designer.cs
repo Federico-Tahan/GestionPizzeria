@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrudClientes));
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.CodigoSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -447,7 +448,7 @@
             this.rbtTodos.Checked = true;
             this.rbtTodos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbtTodos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rbtTodos.Location = new System.Drawing.Point(685, 152);
+            this.rbtTodos.Location = new System.Drawing.Point(621, 153);
             this.rbtTodos.Name = "rbtTodos";
             this.rbtTodos.Size = new System.Drawing.Size(73, 25);
             this.rbtTodos.TabIndex = 36;
@@ -461,7 +462,7 @@
             this.RbtNoSocios.AutoSize = true;
             this.RbtNoSocios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtNoSocios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtNoSocios.Location = new System.Drawing.Point(845, 153);
+            this.RbtNoSocios.Location = new System.Drawing.Point(803, 153);
             this.RbtNoSocios.Name = "RbtNoSocios";
             this.RbtNoSocios.Size = new System.Drawing.Size(101, 25);
             this.RbtNoSocios.TabIndex = 35;
@@ -474,7 +475,7 @@
             this.RbtSocios.AutoSize = true;
             this.RbtSocios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtSocios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtSocios.Location = new System.Drawing.Point(764, 152);
+            this.RbtSocios.Location = new System.Drawing.Point(709, 153);
             this.RbtSocios.Name = "RbtSocios";
             this.RbtSocios.Size = new System.Drawing.Size(75, 25);
             this.RbtSocios.TabIndex = 34;
@@ -632,6 +633,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.picreset);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CrudClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "w";

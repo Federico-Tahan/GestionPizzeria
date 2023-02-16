@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultaVentas));
             this.dgvProd = new System.Windows.Forms.DataGridView();
             this.Nroventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -338,7 +339,7 @@
             // 
             this.picreset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picreset.Image = global::CapaPresentacion.Properties.Resources.reset;
-            this.picreset.Location = new System.Drawing.Point(421, 124);
+            this.picreset.Location = new System.Drawing.Point(464, 124);
             this.picreset.Name = "picreset";
             this.picreset.Size = new System.Drawing.Size(38, 33);
             this.picreset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -353,7 +354,7 @@
             this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
             this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscar.Location = new System.Drawing.Point(332, 132);
+            this.BtnBuscar.Location = new System.Drawing.Point(375, 132);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(71, 25);
             this.BtnBuscar.TabIndex = 60;
@@ -363,7 +364,7 @@
             // 
             // txbbusqueda
             // 
-            this.txbbusqueda.Location = new System.Drawing.Point(197, 133);
+            this.txbbusqueda.Location = new System.Drawing.Point(240, 133);
             this.txbbusqueda.Name = "txbbusqueda";
             this.txbbusqueda.Size = new System.Drawing.Size(121, 23);
             this.txbbusqueda.TabIndex = 59;
@@ -396,6 +397,7 @@
             this.Controls.Add(this.txbbusqueda);
             this.Controls.Add(this.RbtCodigo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConsultaVentas";
             this.Text = "ConsultaEdicionBajaVentas";
             this.Load += new System.EventHandler(this.ConsultaVentas_Load);

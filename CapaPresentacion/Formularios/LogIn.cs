@@ -151,7 +151,7 @@ namespace CapaPresentacion
                 else
                 {
                     int tope = 3;
-                    MessageBox.Show(Rec.MessageTiene + " " + (tope - cont) + Rec.MessageIntentos, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Rec.MessageTiene + " " + (tope - cont) +" "+ Rec.MessageIntentos, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
             }

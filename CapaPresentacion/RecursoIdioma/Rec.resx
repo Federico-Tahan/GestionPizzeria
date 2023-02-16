@@ -148,7 +148,7 @@
     <value>Agregar</value>
   </data>
   <data name="BtnCambiarIdioma" xml:space="preserve">
-    <value>Cambiar Idioma</value>
+    <value>Idioma</value>
   </data>
   <data name="BtnCliente" xml:space="preserve">
     <value>Cliente</value>
@@ -173,6 +173,9 @@
   </data>
   <data name="BtnVentas" xml:space="preserve">
     <value>Ventas</value>
+  </data>
+  <data name="BtnVerificar" xml:space="preserve">
+    <value>Verificar</value>
   </data>
   <data name="Buscar" xml:space="preserve">
     <value>Buscar</value>

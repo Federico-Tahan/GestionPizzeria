@@ -58,7 +58,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.lbventasdelmes = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.LbVetnasdelMes = new System.Windows.Forms.Label();
@@ -244,10 +243,12 @@
             this.btnGestion.Image = global::CapaPresentacion.Properties.Resources.Gestion_chico;
             this.btnGestion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGestion.Location = new System.Drawing.Point(0, 314);
+            this.btnGestion.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.btnGestion.Name = "btnGestion";
             this.btnGestion.Size = new System.Drawing.Size(218, 47);
             this.btnGestion.TabIndex = 21;
             this.btnGestion.Text = "Gestión";
+            this.btnGestion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGestion.UseVisualStyleBackColor = false;
             this.btnGestion.Click += new System.EventHandler(this.btnGestion_Click);
             // 
@@ -318,10 +319,12 @@
             this.btnAdmin.Image = global::CapaPresentacion.Properties.Resources.cajero;
             this.btnAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdmin.Location = new System.Drawing.Point(0, 170);
+            this.btnAdmin.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(218, 53);
             this.btnAdmin.TabIndex = 15;
             this.btnAdmin.Text = "Ventas";
+            this.btnAdmin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdmin.UseVisualStyleBackColor = false;
             this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
@@ -401,6 +404,7 @@
             this.BtnCliente.Size = new System.Drawing.Size(218, 53);
             this.BtnCliente.TabIndex = 5;
             this.BtnCliente.Text = "Clientes";
+            this.BtnCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnCliente.UseVisualStyleBackColor = false;
             this.BtnCliente.Click += new System.EventHandler(this.BtnCliente_Click);
             // 
@@ -440,7 +444,7 @@
             this.panel5.Controls.Add(this.lbVentasDelDiaa);
             this.panel5.Location = new System.Drawing.Point(779, 256);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(167, 34);
+            this.panel5.Size = new System.Drawing.Size(184, 34);
             this.panel5.TabIndex = 1;
             // 
             // lbVentasDelDiaa
@@ -448,7 +452,7 @@
             this.lbVentasDelDiaa.AutoSize = true;
             this.lbVentasDelDiaa.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbVentasDelDiaa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbVentasDelDiaa.Location = new System.Drawing.Point(22, 5);
+            this.lbVentasDelDiaa.Location = new System.Drawing.Point(29, 5);
             this.lbVentasDelDiaa.Name = "lbVentasDelDiaa";
             this.lbVentasDelDiaa.Size = new System.Drawing.Size(123, 21);
             this.lbVentasDelDiaa.TabIndex = 0;
@@ -460,7 +464,7 @@
             this.panel3.Controls.Add(this.lbRecauddoDiario);
             this.panel3.Location = new System.Drawing.Point(779, 64);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(167, 34);
+            this.panel3.Size = new System.Drawing.Size(184, 34);
             this.panel3.TabIndex = 1;
             // 
             // lbRecauddoDiario
@@ -468,7 +472,7 @@
             this.lbRecauddoDiario.AutoSize = true;
             this.lbRecauddoDiario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbRecauddoDiario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbRecauddoDiario.Location = new System.Drawing.Point(22, 5);
+            this.lbRecauddoDiario.Location = new System.Drawing.Point(31, 6);
             this.lbRecauddoDiario.Name = "lbRecauddoDiario";
             this.lbRecauddoDiario.Size = new System.Drawing.Size(130, 21);
             this.lbRecauddoDiario.TabIndex = 0;
@@ -478,19 +482,18 @@
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.panel10);
-            this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.pictureBox4);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Location = new System.Drawing.Point(779, 444);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(167, 178);
+            this.panel6.Size = new System.Drawing.Size(184, 169);
             this.panel6.TabIndex = 10;
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panel10.Controls.Add(this.lbventasdelmes);
-            this.panel10.Location = new System.Drawing.Point(26, 135);
+            this.panel10.Location = new System.Drawing.Point(40, 136);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(118, 25);
             this.panel10.TabIndex = 12;
@@ -506,21 +509,10 @@
             this.lbventasdelmes.TabIndex = 12;
             this.lbventasdelmes.Text = "$";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(29, 140);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(17, 20);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "$";
-            // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::CapaPresentacion.Properties.Resources.punto_de_venta__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(28, 38);
+            this.pictureBox4.Location = new System.Drawing.Point(42, 39);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(103, 90);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -533,7 +525,7 @@
             this.panel7.Controls.Add(this.LbVetnasdelMes);
             this.panel7.Location = new System.Drawing.Point(-1, -1);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(167, 34);
+            this.panel7.Size = new System.Drawing.Size(184, 34);
             this.panel7.TabIndex = 0;
             // 
             // LbVetnasdelMes
@@ -541,7 +533,7 @@
             this.LbVetnasdelMes.AutoSize = true;
             this.LbVetnasdelMes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LbVetnasdelMes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LbVetnasdelMes.Location = new System.Drawing.Point(22, 5);
+            this.LbVetnasdelMes.Location = new System.Drawing.Point(26, 7);
             this.LbVetnasdelMes.Name = "LbVetnasdelMes";
             this.LbVetnasdelMes.Size = new System.Drawing.Size(128, 21);
             this.LbVetnasdelMes.TabIndex = 0;
@@ -554,14 +546,14 @@
             this.panel4.Controls.Add(this.pictureBox3);
             this.panel4.Location = new System.Drawing.Point(779, 254);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(167, 170);
+            this.panel4.Size = new System.Drawing.Size(184, 170);
             this.panel4.TabIndex = 10;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panel8.Controls.Add(this.lbventasdeldia);
-            this.panel8.Location = new System.Drawing.Point(22, 137);
+            this.panel8.Location = new System.Drawing.Point(36, 139);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(118, 25);
             this.panel8.TabIndex = 11;
@@ -580,7 +572,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::CapaPresentacion.Properties.Resources.punto_de_venta;
-            this.pictureBox3.Location = new System.Drawing.Point(28, 39);
+            this.pictureBox3.Location = new System.Drawing.Point(42, 41);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(103, 90);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -594,7 +586,7 @@
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Location = new System.Drawing.Point(779, 64);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(167, 162);
+            this.panel2.Size = new System.Drawing.Size(184, 162);
             this.panel2.TabIndex = 9;
             // 
             // panel9
@@ -602,7 +594,7 @@
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panel9.Controls.Add(this.lbrecaudodiario);
             this.panel9.Controls.Add(this.lb);
-            this.panel9.Location = new System.Drawing.Point(22, 129);
+            this.panel9.Location = new System.Drawing.Point(33, 129);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(118, 25);
             this.panel9.TabIndex = 12;
@@ -631,7 +623,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.recaudacion_de_fondos;
-            this.pictureBox2.Location = new System.Drawing.Point(28, 33);
+            this.pictureBox2.Location = new System.Drawing.Point(42, 35);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(103, 90);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -674,6 +666,7 @@
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlBarra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
@@ -696,7 +689,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -749,7 +741,6 @@
         private Button BtnProductos;
         private Button BtnUsuarios;
         private Button btnGestion;
-        private Label label5;
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;

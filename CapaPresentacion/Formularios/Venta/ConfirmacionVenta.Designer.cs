@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfirmacionVenta));
             this.txbDNI = new System.Windows.Forms.TextBox();
             this.lbDNI = new System.Windows.Forms.Label();
             this.lbcliente = new System.Windows.Forms.Label();
@@ -360,6 +361,7 @@
             this.Controls.Add(this.txbDNI);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConfirmacionVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfirmacionVenta";

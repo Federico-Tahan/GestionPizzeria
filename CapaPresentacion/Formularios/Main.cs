@@ -257,6 +257,7 @@ namespace CapaPresentacion.Formularios
             lbRecauddoDiario.Text = Rec.RecaudoDiario;
             lbVentasDelDiaa.Text = Rec.VentaDiaria;
             LbVetnasdelMes.Text = Rec.VentasMes;
+            btnConsultar.Text = Rec.BtnConsultar;
         }
     }
 }

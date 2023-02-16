@@ -152,6 +152,7 @@
             this.Controls.Add(this.pnlBarra);
             this.Controls.Add(this.piclogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SeleccionIdioma";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SeleccionIdioma";

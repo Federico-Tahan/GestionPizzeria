@@ -151,7 +151,7 @@ namespace CapaPresentacion.RecursoIdioma {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cambiar Idioma.
+        ///   Looks up a localized string similar to Idioma.
         /// </summary>
         internal static string BtnCambiarIdioma {
             get {
@@ -228,6 +228,15 @@ namespace CapaPresentacion.RecursoIdioma {
         internal static string BtnVentas {
             get {
                 return ResourceManager.GetString("BtnVentas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verificar.
+        /// </summary>
+        internal static string BtnVerificar {
+            get {
+                return ResourceManager.GetString("BtnVerificar", resourceCulture);
             }
         }
         

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuration));
             this.txbRespaldo = new System.Windows.Forms.TextBox();
             this.lbrutaguardado = new System.Windows.Forms.Label();
             this.lbrutarestauracion = new System.Windows.Forms.Label();
@@ -525,6 +526,7 @@
             this.Controls.Add(this.pnlHeader);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Configuration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BackUp";

@@ -486,7 +486,7 @@ namespace CapaPresentacion.Formularios
                 {
                     if (txbNombre.Enabled is true && cli.socio.DNI != 0) //Verificar que no se ingrese con un DNI registrado
                     {
-                        MessageBox.Show(Rec.MessageEmailEnviado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Rec.MessageboxDniyaregistrado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else if (lg.ModificacionCliente(cli,LogIn.u)) //Modifica los datos del socio, ya que accedio al apartado Editar.
                     {
@@ -496,7 +496,7 @@ namespace CapaPresentacion.Formularios
 
                             if (lg.EmailSender(cli))
                             {
-                                MessageBox.Show(Rec.MessageEmailEnviado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show(Rec.MessageEmailEnviado,"", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
@@ -526,7 +526,7 @@ namespace CapaPresentacion.Formularios
                             
                             if (lg.EmailSender(cli))
                             {
-                                    MessageBox.Show(Rec.MessageEmailEnviado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show(Rec.MessageEmailEnviado, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                                 else
                             {
@@ -698,5 +698,6 @@ namespace CapaPresentacion.Formularios
 
             }
         }
+
     }
 }

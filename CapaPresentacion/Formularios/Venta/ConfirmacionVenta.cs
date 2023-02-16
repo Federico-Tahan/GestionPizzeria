@@ -355,6 +355,8 @@ namespace CapaPresentacion.Formularios.Venta
             lbDNI.Text = Rec.DNI;
             btnConfirmarVenta.Text = Rec.ConfirmarVenta;
             lbconcretar.Text = Rec.ConcretarVenta;
+            lbcliente.Text = Rec.Clientes;
+            btnverificar.Text = Rec.BtnVerificar;
         }
     }
 }

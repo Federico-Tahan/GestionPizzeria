@@ -179,7 +179,8 @@ namespace CapaPresentacion.Formularios.Venta
             dgvProd.Columns[3].HeaderText = Rec.FormaDePedido;
             dgvProd.Columns[4].HeaderText = Rec.Descuento;
             dgvProd.Columns[5].HeaderText = Rec.Total;
-            dgvProd.Columns[6].HeaderText = Rec.Ticket;            dgvProd.Columns[5].HeaderText = Rec.Total;
+            dgvProd.Columns[6].HeaderText = Rec.Ticket;
+            dgvProd.Columns[5].HeaderText = Rec.Total;
             dgvProd.Columns[7].HeaderText = Rec.Accion;
             dgvDetalle.Columns[0].HeaderText = Rec.NroProd;
             dgvDetalle.Columns[1].HeaderText = Rec.Nombre;

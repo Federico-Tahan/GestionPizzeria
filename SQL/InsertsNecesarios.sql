@@ -19,22 +19,11 @@ insert into Configuracion values (1,0,0,'-','-','-','-','-','-')
 insert into tipo_cliente values ('Socio')
 insert into tipo_cliente values ('No Socio')
 
-insert into Clasificacion values('Producto Final',0)
-insert into Clasificacion values('Ingrediente',0)
-
-insert into Unidad_medida values('Kilogramos',0)
-insert into Unidad_medida values('Litros',0)
-
-
-insert into Tipo_producto values ('Verdura',0)
-insert into Tipo_producto values ('Bebida',0)
-
 insert into forma_entrega values ('Delivery a Domicilio')
 insert into forma_entrega values ('Retiro en el local')
 
 insert into Forma_compra values ('Telefonica')
 insert into Forma_compra values ('Presencial')
-
 
 
 insert into Empleado values (22222,'Admin','Admin','Admin','2022/02/02',3333333,0)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDescuentos));
             this.pnlDescento = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbobtencion = new System.Windows.Forms.Label();
@@ -494,6 +495,7 @@
             this.ClientSize = new System.Drawing.Size(943, 676);
             this.Controls.Add(this.pnlDescento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDescuentos";
             this.Text = "Descuentos";
             this.Load += new System.EventHandler(this.Descuentos_Load);

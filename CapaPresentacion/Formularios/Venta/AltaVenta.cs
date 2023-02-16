@@ -57,6 +57,7 @@ namespace CapaPresentacion.Formularios.Venta
                     cargar_cboProductos(cboProductos, "Nombre", "Id_producto");
                     cboProductos.SelectedIndex = -1;
                     txbStock.Text = "";
+                    txbTotal.Text = "";
                 }
 
             }

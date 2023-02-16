@@ -7,7 +7,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>Formaggio</AssemblyName>
-    <ApplicationIcon>pizzaGrandeLogo.ico</ApplicationIcon>
+    <ApplicationIcon>logoFormaggio.ico</ApplicationIcon>
+    <PackageIcon></PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="pizzaGrandeLogo.ico" />
+    <Content Include="logoFormaggio.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,11 +26,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="RecursoIdioma\Rec.en-US.Designer.cs">
-      <DependentUpon>Rec.en-US.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Update="RecursoIdioma\Rec.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -42,10 +38,6 @@
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="RecursoIdioma\Rec.en-US.resx">
-      <LastGenOutput>Rec.en-US.Designer.cs</LastGenOutput>
-      <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="RecursoIdioma\Rec.resx">
       <Generator>ResXFileCodeGenerator</Generator>
