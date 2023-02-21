@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Dominio
 {
-    public class Descuento
+    public class Localidad
     {
-        public int dia { get; set; }
-        public decimal PorcentajeDescuento;
-
+        public int idLocalidad { get; set; }
+        public string NLocalidad { get; set; }
     }
 }

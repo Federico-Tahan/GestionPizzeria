@@ -57,5 +57,10 @@ namespace CapaNegocio.Implementacion
         {
             return lg.ObtenerUsuarios(a);
         }
+
+        public bool UsuarioAltaoBaja(string Alias)
+        {
+            return lg.UsuarioAltaoBaja(Alias);
+        }
     }
 }

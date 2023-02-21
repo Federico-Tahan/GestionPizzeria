@@ -39,6 +39,7 @@ namespace CapaPresentacion.Formularios
             lClientes = lg.TraerClientes();
             cargarDgv(lClientes);
             cargar_cboTipOclIENTE(CboTipoCliente, "TipoCliente", "Id_TipoCliente");
+            cargar_cboLocalidad(cboloclaidad,"NLocalidad", "idLocalidad");
             DetectarIdioma();
             AplicarIdioma();
 
@@ -107,6 +108,10 @@ namespace CapaPresentacion.Formularios
             TxbApellido.Text = cliente.Apellido;
             TxbDirec.Text = cliente.Direccion;
             texboxnumero.Text = cliente.Telefono.ToString();
+            txbDepto.Text = cliente.Departamento.ToString();
+            nupaltura.Value = cliente.Altura;
+            nupPiso.Value = cliente.Piso;
+            cboloclaidad.SelectedValue = cliente.locali.idLocalidad;
             CboTipoCliente.SelectedValue = cliente.TipoCliente.Id_TipoCliente;
             if (cliente.socio.Baja_logica == 0)
             {
@@ -134,6 +139,10 @@ namespace CapaPresentacion.Formularios
             CboTipoCliente.Enabled = a;
             TxbDni.Enabled = a;
             TxbEmail.Enabled = a;
+            nupPiso.Enabled = a;
+            nupaltura.Enabled = a;
+            txbDepto.Enabled = a;
+            cboloclaidad.Enabled = a;
         }
 
 
@@ -174,6 +183,10 @@ namespace CapaPresentacion.Formularios
                 CboTipoCliente.SelectedIndex = -1;
                 TxbDirec.Text = string.Empty;
                 texboxnumero.Text = string.Empty;
+                txbDepto.Text = string.Empty;
+                nupaltura.Value = 0;
+                nupPiso.Value = 0;
+                cboloclaidad.SelectedIndex = -1;
             }
             else
             {
@@ -181,6 +194,10 @@ namespace CapaPresentacion.Formularios
                 CboTipoCliente.SelectedIndex = -1;
                 TxbDirec.Text = string.Empty;
                 texboxnumero.Text = string.Empty;
+                txbDepto.Text = string.Empty;
+                nupaltura.Value = 0;
+                nupPiso.Value = 0;
+                cboloclaidad.SelectedIndex = -1;
             }
 
         }
@@ -199,11 +216,11 @@ namespace CapaPresentacion.Formularios
             {
                 if (c.socio.Baja_logica == 1 || c.socio.Baja_logica == 2)
                 {
-                    dgvCliente.Rows.Add(c.IdCliente, " ",c.Nombre + " "+ c.Apellido," ",c.Direccion, "No");
+                    dgvCliente.Rows.Add(c.IdCliente, " ",c.Nombre + " "+ c.Apellido," ",c.Direccion, c.Altura,c.Departamento,c.Piso,c.Telefono,"No");
 
                 }else if (c.socio.Baja_logica == 0)
                 {
-                    dgvCliente.Rows.Add(c.IdCliente, c.socio.DNI, c.Nombre + " " + c.Apellido, c.socio.FechaAdhesion, c.Direccion, "Si");
+                    dgvCliente.Rows.Add(c.IdCliente, c.socio.DNI, c.Nombre + " " + c.Apellido, c.socio.FechaAdhesion.ToShortDateString(), c.Direccion, c.Altura, c.Departamento, c.Piso, c.Telefono, "Si");
 
                 }
 
@@ -363,16 +380,9 @@ namespace CapaPresentacion.Formularios
                 return false;
 
             }
-            else if (texboxnumero.Text == "")
+            else if (cboloclaidad.SelectedIndex == -1)
             {
-                MessageBox.Show(Rec.MessageValidacionTelefonoCli, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return false;
-
-            }
-            else if (TxbDireccion.Text == "")
-            {
-                MessageBox.Show(Rec.MessageValidacionDireccionCli, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Rec.MesssageValidacionLoc, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return false;
 
@@ -405,18 +415,6 @@ namespace CapaPresentacion.Formularios
                     return false;
 
                 }
-
-            }
-
-            try
-            {
-                Convert.ToInt64(texboxnumero.Text);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show(Rec.MessageValidacionTelefonoCliNumero, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return false;
 
             }
 
@@ -482,6 +480,7 @@ namespace CapaPresentacion.Formularios
                 AbstraerCliente(cli);
                 cli.IdCliente = cliente.IdCliente;
 
+
                 if (lg.BuscarClienteSocioDni(cli) )
                 {
                     if (txbNombre.Enabled is true && cli.socio.DNI != 0) //Verificar que no se ingrese con un DNI registrado
@@ -490,7 +489,7 @@ namespace CapaPresentacion.Formularios
                     }
                     else if (lg.ModificacionCliente(cli,LogIn.u)) //Modifica los datos del socio, ya que accedio al apartado Editar.
                     {
-                        if (cli.socio.Email != "")
+                        if (cli.socio.Email != "" && cli.socio.Email != cliente.socio.Email)
                         {
 
 
@@ -592,17 +591,22 @@ namespace CapaPresentacion.Formularios
 
         private void AbstraerCliente(Cliente cli)
         {
+            Localidad l = new Localidad();
             cli.Nombre = txbNombre.Text;
             cli.Apellido= TxbApellido.Text;
             cli.Direccion= TxbDirec.Text;
-            cli.Telefono = Convert.ToInt64(texboxnumero.Text);
             cli.TipoCliente.Id_TipoCliente = Convert.ToInt32(CboTipoCliente.SelectedValue);
             if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 1)
             {
                 cli.socio.DNI = Convert.ToInt64(TxbDni.Text);
                 cli.socio.Email = TxbEmail.Text;
             }
-
+            cli.Altura = Convert.ToInt32(nupaltura.Value);
+            cli.Piso = Convert.ToInt32(nupPiso.Value);
+            cli.Departamento = txbDepto.Text;
+            l.idLocalidad= Convert.ToInt32(cboloclaidad.SelectedValue);
+            cli.locali = l;
+            cli.Telefono = texboxnumero.Text;
         }
 
 
@@ -616,6 +620,15 @@ namespace CapaPresentacion.Formularios
                     break;
                 }
             }
+        }
+
+        private void cargar_cboLocalidad(ComboBox cbo, string display, string value)
+        {
+            cbo.DataSource = lcbo.Localidad();
+            cbo.DisplayMember = display;
+            cbo.ValueMember = value;
+            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbo.SelectedIndex = -1;
         }
 
         private void cargar_cboTipOclIENTE(ComboBox cbo, string display, string value)
@@ -669,13 +682,22 @@ namespace CapaPresentacion.Formularios
             lbtipocliente.Text = Rec.TipodeCliente;
             lbdni.Text = Rec.DNI;
             lbEmail.Text = Rec.Email;
+
+
+
+
             dgvCliente.Columns[0].HeaderText = Rec.CodigoCliente;
             dgvCliente.Columns[1].HeaderText = Rec.DNI;
             dgvCliente.Columns[2].HeaderText = Rec.NombreCompleto;
             dgvCliente.Columns[3].HeaderText = Rec.FechaAdhesion;
-            dgvCliente.Columns[4].HeaderText = Rec.Direccion;
-            dgvCliente.Columns[5].HeaderText = Rec.Socio;
-            dgvCliente.Columns[6].HeaderText = Rec.Accion;
+            dgvCliente.Columns[4].HeaderText = Rec.Calle;
+            dgvCliente.Columns[5].HeaderText = Rec.Altura;
+            dgvCliente.Columns[6].HeaderText = Rec.Departamento;
+            dgvCliente.Columns[7].HeaderText = Rec.Piso;
+            dgvCliente.Columns[8].HeaderText = Rec.Telefono;
+            dgvCliente.Columns[9].HeaderText = Rec.Socio;
+            dgvCliente.Columns[10].HeaderText = Rec.Detalle;
+
         }
 
         private void picreset_Click(object sender, EventArgs e)
@@ -699,5 +721,11 @@ namespace CapaPresentacion.Formularios
             }
         }
 
+        private void chkDepa_CheckedChanged(object sender, EventArgs e)
+        {
+            lbpiso.Visible = !lbpiso.Visible;
+            nupPiso.Visible = !lbpiso.Visible;
+
+        }
     }
 }

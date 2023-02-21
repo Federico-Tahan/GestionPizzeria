@@ -23,7 +23,7 @@ namespace CapaPresentacion
         int cont = 0;
         private ing_Logeo lg = new ng_Logeo();
         public static Usuarios u = new Usuarios();
-
+        string AliasAnterior = "";
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -140,20 +140,50 @@ namespace CapaPresentacion
         {
             if (log.BuscarAliasUsuario(txbUsuario.Text))
             {
-                cont++;
-                if (cont == 3)
+
+                if (log.UsuarioAltaoBaja(txbUsuario.Text))
                 {
-                    if (log.BloquearUsuario(txbUsuario.Text))
+                    if (AliasAnterior == txbUsuario.Text)
                     {
-                        MessageBox.Show(Rec.MessageUsuarioBloqueado,Rec.CapError,MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    };
+                        cont++;
+                        if (cont == 3)
+                        {
+                            if (log.BloquearUsuario(txbUsuario.Text))
+                            {
+                                MessageBox.Show(Rec.MessageUsuarioBloqueado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                cont = 0;
+                            };
+                        }
+                        else
+                        {
+                            int tope = 3;
+                            MessageBox.Show(Rec.MessageTiene + " " + (tope - cont) + " " + Rec.MessageIntentos, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            AliasAnterior = txbUsuario.Text;
+
+                        }
+                    }
+                    else
+                    {
+                        cont = 1;
+                        int tope = 3;
+                        MessageBox.Show(Rec.MessageTiene + " " + (tope - cont) + " " + Rec.MessageIntentos, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        AliasAnterior = txbUsuario.Text;
+                    }
+                        
                 }
                 else
                 {
-                    int tope = 3;
-                    MessageBox.Show(Rec.MessageTiene + " " + (tope - cont) +" "+ Rec.MessageIntentos, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Rec.MessageUsuarioBloqueado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cont = 0;
+                    AliasAnterior = txbUsuario.Text;
 
                 }
+
+            }
+            else
+            {
+                AliasAnterior = txbUsuario.Text;
+
             }
 
         }

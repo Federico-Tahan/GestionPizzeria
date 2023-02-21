@@ -27,7 +27,7 @@ namespace CapaPresentacion.Formularios.Venta
         public AltaVenta()
         {
             InitializeComponent();
-            lproductos = lp.GetProductos(0);
+            lproductos = lp.GetProductos(3);
             cargar_cboProductos(cboProductos, "Nombre", "Id_producto");
 
         }
@@ -53,7 +53,7 @@ namespace CapaPresentacion.Formularios.Venta
                     dgvDetalle.Rows.Clear();
                     numpCantidad.Value = 0;
                     txbDetalle.Text = "";
-                    lproductos = lp.GetProductos(0);
+                    lproductos = lp.GetProductos(3);
                     cargar_cboProductos(cboProductos, "Nombre", "Id_producto");
                     cboProductos.SelectedIndex = -1;
                     txbStock.Text = "";

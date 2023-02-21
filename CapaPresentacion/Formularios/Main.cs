@@ -219,13 +219,26 @@ namespace CapaPresentacion.Formularios
             }else if (LogIn.u.Rol.Id_Rol == 5)
             {
                 picConfig.Visible = false;
-                btnDescuentos.Visible = false;
+                BtnProductos.Visible = false;
+                BtnUsuarios.Visible = false;
+                btnGestion.Visible = true;
 
             }
             else if (LogIn.u.Rol.Id_Rol == 6)
             {
                 picConfig.Visible = false;
-                btnGestion.Visible = false;
+                BtnProductos.Visible = false;
+                BtnUsuarios.Visible = false;
+                btnGestion.Visible = true;
+
+
+            }
+            else if (LogIn.u.Rol.Id_Rol == 2)
+            {
+                lbrecaudodiario.Visible = false;
+                lbventasdeldia.Visible = false;
+                lbventasdelmes.Visible = false;
+                btnConsultar.Visible = false;
 
             }
         }

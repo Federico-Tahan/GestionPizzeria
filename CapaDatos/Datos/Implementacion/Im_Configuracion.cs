@@ -97,7 +97,7 @@ namespace CapaDatos.Datos.Implementacion
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(2))
                 {
-                    c.PorcentajeDescuento = HelperDB.ObtenerInstancia().Dr.GetInt32(2);
+                    c.PorcentajeDescuento = Math.Round(HelperDB.ObtenerInstancia().Dr.GetDecimal(2),2);
                 }
 
                 LDescuento.Add(c);

@@ -44,9 +44,10 @@
             this.btnVender = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.lbUsuario = new System.Windows.Forms.Label();
             this.picConfig = new System.Windows.Forms.PictureBox();
             this.lbCierre = new System.Windows.Forms.Label();
-            this.lbUsuario = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnCliente = new System.Windows.Forms.Button();
             this.picMain = new System.Windows.Forms.PictureBox();
@@ -80,6 +81,7 @@
             this.submenu2.SuspendLayout();
             this.pnlSubmenu.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
@@ -330,15 +332,36 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel11);
             this.panel1.Controls.Add(this.picConfig);
             this.panel1.Controls.Add(this.lbCierre);
-            this.panel1.Controls.Add(this.lbUsuario);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 543);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(218, 98);
             this.panel1.TabIndex = 10;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.lbUsuario);
+            this.panel11.Location = new System.Drawing.Point(77, 12);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(135, 39);
+            this.panel11.TabIndex = 14;
+            // 
+            // lbUsuario
+            // 
+            this.lbUsuario.AutoSize = true;
+            this.lbUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbUsuario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbUsuario.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbUsuario.Location = new System.Drawing.Point(0, 0);
+            this.lbUsuario.MaximumSize = new System.Drawing.Size(140, 60);
+            this.lbUsuario.Name = "lbUsuario";
+            this.lbUsuario.Size = new System.Drawing.Size(123, 36);
+            this.lbUsuario.TabIndex = 10;
+            this.lbUsuario.Text = "Federico Yamil Tahan";
             // 
             // picConfig
             // 
@@ -358,23 +381,12 @@
             this.lbCierre.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbCierre.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbCierre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbCierre.Location = new System.Drawing.Point(97, 45);
+            this.lbCierre.Location = new System.Drawing.Point(94, 54);
             this.lbCierre.Name = "lbCierre";
             this.lbCierre.Size = new System.Drawing.Size(84, 16);
             this.lbCierre.TabIndex = 11;
             this.lbCierre.Text = "Cerrar Sesión";
             this.lbCierre.Click += new System.EventHandler(this.lbCierre_Click);
-            // 
-            // lbUsuario
-            // 
-            this.lbUsuario.AutoSize = true;
-            this.lbUsuario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbUsuario.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbUsuario.Location = new System.Drawing.Point(82, 12);
-            this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(54, 18);
-            this.lbUsuario.TabIndex = 10;
-            this.lbUsuario.Text = "label1";
             // 
             // pictureBox1
             // 
@@ -679,6 +691,8 @@
             this.pnlSubmenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).EndInit();
@@ -751,5 +765,6 @@
         private Label lbrecaudodiario;
         private Label lbventasdelmes;
         private Label lbventasdeldia;
+        private Panel panel11;
     }
 }

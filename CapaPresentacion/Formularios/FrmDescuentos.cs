@@ -31,6 +31,7 @@ namespace CapaPresentacion.Formularios
 
         private void Descuentos_Load(object sender, EventArgs e)
         {
+            Rol();
             ld = lg.TraerDescuentos();
             c = lg.TraerConfiguracion();
             cargarConfiguracion();
@@ -96,26 +97,26 @@ namespace CapaPresentacion.Formularios
             lDescuento.Clear();
             Descuento d = new Descuento();
             c = new Configuracion();
-            d.PorcentajeDescuento = Convert.ToInt32(np1.Value);
+            d.PorcentajeDescuento = Math.Round(Convert.ToDecimal(np1.Value), 2);
             lDescuento.Add(d);
             d = new Descuento();
 
-            d.PorcentajeDescuento = Convert.ToInt32(np2.Value);
+            d.PorcentajeDescuento = Math.Round(Convert.ToDecimal(np2.Value),2);
             lDescuento.Add(d); d = new Descuento();
 
-            d.PorcentajeDescuento = Convert.ToInt32(np3.Value);
+            d.PorcentajeDescuento = Math.Round(Convert.ToDecimal(np3.Value), 2);
             lDescuento.Add(d); d = new Descuento();
 
-            d.PorcentajeDescuento = Convert.ToInt32(np4.Value);
+            d.PorcentajeDescuento = Math.Round(Convert.ToDecimal(np4.Value), 2);
             lDescuento.Add(d); d = new Descuento();
 
-            d.PorcentajeDescuento = Convert.ToInt32(np5.Value);
+            d.PorcentajeDescuento = Math.Round(Convert.ToDecimal(np5.Value), 2);
             lDescuento.Add(d); d = new Descuento();
 
-            d.PorcentajeDescuento = Convert.ToInt32(np6.Value);
+            d.PorcentajeDescuento = Math.Round(Convert.ToDecimal(np6.Value), 2);
             lDescuento.Add(d); d = new Descuento();
 
-            d.PorcentajeDescuento = Convert.ToInt32(np7.Value);
+            d.PorcentajeDescuento = Math.Round(Convert.ToDecimal(np7.Value), 2);
             lDescuento.Add(d); d = new Descuento();
 
 
@@ -168,6 +169,25 @@ namespace CapaPresentacion.Formularios
             else
             {
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-AR");
+
+            }
+        }
+
+        private void Rol()
+        {
+            if (LogIn.u.Rol.Id_Rol == 6)
+            {
+                np1.Enabled = false;
+                np2.Enabled = false;
+                np3.Enabled = false;
+                np4.Enabled = false;
+                np5.Enabled = false;
+                np6.Enabled = false;
+                np7.Enabled = false;
+                chkSocio.Enabled = false;
+                ChkCompraspresenciales.Enabled = false;
+                BtnConfirmar.Visible= false;
+                BtnRestablecer.Visible= false;
 
             }
         }

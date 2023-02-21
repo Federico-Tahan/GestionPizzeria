@@ -19,6 +19,10 @@ insert into Configuracion values (1,0,0,'-','-','-','-','-','-')
 insert into tipo_cliente values ('Socio')
 insert into tipo_cliente values ('No Socio')
 
+insert into Clasificacion values ('Producto Final',0)
+insert into Clasificacion values ('Ingrediente',0)
+
+
 insert into forma_entrega values ('Delivery a Domicilio')
 insert into forma_entrega values ('Retiro en el local')
 

@@ -12,6 +12,8 @@ namespace CapaDatos.Datos.Interfaces
         List<Producto> GetProductos(int cond);
         bool AltaProducto(Producto p, Usuarios u);
         bool Modificacion(Producto p, Usuarios u);
+        bool ModificacionIngrediente(Producto p, Usuarios u);
+        bool AltaIngrediente(Producto p, Usuarios u);
 
 
     }

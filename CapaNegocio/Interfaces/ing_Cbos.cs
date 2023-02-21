@@ -17,6 +17,8 @@ namespace CapaCapaNegocio.Interfaces
 
         List<Clasificacion> ObtenerClasificacion();
         List<TipoProducto> ObtenerTipoProducto();
+        List<Localidad> Localidad();
+
         List<UnidadMedida> ObtenerUnidadMedida();
         List<Cliente> TraerClientesCbo(int a);
     }

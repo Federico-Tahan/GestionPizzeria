@@ -117,7 +117,7 @@
             this.pnlDescento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDescento.Location = new System.Drawing.Point(0, 0);
             this.pnlDescento.Name = "pnlDescento";
-            this.pnlDescento.Size = new System.Drawing.Size(943, 676);
+            this.pnlDescento.Size = new System.Drawing.Size(998, 676);
             this.pnlDescento.TabIndex = 0;
             this.pnlDescento.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDescento_Paint);
             // 
@@ -126,7 +126,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panel2.Controls.Add(this.lbobtencion);
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(521, 124);
+            this.panel2.Location = new System.Drawing.Point(563, 103);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(370, 52);
             this.panel2.TabIndex = 52;
@@ -157,7 +157,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.lbdescuentosdelasemana);
-            this.panel1.Location = new System.Drawing.Point(65, 124);
+            this.panel1.Location = new System.Drawing.Point(72, 104);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(383, 52);
             this.panel1.TabIndex = 51;
@@ -223,7 +223,7 @@
             this.ChkCompraspresenciales.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkCompraspresenciales.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ChkCompraspresenciales.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ChkCompraspresenciales.Location = new System.Drawing.Point(586, 250);
+            this.ChkCompraspresenciales.Location = new System.Drawing.Point(628, 229);
             this.ChkCompraspresenciales.Name = "ChkCompraspresenciales";
             this.ChkCompraspresenciales.Size = new System.Drawing.Size(256, 29);
             this.ChkCompraspresenciales.TabIndex = 45;
@@ -237,7 +237,7 @@
             this.chkSocio.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkSocio.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.chkSocio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.chkSocio.Location = new System.Drawing.Point(586, 206);
+            this.chkSocio.Location = new System.Drawing.Point(628, 185);
             this.chkSocio.Name = "chkSocio";
             this.chkSocio.Size = new System.Drawing.Size(95, 29);
             this.chkSocio.TabIndex = 44;
@@ -251,7 +251,7 @@
             this.BtnRestablecer.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnRestablecer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
             this.BtnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRestablecer.Location = new System.Drawing.Point(495, 581);
+            this.BtnRestablecer.Location = new System.Drawing.Point(520, 588);
             this.BtnRestablecer.Name = "BtnRestablecer";
             this.BtnRestablecer.Size = new System.Drawing.Size(89, 36);
             this.BtnRestablecer.TabIndex = 42;
@@ -266,7 +266,7 @@
             this.BtnConfirmar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
             this.BtnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnConfirmar.Location = new System.Drawing.Point(377, 581);
+            this.BtnConfirmar.Location = new System.Drawing.Point(397, 588);
             this.BtnConfirmar.Name = "BtnConfirmar";
             this.BtnConfirmar.Size = new System.Drawing.Size(90, 36);
             this.BtnConfirmar.TabIndex = 4;
@@ -277,49 +277,56 @@
             // np7
             // 
             this.np7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.np7.Location = new System.Drawing.Point(334, 533);
+            this.np7.DecimalPlaces = 2;
+            this.np7.Location = new System.Drawing.Point(341, 513);
             this.np7.Name = "np7";
             this.np7.Size = new System.Drawing.Size(74, 19);
             this.np7.TabIndex = 38;
             // 
             // np6
             // 
-            this.np6.Location = new System.Drawing.Point(334, 477);
+            this.np6.DecimalPlaces = 2;
+            this.np6.Location = new System.Drawing.Point(341, 457);
             this.np6.Name = "np6";
             this.np6.Size = new System.Drawing.Size(74, 23);
             this.np6.TabIndex = 37;
             // 
             // np5
             // 
-            this.np5.Location = new System.Drawing.Point(334, 426);
+            this.np5.DecimalPlaces = 2;
+            this.np5.Location = new System.Drawing.Point(341, 406);
             this.np5.Name = "np5";
             this.np5.Size = new System.Drawing.Size(74, 23);
             this.np5.TabIndex = 36;
             // 
             // np3
             // 
-            this.np3.Location = new System.Drawing.Point(334, 314);
+            this.np3.DecimalPlaces = 2;
+            this.np3.Location = new System.Drawing.Point(341, 294);
             this.np3.Name = "np3";
             this.np3.Size = new System.Drawing.Size(74, 23);
             this.np3.TabIndex = 35;
             // 
             // np4
             // 
-            this.np4.Location = new System.Drawing.Point(334, 371);
+            this.np4.DecimalPlaces = 2;
+            this.np4.Location = new System.Drawing.Point(341, 351);
             this.np4.Name = "np4";
             this.np4.Size = new System.Drawing.Size(74, 23);
             this.np4.TabIndex = 35;
             // 
             // np2
             // 
-            this.np2.Location = new System.Drawing.Point(334, 262);
+            this.np2.DecimalPlaces = 2;
+            this.np2.Location = new System.Drawing.Point(341, 242);
             this.np2.Name = "np2";
             this.np2.Size = new System.Drawing.Size(74, 23);
             this.np2.TabIndex = 34;
             // 
             // np1
             // 
-            this.np1.Location = new System.Drawing.Point(334, 203);
+            this.np1.DecimalPlaces = 2;
+            this.np1.Location = new System.Drawing.Point(341, 183);
             this.np1.Name = "np1";
             this.np1.Size = new System.Drawing.Size(74, 23);
             this.np1.TabIndex = 33;
@@ -329,7 +336,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label13.Location = new System.Drawing.Point(298, 531);
+            this.label13.Location = new System.Drawing.Point(305, 511);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(30, 25);
             this.label13.TabIndex = 32;
@@ -340,7 +347,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label12.Location = new System.Drawing.Point(298, 475);
+            this.label12.Location = new System.Drawing.Point(305, 455);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(30, 25);
             this.label12.TabIndex = 31;
@@ -351,7 +358,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.Location = new System.Drawing.Point(298, 424);
+            this.label11.Location = new System.Drawing.Point(305, 404);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 25);
             this.label11.TabIndex = 30;
@@ -362,7 +369,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(298, 369);
+            this.label9.Location = new System.Drawing.Point(305, 349);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(30, 25);
             this.label9.TabIndex = 29;
@@ -373,7 +380,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(298, 312);
+            this.label8.Location = new System.Drawing.Point(305, 292);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 25);
             this.label8.TabIndex = 28;
@@ -384,7 +391,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(298, 257);
+            this.label7.Location = new System.Drawing.Point(305, 237);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(30, 25);
             this.label7.TabIndex = 27;
@@ -395,7 +402,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(298, 201);
+            this.label10.Location = new System.Drawing.Point(305, 181);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(30, 25);
             this.label10.TabIndex = 26;
@@ -406,7 +413,7 @@
             this.lbDomingo.AutoSize = true;
             this.lbDomingo.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbDomingo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbDomingo.Location = new System.Drawing.Point(88, 528);
+            this.lbDomingo.Location = new System.Drawing.Point(95, 508);
             this.lbDomingo.Name = "lbDomingo";
             this.lbDomingo.Size = new System.Drawing.Size(118, 28);
             this.lbDomingo.TabIndex = 12;
@@ -417,7 +424,7 @@
             this.lbViernes.AutoSize = true;
             this.lbViernes.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbViernes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbViernes.Location = new System.Drawing.Point(88, 421);
+            this.lbViernes.Location = new System.Drawing.Point(95, 401);
             this.lbViernes.Name = "lbViernes";
             this.lbViernes.Size = new System.Drawing.Size(98, 28);
             this.lbViernes.TabIndex = 11;
@@ -428,7 +435,7 @@
             this.lbJueves.AutoSize = true;
             this.lbJueves.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbJueves.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbJueves.Location = new System.Drawing.Point(88, 369);
+            this.lbJueves.Location = new System.Drawing.Point(95, 349);
             this.lbJueves.Name = "lbJueves";
             this.lbJueves.Size = new System.Drawing.Size(92, 28);
             this.lbJueves.TabIndex = 10;
@@ -439,7 +446,7 @@
             this.lbSabado.AutoSize = true;
             this.lbSabado.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbSabado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbSabado.Location = new System.Drawing.Point(88, 472);
+            this.lbSabado.Location = new System.Drawing.Point(95, 452);
             this.lbSabado.Name = "lbSabado";
             this.lbSabado.Size = new System.Drawing.Size(103, 28);
             this.lbSabado.TabIndex = 10;
@@ -450,7 +457,7 @@
             this.lbMiercoles.AutoSize = true;
             this.lbMiercoles.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbMiercoles.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbMiercoles.Location = new System.Drawing.Point(88, 312);
+            this.lbMiercoles.Location = new System.Drawing.Point(95, 292);
             this.lbMiercoles.Name = "lbMiercoles";
             this.lbMiercoles.Size = new System.Drawing.Size(125, 28);
             this.lbMiercoles.TabIndex = 9;
@@ -461,7 +468,7 @@
             this.lbMartes.AutoSize = true;
             this.lbMartes.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbMartes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbMartes.Location = new System.Drawing.Point(88, 257);
+            this.lbMartes.Location = new System.Drawing.Point(95, 237);
             this.lbMartes.Name = "lbMartes";
             this.lbMartes.Size = new System.Drawing.Size(91, 28);
             this.lbMartes.TabIndex = 8;
@@ -472,7 +479,7 @@
             this.lblunes.AutoSize = true;
             this.lblunes.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblunes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblunes.Location = new System.Drawing.Point(88, 198);
+            this.lblunes.Location = new System.Drawing.Point(95, 178);
             this.lblunes.Name = "lblunes";
             this.lblunes.Size = new System.Drawing.Size(77, 28);
             this.lblunes.TabIndex = 7;
@@ -481,7 +488,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.pizza_shop;
-            this.pictureBox1.Location = new System.Drawing.Point(545, 285);
+            this.pictureBox1.Location = new System.Drawing.Point(587, 264);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(358, 290);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -492,7 +499,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 676);
+            this.ClientSize = new System.Drawing.Size(998, 676);
             this.Controls.Add(this.pnlDescento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

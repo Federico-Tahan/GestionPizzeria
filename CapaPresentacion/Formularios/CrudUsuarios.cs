@@ -26,6 +26,8 @@ namespace CapaPresentacion.Formularios
         ing_Cbos lcbo = new ng_Cbos();
         List<Usuarios> lUsuaris= new List<Usuarios>();  
         Usuarios user = new Usuarios();
+        bool banderaBaja;
+        bool ChKActual;
         public CrudUsuarios()
         {
             InitializeComponent();
@@ -157,12 +159,21 @@ namespace CapaPresentacion.Formularios
             {
                 if (u.Baja_Logica == 1)
                 {
-                    dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Alias, u.Rol.Rol, "No");
+                    if (u.FechaBaja == DateTime.MinValue)
+                    {
+                        dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Alias, u.Rol.Rol, u.FechaAlta.ToShortDateString(), " ", "No");
+
+                    }
+                    else
+                    {
+                        dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Alias, u.Rol.Rol, u.FechaAlta.ToShortDateString(), u.FechaBaja.ToShortDateString(), "No");
+
+                    }
 
                 }
                 else
                 {
-                    dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Alias, u.Rol.Rol, "Si");
+                    dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Alias, u.Rol.Rol, u.FechaAlta.ToShortDateString(), ' ', "Si");
 
                 }
             }
@@ -178,6 +189,7 @@ namespace CapaPresentacion.Formularios
                 picContraseña.Image = Properties.Resources.mostrar;
                 user.ID_Usuario = Convert.ToInt32(dgvUsuarios.CurrentRow.Cells[0].Value);
                 Cargar_Usuario(user.ID_Usuario);
+                
                 Cargar_PanelUsuarios();
                 habilitar(false);
                 picLimpiar.Enabled = false;
@@ -218,10 +230,13 @@ namespace CapaPresentacion.Formularios
             if (user.Baja_Logica == 0)
             {
                 chkActivo.Checked = true;
+                ChKActual = true;
             }
             else
             {
                 chkActivo.Checked = false;
+                ChKActual = false;
+
             }
         }
 
@@ -244,6 +259,7 @@ namespace CapaPresentacion.Formularios
                 Empleado emp = new Empleado();
                 aliasActual = user.Alias;
                 AbstraerUsuario(emp,us);
+                
                 if (lg.BuscarUsuario(user.ID_Usuario))
                 {
                     us.ID_Usuario = user.ID_Usuario;
@@ -433,12 +449,20 @@ namespace CapaPresentacion.Formularios
             {
                 e.Baja_logica = 0;
                 u.Baja_Logica = 0;
-
+                
             }
             else
             {
                 e.Baja_logica = 1;
                 u.Baja_Logica = 1;
+            }
+            if (ChKActual != chkActivo.Checked)
+            {
+                banderaBaja = true;
+            }
+            else
+            {
+                banderaBaja = false;
             }
             r.Id_Rol = Convert.ToInt32(CboRoles.SelectedValue);
             u.Empleado = e;
@@ -650,9 +674,11 @@ namespace CapaPresentacion.Formularios
             dgvUsuarios.Columns[2].HeaderText = Rec.NombreCompleto;
             dgvUsuarios.Columns[3].HeaderText = Rec.Alias;
             dgvUsuarios.Columns[4].HeaderText = Rec.Rol;
-            dgvUsuarios.Columns[5].HeaderText = Rec.Activo;
-            dgvUsuarios.Columns[6].HeaderText = Rec.Accion;
-            dgvUsuarios.Columns[6].ToolTipText = Rec.Detalle;
+            dgvUsuarios.Columns[5].HeaderText = Rec.FechaAlta;
+            dgvUsuarios.Columns[6].HeaderText = Rec.FechaBaja;
+            dgvUsuarios.Columns[7].ToolTipText = Rec.Activo;
+            dgvUsuarios.Columns[8].ToolTipText = Rec.Detalle;
+
 
         }
         private void DetectarIdioma()

@@ -26,6 +26,10 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@direccion", c.Direccion);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@telefono", c.Telefono);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@altura", c.Altura);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@piso", c.Piso);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@departamento", c.Departamento);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_localidad", c.locali.idLocalidad);
                 HelperDB.ObtenerInstancia().updatear_db("SP_Insertar_Cliente");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -49,7 +53,10 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@DNI",c.socio.DNI );
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@email",c.socio.Email );
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
-
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@altura", c.Altura);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@piso", c.Piso);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@departamento", c.Departamento);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_localidad", c.locali.idLocalidad);
                 HelperDB.ObtenerInstancia().updatear_db("SP_Insertar_ClienteSocio");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -69,7 +76,6 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@dni", c.socio.DNI);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@email", c.socio.Email);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
-
                 HelperDB.ObtenerInstancia().updatear_db("SP_Insertar_Socio");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -156,7 +162,7 @@ namespace CapaDatos.Datos.Implementacion
         }
     
 
-        public bool ModificacionCliente(Cliente c, Usuarios u)
+        public bool ModificacionCliente(Cliente c, Usuarios u)  
         {
             try
             {
@@ -167,6 +173,10 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@telefono", c.Telefono);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@email", c.socio.Email);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@altura", c.Altura);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@piso", c.Piso);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@departamento", c.Departamento);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@localidad", c.locali.idLocalidad);
                 HelperDB.ObtenerInstancia().updatear_db("SP_ModificarSocio");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -187,6 +197,7 @@ namespace CapaDatos.Datos.Implementacion
                 Cliente c = new Cliente();
                 Socio s = new Socio();
                 Tipo_Cliente tc = new Tipo_Cliente();
+                Localidad loc = new Localidad();
 
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
                 {
@@ -210,7 +221,7 @@ namespace CapaDatos.Datos.Implementacion
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(5))
                 {
-                    c.Telefono = HelperDB.ObtenerInstancia().Dr.GetInt64(5);
+                    c.Telefono = HelperDB.ObtenerInstancia().Dr.GetString(5);
                 }
 
                     if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(6))
@@ -230,13 +241,33 @@ namespace CapaDatos.Datos.Implementacion
                         s.Baja_logica = HelperDB.ObtenerInstancia().Dr.GetInt32(9);
                     }
 
-
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(10))
                 {
                     tc.Id_TipoCliente= HelperDB.ObtenerInstancia().Dr.GetInt32(10);
                 }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(11))
+                {
+                    c.Altura = HelperDB.ObtenerInstancia().Dr.GetInt32(11);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(12))
+                {
+                    c.Piso = HelperDB.ObtenerInstancia().Dr.GetInt32(12);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(13))
+                {
+                    c.Departamento = HelperDB.ObtenerInstancia().Dr.GetString(13);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(14))
+                {
+                    loc.idLocalidad = HelperDB.ObtenerInstancia().Dr.GetInt32(14);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(15))
+                {
+                    loc.NLocalidad = HelperDB.ObtenerInstancia().Dr.GetString(15);
+                }
                 c.socio = s;
                 c.TipoCliente= tc;
+                c.locali= loc;
                 lClientes.Add(c);
             }
             HelperDB.ObtenerInstancia().close();

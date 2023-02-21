@@ -6,6 +6,7 @@ using CapaNegocio.Interfaces;
 using CapaPresentacion.Formularios.CombosProducto;
 using CapaPresentacion.Formularios_es.CombosProducto;
 using CapaPresentacion.RecursoIdioma;
+using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,8 @@ namespace CapaPresentacion.Formularios
         ing_Cbos lgcbo = new ng_Cbos();
         ing_CrudProductos lg = new ng_CrudProductos();
         List<Producto> lproductos = new List<Producto>();   
-        Producto prodSelect = new Producto();   
+        Producto prodSelect = new Producto();
+        DataGridViewButtonColumn customButtonColumn = new DataGridViewButtonColumn();
         public CrudProductos()
         {
             InitializeComponent();
@@ -127,6 +129,7 @@ namespace CapaPresentacion.Formularios
             cargarDgv(lproductos);
             DetectarIdioma();
             AplicarIdioma();
+
         }
 
         private void cargarDgv(List<Producto> lp)
@@ -135,12 +138,12 @@ namespace CapaPresentacion.Formularios
 
             foreach (Producto p in lp)
             {
-                string baj = "No";
+                string baj = Rec.No;
                 if (p.Baja_logica == 0)
                 {
-                    baj = "Si";
+                    baj = Rec.Si;
                 }
-               dgvProd.Rows.Add(p.Id_producto,p.Nombre,p.Detalle,p.Tipo_producto.Tipo_producto,p.Unidadmedida.Unidad_Medida,p.clasificacion.clasificacion,p.Stock,p.Precio,baj);
+               dgvProd.Rows.Add(p.Id_producto,p.Nombre,p.Detalle,p.Tipo_producto.Tipo_producto,p.Unidadmedida.Unidad_Medida,p.clasificacion.clasificacion,p.Stock,p.Precio,baj,Properties.Resources.transparencia__2_);
 
             }
         }
@@ -164,7 +167,13 @@ namespace CapaPresentacion.Formularios
                 picLimpiar.Enabled = false;
                 Botones(false);
                 BtnEditar.Enabled = true;
+                if (Convert.ToInt32(cboClasificacion.SelectedValue) == 2)
+                {
+                    lbPrecio.Visible = false;
+                    numpPrecio.Visible = false;
+                }
                 pnlCrud.Visible = true;
+
 
             }
         }
@@ -211,7 +220,7 @@ namespace CapaPresentacion.Formularios
                 MessageBox.Show(Rec.MessageValidacionTipoProd, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (numpPrecio.Value == 0)
+            else if (numpPrecio.Value == 0 && Convert.ToInt32(cboClasificacion.SelectedValue) == 1)
             {
                 MessageBox.Show(Rec.MessageValidacionPrecioProd, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -226,36 +235,76 @@ namespace CapaPresentacion.Formularios
             {
                 Producto prod = new Producto();
                 AbstraerProducto(prod);
-                if (prodSelect.Id_producto != 0)
+                if (!(prod.clasificacion.IdClasificacion == 2))
                 {
-                    prod.Id_producto = prodSelect.Id_producto; 
-                    if (lg.Modificacion(prod,LogIn.u))
+                    if (prodSelect.Id_producto != 0)
                     {
-                        MessageBox.Show(Rec.MessageProdModificado);
-                        lproductos = lg.GetProductos(0);
-                        cargarDgv(lproductos);
-                        Botones(false);
-                        Limpiar();
-                        btnNuevo.Enabled = true;
-                        pnlCrud.Visible = false;
-                        RbtActivos.Checked = true;
-                        prodSelect = new Producto();
+                        prod.Id_producto = prodSelect.Id_producto;
+                        if (lg.Modificacion(prod, LogIn.u))
+                        {
+                            MessageBox.Show(Rec.MessageProdModificado);
+                            lproductos = lg.GetProductos(0);
+                            cargarDgv(lproductos);
+                            Botones(false);
+                            Limpiar();
+                            btnNuevo.Enabled = true;
+                            pnlCrud.Visible = false;
+                            RbtActivos.Checked = true;
+                            prodSelect = new Producto();
+                        }
+                    }
+                    else
+                    {
+                        if (lg.AltaProducto(prod, LogIn.u))
+                        {
+                            MessageBox.Show(Rec.MessageProdAlta);
+                            lproductos = lg.GetProductos(0);
+                            cargarDgv(lproductos);
+                            Botones(false);
+                            Limpiar();
+                            btnNuevo.Enabled = true;
+                            pnlCrud.Visible = false;
+                            RbtActivos.Checked = true;
+                        }
+                    }
+                }else
+                {
+                    if (prodSelect.Id_producto != 0)
+                    {
+                        prod.Id_producto = prodSelect.Id_producto;
+                        if (lg.ModificacionIngrediente(prod, LogIn.u))
+                        {
+                            MessageBox.Show(Rec.MessageIngredienteModif);
+                            lproductos = lg.GetProductos(0);
+                            cargarDgv(lproductos);
+                            Botones(false);
+                            Limpiar();
+                            btnNuevo.Enabled = true;
+                            pnlCrud.Visible = false;
+                            RbtActivos.Checked = true;
+                            prodSelect = new Producto();
+                            lbPrecio.Visible = true;
+                            numpPrecio.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        if (lg.AltaIngrediente(prod, LogIn.u))
+                        {
+                            MessageBox.Show(Rec.MessageIngredienteAlta);
+                            lproductos = lg.GetProductos(0);
+                            cargarDgv(lproductos);
+                            Botones(false);
+                            Limpiar();
+                            btnNuevo.Enabled = true;
+                            pnlCrud.Visible = false;
+                            RbtActivos.Checked = true;
+                            lbPrecio.Visible = true;
+                            numpPrecio.Visible = true;
+                        }
                     }
                 }
-                else
-                {
-                    if (lg.AltaProducto(prod, LogIn.u))
-                    {
-                        MessageBox.Show(Rec.MessageProdAlta);
-                        lproductos = lg.GetProductos(0);
-                        cargarDgv(lproductos);
-                        Botones(false);
-                        Limpiar();
-                        btnNuevo.Enabled = true;
-                        pnlCrud.Visible = false;
-                        RbtActivos.Checked = true;
-                    }
-                }
+                
 
             }
         }
@@ -469,7 +518,7 @@ namespace CapaPresentacion.Formularios
             dgvProd.Columns[6].HeaderText = Rec.Stock;
             dgvProd.Columns[7].HeaderText = Rec.Precio;
             dgvProd.Columns[8].HeaderText = Rec.Activo;
-            dgvProd.Columns[9].HeaderText = Rec.Accion;
+            dgvProd.Columns[9].Name = Rec.Detalle;
         }
 
         private void DetectarIdioma()
@@ -483,6 +532,20 @@ namespace CapaPresentacion.Formularios
             {
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-AR");
 
+            }
+        }
+
+        private void cboClasificacion_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(cboClasificacion.SelectedValue) != 2)
+            {
+                lbPrecio.Visible = true;
+                numpPrecio.Visible = true;
+            }
+            else
+            {
+                lbPrecio.Visible = false;
+                numpPrecio.Visible = false;
             }
         }
     }

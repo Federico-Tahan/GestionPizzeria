@@ -55,7 +55,7 @@ namespace CapaDatos.Dominio
             }
             if (descuento.PorcentajeDescuento > 0)
             {
-                Total = subtotal - (subtotal * descuento.PorcentajeDescuento) / 100 ;
+                Total = subtotal - (subtotal * Convert.ToDecimal(descuento.PorcentajeDescuento)) / 100 ;
 
             }
             else

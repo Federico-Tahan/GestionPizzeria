@@ -44,7 +44,7 @@
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.accion = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlCrud = new System.Windows.Forms.Panel();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.lbNroProd = new System.Windows.Forms.Label();
@@ -274,8 +274,6 @@
             this.accion.ReadOnly = true;
             this.accion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.accion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.accion.Text = "Detalle";
-            this.accion.UseColumnTextForButtonValue = true;
             this.accion.Width = 60;
             // 
             // pnlCrud
@@ -477,6 +475,7 @@
             this.cboClasificacion.Name = "cboClasificacion";
             this.cboClasificacion.Size = new System.Drawing.Size(215, 23);
             this.cboClasificacion.TabIndex = 10;
+            this.cboClasificacion.SelectionChangeCommitted += new System.EventHandler(this.cboClasificacion_SelectionChangeCommitted);
             // 
             // txbDescripcion
             // 
@@ -559,9 +558,9 @@
             this.RbtEliminados.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.RbtEliminados.Location = new System.Drawing.Point(787, 118);
             this.RbtEliminados.Name = "RbtEliminados";
-            this.RbtEliminados.Size = new System.Drawing.Size(109, 25);
+            this.RbtEliminados.Size = new System.Drawing.Size(100, 25);
             this.RbtEliminados.TabIndex = 24;
-            this.RbtEliminados.Text = "Eliminados";
+            this.RbtEliminados.Text = "Inactivos";
             this.RbtEliminados.UseVisualStyleBackColor = true;
             this.RbtEliminados.CheckedChanged += new System.EventHandler(this.RbtEliminados_CheckedChanged);
             // 
@@ -786,6 +785,6 @@
         private DataGridViewTextBoxColumn Stock;
         private DataGridViewTextBoxColumn monto;
         private DataGridViewTextBoxColumn Activo;
-        private DataGridViewButtonColumn accion;
+        private DataGridViewImageColumn accion;
     }
 }

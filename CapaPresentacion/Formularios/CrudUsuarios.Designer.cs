@@ -60,13 +60,6 @@
             this.picLimpiar = new System.Windows.Forms.PictureBox();
             this.picBajar = new System.Windows.Forms.PictureBox();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.codigoUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Alias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
@@ -82,6 +75,15 @@
             this.RbtAlias = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picreset = new System.Windows.Forms.PictureBox();
+            this.codigoUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaAlta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaBaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlCrud.SuspendLayout();
@@ -152,9 +154,9 @@
             this.pnlCrud.Controls.Add(this.txbNombre);
             this.pnlCrud.Controls.Add(this.picLimpiar);
             this.pnlCrud.Controls.Add(this.picBajar);
-            this.pnlCrud.Location = new System.Drawing.Point(39, 107);
+            this.pnlCrud.Location = new System.Drawing.Point(12, 112);
             this.pnlCrud.Name = "pnlCrud";
-            this.pnlCrud.Size = new System.Drawing.Size(935, 448);
+            this.pnlCrud.Size = new System.Drawing.Size(962, 443);
             this.pnlCrud.TabIndex = 25;
             this.pnlCrud.Visible = false;
             this.pnlCrud.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCrud_Paint);
@@ -438,68 +440,19 @@
             this.nombre,
             this.Alias,
             this.Rol,
+            this.FechaAlta,
+            this.FechaBaja,
             this.activo,
             this.accion});
-            this.dgvUsuarios.Location = new System.Drawing.Point(42, 149);
+            this.dgvUsuarios.Location = new System.Drawing.Point(12, 149);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersVisible = false;
             this.dgvUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvUsuarios.RowTemplate.Height = 25;
-            this.dgvUsuarios.Size = new System.Drawing.Size(932, 406);
+            this.dgvUsuarios.Size = new System.Drawing.Size(962, 406);
             this.dgvUsuarios.TabIndex = 24;
             this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_Detalle);
-            // 
-            // codigoUser
-            // 
-            this.codigoUser.HeaderText = "Código Usuario";
-            this.codigoUser.Name = "codigoUser";
-            this.codigoUser.ReadOnly = true;
-            this.codigoUser.Width = 120;
-            // 
-            // dni
-            // 
-            this.dni.HeaderText = "DNI";
-            this.dni.Name = "dni";
-            this.dni.ReadOnly = true;
-            this.dni.Width = 130;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre Completo";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 220;
-            // 
-            // Alias
-            // 
-            this.Alias.HeaderText = "Alias";
-            this.Alias.Name = "Alias";
-            this.Alias.ReadOnly = true;
-            this.Alias.Width = 120;
-            // 
-            // Rol
-            // 
-            this.Rol.HeaderText = "Rol";
-            this.Rol.Name = "Rol";
-            this.Rol.ReadOnly = true;
-            this.Rol.Width = 140;
-            // 
-            // activo
-            // 
-            this.activo.HeaderText = "Activo";
-            this.activo.Name = "activo";
-            this.activo.ReadOnly = true;
-            // 
-            // accion
-            // 
-            this.accion.HeaderText = "Accion";
-            this.accion.Name = "accion";
-            this.accion.ReadOnly = true;
-            this.accion.Text = "Detalle";
-            this.accion.ToolTipText = "Detalle";
-            this.accion.UseColumnTextForButtonValue = true;
-            this.accion.Width = 99;
             // 
             // BtnGuardar
             // 
@@ -600,9 +553,9 @@
             this.RbtEliminados.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.RbtEliminados.Location = new System.Drawing.Point(95, 8);
             this.RbtEliminados.Name = "RbtEliminados";
-            this.RbtEliminados.Size = new System.Drawing.Size(109, 25);
+            this.RbtEliminados.Size = new System.Drawing.Size(100, 25);
             this.RbtEliminados.TabIndex = 32;
-            this.RbtEliminados.Text = "Eliminados";
+            this.RbtEliminados.Text = "Inactivos";
             this.RbtEliminados.UseVisualStyleBackColor = true;
             this.RbtEliminados.CheckedChanged += new System.EventHandler(this.RbtEliminados_CheckedChanged);
             // 
@@ -628,7 +581,7 @@
             this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
             this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscar.Location = new System.Drawing.Point(530, 113);
+            this.BtnBuscar.Location = new System.Drawing.Point(500, 121);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(71, 23);
             this.BtnBuscar.TabIndex = 35;
@@ -638,7 +591,7 @@
             // 
             // txbbusqueda
             // 
-            this.txbbusqueda.Location = new System.Drawing.Point(356, 113);
+            this.txbbusqueda.Location = new System.Drawing.Point(326, 121);
             this.txbbusqueda.Name = "txbbusqueda";
             this.txbbusqueda.Size = new System.Drawing.Size(153, 23);
             this.txbbusqueda.TabIndex = 34;
@@ -648,7 +601,7 @@
             this.RbtNombre.AutoSize = true;
             this.RbtNombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtNombre.Location = new System.Drawing.Point(135, 110);
+            this.RbtNombre.Location = new System.Drawing.Point(105, 118);
             this.RbtNombre.Name = "RbtNombre";
             this.RbtNombre.Size = new System.Drawing.Size(86, 24);
             this.RbtNombre.TabIndex = 46;
@@ -661,7 +614,7 @@
             this.RbtCodigo.Checked = true;
             this.RbtCodigo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtCodigo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtCodigo.Location = new System.Drawing.Point(47, 110);
+            this.RbtCodigo.Location = new System.Drawing.Point(17, 118);
             this.RbtCodigo.Name = "RbtCodigo";
             this.RbtCodigo.Size = new System.Drawing.Size(82, 24);
             this.RbtCodigo.TabIndex = 45;
@@ -674,7 +627,7 @@
             this.RbtDNI.AutoSize = true;
             this.RbtDNI.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtDNI.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtDNI.Location = new System.Drawing.Point(227, 111);
+            this.RbtDNI.Location = new System.Drawing.Point(197, 119);
             this.RbtDNI.Name = "RbtDNI";
             this.RbtDNI.Size = new System.Drawing.Size(54, 24);
             this.RbtDNI.TabIndex = 48;
@@ -686,7 +639,7 @@
             this.RbtAlias.AutoSize = true;
             this.RbtAlias.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtAlias.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtAlias.Location = new System.Drawing.Point(287, 110);
+            this.RbtAlias.Location = new System.Drawing.Point(257, 118);
             this.RbtAlias.Name = "RbtAlias";
             this.RbtAlias.Size = new System.Drawing.Size(60, 24);
             this.RbtAlias.TabIndex = 49;
@@ -698,7 +651,7 @@
             this.panel1.Controls.Add(this.RbtActivos);
             this.panel1.Controls.Add(this.rbtTodos);
             this.panel1.Controls.Add(this.RbtEliminados);
-            this.panel1.Location = new System.Drawing.Point(672, 107);
+            this.panel1.Location = new System.Drawing.Point(672, 112);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(302, 36);
             this.panel1.TabIndex = 50;
@@ -707,13 +660,74 @@
             // 
             this.picreset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picreset.Image = global::CapaPresentacion.Properties.Resources.reset;
-            this.picreset.Location = new System.Drawing.Point(617, 107);
+            this.picreset.Location = new System.Drawing.Point(587, 115);
             this.picreset.Name = "picreset";
             this.picreset.Size = new System.Drawing.Size(38, 33);
             this.picreset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picreset.TabIndex = 51;
             this.picreset.TabStop = false;
             this.picreset.Click += new System.EventHandler(this.picreset_Click);
+            // 
+            // codigoUser
+            // 
+            this.codigoUser.HeaderText = "Código Usuario";
+            this.codigoUser.Name = "codigoUser";
+            this.codigoUser.ReadOnly = true;
+            this.codigoUser.Width = 90;
+            // 
+            // dni
+            // 
+            this.dni.HeaderText = "DNI";
+            this.dni.Name = "dni";
+            this.dni.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre Completo";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 210;
+            // 
+            // Alias
+            // 
+            this.Alias.HeaderText = "Alias";
+            this.Alias.Name = "Alias";
+            this.Alias.ReadOnly = true;
+            // 
+            // Rol
+            // 
+            this.Rol.HeaderText = "Rol";
+            this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
+            // 
+            // FechaAlta
+            // 
+            this.FechaAlta.HeaderText = "Fecha de Alta";
+            this.FechaAlta.Name = "FechaAlta";
+            this.FechaAlta.ReadOnly = true;
+            // 
+            // FechaBaja
+            // 
+            this.FechaBaja.HeaderText = "Fecha de Baja";
+            this.FechaBaja.Name = "FechaBaja";
+            this.FechaBaja.ReadOnly = true;
+            // 
+            // activo
+            // 
+            this.activo.HeaderText = "Activo";
+            this.activo.Name = "activo";
+            this.activo.ReadOnly = true;
+            this.activo.Width = 60;
+            // 
+            // accion
+            // 
+            this.accion.HeaderText = "Accion";
+            this.accion.Name = "accion";
+            this.accion.ReadOnly = true;
+            this.accion.Text = "Detalle";
+            this.accion.ToolTipText = "Detalle";
+            this.accion.UseColumnTextForButtonValue = true;
+            this.accion.Width = 99;
             // 
             // CrudUsuarios
             // 
@@ -803,15 +817,17 @@
         private TextBox txbDireccion;
         private CheckBox chkActivo;
         private Panel panel1;
+        private TextBox txbIDEmpleado;
+        private PictureBox pictureBox1;
+        private PictureBox picreset;
         private DataGridViewTextBoxColumn codigoUser;
         private DataGridViewTextBoxColumn dni;
         private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn Alias;
         private DataGridViewTextBoxColumn Rol;
+        private DataGridViewTextBoxColumn FechaAlta;
+        private DataGridViewTextBoxColumn FechaBaja;
         private DataGridViewTextBoxColumn activo;
         private DataGridViewButtonColumn accion;
-        private TextBox txbIDEmpleado;
-        private PictureBox pictureBox1;
-        private PictureBox picreset;
     }
 }

@@ -19,6 +19,8 @@ namespace CapaDatos.Datos.Interfaces
         bool buscarId(int id, string alias);
 
         bool BloquearUsuario(string Alias);
+        bool UsuarioAltaoBaja(string Alias);
+
 
     }
 }

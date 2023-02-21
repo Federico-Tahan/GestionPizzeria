@@ -192,7 +192,16 @@ namespace CapaDatos.Datos.Implementacion
                     r.Rol= HelperDB.ObtenerInstancia().Dr.GetString(13);
 
                 }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(14))
+                {
+                    usuario.FechaAlta = HelperDB.ObtenerInstancia().Dr.GetDateTime(14);
 
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(15))
+                {
+                    usuario.FechaBaja = HelperDB.ObtenerInstancia().Dr.GetDateTime(15);
+
+                }
                 usuario.Empleado = e;
                 usuario.Rol = r;
                 lUsuarios.Add(usuario);
@@ -233,6 +242,32 @@ namespace CapaDatos.Datos.Implementacion
             {
                 return false;
             }
+        }
+
+        public bool UsuarioAltaoBaja(string Alias)
+        {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@Alias", Alias);
+                HelperDB.ObtenerInstancia().LeerDB("SP_UsuarioAltaoBaja");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Dr.Read();
+                if(HelperDB.ObtenerInstancia().Dr.GetInt32(0) == 0)
+            {
+                HelperDB.ObtenerInstancia().close();
+
+                return true;
+
+            }
+            else
+            {
+                HelperDB.ObtenerInstancia().close();
+
+                return false;
+
+
+            }
+
+
         }
     }
 }

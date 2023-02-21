@@ -14,5 +14,7 @@ namespace CapaDatos.Dominio
         public Empleado Empleado { get; set; }
         public Roles Rol { get; set; }
         public int Baja_Logica { get; set; }
+        public DateTime FechaAlta { get; set; }
+        public DateTime FechaBaja { get; set; }
     }
 }

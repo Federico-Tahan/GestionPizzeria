@@ -10,6 +10,31 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_Cbos : ICbos
     {
+        public List<Localidad> Localidades()
+        {
+            List<Localidad> td = new List<Localidad>();
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().LeerDB("SP_TRAER_Localidad");
+
+            while (HelperDB.ObtenerInstancia().Dr.Read())
+            {
+                Localidad rl = new Localidad();
+
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
+                {
+                    rl.idLocalidad = HelperDB.ObtenerInstancia().Dr.GetInt32(0);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(1))
+                {
+                    rl.NLocalidad = HelperDB.ObtenerInstancia().Dr.GetString(1);
+                }
+                td.Add(rl);
+            }
+            HelperDB.ObtenerInstancia().close();
+
+            return td;
+        }
+
         public List<Clasificacion> ObtenerClasificacion()
         {
             List<Clasificacion> td = new List<Clasificacion>();

@@ -36,6 +36,7 @@
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Formapedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ticket = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -90,17 +91,18 @@
             this.Cliente,
             this.fecha,
             this.Formapedido,
+            this.Vendedor,
             this.Descuento,
             this.Total,
             this.Ticket,
             this.Accion});
-            this.dgvProd.Location = new System.Drawing.Point(73, 163);
+            this.dgvProd.Location = new System.Drawing.Point(32, 162);
             this.dgvProd.Name = "dgvProd";
             this.dgvProd.ReadOnly = true;
             this.dgvProd.RowHeadersVisible = false;
             this.dgvProd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvProd.RowTemplate.Height = 25;
-            this.dgvProd.Size = new System.Drawing.Size(870, 399);
+            this.dgvProd.Size = new System.Drawing.Size(944, 399);
             this.dgvProd.TabIndex = 26;
             this.dgvProd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProd_CellContentClick);
             // 
@@ -131,6 +133,13 @@
             this.Formapedido.ReadOnly = true;
             this.Formapedido.Width = 110;
             // 
+            // Vendedor
+            // 
+            this.Vendedor.HeaderText = "Nombre Vendedor";
+            this.Vendedor.Name = "Vendedor";
+            this.Vendedor.ReadOnly = true;
+            this.Vendedor.Width = 141;
+            // 
             // Descuento
             // 
             this.Descuento.HeaderText = "Descuento";
@@ -152,7 +161,7 @@
             this.Ticket.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Ticket.Text = "Imprimir";
             this.Ticket.UseColumnTextForButtonValue = true;
-            this.Ticket.Width = 107;
+            this.Ticket.Width = 60;
             // 
             // Accion
             // 
@@ -161,6 +170,7 @@
             this.Accion.ReadOnly = true;
             this.Accion.Text = "Detalle";
             this.Accion.UseColumnTextForButtonValue = true;
+            this.Accion.Width = 80;
             // 
             // pnlHeader
             // 
@@ -339,7 +349,7 @@
             // 
             this.picreset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picreset.Image = global::CapaPresentacion.Properties.Resources.reset;
-            this.picreset.Location = new System.Drawing.Point(464, 124);
+            this.picreset.Location = new System.Drawing.Point(422, 124);
             this.picreset.Name = "picreset";
             this.picreset.Size = new System.Drawing.Size(38, 33);
             this.picreset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -354,7 +364,7 @@
             this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
             this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscar.Location = new System.Drawing.Point(375, 132);
+            this.BtnBuscar.Location = new System.Drawing.Point(333, 132);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(71, 25);
             this.BtnBuscar.TabIndex = 60;
@@ -364,7 +374,7 @@
             // 
             // txbbusqueda
             // 
-            this.txbbusqueda.Location = new System.Drawing.Point(240, 133);
+            this.txbbusqueda.Location = new System.Drawing.Point(198, 133);
             this.txbbusqueda.Name = "txbbusqueda";
             this.txbbusqueda.Size = new System.Drawing.Size(121, 23);
             this.txbbusqueda.TabIndex = 59;
@@ -375,7 +385,7 @@
             this.RbtCodigo.Checked = true;
             this.RbtCodigo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtCodigo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtCodigo.Location = new System.Drawing.Point(73, 133);
+            this.RbtCodigo.Location = new System.Drawing.Point(31, 133);
             this.RbtCodigo.Name = "RbtCodigo";
             this.RbtCodigo.Size = new System.Drawing.Size(113, 24);
             this.RbtCodigo.TabIndex = 61;
@@ -434,18 +444,19 @@
         private DataGridViewTextBoxColumn monto;
         private DataGridViewTextBoxColumn dataGridViewButtonColumn1;
         private Button BtnVovler;
-        private DataGridViewTextBoxColumn Nroventa;
-        private DataGridViewTextBoxColumn Cliente;
-        private DataGridViewTextBoxColumn fecha;
-        private DataGridViewTextBoxColumn Formapedido;
-        private DataGridViewTextBoxColumn Descuento;
-        private DataGridViewTextBoxColumn Total;
-        private DataGridViewButtonColumn Ticket;
-        private DataGridViewButtonColumn Accion;
         private PictureBox picreset;
         private Button BtnBuscar;
         private TextBox txbbusqueda;
         private RadioButton RbtCodigo;
         private PictureBox pictureBox1;
+        private DataGridViewTextBoxColumn Nroventa;
+        private DataGridViewTextBoxColumn Cliente;
+        private DataGridViewTextBoxColumn fecha;
+        private DataGridViewTextBoxColumn Formapedido;
+        private DataGridViewTextBoxColumn Vendedor;
+        private DataGridViewTextBoxColumn Descuento;
+        private DataGridViewTextBoxColumn Total;
+        private DataGridViewButtonColumn Ticket;
+        private DataGridViewButtonColumn Accion;
     }
 }

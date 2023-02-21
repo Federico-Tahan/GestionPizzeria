@@ -3,6 +3,15 @@ go
 use Formaggio
 
 go
+
+Create table Localidad
+(
+id_localidad int identity(1,1) not null,
+localidad varchar(100) not null,
+baja_logica int,
+constraint pk_idLocalidad primary key(id_localidad)
+)
+
 create table Clasificacion
 (
 id_clasificacion int identity(1,1) not null,
@@ -28,7 +37,7 @@ Unidad_Medida varchar(50) not null,
 baja_logica int,
 constraint pk_id_unidad_medida primary key(id_unidad_medida)
 )
-
+go
 
 Create table Producto
 (
@@ -46,7 +55,7 @@ constraint fk_id_tipo_producto foreign key (id_tipo_producto) references Tipo_pr
 constraint fk_id_clasificacion foreign key (id_clasificacion) references Clasificacion,
 constraint fk_id_unidad_medida foreign key (id_unidad_medida) references Unidad_Medida
 )
-
+go
 Create table Socio 
 (
 id_socio int identity (1,1) not null,
@@ -56,14 +65,14 @@ fecha_adhesion datetime not null,
 baja_logica int
 constraint pk_id_socio primary key (id_socio)
 )
-
+go
 create table tipo_cliente(
 id_tipo_cliente int identity(1,1),
 tipo_cliente varchar(10),
 constraint pk_id_tipo_cliente primary key(id_tipo_cliente)
 )
 
-
+go
 
 Create table Cliente
 (
@@ -71,14 +80,19 @@ id_cliente int identity(1,1) not null,
 id_tipo_cliente int not null,
 nombre varchar(50) not null,
 apellido varchar(50) not null,
-direccion varchar(150) not null,
-telefono bigint,
+telefono varchar(100),
 id_socio int ,
-baja_logica int
+baja_logica int,
+calle varchar(500),
+altura int,
+departamento varchar(50),
+piso int,
+id_localidad int
 constraint pk_id_cliente primary key (id_cliente),
-constraint fk_id_tipo_cliente foreign key(id_tipo_cliente)  references tipo_cliente
+constraint fk_id_tipo_cliente foreign key(id_tipo_cliente)  references tipo_cliente,
+constraint fk_id_pueblo foreign key (id_localidad) references Localidad(id_localidad)
 )
-
+go
 Create table Roles
 (
 id_rol int identity (1,1) not null,
@@ -87,7 +101,7 @@ descripcion varchar(600) not null,
 baja_logica int
 constraint pk_id_rol primary key (id_rol)
 )
-
+go
 Create table Empleado(
 id_empleado int identity(1,1) not null,
 dni bigint not null,
@@ -99,14 +113,14 @@ telefono bigint not null,
 baja_logica int,
 constraint pk_id_empleado primary key (id_empleado)
 )
-
+go
 Create table Descuento(
 id_descuento int identity (1,1) not null,
 nombre_dia varchar(10) not null,
-porcentaje_descuento int not null,
+porcentaje_descuento money not null,
 baja_logica int
 constraint pk_id_descuento primary key (id_descuento)
-)
+)go
 
 Create table Usuarios(
 id_usuario int identity (1,1) not null,
@@ -114,11 +128,13 @@ alias varchar(150) not null,
 contraseña varchar(32) not null,
 id_empleado int not null,
 id_rol int not null,
-baja_logica int
+baja_logica int,
+fechaAlta Datetime,
+fechaBaja Datetime,
 constraint pk_id_usuario primary key (id_usuario),
 constraint fk_id_empleado foreign key (id_empleado) references Empleado,
 constraint fk_id_rol foreign key (id_rol) references Roles
-)
+)go
 
 Create table Bitacora(
 id_bitacora int identity (1,1) not null,
@@ -127,21 +143,21 @@ fecha datetime not null,
 accion varchar(200) not null,
 constraint pk_id_bitacora primary key (id_bitacora),
 constraint fk_id_usuario foreign key (id_usuario) references Usuarios
-)
+)go
 
 
 Create table Forma_compra(
 id_forma_compra int identity(1,1) not null,
 forma_compra varchar(50) not null,
 constraint pk_id_forma_compra primary key (id_forma_compra),
-)
+)go
 
 Create table forma_entrega(
 id_forma_entrega int identity (1,1) not null,
 forma_entrega varchar(50) not null,
 constraint pk_id_forma_entrega primary key (id_forma_entrega)
 )
-
+go
 Create table Factura
 (
 nro_factura int identity(1,1) not null,
@@ -158,7 +174,7 @@ constraint fk_id_usuarios foreign key (id_usuario) references usuarios,
 constraint fk_id_forma_compra foreign key (id_forma_compra) references forma_compra,
 constraint fk_id_forma_entrega foreign key (id_forma_entrega) references forma_entrega,
 constraint fk_id_descuento foreign key (id_descuento) references Descuento
-)
+)go
 
 Create table detalle_factura(
 id_detalle_factura int identity (1,1) not null,
@@ -171,7 +187,7 @@ baja_logica int,
 constraint pk_id_detalle_factura primary key(id_detalle_factura),
 constraint fk_nro_factura foreign key(nro_factura) references factura,
 constraint fk_id_producto foreign key (id_producto) references producto
-)
+)go
 
 create table Configuracion(
 id_configuracion int,

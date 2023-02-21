@@ -20,6 +20,8 @@ namespace ticket_o_factura
         public string Total { get; set; }
         public string Subtotal { get; set; }
         public string Descuento { get; set; }
+        public string InfoCuit { get; set; }
+        public string NroFac { get; set; }
         public  Image logotipo { get; set; }
 
         public List<DetalleFactura> listaProducto = new List<DetalleFactura>();   
@@ -47,6 +49,12 @@ namespace ticket_o_factura
                 e.Graphics.DrawImage(logotipo, 390, 20, 100, 100);
                 posY += 110;
                 posY += 20;
+                e.Graphics.DrawString(InfoCuit, fuente, Brushes.Black, posX, posY);
+                posY += 20;
+                posY += 20;
+                e.Graphics.DrawString(NroFac, fuente, Brushes.Black, posX, posY);
+                posY += 20;
+                posY += 20;
                 e.Graphics.DrawString(Fecha, fuente, Brushes.Black, posX, posY);
                 posY += 20;
                 e.Graphics.DrawString(Hora, fuente, Brushes.Black, posX, posY);
@@ -69,25 +77,32 @@ namespace ticket_o_factura
 
                     if (listaProducto[i].Cantidad < 10)
                     {
-                        e.Graphics.DrawString("0"+Convert.ToString(listaProducto[i].Cantidad) + espaciar(listaProducto[i].Cantidad.ToString().Length, 40) + Convert.ToString(listaProducto[i].Prod.Nombre) + espaciar(Convert.ToString(listaProducto[i].Prod.Nombre).Length, 100), fuente, Brushes.Black, posX, posY);
-                        posX += 470;
+                        e.Graphics.DrawString("0"+Convert.ToString(listaProducto[i].Cantidad), fuente, Brushes.Black, posX, posY);
+                        posX += 100;
+                        e.Graphics.DrawString(Convert.ToString(listaProducto[i].Prod.Nombre), fuente, Brushes.Black, posX, posY);
+                        posX += 375;
                         e.Graphics.DrawString("$" + Convert.ToString(listaProducto[i].Precio), fuente, Brushes.Black, posX, posY);
                         posX += 180;
                         e.Graphics.DrawString("$" + Convert.ToString(listaProducto[i].Precio * listaProducto[i].Cantidad), fuente, Brushes.Black, posX, posY);
                         posY += 25;
-                        posX -= 470;
+                        posX -= 375;
                         posX -= 180;
+                        posX -= 100;
                     }
                     else
                     {
-                        e.Graphics.DrawString(Convert.ToString(listaProducto[i].Cantidad) + espaciar(listaProducto[i].Cantidad.ToString().Length, 40) + Convert.ToString(listaProducto[i].Prod.Nombre) + espaciar(Convert.ToString(listaProducto[i].Prod.Nombre).Length, 100), fuente, Brushes.Black, posX, posY);
-                        posX += 470;
+                        e.Graphics.DrawString(Convert.ToString(listaProducto[i].Cantidad),fuente, Brushes.Black, posX, posY);
+                        posX += 100;
+                        e.Graphics.DrawString( Convert.ToString(listaProducto[i].Prod.Nombre), fuente, Brushes.Black, posX, posY);
+                        posX += 375;
                         e.Graphics.DrawString("$" + Convert.ToString(listaProducto[i].Precio), fuente, Brushes.Black, posX, posY);
                         posX += 180;
                         e.Graphics.DrawString("$" + Convert.ToString(listaProducto[i].Precio * listaProducto[i].Cantidad), fuente, Brushes.Black, posX, posY);
                         posY += 25;
-                        posX -= 470;
+                        posX -= 375;
                         posX -= 180;
+                        posX -= 100;
+
 
                     }
 
@@ -104,7 +119,7 @@ namespace ticket_o_factura
                 posY += 45;
 
                 fuente = new Font("consola", 10, FontStyle.Bold);
-                e.Graphics.DrawString("                                                                    GRACIAS POR SU COMPRA. ", fuente, Brushes.Black, posX, posY);
+                e.Graphics.DrawString("                                                                              GRACIAS POR SU COMPRA. ", fuente, Brushes.Black, posX, posY);
                 posY += 25;
               
             }

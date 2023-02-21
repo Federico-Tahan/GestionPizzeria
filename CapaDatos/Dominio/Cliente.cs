@@ -14,10 +14,14 @@ namespace CapaDatos.Dominio
         public string Apellido { get; set; }
         public Tipo_Cliente TipoCliente { get; set; }
         public string Direccion { get; set; }
-        public long Telefono { get; set; }
+        public string Telefono { get; set; }
         public Socio socio = new Socio();
         public int Baja_logica { get; set; }
         public string NombreCompleto { get; set; }
+        public int Altura { get; set; }
+        public string Departamento { get; set; }
+        public int Piso { get; set; }
+        public Localidad locali { get; set; }
 
     }
 }

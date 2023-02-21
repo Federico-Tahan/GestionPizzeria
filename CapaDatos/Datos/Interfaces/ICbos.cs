@@ -16,6 +16,8 @@ namespace CapaDatos.Datos.Interfaces
         List<UnidadMedida> ObtenerUnidadMedida();
         List<FormaCompra> TipoCompra();
         List<FormaEntrega> TipoEntregas();
+        List<Localidad> Localidades();
+
         List<Cliente> TraerClientesCbo(int a);
 
     }

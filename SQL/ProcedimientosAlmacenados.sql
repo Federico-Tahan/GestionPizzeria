@@ -19,7 +19,7 @@ begin
 	
 	set @UltimoId = SCOPE_IDENTITY()
 
-	insert into Usuarios values(@alias,@contraseña,@UltimoId,@id_rol,@baja_logica_user)
+	insert into Usuarios values(@alias,@contraseña,@UltimoId,@id_rol,@baja_logica_user,GETDATE(),null)
 	insert into Bitacora values(@id_usuario_admin,GETDATE(),'Registrar usuario')
 
 end
@@ -36,7 +36,11 @@ create or alter procedure SP_Actualizar_UsuarioEmpleado(
 	@id_rol int,
 	@baja_logica_usuario int,
 	@baja_logica_empleado int,
-	@id_usuario_admin int
+	@id_usuario_admin int,
+	@nombre varchar(50),
+	@apellido varchar(50),
+	@dni bigint,
+	@fecha_nac datetime
 
 )as
 begin
@@ -50,8 +54,25 @@ begin
 	update Empleado
 	set direccion =@direccion,
 		telefono = @telefono,
-		baja_logica = @baja_logica_empleado
+		baja_logica = @baja_logica_empleado,
+		dni = @dni,
+		nombre = @nombre,
+		apellido = @apellido,
+		fecha_nac = @fecha_nac
 	where id_empleado = @id_empleado	
+
+	if(@baja_logica_usuario = 1)
+	begin
+		update Usuarios
+		set fechaBaja = GETDATE()
+		where id_usuario = @id_usuario
+	end
+	else if (@baja_logica_usuario = 0)
+	begin
+		update Usuarios
+		set fechaBaja = null
+		where id_usuario = @id_usuario
+	end
 
 	insert into Bitacora values(@id_usuario_admin,GETDATE(),'Modificar Usuario')
 end
@@ -66,7 +87,7 @@ begin
 	
 	if @condicion = 1
 	begin
-	select e.id_empleado,u.id_usuario,dni,nombre,apellido,direccion,fecha_nac,telefono,e.baja_logica,alias,contraseña,r.id_rol,u.baja_logica, r.roles
+	select e.id_empleado,u.id_usuario,dni,nombre,apellido,direccion,fecha_nac,telefono,e.baja_logica,alias,contraseña,r.id_rol,u.baja_logica, r.roles,u.fechaAlta,u.fechaBaja
 	from Usuarios u
 	join Empleado E on e.id_empleado = u.id_empleado
 	join Roles r on r.id_rol = u.id_rol
@@ -75,7 +96,7 @@ begin
 
 	if @condicion = 0
 	begin
-	select e.id_empleado,u.id_usuario,dni,nombre,apellido,direccion,fecha_nac,telefono,e.baja_logica,alias,contraseña,r.id_rol,u.baja_logica, r.roles
+	select e.id_empleado,u.id_usuario,dni,nombre,apellido,direccion,fecha_nac,telefono,e.baja_logica,alias,contraseña,r.id_rol,u.baja_logica, r.roles,u.fechaAlta,u.fechaBaja
 	from Usuarios u
 	join Empleado E on e.id_empleado = u.id_empleado
 	join Roles r on r.id_rol = u.id_rol
@@ -84,7 +105,7 @@ begin
 
 	if @condicion != 1 and @condicion != 0
 	begin
-	select e.id_empleado,u.id_usuario,dni,nombre,apellido,direccion,fecha_nac,telefono,e.baja_logica,alias,contraseña,r.id_rol,u.baja_logica, r.roles
+	select e.id_empleado,u.id_usuario,dni,nombre,apellido,direccion,fecha_nac,telefono,e.baja_logica,alias,contraseña,r.id_rol,u.baja_logica, r.roles,u.fechaAlta,u.fechaBaja
 	from Usuarios u
 	join Empleado E on e.id_empleado = u.id_empleado
 	join Roles r on r.id_rol = u.id_rol
@@ -147,13 +168,13 @@ go
 
 
 create or alter procedure SP_ActualizarConfigDescuentos(
-	@dia1 int,
-	@dia2 int,
-	@dia3 int,
-	@dia4 int,
-	@dia5 int,
-	@dia6 int,
-	@dia7 int,
+	@dia1 money,
+	@dia2 money,
+	@dia3 money,
+	@dia4 money,
+	@dia5 money,
+	@dia6 money,
+	@dia7 money,
 	@descuentoSocio int,
 	@descuentoPresencial int
 )as
@@ -226,11 +247,15 @@ create or alter procedure SP_Insertar_Cliente(
 	@id_tipo_cliente int,
 	@nombre varchar(50),
 	@apellido varchar(50),
-	@direccion varchar(150),
+	@direccion varchar(500),
 	@telefono bigint,
-	@id_usuario int
+	@id_usuario int,
+	@altura int,
+	@piso int,
+	@departamento varchar(30),
+	@id_localidad int
 )as
-	insert into Cliente values(@id_tipo_cliente,@nombre,@apellido,@direccion,@telefono, null,0)
+	insert into Cliente values(@id_tipo_cliente,@nombre,@apellido,@telefono, null,0,@direccion,@altura,@departamento,@piso,@id_localidad)
 		insert into Bitacora values(@id_usuario,GETDATE(),'Ingreso Cliente')
 
 
@@ -241,18 +266,22 @@ create or alter procedure SP_Insertar_ClienteSocio(
 	@id_tipo_cliente int,
 	@nombre varchar(50),
 	@apellido varchar(50),
-	@direccion varchar(150),
+	@direccion varchar(500),
 	@telefono bigint,
 	@DNI bigint,
 	@email varchar (100),
-	@id_usuario int
+	@id_usuario int,
+	@altura int,
+	@piso int,
+	@departamento varchar(30),
+	@id_localidad int
 )as
 	insert into Socio values(@DNI,@email,GETDATE(),0)
 	declare @cod int
 	set @cod = SCOPE_IDENTITY()
 
 
-	insert into Cliente values(@id_tipo_cliente,@nombre,@apellido,@direccion,@telefono, @cod,0)
+	insert into Cliente values(@id_tipo_cliente,@nombre,@apellido,@telefono, @cod,0,@direccion,@altura,@departamento,@piso,@id_localidad)
 	insert into Bitacora values(@id_usuario,GETDATE(),'Adhesion al club')
 
 go
@@ -260,9 +289,10 @@ go
 
 create or alter procedure SP_Cargar_TodosCLientes
 as
-	select id_cliente,s.id_socio, nombre, apellido,direccion,telefono, s.DNI,s.email, s.fecha_adhesion, s.baja_logica,id_tipo_cliente
+	select id_cliente,s.id_socio, nombre, apellido,calle,telefono, s.DNI,s.email, s.fecha_adhesion, s.baja_logica,id_tipo_cliente,altura,piso,departamento,l.id_localidad,l.localidad
 	from Cliente c
 	left join Socio s on s.id_socio = c.id_socio
+	join localidad l on c.id_localidad = l.id_localidad
 	ORDER by id_cliente desc
 
 
@@ -271,13 +301,21 @@ go
 create or alter procedure SP_ModificarSocio(
 	@id_cliente int,
 	@id_tipo_cliente int,
-	@direccion varchar(150),
+	@direccion varchar(500),
 	@telefono bigint,
 	@email varchar (100),
-	@id_usuario int
+	@id_usuario int,
+	@altura int,
+	@piso int,
+	@departamento varchar(30),
+	@localidad int
 )as
 	update Cliente
-	set direccion = @direccion,
+	set calle = @direccion,
+		altura = @altura,
+		piso = @piso,
+		departamento = @departamento,
+		id_localidad = @localidad,
 		telefono= @telefono,
 		id_tipo_cliente = @id_tipo_cliente
 	where id_cliente = @id_cliente
@@ -442,6 +480,15 @@ as
 		join Clasificacion c on c.id_clasificacion = p.id_clasificacion
 		join Tipo_producto tp on tp.id_tipo_producto = p.id_tipo_producto
 		where p.baja_logica = 0
+	end
+		else if (@codicion = 3)
+	begin
+		select id_producto,nombre,precio,detalle,stock,p.id_unidad_medida,um.unidad_Medida,c.id_clasificacion,c.clasificacion,tp.id_tipo_producto,tp.tipo_producto,p.baja_logica
+		from Producto p 
+		join unidad_Medida um on um.id_unidad_medida = p.id_unidad_medida
+		join Clasificacion c on c.id_clasificacion = p.id_clasificacion
+		join Tipo_producto tp on tp.id_tipo_producto = p.id_tipo_producto
+		where p.baja_logica = 0 and c.id_clasificacion = 1
 	end
 
 go
@@ -810,3 +857,138 @@ create or alter procedure SP_BajarAlias(
 	where alias = @Alias
 
 go
+
+create or alter procedure SP_UsuarioAltaoBaja(
+	@Alias varchar(50)
+)as
+	select baja_logica
+	from Usuarios
+	where alias = @Alias
+
+go
+
+
+create or alter procedure SP_ModificarIngrediente(
+	@id_producto int,
+	@nombre varchar(100) ,
+	@detalle varchar(600),
+	@stock int,
+	@id_unidad_medida int,
+	@id_tipo_producto int,
+	@id_clasificacion int ,
+	@baja_logica int,
+	@id_usuario int
+)as
+	update Producto
+	set nombre = @nombre,
+		detalle = @detalle,
+		stock = @stock,
+		id_unidad_medida = @id_unidad_medida,
+		id_tipo_producto = @id_tipo_producto,
+		id_clasificacion = @id_clasificacion,
+		baja_logica = @baja_logica
+	where id_producto = @id_producto
+	insert into Bitacora values(@id_usuario,GETDATE(),'Modificacion del Ingrediente')
+
+go
+
+create or alter procedure SP_AltaIngrediente(
+	@nombre varchar(100) ,
+	@detalle varchar(600),
+	@stock int,
+	@id_unidad_medida int,
+	@id_tipo_producto int,
+	@id_clasificacion int ,
+	@baja_logica int,
+	@id_usuario int
+)as
+	insert into Producto values (@nombre,0,@detalle,@stock,@id_unidad_medida,@id_tipo_producto,@id_clasificacion,@baja_logica)
+	insert into Bitacora values(@id_usuario,GETDATE(),'Ingresar Ingrediente')
+go
+
+
+create or alter procedure SP_TRAER_Localidad
+as
+	select * from localidad
+
+go
+
+
+
+
+
+
+
+
+
+
+
+DBCC CHECKIDENT ('a', RESEED,0) 
+select * from Cliente
+
+alter table cliente
+alter column departamento varchar(50)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+insert into localidad values('Obispo Trejo',0)
+
+
+
+Delete Bitacora
+DBCC CHECKIDENT ('Bitacora', RESEED,0) 
+Delete detalle_factura
+DBCC CHECKIDENT ('detalle_factura', RESEED,0) 
+Delete Factura
+DBCC CHECKIDENT ('Factura', RESEED,0) 
+Delete Cliente
+DBCC CHECKIDENT ('Cliente', RESEED,0) 
+Delete Usuarios
+DBCC CHECKIDENT ('Usuarios', RESEED,0) 
+Delete Empleado
+DBCC CHECKIDENT ('Empleado', RESEED,0) 
+Delete Producto
+DBCC CHECKIDENT ('Producto', RESEED,0) 
+Delete Unidad_Medida
+DBCC CHECKIDENT ('Unidad_Medida', RESEED,0) 
+Delete Tipo_producto
+DBCC CHECKIDENT ('Tipo_producto', RESEED,0) 
+Delete Socio
+DBCC CHECKIDENT ('Socio', RESEED,0) 

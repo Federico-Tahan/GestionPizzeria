@@ -110,7 +110,7 @@ namespace CapaDatos.Datos.Implementacion
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(2))
                 {
-                    rl.PorcentajeDescuentoHoy = HelperDB.ObtenerInstancia().Dr.GetInt32(2);
+                    rl.PorcentajeDescuentoHoy = HelperDB.ObtenerInstancia().Dr.GetDecimal(2);
                 }
             }
                
@@ -230,7 +230,7 @@ namespace CapaDatos.Datos.Implementacion
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(7))
                 {
-                    d.PorcentajeDescuento = HelperDB.ObtenerInstancia().Dr.GetInt32(7);
+                    d.PorcentajeDescuento = Math.Round(HelperDB.ObtenerInstancia().Dr.GetDecimal(7),2);
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(8))
                 {

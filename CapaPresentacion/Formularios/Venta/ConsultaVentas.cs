@@ -53,7 +53,7 @@ namespace CapaPresentacion.Formularios.Venta
                 Descuento d = new Descuento();
                 d.PorcentajeDescuento = c.descuento.PorcentajeDescuento;
                 facturacarga.descuento = d;
-                dgvProd.Rows.Add(c.IdFactura,c.cliente.NombreCompleto,c.Fecha,c.Forma_Compra.Forma_Compra,c.descuento.PorcentajeDescuento,"$" + facturacarga.Calcular_total());
+                dgvProd.Rows.Add(c.IdFactura,c.cliente.NombreCompleto,c.Fecha,c.Forma_Compra.Forma_Compra,c.Usuario.Empleado.NombreCompleto,c.descuento.PorcentajeDescuento,"$" + facturacarga.Calcular_total());
 
 
             }
@@ -95,6 +95,8 @@ namespace CapaPresentacion.Formularios.Venta
                 Ticket.listaProducto = facturaselected.DetalleFacturas;
                 Ticket.logotipo = Properties.Resources.LogoTest;
                 Ticket.Empleado = "Vendedor: " +facturaselected.Usuario.Empleado.NombreCompleto;
+                Ticket.InfoCuit = "                                               Hai Pianto SRL 20-39123943-7";
+                Ticket.NroFac = "Nro de Factura: "+ facturaselected.IdFactura.ToString();
                 Ticket.imprimir(Ticket);
 
             }
@@ -177,11 +179,11 @@ namespace CapaPresentacion.Formularios.Venta
             dgvProd.Columns[1].HeaderText = Rec.NombreCliente;
             dgvProd.Columns[2].HeaderText = Rec.Fecha;
             dgvProd.Columns[3].HeaderText = Rec.FormaDePedido;
-            dgvProd.Columns[4].HeaderText = Rec.Descuento;
-            dgvProd.Columns[5].HeaderText = Rec.Total;
-            dgvProd.Columns[6].HeaderText = Rec.Ticket;
-            dgvProd.Columns[5].HeaderText = Rec.Total;
-            dgvProd.Columns[7].HeaderText = Rec.Accion;
+            dgvProd.Columns[4].HeaderText = Rec.DGVNombreVendedor;
+            dgvProd.Columns[5].HeaderText = Rec.Descuento;
+            dgvProd.Columns[6].HeaderText = Rec.Total;
+            dgvProd.Columns[7].HeaderText = Rec.Ticket;
+            dgvProd.Columns[8].HeaderText = Rec.Accion;
             dgvDetalle.Columns[0].HeaderText = Rec.NroProd;
             dgvDetalle.Columns[1].HeaderText = Rec.Nombre;
             dgvDetalle.Columns[2].HeaderText = Rec.Detalle;

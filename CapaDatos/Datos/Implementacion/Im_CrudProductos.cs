@@ -33,6 +33,28 @@ namespace CapaDatos.Datos.Implementacion
                 return false;
             }
         }
+        public bool AltaIngrediente(Producto p, Usuarios u)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", p.Nombre);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@detalle", p.Detalle);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@stock", p.Stock);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_unidad_medida", p.Unidadmedida.IdUnidadMedida);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_tipo_producto", p.Tipo_producto.IdTipoProducto);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_clasificacion", p.clasificacion.IdClasificacion);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", p.Baja_logica);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
+                HelperDB.ObtenerInstancia().updatear_db("SP_AltaIngrediente");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
 
         public List<Producto> GetProductos(int cond)
         {
@@ -121,6 +143,29 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", p.Baja_logica);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
                 HelperDB.ObtenerInstancia().updatear_db("SP_ModificarProducto");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool ModificacionIngrediente(Producto p, Usuarios u)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_producto", p.Id_producto);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", p.Nombre);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@detalle", p.Detalle);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@stock", p.Stock);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_unidad_medida", p.Unidadmedida.IdUnidadMedida);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_tipo_producto", p.Tipo_producto.IdTipoProducto);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_clasificacion", p.clasificacion.IdClasificacion);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", p.Baja_logica);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
+                HelperDB.ObtenerInstancia().updatear_db("SP_ModificarIngrediente");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
             }

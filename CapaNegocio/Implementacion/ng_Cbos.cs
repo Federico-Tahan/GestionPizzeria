@@ -21,6 +21,11 @@ namespace CapaNegocio.Implementacion
             lg = new Im_Cbos();
         }
 
+        public List<Localidad> Localidad()
+        {
+            return lg.Localidades();
+        }
+
         public List<Clasificacion> ObtenerClasificacion()
         {
             return lg.ObtenerClasificacion();

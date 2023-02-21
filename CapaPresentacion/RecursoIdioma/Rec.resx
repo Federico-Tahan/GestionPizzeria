@@ -135,6 +135,9 @@
   <data name="AltaClasiSinExito" xml:space="preserve">
     <value>Alta de Clasificacion no se ha realizado con Exito.</value>
   </data>
+  <data name="Altura" xml:space="preserve">
+    <value>Altura</value>
+  </data>
   <data name="Apellido" xml:space="preserve">
     <value>Apellido</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="Buscar" xml:space="preserve">
     <value>Buscar</value>
+  </data>
+  <data name="Calle" xml:space="preserve">
+    <value>Calle</value>
   </data>
   <data name="Cancelar" xml:space="preserve">
     <value>Cancelar</value>
@@ -255,6 +261,9 @@
   <data name="Contraseña" xml:space="preserve">
     <value>Contraseña</value>
   </data>
+  <data name="Departamento" xml:space="preserve">
+    <value>Departamento</value>
+  </data>
   <data name="Descripcion" xml:space="preserve">
     <value>Descripcion</value>
   </data>
@@ -273,6 +282,9 @@
   <data name="DetNroFac" xml:space="preserve">
     <value>Detalle Factura N°:</value>
   </data>
+  <data name="DGVNombreVendedor" xml:space="preserve">
+    <value>Nombre Vendedor</value>
+  </data>
   <data name="Direccion" xml:space="preserve">
     <value>Direccion</value>
   </data>
@@ -289,7 +301,7 @@
     <value>Editar</value>
   </data>
   <data name="Eliminados" xml:space="preserve">
-    <value>Eliminados</value>
+    <value>Inactivos</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
@@ -299,6 +311,12 @@
   </data>
   <data name="FechaAdhesion" xml:space="preserve">
     <value>Fecha de Adhesion</value>
+  </data>
+  <data name="FechaAlta" xml:space="preserve">
+    <value>Fecha de Alta</value>
+  </data>
+  <data name="FechaBaja" xml:space="preserve">
+    <value>Fecha de Baja</value>
   </data>
   <data name="FechaNacimineto" xml:space="preserve">
     <value>Fecha de Nacimiento</value>
@@ -423,6 +441,12 @@
   <data name="MessageFiltrarporcodigodebecargarnumero" xml:space="preserve">
     <value>Para filtrar por codigo de usuario debe cargar un número.</value>
   </data>
+  <data name="MessageIngredienteAlta" xml:space="preserve">
+    <value>Ingrediente Dado de alta con Exito.</value>
+  </data>
+  <data name="MessageIngredienteModif" xml:space="preserve">
+    <value>Ingrediente Modificado con Exito.</value>
+  </data>
   <data name="MessageIntentos" xml:space="preserve">
     <value>intentos restantes.</value>
   </data>
@@ -440,6 +464,9 @@
   </data>
   <data name="MessageNohaySuficienteStock" xml:space="preserve">
     <value>No hay suficiente Stock de este producto para cubrir la venta.</value>
+  </data>
+  <data name="MessageNoModProdFinal" xml:space="preserve">
+    <value>No se puede Modificar esta clasificación</value>
   </data>
   <data name="messageNosepudoagregarusuario" xml:space="preserve">
     <value>No se ha podido agregar el usuario, Intentelo de nuevo más tarde</value>
@@ -475,7 +502,7 @@
     <value>Usuario Agregado Correctamente</value>
   </data>
   <data name="MessageUsuarioBloqueado" xml:space="preserve">
-    <value>El usuario se ha bloqueado temporalmente, por favor contacta con el gerente.</value>
+    <value>El usuario se ha bloqueado temporalmente, por favor contacta con el administrador</value>
   </data>
   <data name="MessageUsuarioModificado" xml:space="preserve">
     <value>Usuario Modificado con Exito.</value>
@@ -573,6 +600,9 @@
   <data name="MessageVentaConExito" xml:space="preserve">
     <value>Venta realizada con Exito</value>
   </data>
+  <data name="MesssageValidacionLoc" xml:space="preserve">
+    <value>Debe Cargar la localidad</value>
+  </data>
   <data name="Miercoles" xml:space="preserve">
     <value>Miercoles</value>
   </data>
@@ -581,6 +611,9 @@
   </data>
   <data name="ModClasiSinExti" xml:space="preserve">
     <value>Modificacion de Clasificacion no se ha realizado con Exito.</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
   </data>
   <data name="noactivo" xml:space="preserve">
     <value>No Activo</value>
@@ -608,6 +641,9 @@
   </data>
   <data name="ObtenciondelBeneficio" xml:space="preserve">
     <value>Obtencion del Beneficio</value>
+  </data>
+  <data name="Piso" xml:space="preserve">
+    <value>Piso</value>
   </data>
   <data name="Precio" xml:space="preserve">
     <value>Precio</value>
@@ -650,6 +686,9 @@
   </data>
   <data name="Seleccionar" xml:space="preserve">
     <value>Seleccionar</value>
+  </data>
+  <data name="Si" xml:space="preserve">
+    <value>Si</value>
   </data>
   <data name="Siguiente" xml:space="preserve">
     <value>Siguiente</value>

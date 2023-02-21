@@ -18,6 +18,11 @@ namespace CapaNegocio.Implementacion
             lg = new Im_CrudProductos();
         }
 
+        public bool AltaIngrediente(Producto p, Usuarios u)
+        {
+            return lg.AltaIngrediente(p,u);
+        }
+
         public bool AltaProducto(Producto p, Usuarios u)
         {
             return lg.AltaProducto(p,u);
@@ -31,6 +36,11 @@ namespace CapaNegocio.Implementacion
         public bool Modificacion(Producto p, Usuarios u)
         {
             return lg.Modificacion(p,u);
+        }
+
+        public bool ModificacionIngrediente(Producto p, Usuarios u)
+        {
+            return lg.ModificacionIngrediente(p,u);
         }
     }
 }

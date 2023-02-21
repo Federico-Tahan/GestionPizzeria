@@ -116,36 +116,50 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
         {
             if (txbClasificacion.Text != string.Empty)
             {
+               
                 AbstraerClasificacion();
-                if (cla.IdClasificacion != 0)
+                if (cla.IdClasificacion != 1 && cla.IdClasificacion != 2)
                 {
-                    if (lg.ModificacionClasificacion(cla))
+                    if (cla.IdClasificacion != 0)
                     {
-                        MessageBox.Show(Rec.ModClasiConExtio);
+                        if (lg.ModificacionClasificacion(cla))
+                        {
+                            MessageBox.Show(Rec.ModClasiConExtio);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Rec.ModClasiSinExti);
+
+                        }
+                        cla = new Clasificacion();
+                        panel1.Visible = false;
+                        habilitarBtn(false);
+                        btnNuevo.Enabled = true;
+                        list = lg.GetClasificacion(0);
+                        cargarDgv(list);
                     }
                     else
                     {
-                        MessageBox.Show(Rec.ModClasiSinExti);
+                        if (lg.AltaClasificacion(cla))
+                        {
+                            MessageBox.Show(Rec.AltaClasiExito);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Rec.AltaClasiSinExito);
 
+                        }
+                        cla = new Clasificacion();
+                        panel1.Visible = false;
+                        habilitarBtn(false);
+                        btnNuevo.Enabled = true;
+                        list = lg.GetClasificacion(0);
+                        cargarDgv(list);
                     }
-                    cla = new Clasificacion();
-                    panel1.Visible = false;
-                    habilitarBtn(false);
-                    btnNuevo.Enabled = true;
-                    list = lg.GetClasificacion(0);
-                    cargarDgv(list);
                 }
                 else
                 {
-                    if (lg.AltaClasificacion(cla))
-                    {
-                        MessageBox.Show(Rec.AltaClasiExito);
-                    }
-                    else
-                    {
-                        MessageBox.Show(Rec.AltaClasiSinExito);
-
-                    }
+                    MessageBox.Show(Rec.MessageNoModProdFinal,Rec.CapError,MessageBoxButtons.OK,MessageBoxIcon.Information);
                     cla = new Clasificacion();
                     panel1.Visible = false;
                     habilitarBtn(false);
@@ -153,6 +167,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
                     list = lg.GetClasificacion(0);
                     cargarDgv(list);
                 }
+                
 
             }
             else
@@ -166,6 +181,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             cla = new Clasificacion();
             if (dgvClasi.Columns[e.ColumnIndex].Name == "Accion")
             {
+
                 CargarClasificacion(Convert.ToInt32(dgvClasi.CurrentRow.Cells[0].Value));
                 txbClasificacion.Text = cla.clasificacion;
                 if (cla.BajaLogica == 0)
