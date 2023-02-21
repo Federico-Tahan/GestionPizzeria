@@ -33,7 +33,6 @@
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lbum = new System.Windows.Forms.Label();
             this.pnlBarra = new System.Windows.Forms.Panel();
-            this.Minimizar = new System.Windows.Forms.PictureBox();
             this.Salir = new System.Windows.Forms.PictureBox();
             this.dgvUnidadMedida = new System.Windows.Forms.DataGridView();
             this.CodigoTipoProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +56,6 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             this.pnlBarra.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnidadMedida)).BeginInit();
             this.panel1.SuspendLayout();
@@ -87,7 +85,6 @@
             // pnlBarra
             // 
             this.pnlBarra.BackColor = System.Drawing.Color.Maroon;
-            this.pnlBarra.Controls.Add(this.Minimizar);
             this.pnlBarra.Controls.Add(this.Salir);
             this.pnlBarra.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBarra.Location = new System.Drawing.Point(0, 0);
@@ -95,18 +92,6 @@
             this.pnlBarra.Size = new System.Drawing.Size(688, 35);
             this.pnlBarra.TabIndex = 31;
             this.pnlBarra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBarra_MouseDown);
-            // 
-            // Minimizar
-            // 
-            this.Minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Minimizar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Minimizar.Image = global::CapaPresentacion.Properties.Resources.minimize_sign;
-            this.Minimizar.Location = new System.Drawing.Point(618, 0);
-            this.Minimizar.Name = "Minimizar";
-            this.Minimizar.Size = new System.Drawing.Size(35, 35);
-            this.Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Minimizar.TabIndex = 2;
-            this.Minimizar.TabStop = false;
             // 
             // Salir
             // 
@@ -422,7 +407,6 @@
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlBarra.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnidadMedida)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -438,7 +422,6 @@
         private Panel pnlHeader;
         private Label lbum;
         private Panel pnlBarra;
-        private PictureBox Minimizar;
         private PictureBox Salir;
         private DataGridView dgvUnidadMedida;
         private Label lbcodum;

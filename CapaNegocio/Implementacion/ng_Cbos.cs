@@ -61,9 +61,10 @@ namespace CapaNegocio.Implementacion
             return lg.TipoEntregas();
         }
 
-        public List<Cliente> TraerClientesCbo(int a)
+
+        public Cliente TraerClientesCbo(long a, Cliente rl)
         {
-            return lg.TraerClientesCbo(a);
+            return lg.TraerClientesCbo(a,rl);
         }
     }
 }

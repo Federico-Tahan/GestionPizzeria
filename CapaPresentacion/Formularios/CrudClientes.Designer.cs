@@ -47,7 +47,7 @@
             this.lbClientes = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.pnlCrud = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbDepartamento = new System.Windows.Forms.Label();
             this.txbDepto = new System.Windows.Forms.TextBox();
             this.lblocalidad = new System.Windows.Forms.Label();
             this.cboloclaidad = new System.Windows.Forms.ComboBox();
@@ -274,7 +274,7 @@
             // pnlCrud
             // 
             this.pnlCrud.BackColor = System.Drawing.Color.OliveDrab;
-            this.pnlCrud.Controls.Add(this.label2);
+            this.pnlCrud.Controls.Add(this.lbDepartamento);
             this.pnlCrud.Controls.Add(this.txbDepto);
             this.pnlCrud.Controls.Add(this.lblocalidad);
             this.pnlCrud.Controls.Add(this.cboloclaidad);
@@ -308,16 +308,16 @@
             this.pnlCrud.Visible = false;
             this.pnlCrud.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCrud_Paint);
             // 
-            // label2
+            // lbDepartamento
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(457, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 19);
-            this.label2.TabIndex = 57;
-            this.label2.Text = "Departamento";
+            this.lbDepartamento.AutoSize = true;
+            this.lbDepartamento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbDepartamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbDepartamento.Location = new System.Drawing.Point(457, 130);
+            this.lbDepartamento.Name = "lbDepartamento";
+            this.lbDepartamento.Size = new System.Drawing.Size(122, 19);
+            this.lbDepartamento.TabIndex = 57;
+            this.lbDepartamento.Text = "Departamento";
             // 
             // txbDepto
             // 
@@ -575,7 +575,7 @@
             this.rbtTodos.Checked = true;
             this.rbtTodos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbtTodos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rbtTodos.Location = new System.Drawing.Point(691, 114);
+            this.rbtTodos.Location = new System.Drawing.Point(666, 114);
             this.rbtTodos.Name = "rbtTodos";
             this.rbtTodos.Size = new System.Drawing.Size(73, 25);
             this.rbtTodos.TabIndex = 36;
@@ -589,7 +589,7 @@
             this.RbtNoSocios.AutoSize = true;
             this.RbtNoSocios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtNoSocios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtNoSocios.Location = new System.Drawing.Point(873, 114);
+            this.RbtNoSocios.Location = new System.Drawing.Point(848, 114);
             this.RbtNoSocios.Name = "RbtNoSocios";
             this.RbtNoSocios.Size = new System.Drawing.Size(101, 25);
             this.RbtNoSocios.TabIndex = 35;
@@ -602,7 +602,7 @@
             this.RbtSocios.AutoSize = true;
             this.RbtSocios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtSocios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtSocios.Location = new System.Drawing.Point(779, 114);
+            this.RbtSocios.Location = new System.Drawing.Point(754, 114);
             this.RbtSocios.Name = "RbtSocios";
             this.RbtSocios.Size = new System.Drawing.Size(75, 25);
             this.RbtSocios.TabIndex = 34;
@@ -756,6 +756,7 @@
             this.btnLocalidad.TabIndex = 53;
             this.btnLocalidad.Text = "Localidades";
             this.btnLocalidad.UseVisualStyleBackColor = false;
+            this.btnLocalidad.Click += new System.EventHandler(this.btnLocalidad_Click);
             // 
             // CrudClientes
             // 
@@ -860,7 +861,7 @@
         private NumericUpDown nupaltura;
         private Label lblocalidad;
         private ComboBox cboloclaidad;
-        private Label label2;
+        private Label lbDepartamento;
         private TextBox txbDepto;
     }
 }

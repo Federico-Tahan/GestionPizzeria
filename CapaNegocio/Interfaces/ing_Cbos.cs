@@ -20,6 +20,7 @@ namespace CapaCapaNegocio.Interfaces
         List<Localidad> Localidad();
 
         List<UnidadMedida> ObtenerUnidadMedida();
-        List<Cliente> TraerClientesCbo(int a);
+        Cliente TraerClientesCbo(long a, Cliente rl);
+
     }
 }

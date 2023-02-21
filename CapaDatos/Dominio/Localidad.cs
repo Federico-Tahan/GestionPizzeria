@@ -10,5 +10,6 @@ namespace CapaDatos.Dominio
     {
         public int idLocalidad { get; set; }
         public string NLocalidad { get; set; }
+        public int BajaLogica { get; set; }
     }
 }

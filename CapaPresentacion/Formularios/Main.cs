@@ -249,10 +249,14 @@ namespace CapaPresentacion.Formularios
             {
 
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+                MessageHelper.ChangeLanguage("en-US");
+
             }
             else
             {
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-AR");
+                MessageHelper.ChangeLanguage("es-ES");
+
 
             }
         }

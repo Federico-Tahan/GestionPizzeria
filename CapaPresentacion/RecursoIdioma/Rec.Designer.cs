@@ -115,6 +115,24 @@ namespace CapaPresentacion.RecursoIdioma {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to La localidad se dio de Alta con Exito.
+        /// </summary>
+        internal static string AltaLocalidadExito {
+            get {
+                return ResourceManager.GetString("AltaLocalidadExito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La localidad no se pudo dar de Alta con Exito.
+        /// </summary>
+        internal static string AltaLocalidadSinExito {
+            get {
+                return ResourceManager.GetString("AltaLocalidadSinExito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Altura.
         /// </summary>
         internal static string Altura {
@@ -390,6 +408,15 @@ namespace CapaPresentacion.RecursoIdioma {
         internal static string CodigoCliente {
             get {
                 return ResourceManager.GetString("CodigoCliente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Codigo Localidad.
+        /// </summary>
+        internal static string codigoLocalidad {
+            get {
+                return ResourceManager.GetString("codigoLocalidad", resourceCulture);
             }
         }
         
@@ -723,6 +750,15 @@ namespace CapaPresentacion.RecursoIdioma {
         internal static string Jueves {
             get {
                 return ResourceManager.GetString("Jueves", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Localidad.
+        /// </summary>
+        internal static string localidad {
+            get {
+                return ResourceManager.GetString("localidad", resourceCulture);
             }
         }
         
@@ -1186,6 +1222,15 @@ namespace CapaPresentacion.RecursoIdioma {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Se debe cargar la localidad.
+        /// </summary>
+        internal static string MessageSedebeCargarLoc {
+            get {
+                return ResourceManager.GetString("MessageSedebeCargarLoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to El Socio se ha dado de Alta con Exito..
         /// </summary>
         internal static string MessageSocioDadoAlta {
@@ -1542,6 +1587,24 @@ namespace CapaPresentacion.RecursoIdioma {
         internal static string ModClasiSinExti {
             get {
                 return ResourceManager.GetString("ModClasiSinExti", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No se pudo Modificar la Localidad.
+        /// </summary>
+        internal static string ModLocalidadSinExito {
+            get {
+                return ResourceManager.GetString("ModLocalidadSinExito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Localidad Modificada con Exito.
+        /// </summary>
+        internal static string ModLocalildadExito {
+            get {
+                return ResourceManager.GetString("ModLocalildadExito", resourceCulture);
             }
         }
         

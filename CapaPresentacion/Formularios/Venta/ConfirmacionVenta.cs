@@ -27,6 +27,8 @@ namespace CapaPresentacion.Formularios.Venta
         ing_Cbos cb = new ng_Cbos();
         ing_CrudVentas lg = new ng_CrudVentas();
         ing_Cliente lc = new ng_Cliente();
+        ing_Cbos lcbo = new ng_Cbos();
+
         List<Cliente> lclientes = new List<Cliente>();
         Cliente clienteSelected = new Cliente();
         Factura fac = new Factura();
@@ -60,9 +62,6 @@ namespace CapaPresentacion.Formularios.Venta
                 lbDNI.Visible = true;
                 txbDNI.Visible = true;
                 btnverificar.Visible = true;
-                cbocliente.Enabled = false;
-                cbocliente.SelectedIndex = -1;
-                cargar_cboCliente(cbocliente, "NombreCompleto", "IdCliente", 0);
 
             }
             else
@@ -70,8 +69,6 @@ namespace CapaPresentacion.Formularios.Venta
                 lbDNI.Visible = false;
                 txbDNI.Visible = false;
                 btnverificar.Visible = false;
-                cbocliente.Enabled = true;
-                cargar_cboCliente(cbocliente, "NombreCompleto", "IdCliente", 1);
 
             }                                                                               
         }
@@ -100,12 +97,7 @@ namespace CapaPresentacion.Formularios.Venta
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbo.SelectedIndex = -1;
         }
-        private void cargar_cboCliente(ComboBox cbo, string display, string value,int con)
-        {
-            cbo.DataSource = cb.TraerClientesCbo(con);
-            cbo.DisplayMember = display;
-            cbo.ValueMember = value;
-        }
+
         private void ConfirmacionVenta_Load(object sender, EventArgs e)
         {
             DetectarIdioma();
@@ -113,25 +105,32 @@ namespace CapaPresentacion.Formularios.Venta
             cargar_cboTipOclIENTE(cboTipoCliente, "TipoCliente", "Id_TipoCliente");
             cargar_cboTipoEntrega(cbotipoentrega, "Forma_Entrega", "IdFormaEntrega");
             cargar_cboTipoCompra(cbotipocompra, "Forma_Compra", "IdFormaCompra");
-            cargar_cboCliente(cbocliente, "NombreCompleto", "IdCliente",1);
+            cargar_cboLocalidad(cboLocalidad, "NLocalidad", "idLocalidad");
+
             config = lg.TraerConfig();
             lclientes = lc.TraerClientes();
-            cbocliente.SelectedIndex= -1;
+        }
+
+        private void cargar_cboLocalidad(ComboBox cbo, string display, string value)
+        {
+            cbo.DataSource = lcbo.Localidad();
+            cbo.DisplayMember = display;
+            cbo.ValueMember = value;
+            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbo.SelectedIndex = -1;
         }
 
         private void btnConfirmarVenta_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Rec.MessageConfirmarVenta,Rec.CapConfirmacion,MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-
-            
-                if (Convert.ToInt32(cbocliente.SelectedValue) != 0)
-                {
-                    clienteSelected = (Cliente)cbocliente.SelectedItem;
                     if (validacion())
                     {
                         FormaEntrega fe = new FormaEntrega();
                         FormaCompra fc = new FormaCompra();
+                        Localidad loc = new Localidad();
+                        Cliente cliente = new Cliente();
+                        loc.idLocalidad = Convert.ToInt32(cboLocalidad.SelectedValue);
                         if (tienedescuento)
                         {
                             fac.tieneDescuento = 0;
@@ -139,7 +138,22 @@ namespace CapaPresentacion.Formularios.Venta
                         else { fac.tieneDescuento = 1; }
                         fac.FormaEntrega= fe;
                         fac.Forma_Compra= fc;
-                        fac.cliente = clienteSelected;
+                        cliente.locali= loc;
+                        cliente.Nombre = txbNombre.Text;
+                        cliente.Apellido = txbApelldio.Text;
+                        cliente.Direccion = txbCalle.Text;
+                        cliente.Altura = Convert.ToInt32(nupAltura.Value);
+                        cliente.Piso = Convert.ToInt32(nupPiso.Value);
+                        cliente.Departamento = txDepto.Text;
+                        if (txbDNI.Visible == true)
+                        {
+                            cliente.IdCliente = clienteSelected.IdCliente;
+                        }
+                        else
+                        {
+                            cliente.IdCliente = 0;
+                        }
+                        fac.cliente= cliente;
                         fac.FormaEntrega.IdFormaEntrega = Convert.ToInt32(cbotipoentrega.SelectedValue);
                         fac.Usuario = LogIn.u;
                         fac.Forma_Compra.IdFormaCompra = Convert.ToInt32(cbotipocompra.SelectedValue);
@@ -152,11 +166,6 @@ namespace CapaPresentacion.Formularios.Venta
                             }
                         }
                     }
-                }
-                else
-                {
-                    MessageBox.Show(Rec.MessageDebeCargaruncliente);
-                }
             }
         }
 
@@ -173,7 +182,7 @@ namespace CapaPresentacion.Formularios.Venta
                         {
                             txbSubtotal.Text = fac.Calcular_Subtotal().ToString();
                             txbDescuento.Text = config.PorcentajeDescuentoHoy.ToString();
-                            txbTotal.Text = (fac.Calcular_Subtotal() - ((fac.Calcular_Subtotal() * config.PorcentajeDescuentoHoy) / 100)).ToString();
+                            txbTotal.Text = Math.Round((fac.Calcular_Subtotal() - (fac.Calcular_Subtotal() * config.PorcentajeDescuentoHoy) / 100),2).ToString();
                             tienedescuento = true;
 
                         }
@@ -190,7 +199,7 @@ namespace CapaPresentacion.Formularios.Venta
                     {
                         txbSubtotal.Text = fac.Calcular_Subtotal().ToString();
                         txbDescuento.Text = config.PorcentajeDescuentoHoy.ToString();
-                        txbTotal.Text = (fac.Calcular_Subtotal() - ((fac.Calcular_Subtotal() * config.PorcentajeDescuentoHoy) / 100)).ToString();
+                        txbTotal.Text = Math.Round((fac.Calcular_Subtotal() - (fac.Calcular_Subtotal() * config.PorcentajeDescuentoHoy) / 100),2).ToString();
                         tienedescuento = true;
 
                     }
@@ -213,7 +222,7 @@ namespace CapaPresentacion.Formularios.Venta
                     {
                         txbSubtotal.Text = fac.Calcular_Subtotal().ToString();
                         txbDescuento.Text = config.PorcentajeDescuentoHoy.ToString();
-                        txbTotal.Text = (fac.Calcular_Subtotal() - ((fac.Calcular_Subtotal() * config.PorcentajeDescuentoHoy) / 100)).ToString();
+                        txbTotal.Text = Math.Round((fac.Calcular_Subtotal() - (fac.Calcular_Subtotal() * config.PorcentajeDescuentoHoy) / 100), 2).ToString();
                         tienedescuento = true;
                     }
                     else
@@ -229,7 +238,7 @@ namespace CapaPresentacion.Formularios.Venta
                 {
                     txbSubtotal.Text = fac.Calcular_Subtotal().ToString();
                     txbDescuento.Text = config.PorcentajeDescuentoHoy.ToString();
-                    txbTotal.Text = (fac.Calcular_Subtotal() - ((fac.Calcular_Subtotal() * config.PorcentajeDescuentoHoy) / 100)).ToString();
+                    txbTotal.Text = Math.Round((fac.Calcular_Subtotal() - (fac.Calcular_Subtotal() * config.PorcentajeDescuentoHoy) / 100), 2).ToString();
                     tienedescuento = true;
 
                 }
@@ -242,11 +251,16 @@ namespace CapaPresentacion.Formularios.Venta
             clienteSelected.socio.DNI = Convert.ToInt64(txbDNI.Text);
             if (lg.BuscarClienteSocioDni(clienteSelected))
             {
-                CargarCliente(clienteSelected.socio.DNI);
+                cb.TraerClientesCbo(clienteSelected.socio.DNI, clienteSelected);
                 if (clienteSelected.socio.Baja_logica == 0)
                 {
-                    cargar_cboCliente(cbocliente, "NombreCompleto", "IdCliente", 0);
-                    cbocliente.SelectedValue = clienteSelected.IdCliente;
+                    txbNombre.Text = clienteSelected.Nombre;
+                    txbApelldio.Text = clienteSelected.Apellido;
+                    txbCalle.Text = clienteSelected.Direccion;
+                    nupAltura.Value = clienteSelected.Altura;
+                    nupPiso.Value = clienteSelected.Piso;
+                    txDepto.Text = clienteSelected.Departamento;
+                    cboLocalidad.SelectedValue = clienteSelected.locali.idLocalidad;
                     CalcularTotal();
                 }
                 else
@@ -272,18 +286,6 @@ namespace CapaPresentacion.Formularios.Venta
             CalcularTotal();
         }
 
-        private void CargarCliente(long dni)
-        {
-            foreach (Cliente u in lclientes)
-            {
-                if (u.socio.DNI == dni)
-                {
-                    clienteSelected = u;
-                    break;
-                }
-            }
-        }
-
         private void cbocliente_SelectedValueChanged(object sender, EventArgs e)
         {
 
@@ -293,7 +295,6 @@ namespace CapaPresentacion.Formularios.Venta
         {
             clienteSelected = new Cliente();
             CalcularTotal();
-            cbocliente.SelectedIndex = -1;
             txbDNI.Text = string.Empty;
 
 
@@ -323,12 +324,6 @@ namespace CapaPresentacion.Formularios.Venta
 
                 return false;
             }
-            else if (Convert.ToInt32(cbocliente.SelectedValue) == 0)
-            {
-                MessageBox.Show(Rec.MessageValidacionCliente);
-
-                return false;
-            }
             return true;
 
         }
@@ -355,8 +350,15 @@ namespace CapaPresentacion.Formularios.Venta
             lbDNI.Text = Rec.DNI;
             btnConfirmarVenta.Text = Rec.ConfirmarVenta;
             lbconcretar.Text = Rec.ConcretarVenta;
-            lbcliente.Text = Rec.Clientes;
+            lbnombre.Text = Rec.Nombre;
+            lbapellido.Text = Rec.Apellido;
+
+            lbcalle.Text = Rec.Calle;
             btnverificar.Text = Rec.BtnVerificar;
+            lblocalidad.Text = Rec.localidad;
+            lbaltura.Text = Rec.Altura;
+            lbpiso.Text = Rec.Piso;
+            lbdepartamento.Text = Rec.Departamento;
         }
     }
 }

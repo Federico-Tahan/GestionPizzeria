@@ -18,5 +18,9 @@ namespace CapaNegocio.Interfaces
         bool ModificacionTipoProducto(TipoProducto tp);
         bool AltaUnidadMedida(UnidadMedida md);
         bool ModificacionUnidadMedida(UnidadMedida md);
+        List<Localidad> GetLocalidad(int a);
+
+        bool AltaLocalidad(Localidad md);
+        bool ModLocalidad(Localidad md);
     }
 }

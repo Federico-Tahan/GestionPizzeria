@@ -518,7 +518,6 @@ namespace CapaPresentacion.Formularios
             dgvProd.Columns[6].HeaderText = Rec.Stock;
             dgvProd.Columns[7].HeaderText = Rec.Precio;
             dgvProd.Columns[8].HeaderText = Rec.Activo;
-            dgvProd.Columns[9].Name = Rec.Detalle;
         }
 
         private void DetectarIdioma()

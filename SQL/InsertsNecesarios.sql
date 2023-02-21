@@ -31,4 +31,4 @@ insert into Forma_compra values ('Presencial')
 
 
 insert into Empleado values (22222,'Admin','Admin','Admin','2022/02/02',3333333,0)
-insert into Usuarios values ('Admin','seQjY0IBoCE=',1,1,0)
+insert into Usuarios values ('Admin','seQjY0IBoCE=',1,1,0,GETDATE(),null)

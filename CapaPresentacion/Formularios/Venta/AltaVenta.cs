@@ -223,6 +223,7 @@ namespace CapaPresentacion.Formularios.Venta
             lbStock.Text = Rec.Stock;
             lbSubTtoal.Text = Rec.Subtotal;
             BtnSig.Text = Rec.Siguiente;
+            lbDetalle.Text = Rec.Detalle;
             dgvDetalle.Columns[0].HeaderText = Rec.NroProd;
             dgvDetalle.Columns[1].HeaderText = Rec.Nombre;
             dgvDetalle.Columns[2].HeaderText = Rec.Detalle;

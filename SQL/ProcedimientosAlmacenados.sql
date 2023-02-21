@@ -248,7 +248,7 @@ create or alter procedure SP_Insertar_Cliente(
 	@nombre varchar(50),
 	@apellido varchar(50),
 	@direccion varchar(500),
-	@telefono bigint,
+	@telefono varchar(100),
 	@id_usuario int,
 	@altura int,
 	@piso int,
@@ -267,7 +267,7 @@ create or alter procedure SP_Insertar_ClienteSocio(
 	@nombre varchar(50),
 	@apellido varchar(50),
 	@direccion varchar(500),
-	@telefono bigint,
+	@telefono varchar(100),
 	@DNI bigint,
 	@email varchar (100),
 	@id_usuario int,
@@ -302,7 +302,7 @@ create or alter procedure SP_ModificarSocio(
 	@id_cliente int,
 	@id_tipo_cliente int,
 	@direccion varchar(500),
-	@telefono bigint,
+	@telefono varchar(100),
 	@email varchar (100),
 	@id_usuario int,
 	@altura int,
@@ -572,6 +572,13 @@ create or alter procedure SP_AltaVenta(
 	@id_forma_entrega int,
 	@tienedescuento int,
 	@id_usuario_admin int,
+	@nombre varchar(50),
+	@apellido varchar(50),
+	@id_localidad int,
+	@calle varchar(500),
+	@altura int,
+	@piso int,
+	@departamento varchar(50),
 	@IDFACTURA int Output
 )as
 	declare @diaweek int
@@ -584,14 +591,24 @@ create or alter procedure SP_AltaVenta(
 			set @diaweek = DATEPART(DW,GETDATE() - 1)
 		end
 
+	declare @clienteestado int
+	if(@id_cliente = 0)
+	begin
+		set @clienteestado = null
+	end
+	else
+	begin
+		set @clienteestado = @id_cliente
+	end
+
 	if(@tienedescuento = 0)
 	begin 
-		insert into Factura values(GETDATE(),@id_cliente,@id_usuario,@id_forma_compra,@id_forma_entrega,@diaweek,0)
+		insert into Factura values(GETDATE(),@clienteestado,@id_usuario,@id_forma_compra,@id_forma_entrega,@diaweek,0,@nombre,@apellido,@id_localidad,@calle,@altura,@piso,@departamento)
 	set @IDFACTURA = SCOPE_IDENTITY()
 	end
 	else
 	begin
-		insert into Factura values(GETDATE(),@id_cliente,@id_usuario,@id_forma_compra,@id_forma_entrega,null,0)
+		insert into Factura values(GETDATE(),@clienteestado,@id_usuario,@id_forma_compra,@id_forma_entrega,null,0,@nombre,@apellido,@id_localidad,@calle,@altura,@piso,@departamento)
 	set @IDFACTURA = SCOPE_IDENTITY()
 	end
 
@@ -635,39 +652,30 @@ end
 go
 
 create or alter procedure SP_TraerClientesCbo(
-	@socios int
+	@dni bigint
 )
 as
-	if(@socios = 0)
-	begin
-		select id_cliente, nombre + SPACE(1) + apellido'Nombre Completo'
+		select id_cliente, nombre,apellido,id_localidad,calle,altura,piso,departamento,s.baja_logica
 		from Cliente c
 		join Socio s on c.id_socio = s.id_socio
-		where s.baja_logica = 0
-	end
-	else
-	begin
-		select id_cliente, c.nombre + SPACE(1) + c.apellido'Nombre Completo'
-		from Cliente c
-		left join Socio s on s.id_socio = c.id_socio
-		where (s.id_socio is null) or (s.baja_logica = 1)
-	end
+		where s.baja_logica = 0 and DNI = @dni
 go
 
 
 
 create or alter procedure SP_ObtenerFactura
 as
-	select nro_factura, CONVERT(VARCHAR, fecha, 108)'Hora',CONVERT(VARCHAR, fecha, 105)'Fecha', c.nombre + SPACE(1) + c.apellido'Nombre_Completo'
-	, e.nombre + SPACE(1) + e.apellido 'Nombre_CompletoUsuario', fc.forma_compra,fe.forma_entrega, d.porcentaje_descuento,fecha
+	select nro_factura, CONVERT(VARCHAR, fecha, 108)'Hora',CONVERT(VARCHAR, fecha, 105)'Fecha', f.nombre + SPACE(1) + f.apellido'Nombre_Completo'
+	, e.nombre + SPACE(1) + e.apellido 'Nombre_CompletoUsuario', fc.forma_compra,fe.forma_entrega, d.porcentaje_descuento,fecha,loc.localidad,f.altura,f.piso,f.departamento,f.calle
 	from Factura f
 	left join Descuento d on f.id_descuento = d.id_descuento
-	join Cliente c on c.id_cliente = f.id_cliente
+	left join Cliente c on c.id_cliente = f.id_cliente
 	join Usuarios u on u.id_usuario = f.id_usuario
+	join Localidad loc on loc.id_localidad = f.id_localidad
 	join Empleado e on e.id_empleado = u.id_empleado
 	join forma_entrega fe on fe.id_forma_entrega = f.id_forma_entrega
 	join Forma_compra fc on fc.id_forma_compra = f.id_forma_compra
-
+	order by nro_factura desc
 go
 
 create or alter procedure SP_ObtenerDetalles(
@@ -734,6 +742,24 @@ create or alter procedure SP_GetClasificacion(
 	begin
 			select * from Clasificacion
 	end
+go
+
+create or alter procedure SP_GetLocalidad(
+	@a int
+)as
+	if(@a = 0)
+	begin
+		select * from localidad where baja_logica = 0
+	end
+	else if (@a = 1)
+	begin
+			select * from localidad where baja_logica = 1
+
+	end
+	else 
+	begin
+			select * from localidad
+	end
 
 go
 
@@ -761,6 +787,13 @@ create or alter procedure SP_AltaClasificacion(
 	@nombre varchar(50)
 )as
 	insert into Clasificacion values(@nombre,0)
+go
+
+
+create or alter procedure SP_AltaLocalidad(
+	@nombre varchar(50)
+)as
+	insert into Localidad values(@nombre,0)
 
 go
 
@@ -790,7 +823,17 @@ create or alter procedure SP_MODClasificacion(
 	set baja_logica = @baja_logica,
 		clasificacion = @nombre
 	where id_clasificacion = @id
+go
 
+create or alter procedure SP_ModLocalidad(
+	@id int,
+	@nombre  varchar(50),
+	@baja_logica int
+)as	
+	update localidad
+	set baja_logica = @baja_logica,
+		localidad = @nombre
+	where id_localidad = @id
 go
 
 create or alter procedure SP_MODUnidadMed(
@@ -915,7 +958,7 @@ go
 
 
 
-
+select * from Factura
 
 
 
@@ -926,8 +969,8 @@ go
 DBCC CHECKIDENT ('a', RESEED,0) 
 select * from Cliente
 
-alter table cliente
-alter column departamento varchar(50)
+alter table factura
+alter column id_cliente int
 
 
 

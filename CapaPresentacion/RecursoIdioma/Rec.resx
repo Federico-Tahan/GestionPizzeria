@@ -135,6 +135,12 @@
   <data name="AltaClasiSinExito" xml:space="preserve">
     <value>Alta de Clasificacion no se ha realizado con Exito.</value>
   </data>
+  <data name="AltaLocalidadExito" xml:space="preserve">
+    <value>La localidad se dio de Alta con Exito</value>
+  </data>
+  <data name="AltaLocalidadSinExito" xml:space="preserve">
+    <value>La localidad no se pudo dar de Alta con Exito</value>
+  </data>
   <data name="Altura" xml:space="preserve">
     <value>Altura</value>
   </data>
@@ -227,6 +233,9 @@
   </data>
   <data name="CodigoCliente" xml:space="preserve">
     <value>Codigo  Cliente</value>
+  </data>
+  <data name="codigoLocalidad" xml:space="preserve">
+    <value>Codigo Localidad</value>
   </data>
   <data name="CodigoProdutco" xml:space="preserve">
     <value>Nro Producto</value>
@@ -338,6 +347,9 @@
   </data>
   <data name="Jueves" xml:space="preserve">
     <value>Jueves</value>
+  </data>
+  <data name="localidad" xml:space="preserve">
+    <value>Localidad</value>
   </data>
   <data name="Lunes" xml:space="preserve">
     <value>Lunes</value>
@@ -492,6 +504,9 @@
   <data name="MessageRestauracionExito" xml:space="preserve">
     <value>Restauracion realizada con exito.</value>
   </data>
+  <data name="MessageSedebeCargarLoc" xml:space="preserve">
+    <value>Se debe cargar la localidad</value>
+  </data>
   <data name="MessageSocioDadoAlta" xml:space="preserve">
     <value>El Socio se ha dado de Alta con Exito.</value>
   </data>
@@ -611,6 +626,12 @@
   </data>
   <data name="ModClasiSinExti" xml:space="preserve">
     <value>Modificacion de Clasificacion no se ha realizado con Exito.</value>
+  </data>
+  <data name="ModLocalidadSinExito" xml:space="preserve">
+    <value>No se pudo Modificar la Localidad</value>
+  </data>
+  <data name="ModLocalildadExito" xml:space="preserve">
+    <value>Localidad Modificada con Exito</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>

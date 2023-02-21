@@ -3,6 +3,7 @@ using CapaDatos.Datos;
 using CapaDatos.Dominio;
 using CapaNegocio.Implementacion;
 using CapaNegocio.Interfaces;
+using CapaPresentacion.Formularios.Combos;
 using CapaPresentacion.RecursoIdioma;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
@@ -682,6 +683,10 @@ namespace CapaPresentacion.Formularios
             lbtipocliente.Text = Rec.TipodeCliente;
             lbdni.Text = Rec.DNI;
             lbEmail.Text = Rec.Email;
+            btnLocalidad.Text = Rec.localidad;
+            lbAltura.Text = Rec.Altura;
+            lbpiso.Text = Rec.Piso;
+            lbDepartamento.Text = Rec.Departamento;
 
 
 
@@ -726,6 +731,17 @@ namespace CapaPresentacion.Formularios
             lbpiso.Visible = !lbpiso.Visible;
             nupPiso.Visible = !lbpiso.Visible;
 
+        }
+
+        private void btnLocalidad_Click(object sender, EventArgs e)
+        {
+            FormLocalidad fm = new FormLocalidad(); 
+            fm.ShowDialog();
+            if (fm.DialogResult == DialogResult.OK)
+            {
+                cargar_cboLocalidad(cboloclaidad, "NLocalidad", "idLocalidad");
+
+            }
         }
     }
 }

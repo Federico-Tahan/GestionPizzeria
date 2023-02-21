@@ -193,32 +193,54 @@ namespace CapaDatos.Datos.Implementacion
             return td;
         }
 
-        public List<Cliente> TraerClientesCbo(int a)
+        public Cliente TraerClientesCbo(long a,Cliente rl)
         {
-            List<Cliente> td = new List<Cliente>();
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
-            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@socios", a);
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@dni", a);
             HelperDB.ObtenerInstancia().LeerDB("SP_TraerClientesCbo");
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
-
-            while (HelperDB.ObtenerInstancia().Dr.Read())
-            {
-                Cliente rl = new Cliente();
-
+            HelperDB.ObtenerInstancia().Dr.Read();
+                Localidad l = new Localidad();
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
                 {
                     rl.IdCliente = HelperDB.ObtenerInstancia().Dr.GetInt32(0);
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(1))
                 {
-                    rl.NombreCompleto = HelperDB.ObtenerInstancia().Dr.GetString(1);
+                    rl.Nombre = HelperDB.ObtenerInstancia().Dr.GetString(1);
                 }
-
-                td.Add(rl);
-            }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(2))
+                {
+                    rl.Apellido = HelperDB.ObtenerInstancia().Dr.GetString(2);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(3))
+                {
+                    l.idLocalidad = HelperDB.ObtenerInstancia().Dr.GetInt32(3);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(4))
+                {
+                    rl.Direccion = HelperDB.ObtenerInstancia().Dr.GetString(4);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(5))
+                {
+                    rl.Altura = HelperDB.ObtenerInstancia().Dr.GetInt32(5);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(6))
+                {
+                    rl.Piso = HelperDB.ObtenerInstancia().Dr.GetInt32(6);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(7))
+                {
+                    rl.Departamento = HelperDB.ObtenerInstancia().Dr.GetString(7);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(8))
+                {
+                    rl.socio.Baja_logica = HelperDB.ObtenerInstancia().Dr.GetInt32(8);
+                }
+            rl.locali = l;
             HelperDB.ObtenerInstancia().close();
 
-            return td;
+            return rl;
         }
 
         public List<Tipo_Cliente> TraerTipoClientes()

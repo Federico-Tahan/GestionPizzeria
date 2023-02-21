@@ -29,8 +29,13 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_forma_entrega", f.FormaEntrega.IdFormaEntrega);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@tienedescuento", f.tieneDescuento);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario_admin", u.ID_Usuario);
-
-
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", f.cliente.Nombre);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@apellido", f.cliente.Apellido);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_localidad", f.cliente.locali.idLocalidad);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@calle", f.cliente.Direccion);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@altura", f.cliente.Altura);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@piso", f.cliente.Piso);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@departamento", f.cliente.Departamento);
 
                 SqlParameter pOut = new SqlParameter();
                 pOut.ParameterName = "@IDFACTURA";
@@ -208,6 +213,7 @@ namespace CapaDatos.Datos.Implementacion
                 FormaCompra fc = new FormaCompra();
                 FormaEntrega fe = new FormaEntrega();
                 Descuento d = new Descuento();
+                Localidad loc = new Localidad();
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
                 {
                     f.IdFactura = HelperDB.ObtenerInstancia().Dr.GetInt32(0);
@@ -236,10 +242,31 @@ namespace CapaDatos.Datos.Implementacion
                 {
                     f.Fecha= HelperDB.ObtenerInstancia().Dr.GetDateTime(8);
                 }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(9))
+                {
+                    loc.NLocalidad = HelperDB.ObtenerInstancia().Dr.GetString(9);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(10))
+                {
+                    c.Altura= HelperDB.ObtenerInstancia().Dr.GetInt32(10);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(11))
+                {
+                   c.Piso= HelperDB.ObtenerInstancia().Dr.GetInt32(11);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(12))
+                {
+                    c.Departamento = HelperDB.ObtenerInstancia().Dr.GetString(12);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(13))
+                {
+                    c.Direccion= HelperDB.ObtenerInstancia().Dr.GetString(13);
+                }
                 f.descuento = d;
                 f.FormaEntrega = fe;
                 f.Forma_Compra = fc;
                 f.cliente = c;
+                f.cliente.locali = loc;
                 u.Empleado = e;
                 f.Usuario = u;
                 lfactura.Add(f);

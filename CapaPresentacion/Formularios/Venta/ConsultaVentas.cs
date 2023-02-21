@@ -78,6 +78,11 @@ namespace CapaPresentacion.Formularios.Venta
                 CargarFactura(Convert.ToInt32(dgvProd.CurrentRow.Cells[0].Value));
                 facturaselected.DetalleFacturas = lg.TraerDetalles(facturaselected.IdFactura);
                 cargarDgvDet();
+                lbAltura.Text = facturaselected.cliente.Altura.ToString();
+                lbPiso.Text = facturaselected.cliente.Piso.ToString();
+                lbCalle.Text = facturaselected.cliente.Direccion;
+                lbLocalidad.Text = facturaselected.cliente.locali.NLocalidad;
+                lbDepartamento.Text = facturaselected.cliente.Departamento;
                 Det.Text = Rec.DetalleFacturaN +" " +facturaselected.IdFactura;
                 panel1.Visible = true;
 
@@ -209,6 +214,11 @@ namespace CapaPresentacion.Formularios.Venta
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-AR");
 
             }
+        }
+
+        private void BtnCancelarVenta_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

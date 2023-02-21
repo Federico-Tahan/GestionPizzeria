@@ -18,7 +18,7 @@ namespace CapaDatos.Datos.Interfaces
         List<FormaEntrega> TipoEntregas();
         List<Localidad> Localidades();
 
-        List<Cliente> TraerClientesCbo(int a);
+        Cliente TraerClientesCbo(long a, Cliente rl);
 
     }
 }

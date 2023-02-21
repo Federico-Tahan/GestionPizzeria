@@ -162,18 +162,26 @@ Create table Factura
 (
 nro_factura int identity(1,1) not null,
 fecha datetime not null,
-id_cliente int not null,
+id_cliente int,
 id_usuario int not null,
 id_forma_compra int not null,
 id_forma_entrega int  not null,
 id_descuento int,
-baja_logica int 
+baja_logica int,
+nombre varchar(50),
+apellido varchar(50),
+id_localidad int,
+calle varchar(500),
+altura int,
+piso int,
+departamento varchar(50),
 Constraint pk_id_nro_factura primary key (nro_factura),
 constraint fk_id_cliente foreign key (id_cliente) references cliente,
 constraint fk_id_usuarios foreign key (id_usuario) references usuarios,
 constraint fk_id_forma_compra foreign key (id_forma_compra) references forma_compra,
 constraint fk_id_forma_entrega foreign key (id_forma_entrega) references forma_entrega,
-constraint fk_id_descuento foreign key (id_descuento) references Descuento
+constraint fk_id_descuento foreign key (id_descuento) references Descuento,
+constraint fk_id_localidadd foreign key(id_localidad) references Localidad(id_localidad)
 )go
 
 Create table detalle_factura(

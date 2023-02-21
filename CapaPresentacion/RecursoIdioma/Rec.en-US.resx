@@ -135,6 +135,12 @@
   <data name="AltaClasiSinExito" xml:space="preserve">
     <value>Registration of Classification has not been carried out successfully.</value>
   </data>
+  <data name="AltaLocalidadExito" xml:space="preserve">
+    <value>The City was successfully registered</value>
+  </data>
+  <data name="AltaLocalidadSinExito" xml:space="preserve">
+    <value>The City could not be successfully registered</value>
+  </data>
   <data name="Altura" xml:space="preserve">
     <value>Number</value>
   </data>
@@ -227,6 +233,9 @@
   </data>
   <data name="CodigoCliente" xml:space="preserve">
     <value>Client Code</value>
+  </data>
+  <data name="codigoLocalidad" xml:space="preserve">
+    <value>City Code</value>
   </data>
   <data name="CodigoProdutco" xml:space="preserve">
     <value>Product number</value>
@@ -338,6 +347,9 @@
   </data>
   <data name="Jueves" xml:space="preserve">
     <value>Thursday</value>
+  </data>
+  <data name="localidad" xml:space="preserve">
+    <value>City</value>
   </data>
   <data name="Lunes" xml:space="preserve">
     <value>Monday</value>
@@ -492,6 +504,9 @@
   <data name="MessageRestauracionExito" xml:space="preserve">
     <value>Restoration carried out successfully.</value>
   </data>
+  <data name="MessageSedebeCargarLoc" xml:space="preserve">
+    <value>City must be loaded</value>
+  </data>
   <data name="MessageSocioDadoAlta" xml:space="preserve">
     <value>El Socio has been successfully registered.</value>
   </data>
@@ -611,6 +626,12 @@
   </data>
   <data name="ModClasiSinExti" xml:space="preserve">
     <value>Classification Modification has not been performed successfully.</value>
+  </data>
+  <data name="ModLocalidadSinExito" xml:space="preserve">
+    <value>Failed to Modify City</value>
+  </data>
+  <data name="ModLocalildadExito" xml:space="preserve">
+    <value>Successfully Modified City</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>

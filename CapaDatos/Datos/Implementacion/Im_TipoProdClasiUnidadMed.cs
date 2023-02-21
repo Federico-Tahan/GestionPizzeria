@@ -26,6 +26,22 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
+        public bool AltaLocalidad(Localidad md)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", md.NLocalidad);
+                HelperDB.ObtenerInstancia().updatear_db("SP_AltaLocalidad");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         public bool AltaTipoProducto(TipoProducto tp)
         {
             try
@@ -77,6 +93,36 @@ namespace CapaDatos.Datos.Implementacion
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(1))
                 {
                     c.clasificacion = HelperDB.ObtenerInstancia().Dr.GetString(1);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(2))
+                {
+                    c.BajaLogica = HelperDB.ObtenerInstancia().Dr.GetInt32(2);
+                }
+                lclasificacion.Add(c);
+            }
+            HelperDB.ObtenerInstancia().close();
+            return lclasificacion;
+        }
+
+        public List<Localidad> GetLocalidad(int a)
+        {
+            List<Localidad> lclasificacion = new List<Localidad>();
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@a", a);
+            HelperDB.ObtenerInstancia().LeerDB("SP_GetLocalidad");
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+
+            while (HelperDB.ObtenerInstancia().Dr.Read())
+            {
+
+                Localidad c = new Localidad();
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
+                {
+                    c.idLocalidad = HelperDB.ObtenerInstancia().Dr.GetInt32(0);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(1))
+                {
+                    c.NLocalidad = HelperDB.ObtenerInstancia().Dr.GetString(1);
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(2))
                 {
@@ -193,6 +239,24 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", md.Unidad_Medida);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", md.Baja_Logica);
                 HelperDB.ObtenerInstancia().updatear_db("SP_MODUnidadMed");
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool ModLocalidad(Localidad md)
+        {
+            try
+            {
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id", md.idLocalidad);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", md.NLocalidad);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", md.BajaLogica);
+                HelperDB.ObtenerInstancia().updatear_db("SP_ModLocalidad");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
             }

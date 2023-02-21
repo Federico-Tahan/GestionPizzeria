@@ -323,5 +323,10 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             dgvClasi.Columns[3].HeaderText = Rec.Accion;
 
         }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
