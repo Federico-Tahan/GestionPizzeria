@@ -44,7 +44,7 @@
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accion = new System.Windows.Forms.DataGridViewImageColumn();
+            this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlCrud = new System.Windows.Forms.Panel();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.lbNroProd = new System.Windows.Forms.Label();
@@ -203,6 +203,7 @@
             this.dgvProd.RowTemplate.Height = 25;
             this.dgvProd.Size = new System.Drawing.Size(932, 383);
             this.dgvProd.TabIndex = 20;
+            this.dgvProd.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProd_CellFormatting);
             this.dgvProd.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Click_Detalle);
             // 
             // IdProducto
@@ -274,6 +275,7 @@
             this.accion.ReadOnly = true;
             this.accion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.accion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.accion.Text = "Detalle";
             this.accion.Width = 60;
             // 
             // pnlCrud
@@ -785,6 +787,6 @@
         private DataGridViewTextBoxColumn Stock;
         private DataGridViewTextBoxColumn monto;
         private DataGridViewTextBoxColumn Activo;
-        private DataGridViewImageColumn accion;
+        private DataGridViewButtonColumn accion;
     }
 }

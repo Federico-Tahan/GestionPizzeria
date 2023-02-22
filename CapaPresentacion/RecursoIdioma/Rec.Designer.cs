@@ -187,6 +187,33 @@ namespace CapaPresentacion.RecursoIdioma {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancelar Venta.
+        /// </summary>
+        internal static string BtnCancelarVenta {
+            get {
+                return ResourceManager.GetString("BtnCancelarVenta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelar Modificacion.
+        /// </summary>
+        internal static string BtnCancelModificar {
+            get {
+                return ResourceManager.GetString("BtnCancelModificar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cerrar Confirmacion de venta.
+        /// </summary>
+        internal static string BtnCerrarConfirmacionVenta {
+            get {
+                return ResourceManager.GetString("BtnCerrarConfirmacionVenta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cliente.
         /// </summary>
         internal static string BtnCliente {
@@ -219,6 +246,15 @@ namespace CapaPresentacion.RecursoIdioma {
         internal static string BtnGestion {
             get {
                 return ResourceManager.GetString("BtnGestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modificar Venta.
+        /// </summary>
+        internal static string BtnModificarVenta {
+            get {
+                return ResourceManager.GetString("BtnModificarVenta", resourceCulture);
             }
         }
         
@@ -286,11 +322,29 @@ namespace CapaPresentacion.RecursoIdioma {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancelada.
+        /// </summary>
+        internal static string cancelada {
+            get {
+                return ResourceManager.GetString("cancelada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancelar.
         /// </summary>
         internal static string Cancelar {
             get {
                 return ResourceManager.GetString("Cancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desea Cancelar la Venta?.
+        /// </summary>
+        internal static string CancelarVenta {
+            get {
+                return ResourceManager.GetString("CancelarVenta", resourceCulture);
             }
         }
         
@@ -651,6 +705,15 @@ namespace CapaPresentacion.RecursoIdioma {
         internal static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estado.
+        /// </summary>
+        internal static string Estado {
+            get {
+                return ResourceManager.GetString("Estado", resourceCulture);
             }
         }
         
@@ -1101,6 +1164,15 @@ namespace CapaPresentacion.RecursoIdioma {
         internal static string MessageModificacionTipoProdExtio {
             get {
                 return ResourceManager.GetString("MessageModificacionTipoProdExtio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modificada con exito.
+        /// </summary>
+        internal static string MessageModifyExito {
+            get {
+                return ResourceManager.GetString("MessageModifyExito", resourceCulture);
             }
         }
         
@@ -1983,6 +2055,15 @@ namespace CapaPresentacion.RecursoIdioma {
         internal static string Usuarios {
             get {
                 return ResourceManager.GetString("Usuarios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Venta Cancelada.
+        /// </summary>
+        internal static string VentaCancelada {
+            get {
+                return ResourceManager.GetString("VentaCancelada", resourceCulture);
             }
         }
         

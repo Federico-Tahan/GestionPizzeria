@@ -14,5 +14,7 @@ namespace CapaNegocio.Interfaces
         bool BuscarClienteSocioDni(Cliente c);
         List<Factura> TraerFactura();
         List<DetalleFactura> TraerDetalles(int a);
+        bool CancelarVenta(int i);
+        bool ModVenta(Factura f, Usuarios u);
     }
 }

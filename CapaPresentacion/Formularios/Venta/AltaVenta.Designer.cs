@@ -97,6 +97,7 @@
             this.dgvDetalle.Size = new System.Drawing.Size(932, 333);
             this.dgvDetalle.TabIndex = 21;
             this.dgvDetalle.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Boton_Quitar);
+            this.dgvDetalle.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDetalle_CellFormatting);
             // 
             // Codigo
             // 

@@ -19,6 +19,7 @@ namespace CapaPresentacion.Formularios.Venta
 {
     public partial class ConfirmacionVenta : Form
     {
+        int modo;
         bool tienedescuento = false;
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -48,7 +49,7 @@ namespace CapaPresentacion.Formularios.Venta
 
         private void Salir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Cerrar Confirmacion de venta", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(Rec.BtnCerrarConfirmacionVenta, Rec.CapCerrar, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
             }
@@ -109,6 +110,16 @@ namespace CapaPresentacion.Formularios.Venta
 
             config = lg.TraerConfig();
             lclientes = lc.TraerClientes();
+
+            if (fac.IdFactura == 0)
+            {
+                modo = 0;
+            }
+            else
+            {
+                CargarDatos();
+                modo = 1;
+            }
         }
 
         private void cargar_cboLocalidad(ComboBox cbo, string display, string value)
@@ -157,14 +168,29 @@ namespace CapaPresentacion.Formularios.Venta
                         fac.FormaEntrega.IdFormaEntrega = Convert.ToInt32(cbotipoentrega.SelectedValue);
                         fac.Usuario = LogIn.u;
                         fac.Forma_Compra.IdFormaCompra = Convert.ToInt32(cbotipocompra.SelectedValue);
-                        if (lg.AltaVenta(fac,LogIn.u))
+                        if (modo ==0)
                         {
-                            if (MessageBox.Show(Rec.MessageVentaConExito, "", MessageBoxButtons.OK) == DialogResult.OK)
+                            if (lg.AltaVenta(fac, LogIn.u))
                             {
-                                this.DialogResult = DialogResult.OK;
-                                this.Close();
+                                if (MessageBox.Show(Rec.MessageVentaConExito, "", MessageBoxButtons.OK) == DialogResult.OK)
+                                {
+                                    this.DialogResult = DialogResult.OK;
+                                    this.Close();
+                                }
                             }
                         }
+                        else
+                        {
+                            if (lg.ModVenta(fac, LogIn.u))
+                            {
+                                if (MessageBox.Show(Rec.MessageModifyExito, "", MessageBoxButtons.OK) == DialogResult.OK)
+                                {
+                                    this.DialogResult = DialogResult.OK;
+                                    this.Close();
+                                }
+                        }
+                    }
+                        
                     }
             }
         }
@@ -359,6 +385,36 @@ namespace CapaPresentacion.Formularios.Venta
             lbaltura.Text = Rec.Altura;
             lbpiso.Text = Rec.Piso;
             lbdepartamento.Text = Rec.Departamento;
+        }
+
+        private void CargarDatos()
+        {
+
+            cboLocalidad.SelectedValue = fac.Locali.idLocalidad;
+            if (fac.cliente.socio.DNI != 0)
+            {
+                cboTipoCliente.SelectedValue = 1;
+                txbDNI.Visible = true;
+                btnverificar.Visible = true;
+            }
+            else
+            {
+                cboTipoCliente.SelectedValue = 2;
+
+            }
+            cbotipocompra.SelectedValue = fac.Forma_Compra.IdFormaCompra;
+            cbotipoentrega.SelectedValue = fac.FormaEntrega.IdFormaEntrega;
+            txbNombre.Text = fac.cliente.Nombre;
+            txbApelldio.Text = fac.cliente.Apellido;
+            txbCalle.Text = fac.cliente.Direccion;
+            txbDNI.Text = fac.cliente.socio.DNI.ToString();
+            txDepto.Text = fac.cliente.Departamento;
+            nupAltura.Value = fac.cliente.Altura;
+            nupPiso.Value= fac.cliente.Piso;
+            txbTotal.Text = fac.Calcular_total().ToString();
+            txbDescuento.Text = fac.descuento.PorcentajeDescuento.ToString();
+            txbSubtotal.Text = fac.Calcular_Subtotal().ToString();
+
         }
     }
 }

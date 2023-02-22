@@ -80,6 +80,69 @@ namespace CapaDatos.Datos.Implementacion
             return bandera;
         }
 
+        public bool ModVenta(Factura f, Usuarios u)
+        {
+            bool bandera = false;
+            SqlConnection conn = HelperDB.ObtenerInstancia().conexion();
+            SqlTransaction tr = null;
+            try
+            {
+                CancelFacturaVenta(f.IdFactura);
+                HelperDB.ObtenerInstancia().open();
+                tr = conn.BeginTransaction();
+                HelperDB.ObtenerInstancia().Command.Transaction = tr;
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_factura", f.IdFactura);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_cliente", f.cliente.IdCliente);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", f.Usuario.ID_Usuario);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_forma_compra", f.Forma_Compra.IdFormaCompra);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_forma_entrega", f.FormaEntrega.IdFormaEntrega);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@tienedescuento", f.tieneDescuento);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario_admin", u.ID_Usuario);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", f.cliente.Nombre);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@apellido", f.cliente.Apellido);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_localidad", f.cliente.locali.idLocalidad);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@calle", f.cliente.Direccion);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@altura", f.cliente.Altura);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@piso", f.cliente.Piso);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@departamento", f.cliente.Departamento);
+                HelperDB.ObtenerInstancia().Command.CommandText = "SP_ModVenta";
+                HelperDB.ObtenerInstancia().Command.ExecuteNonQuery();
+
+                HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+
+                for (int i = 0; i < f.DetalleFacturas.Count; i++)
+                {
+                    HelperDB.ObtenerInstancia().Command.Transaction = tr;
+
+                    HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_nrofactura", f.IdFactura);
+                    HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_producto", f.DetalleFacturas[i].Prod.Id_producto);
+                    HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@cantidad", f.DetalleFacturas[i].Cantidad);
+                    HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@importe", f.DetalleFacturas[i].Precio);
+                    HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@descripcion", f.DetalleFacturas[i].Descripcion);
+
+                    HelperDB.ObtenerInstancia().Command.CommandText = "SP_DetalleVenta";
+                    HelperDB.ObtenerInstancia().Command.ExecuteNonQuery();
+                    HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+                }
+                tr.Commit();
+                bandera = true;
+            }
+            catch (Exception)
+            {
+                tr.Rollback();
+                bandera = false;
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    HelperDB.ObtenerInstancia().close();
+                }
+            }
+            return bandera;
+        }
+
         public bool BuscarClienteSocioDni(Cliente c)
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -97,6 +160,22 @@ namespace CapaDatos.Datos.Implementacion
             return false;
         }
 
+        public bool CancelFactura(int i)
+        {
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_fac", i);
+            HelperDB.ObtenerInstancia().updatear_db("SP_CancelarVenta");
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            return true;
+        }
+        public bool CancelFacturaVenta(int i)
+        {
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_fac", i);
+            HelperDB.ObtenerInstancia().updatear_db("SP_CancelarVentaMod");
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            return true;
+        }
         public Configuracion TraerConfig()
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -209,6 +288,7 @@ namespace CapaDatos.Datos.Implementacion
                 Factura f = new Factura();
                 Cliente c = new Cliente();
                 Usuarios u = new Usuarios();
+                Socio s = new Socio();
                 Empleado e = new Empleado();
                 FormaCompra fc = new FormaCompra();
                 FormaEntrega fe = new FormaEntrega();
@@ -221,6 +301,9 @@ namespace CapaDatos.Datos.Implementacion
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(3))
                 {
                     c.NombreCompleto = HelperDB.ObtenerInstancia().Dr.GetString(3);
+                    c.Nombre = HelperDB.ObtenerInstancia().Dr.GetString(16);
+                    c.Apellido = HelperDB.ObtenerInstancia().Dr.GetString(17);
+
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(4))
                 {
@@ -229,10 +312,13 @@ namespace CapaDatos.Datos.Implementacion
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(5))
                 {
                     fc.Forma_Compra = HelperDB.ObtenerInstancia().Dr.GetString(5);
+                    fc.IdFormaCompra = HelperDB.ObtenerInstancia().Dr.GetInt32(19);
+
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(6))
                 {
                     fe.Forma_Entrega = HelperDB.ObtenerInstancia().Dr.GetString(6);
+                    fe.IdFormaEntrega = HelperDB.ObtenerInstancia().Dr.GetInt32(18);
                 }
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(7))
                 {
@@ -262,13 +348,27 @@ namespace CapaDatos.Datos.Implementacion
                 {
                     c.Direccion= HelperDB.ObtenerInstancia().Dr.GetString(13);
                 }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(14))
+                {
+                    f.BajaLogica = HelperDB.ObtenerInstancia().Dr.GetInt32(14);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(15))
+                {
+                    loc.idLocalidad = HelperDB.ObtenerInstancia().Dr.GetInt32(15);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(20))
+                {
+                   s.DNI  = HelperDB.ObtenerInstancia().Dr.GetInt64(20);
+                }
                 f.descuento = d;
                 f.FormaEntrega = fe;
                 f.Forma_Compra = fc;
                 f.cliente = c;
                 f.cliente.locali = loc;
                 u.Empleado = e;
+                f.Locali = loc;
                 f.Usuario = u;
+                f.cliente.socio = s;
                 lfactura.Add(f);
             }
             HelperDB.ObtenerInstancia().close();

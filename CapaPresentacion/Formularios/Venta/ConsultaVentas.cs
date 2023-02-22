@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ticket_o_factura;
 using CapaPresentacion.RecursoIdioma;
+using Microsoft.CodeAnalysis.Operations;
 
 namespace CapaPresentacion.Formularios.Venta
 {
@@ -24,7 +25,16 @@ namespace CapaPresentacion.Formularios.Venta
         List<Factura> lFacturas = new List<Factura>();
         Factura facturaselected = new Factura();
         Factura facturacarga = new Factura();
+        List<Producto> LproductosVenta = new List<Producto>();
+        List<Producto> LProductosCargados = new List<Producto>();
+        List<Producto> LCombinada = new List<Producto>();
+        Producto productoSelected = new Producto();
+        Factura f = new Factura();
+        DetalleFactura df = new DetalleFactura();
 
+
+
+        ing_CrudProductos lgprod = new ng_CrudProductos();
         public ConsultaVentas()
         {
             InitializeComponent();
@@ -53,7 +63,16 @@ namespace CapaPresentacion.Formularios.Venta
                 Descuento d = new Descuento();
                 d.PorcentajeDescuento = c.descuento.PorcentajeDescuento;
                 facturacarga.descuento = d;
-                dgvProd.Rows.Add(c.IdFactura,c.cliente.NombreCompleto,c.Fecha,c.Forma_Compra.Forma_Compra,c.Usuario.Empleado.NombreCompleto,c.descuento.PorcentajeDescuento,"$" + facturacarga.Calcular_total());
+                if (c.BajaLogica == 0)
+                {
+                    dgvProd.Rows.Add(c.IdFactura, c.cliente.NombreCompleto, c.Fecha.ToShortDateString(), c.Forma_Compra.Forma_Compra, c.Usuario.Empleado.NombreCompleto, c.descuento.PorcentajeDescuento, "$" + facturacarga.Calcular_total());
+
+                }
+                else
+                {
+                    dgvProd.Rows.Add(c.IdFactura, c.cliente.NombreCompleto, c.Fecha.ToShortDateString(), c.Forma_Compra.Forma_Compra, c.Usuario.Empleado.NombreCompleto, c.descuento.PorcentajeDescuento, "$" + facturacarga.Calcular_total(), Rec.cancelada);
+
+                }
 
 
             }
@@ -77,13 +96,26 @@ namespace CapaPresentacion.Formularios.Venta
             {
                 CargarFactura(Convert.ToInt32(dgvProd.CurrentRow.Cells[0].Value));
                 facturaselected.DetalleFacturas = lg.TraerDetalles(facturaselected.IdFactura);
+                f.DetalleFacturas = facturaselected.DetalleFacturas;
+
                 cargarDgvDet();
+                txbStock.Text = "";
                 lbAltura.Text = facturaselected.cliente.Altura.ToString();
                 lbPiso.Text = facturaselected.cliente.Piso.ToString();
                 lbCalle.Text = facturaselected.cliente.Direccion;
                 lbLocalidad.Text = facturaselected.cliente.locali.NLocalidad;
                 lbDepartamento.Text = facturaselected.cliente.Departamento;
                 Det.Text = Rec.DetalleFacturaN +" " +facturaselected.IdFactura;
+                if (facturaselected.BajaLogica == 0)
+                {
+                    BtnCancelarVenta.Visible = true;
+                    BtnMod.Visible = true;
+                }
+                else
+                {
+                    BtnCancelarVenta.Visible = false;
+                    BtnMod.Visible = false;
+                }
                 panel1.Visible = true;
 
             }
@@ -105,6 +137,48 @@ namespace CapaPresentacion.Formularios.Venta
                 Ticket.imprimir(Ticket);
 
             }
+        }
+        private void cargar_cboProductos(ComboBox cbo, string display, string value)
+        {
+            cbo.DataSource = LProductosCargados;
+            cbo.DisplayMember = display;
+            cbo.ValueMember = value;
+            cbo.SelectedIndex = -1;
+        }
+
+
+        private void CombinarListas()
+        {
+            LProductosCargados = new List<Producto>();
+            foreach (Producto item in LproductosVenta)
+            {
+                LProductosCargados.Add(item);
+            }
+            foreach (DetalleFactura item in facturaselected.DetalleFacturas)
+            {
+                bool encontrado = false;
+
+                foreach (Producto prodList in LproductosVenta)
+                {
+                    if (item.Prod.Id_producto == prodList.Id_producto)
+                    {
+                        prodList.Stock += item.Cantidad;
+                        encontrado = true;
+                        break;
+                    }
+                    else
+                    {
+                        encontrado = false;
+                    }
+                }
+                if(encontrado is false)
+                {
+                    item.Prod.Stock = item.Cantidad;
+                    LProductosCargados.Add(item.Prod);
+                }
+            }
+            cargar_cboProductos(cboProductos, "Nombre", "Id_producto");
+
         }
 
         private void CargarFactura(int c)
@@ -187,8 +261,10 @@ namespace CapaPresentacion.Formularios.Venta
             dgvProd.Columns[4].HeaderText = Rec.DGVNombreVendedor;
             dgvProd.Columns[5].HeaderText = Rec.Descuento;
             dgvProd.Columns[6].HeaderText = Rec.Total;
-            dgvProd.Columns[7].HeaderText = Rec.Ticket;
-            dgvProd.Columns[8].HeaderText = Rec.Accion;
+            dgvProd.Columns[7].HeaderText = Rec.Estado;
+
+            dgvProd.Columns[8].HeaderText = Rec.Ticket;
+            dgvProd.Columns[9].HeaderText = Rec.Accion;
             dgvDetalle.Columns[0].HeaderText = Rec.NroProd;
             dgvDetalle.Columns[1].HeaderText = Rec.Nombre;
             dgvDetalle.Columns[2].HeaderText = Rec.Detalle;
@@ -200,7 +276,33 @@ namespace CapaPresentacion.Formularios.Venta
             dgvDetalle.Columns[8].HeaderText = Rec.Importe;
             BtnVovler.Text = Rec.Volver;
             Det.Text = Rec.DetalleFacturaN;
+            lbloc.Text = Rec.localidad + ":";
+            lbCal.Text = Rec.Calle + ":";
+            lbalt.Text = Rec.Altura+":";
+            lbpis.Text = Rec.Piso + ":";
+            lbdpto.Text = Rec.Departamento + ":";
+            BtnCancelarVenta.Text = Rec.BtnCancelarVenta;
 
+            lvmodificarventa.Text = Rec.BtnModificarVenta;
+            lbproducto.Text = Rec.Producto;
+            lbcantidad.Text = Rec.Cantidad;
+            BtnAgregar.Text = Rec.BtnAgregar;
+            lbStock.Text = Rec.Stock;
+            lbSubTtoal.Text = Rec.Subtotal;
+            BtnSig.Text = Rec.Siguiente;
+            lbDetalle.Text = Rec.Detalle;
+            dgvdet.Columns[0].HeaderText = Rec.NroProd;
+            dgvdet.Columns[1].HeaderText = Rec.Nombre;
+            dgvdet.Columns[2].HeaderText = Rec.Detalle;
+            dgvdet.Columns[3].HeaderText = Rec.TipoProducto;
+            dgvdet.Columns[4].HeaderText = Rec.UnidadMedida;
+            dgvdet.Columns[5].HeaderText = Rec.Clasificacion;
+            dgvdet.Columns[6].HeaderText = Rec.Cantidad;
+            dgvdet.Columns[7].HeaderText = Rec.Precio;
+            dgvdet.Columns[8].HeaderText = Rec.Total;
+            dgvdet.Columns[9].HeaderText = Rec.Accion;
+            BtnMod.Text = Rec.BtnModificarVenta;
+            BtnSig.Text = Rec.Siguiente;
         }
         private void DetectarIdioma()
         {
@@ -218,7 +320,282 @@ namespace CapaPresentacion.Formularios.Venta
 
         private void BtnCancelarVenta_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show(Rec.CancelarVenta,"",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (lg.CancelarVenta(facturaselected.IdFactura))
+                {
+                    MessageBox.Show(Rec.VentaCancelada);
+                    dgvDetalle.Rows.Clear();
+                    lFacturas = lg.TraerFactura();
+                    cargarDgv();
+                    panel1.Visible = false;
+                    facturaselected = new Factura();
+                }
+            }
+        }
 
+        private void dgvProd_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvProd.Columns[e.ColumnIndex].Name == "Accion")
+            {
+                // Obtener el valor de la celda
+                object value = e.Value;
+
+                if (SeleccionIdioma.i.IdIdioma == 2)
+                {
+                    // Comprobar el valor y establecer el texto del botón en consecuencia
+                    if (value != null && value.ToString() == "accion")
+                    {
+                        e.Value = "Details";
+                    }
+                    else
+                    {
+                        e.Value = "Details";
+                    }
+                }
+
+            }
+
+            if (dgvProd.Columns[e.ColumnIndex].Name == "Ticket")
+            {
+                // Obtener el valor de la celda
+                object value = e.Value;
+
+                if (SeleccionIdioma.i.IdIdioma == 2)
+                {
+                    // Comprobar el valor y establecer el texto del botón en consecuencia
+                    if (value != null && value.ToString() == "Ticket")
+                    {
+                        e.Value = "Print";
+                    }
+                    else
+                    {
+                        e.Value = "Print";
+                    }
+                }
+
+            }
+        }
+
+        private void BtnMod_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = true;
+            panel1.Visible = false;
+            facturaselected.DetalleFacturas = lg.TraerDetalles(facturaselected.IdFactura);
+            f.DetalleFacturas = facturaselected.DetalleFacturas;
+            LproductosVenta = lgprod.GetProductos(3);
+            CombinarListas();
+            CargarDgvVenta();
+            txbStock.Text = "";
+            txbTotal.Text = f.Calcular_Subtotal().ToString();
+
+
+
+
+        }
+
+        private void cboProductos_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboProductos.SelectedIndex != -1)
+                {
+                    CargarProductoSelected(Convert.ToInt32(cboProductos.SelectedValue));
+                    txbStock.Text = productoSelected.Stock.ToString();
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        private void cboProductos_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cboProductos.SelectedIndex != -1)
+            {
+                CargarProductoSelected(Convert.ToInt32(cboProductos.SelectedValue));
+                txbStock.Text = productoSelected.Stock.ToString();
+            }
+        }
+
+        private void CargarProductoSelected(int id)
+        {
+            productoSelected = new Producto();
+            foreach (Producto u in LProductosCargados)
+            {
+                if (u.Id_producto == id)
+                {
+                    productoSelected = u;
+                    break;
+                }
+            }
+        }
+
+        private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            if (validacionStock())
+            {
+                if (!f.buscar(productoSelected.Id_producto))
+                {
+                    AbstraerDetalle();
+                    f.DetalleFacturas.Add(df);
+                    CargarDgvVenta();
+                    txbTotal.Text = f.Calcular_Subtotal().ToString();
+                    productoSelected = new Producto();
+                    cboProductos.SelectedIndex = -1;
+                    numpCantidad.Value = 0;
+                    txbStock.Text = "";
+                    txbDetalle.Text = "";
+
+                }
+                else
+                {
+                    MessageBox.Show(Rec.MessageElprodYaesta);
+                }
+            }
+        }
+
+        private void CargarDgvVenta()
+        {
+            dgvdet.Rows.Clear();
+
+            foreach (DetalleFactura com in f.DetalleFacturas)
+            {
+                dgvdet.Rows.Add(com.Prod.Id_producto, com.Prod.Nombre, com.Descripcion, com.Prod.Tipo_producto.Tipo_producto,
+                    com.Prod.Unidadmedida.Unidad_Medida, com.Prod.clasificacion.clasificacion, com.Cantidad, "$ " + com.Precio,
+                    "$ " + com.Cantidad * com.Precio);
+            }
+        }
+
+        private bool validacionStock()
+        {
+            if (Convert.ToInt32(numpCantidad.Value) > productoSelected.Stock)
+            {
+                MessageBox.Show(Rec.MessageNohaySuficienteStock);
+                return false;
+            }
+            else if (Convert.ToInt32(numpCantidad.Value) == 0)
+            {
+                MessageBox.Show(Rec.MessageAgregaralemnosun);
+                return false;
+            }
+            return true;
+        }
+
+        private void AbstraerDetalle()
+        {
+            df = new DetalleFactura();
+            df.Descripcion = txbDetalle.Text;
+            df.Prod = productoSelected;
+            df.Precio = productoSelected.Precio;
+            df.Cantidad = Convert.ToInt32(numpCantidad.Value);
+
+        }
+
+        private void dgvdet_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            df = new DetalleFactura();
+            if (dgvdet.Columns[e.ColumnIndex].Name == "action")
+            {
+                CargarDetalleSelected(Convert.ToInt32(dgvdet.CurrentRow.Cells[0].Value));
+                f.remover(df);
+                dgvdet.Rows.Remove(dgvdet.CurrentRow);
+                txbTotal.Text = f.Calcular_Subtotal().ToString();
+                df = new DetalleFactura();
+            }
+        }
+        private void CargarDetalleSelected(int id)
+        {
+            df = new DetalleFactura();
+            foreach (DetalleFactura u in f.DetalleFacturas)
+            {
+                if (u.Prod.Id_producto == id)
+                {
+                    df = u;
+                    break;
+                }
+            }
+        }
+
+        private void BtnSig_Click(object sender, EventArgs e)
+        {
+            if (f.DetalleFacturas.Count != 0)
+            {
+                f.IdFactura = facturaselected.IdFactura;
+                f.Fecha= facturaselected.Fecha;
+                f.Usuario = facturaselected.Usuario;
+                f.cliente = facturaselected.cliente;
+                f.FormaEntrega = facturaselected.FormaEntrega;
+                f.Forma_Compra = facturaselected.Forma_Compra;
+                f.descuento = facturaselected.descuento;
+                f.Locali = facturaselected.Locali;
+                ConfirmacionVenta form = new ConfirmacionVenta(f);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    f = new Factura();
+                    productoSelected = new Producto();
+                    df = new DetalleFactura();
+                    LproductosVenta = new List<Producto>();
+                    LProductosCargados = new List<Producto>();
+                    LCombinada = new List<Producto>();
+                    dgvProd.Rows.Clear();
+                    f.DetalleFacturas.Clear();
+                    dgvDetalle.Rows.Clear();
+                    numpCantidad.Value = 0;
+                    txbDetalle.Text = "";
+                    LproductosVenta = lgprod.GetProductos(3);
+                    CombinarListas();
+                    cargar_cboProductos(cboProductos, "Nombre", "Id_producto");
+                    cboProductos.SelectedIndex = -1;
+                    txbStock.Text = "";
+                    txbTotal.Text = "";
+                    panel1.Visible = false;
+                    panel3.Visible = false;
+                    lFacturas = lg.TraerFactura();
+                    cargarDgv();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show(Rec.MessageCargaralmenosunprod);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
+            LproductosVenta = new List<Producto>();
+            LProductosCargados = new List<Producto>();
+            LCombinada = new List<Producto>();
+            productoSelected = new Producto();
+            f = new Factura();
+            df = new DetalleFactura();
+            txbTotal.Text = "";
+            txbStock.Text = "";
+            panel1.Visible = true;
+
+        }
+
+        private void dgvdet_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvdet.Columns[e.ColumnIndex].Name == "action")
+            {
+                // Obtener el valor de la celda
+                object value = e.Value;
+
+                if (SeleccionIdioma.i.IdIdioma == 2)
+                {
+                    // Comprobar el valor y establecer el texto del botón en consecuencia
+                    if (value != null && value.ToString() == "action")
+                    {
+                        e.Value = "Remove";
+                    }
+                    else
+                    {
+                        e.Value = "Remove";
+                    }
+                }
+
+            }
         }
     }
 }

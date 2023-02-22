@@ -518,6 +518,8 @@ namespace CapaPresentacion.Formularios
             dgvProd.Columns[6].HeaderText = Rec.Stock;
             dgvProd.Columns[7].HeaderText = Rec.Precio;
             dgvProd.Columns[8].HeaderText = Rec.Activo;
+            dgvProd.Columns[9].HeaderText = Rec.Detalle;
+
         }
 
         private void DetectarIdioma()
@@ -545,6 +547,29 @@ namespace CapaPresentacion.Formularios
             {
                 lbPrecio.Visible = false;
                 numpPrecio.Visible = false;
+            }
+        }
+
+        private void dgvProd_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvProd.Columns[e.ColumnIndex].Name == "accion")
+            {
+                // Obtener el valor de la celda
+                object value = e.Value;
+
+                if (SeleccionIdioma.i.IdIdioma == 2)
+                {
+                    // Comprobar el valor y establecer el texto del botón en consecuencia
+                    if (value != null && value.ToString() == "accion")
+                    {
+                        e.Value = "Details";
+                    }
+                    else
+                    {
+                        e.Value = "Details";
+                    }
+                }
+
             }
         }
     }

@@ -647,7 +647,7 @@
             this.lbfecha.AutoSize = true;
             this.lbfecha.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbfecha.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbfecha.Location = new System.Drawing.Point(111, 342);
+            this.lbfecha.Location = new System.Drawing.Point(45, 346);
             this.lbfecha.Name = "lbfecha";
             this.lbfecha.Size = new System.Drawing.Size(208, 58);
             this.lbfecha.TabIndex = 8;
@@ -658,7 +658,7 @@
             this.lbHora.AutoSize = true;
             this.lbHora.Font = new System.Drawing.Font("Century Gothic", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbHora.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbHora.Location = new System.Drawing.Point(158, 227);
+            this.lbHora.Location = new System.Drawing.Point(92, 231);
             this.lbHora.Name = "lbHora";
             this.lbHora.Size = new System.Drawing.Size(358, 115);
             this.lbHora.TabIndex = 7;

@@ -16,7 +16,9 @@ namespace CapaDatos.Dominio
         public FormaEntrega FormaEntrega { get; set; }
         public Descuento descuento { get; set; }
         public int tieneDescuento { get; set; }
+        public Localidad Locali { get; set; }
         public List<DetalleFactura> DetalleFacturas = new List<DetalleFactura>();
+        public int BajaLogica { get; set; }
 
         public bool buscar(int value)
         {

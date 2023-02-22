@@ -159,6 +159,15 @@
   <data name="BtnCambiarIdioma" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="BtnCancelarVenta" xml:space="preserve">
+    <value>Cancel Sale</value>
+  </data>
+  <data name="BtnCancelModificar" xml:space="preserve">
+    <value>Cancel Modification</value>
+  </data>
+  <data name="BtnCerrarConfirmacionVenta" xml:space="preserve">
+    <value>Close Confirmation of sale</value>
+  </data>
   <data name="BtnCliente" xml:space="preserve">
     <value>Client</value>
   </data>
@@ -170,6 +179,9 @@
   </data>
   <data name="BtnGestion" xml:space="preserve">
     <value>Management</value>
+  </data>
+  <data name="BtnModificarVenta" xml:space="preserve">
+    <value>Modify Sale</value>
   </data>
   <data name="BtnProducto" xml:space="preserve">
     <value>Products</value>
@@ -192,8 +204,14 @@
   <data name="Calle" xml:space="preserve">
     <value>Address</value>
   </data>
+  <data name="cancelada" xml:space="preserve">
+    <value>cancelled</value>
+  </data>
   <data name="Cancelar" xml:space="preserve">
     <value>Cancel</value>
+  </data>
+  <data name="CancelarVenta" xml:space="preserve">
+    <value>Do you want to cancel the sale?</value>
   </data>
   <data name="Cantidad" xml:space="preserve">
     <value>Quantity</value>
@@ -271,7 +289,7 @@
     <value>Password</value>
   </data>
   <data name="Departamento" xml:space="preserve">
-    <value>department</value>
+    <value>Department</value>
   </data>
   <data name="Descripcion" xml:space="preserve">
     <value>Description</value>
@@ -314,6 +332,9 @@
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="Estado" xml:space="preserve">
+    <value>State</value>
   </data>
   <data name="Fecha" xml:space="preserve">
     <value>Date</value>
@@ -464,6 +485,9 @@
   </data>
   <data name="MessageModificacionTipoProdExtio" xml:space="preserve">
     <value>Successful modification of the product type.</value>
+  </data>
+  <data name="MessageModifyExito" xml:space="preserve">
+    <value>Modified successfully</value>
   </data>
   <data name="MessageModTIpoProdNoExITO" xml:space="preserve">
     <value>The modification of the product type has not been carried out correctly.</value>
@@ -664,7 +688,7 @@
     <value>Obtaining the Benefit</value>
   </data>
   <data name="Piso" xml:space="preserve">
-    <value>floor</value>
+    <value>Floor</value>
   </data>
   <data name="Precio" xml:space="preserve">
     <value>Price</value>
@@ -726,6 +750,9 @@
   <data name="String" xml:space="preserve">
     <value>The modification of the unit of measurement has not been carried out correctly.</value>
   </data>
+  <data name="stringa" xml:space="preserve">
+    <value />
+  </data>
   <data name="Subtotal" xml:space="preserve">
     <value>SubTotal</value>
   </data>
@@ -761,6 +788,9 @@
   </data>
   <data name="Usuarios" xml:space="preserve">
     <value>Users</value>
+  </data>
+  <data name="VentaCancelada" xml:space="preserve">
+    <value>Sale canceled</value>
   </data>
   <data name="VentaDiaria" xml:space="preserve">
     <value>Sales of the Day</value>

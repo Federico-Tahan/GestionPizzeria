@@ -15,5 +15,7 @@ namespace CapaDatos.Datos.Interfaces
 
         List<DetalleFactura> TraerDetalles(int a);
         List<Factura> TraerFactura();
+        bool CancelFactura(int i);
+        bool ModVenta(Factura f, Usuarios u);
     }
 }

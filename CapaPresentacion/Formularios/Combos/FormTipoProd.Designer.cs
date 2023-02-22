@@ -117,6 +117,7 @@
             this.dgvTipoProd.Size = new System.Drawing.Size(555, 292);
             this.dgvTipoProd.TabIndex = 25;
             this.dgvTipoProd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipoProd_CellContentClick);
+            this.dgvTipoProd.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTipoProd_CellFormatting);
             // 
             // CodigoTipoProd
             // 

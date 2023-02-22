@@ -14,11 +14,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaPresentacion.RecursoIdioma;
+using System.Globalization;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace CapaPresentacion
 {
     public partial class LogIn : Form
     {
+
         ing_CrudUsuarios log = new ng_CrudUsuarios();
         int cont = 0;
         private ing_Logeo lg = new ng_Logeo();
@@ -48,6 +51,8 @@ namespace CapaPresentacion
 
         private void Salir_Click(object sender, EventArgs e)
         {
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+
             if (MessageBox.Show(Rec.MessageCerrarPrograma, Rec.CapCerrar, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Program.select.Close();
@@ -106,9 +111,11 @@ namespace CapaPresentacion
             if (txbUsuario.Text == "")
             {
                 MessageBox.Show(Rec.MessageCargarUsuario, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return false;
             }else if (txbContraseña.Text == "")
             {
+
                 MessageBox.Show(Rec.MessageCargarContraseña, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
 
@@ -194,12 +201,20 @@ namespace CapaPresentacion
             {
                 picLogo.Image = Properties.Resources.LogPizzaUs;
 
+
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+                CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+
+                CultureInfo.CurrentCulture = new CultureInfo("en-US");
+
             }
             else
             {
                 picLogo.Image = Properties.Resources.LogoLogin;
-                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("");
+
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-AR");
+                CultureInfo.CurrentCulture = new CultureInfo("es-ES");
+
 
             }
         }
@@ -208,6 +223,7 @@ namespace CapaPresentacion
         {
             this.Close();
             Program.select.Show();
+
         }
     }
 }

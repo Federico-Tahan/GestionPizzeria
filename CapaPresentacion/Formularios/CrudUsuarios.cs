@@ -676,8 +676,8 @@ namespace CapaPresentacion.Formularios
             dgvUsuarios.Columns[4].HeaderText = Rec.Rol;
             dgvUsuarios.Columns[5].HeaderText = Rec.FechaAlta;
             dgvUsuarios.Columns[6].HeaderText = Rec.FechaBaja;
-            dgvUsuarios.Columns[7].ToolTipText = Rec.Activo;
-            dgvUsuarios.Columns[8].ToolTipText = Rec.Detalle;
+            dgvUsuarios.Columns[7].HeaderText = Rec.Activo;
+            dgvUsuarios.Columns[8].HeaderText = Rec.Detalle;
 
 
         }
@@ -691,6 +691,29 @@ namespace CapaPresentacion.Formularios
             else
             {
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-AR");
+
+            }
+        }
+
+        private void dgvUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvUsuarios.Columns[e.ColumnIndex].Name == "accion")
+            {
+                // Obtener el valor de la celda
+                object value = e.Value;
+
+                if (SeleccionIdioma.i.IdIdioma == 2)
+                {
+                    // Comprobar el valor y establecer el texto del botón en consecuencia
+                    if (value != null && value.ToString() == "accion")
+                    {
+                        e.Value = "Details";
+                    }
+                    else
+                    {
+                        e.Value = "Details";
+                    }
+                }
 
             }
         }

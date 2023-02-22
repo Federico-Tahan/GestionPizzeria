@@ -60,6 +60,15 @@
             this.picLimpiar = new System.Windows.Forms.PictureBox();
             this.picBajar = new System.Windows.Forms.PictureBox();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.codigoUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaAlta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaBaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
@@ -75,15 +84,6 @@
             this.RbtAlias = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picreset = new System.Windows.Forms.PictureBox();
-            this.codigoUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Alias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaAlta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaBaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlCrud.SuspendLayout();
@@ -453,6 +453,68 @@
             this.dgvUsuarios.Size = new System.Drawing.Size(962, 406);
             this.dgvUsuarios.TabIndex = 24;
             this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_Detalle);
+            this.dgvUsuarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvUsuarios_CellFormatting);
+            // 
+            // codigoUser
+            // 
+            this.codigoUser.HeaderText = "Código Usuario";
+            this.codigoUser.Name = "codigoUser";
+            this.codigoUser.ReadOnly = true;
+            this.codigoUser.Width = 90;
+            // 
+            // dni
+            // 
+            this.dni.HeaderText = "DNI";
+            this.dni.Name = "dni";
+            this.dni.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre Completo";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 210;
+            // 
+            // Alias
+            // 
+            this.Alias.HeaderText = "Alias";
+            this.Alias.Name = "Alias";
+            this.Alias.ReadOnly = true;
+            // 
+            // Rol
+            // 
+            this.Rol.HeaderText = "Rol";
+            this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
+            // 
+            // FechaAlta
+            // 
+            this.FechaAlta.HeaderText = "Fecha de Alta";
+            this.FechaAlta.Name = "FechaAlta";
+            this.FechaAlta.ReadOnly = true;
+            // 
+            // FechaBaja
+            // 
+            this.FechaBaja.HeaderText = "Fecha de Baja";
+            this.FechaBaja.Name = "FechaBaja";
+            this.FechaBaja.ReadOnly = true;
+            // 
+            // activo
+            // 
+            this.activo.HeaderText = "Activo";
+            this.activo.Name = "activo";
+            this.activo.ReadOnly = true;
+            this.activo.Width = 60;
+            // 
+            // accion
+            // 
+            this.accion.HeaderText = "Accion";
+            this.accion.Name = "accion";
+            this.accion.ReadOnly = true;
+            this.accion.Text = "Detalle";
+            this.accion.ToolTipText = "Detalle";
+            this.accion.UseColumnTextForButtonValue = true;
+            this.accion.Width = 99;
             // 
             // BtnGuardar
             // 
@@ -667,67 +729,6 @@
             this.picreset.TabIndex = 51;
             this.picreset.TabStop = false;
             this.picreset.Click += new System.EventHandler(this.picreset_Click);
-            // 
-            // codigoUser
-            // 
-            this.codigoUser.HeaderText = "Código Usuario";
-            this.codigoUser.Name = "codigoUser";
-            this.codigoUser.ReadOnly = true;
-            this.codigoUser.Width = 90;
-            // 
-            // dni
-            // 
-            this.dni.HeaderText = "DNI";
-            this.dni.Name = "dni";
-            this.dni.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre Completo";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 210;
-            // 
-            // Alias
-            // 
-            this.Alias.HeaderText = "Alias";
-            this.Alias.Name = "Alias";
-            this.Alias.ReadOnly = true;
-            // 
-            // Rol
-            // 
-            this.Rol.HeaderText = "Rol";
-            this.Rol.Name = "Rol";
-            this.Rol.ReadOnly = true;
-            // 
-            // FechaAlta
-            // 
-            this.FechaAlta.HeaderText = "Fecha de Alta";
-            this.FechaAlta.Name = "FechaAlta";
-            this.FechaAlta.ReadOnly = true;
-            // 
-            // FechaBaja
-            // 
-            this.FechaBaja.HeaderText = "Fecha de Baja";
-            this.FechaBaja.Name = "FechaBaja";
-            this.FechaBaja.ReadOnly = true;
-            // 
-            // activo
-            // 
-            this.activo.HeaderText = "Activo";
-            this.activo.Name = "activo";
-            this.activo.ReadOnly = true;
-            this.activo.Width = 60;
-            // 
-            // accion
-            // 
-            this.accion.HeaderText = "Accion";
-            this.accion.Name = "accion";
-            this.accion.ReadOnly = true;
-            this.accion.Text = "Detalle";
-            this.accion.ToolTipText = "Detalle";
-            this.accion.UseColumnTextForButtonValue = true;
-            this.accion.Width = 99;
             // 
             // CrudUsuarios
             // 

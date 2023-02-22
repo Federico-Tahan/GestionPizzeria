@@ -40,22 +40,30 @@
             this.Vendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ticket = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbVentas = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.lbDepartamento = new System.Windows.Forms.Label();
-            this.lbLocalidad = new System.Windows.Forms.Label();
+            this.lbdpto = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.lbAltura = new System.Windows.Forms.Label();
+            this.lbalt = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.lbPiso = new System.Windows.Forms.Label();
+            this.lbpis = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.lbCalle = new System.Windows.Forms.Label();
+            this.lbCal = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lbLocalidad = new System.Windows.Forms.Label();
+            this.lbloc = new System.Windows.Forms.Label();
+            this.BtnMod = new System.Windows.Forms.Button();
+            this.BtnCancelarVenta = new System.Windows.Forms.Button();
             this.BtnVovler = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Det = new System.Windows.Forms.Label();
@@ -70,12 +78,13 @@
             this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnCancelModificar = new System.Windows.Forms.Button();
             this.lbStock = new System.Windows.Forms.Label();
             this.txbStock = new System.Windows.Forms.TextBox();
             this.lbSubTtoal = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lbVender = new System.Windows.Forms.Label();
+            this.lvmodificarventa = new System.Windows.Forms.Label();
             this.BtnSig = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.lbDetalle = new System.Windows.Forms.Label();
@@ -85,7 +94,7 @@
             this.txbTotal = new System.Windows.Forms.TextBox();
             this.numpCantidad = new System.Windows.Forms.NumericUpDown();
             this.cboProductos = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvdet = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,23 +104,27 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.action = new System.Windows.Forms.DataGridViewButtonColumn();
             this.picreset = new System.Windows.Forms.PictureBox();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.txbbusqueda = new System.Windows.Forms.TextBox();
             this.RbtCodigo = new System.Windows.Forms.RadioButton();
-            this.BtnCancelarVenta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numpCantidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvdet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picreset)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,17 +151,19 @@
             this.Vendedor,
             this.Descuento,
             this.Total,
+            this.Estado,
             this.Ticket,
             this.Accion});
-            this.dgvProd.Location = new System.Drawing.Point(32, 162);
+            this.dgvProd.Location = new System.Drawing.Point(12, 163);
             this.dgvProd.Name = "dgvProd";
             this.dgvProd.ReadOnly = true;
             this.dgvProd.RowHeadersVisible = false;
             this.dgvProd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvProd.RowTemplate.Height = 25;
-            this.dgvProd.Size = new System.Drawing.Size(944, 399);
+            this.dgvProd.Size = new System.Drawing.Size(974, 399);
             this.dgvProd.TabIndex = 26;
             this.dgvProd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProd_CellContentClick);
+            this.dgvProd.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProd_CellFormatting);
             // 
             // Nroventa
             // 
@@ -161,14 +176,14 @@
             this.Cliente.HeaderText = "Nombre Cliente";
             this.Cliente.Name = "Cliente";
             this.Cliente.ReadOnly = true;
-            this.Cliente.Width = 140;
+            this.Cliente.Width = 120;
             // 
             // fecha
             // 
             this.fecha.HeaderText = "Fecha";
             this.fecha.Name = "fecha";
             this.fecha.ReadOnly = true;
-            this.fecha.Width = 110;
+            this.fecha.Width = 80;
             // 
             // Formapedido
             // 
@@ -195,6 +210,13 @@
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 80;
             // 
             // Ticket
             // 
@@ -249,17 +271,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel9);
+            this.panel1.Controls.Add(this.panel8);
+            this.panel1.Controls.Add(this.panel7);
+            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.BtnMod);
             this.panel1.Controls.Add(this.BtnCancelarVenta);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.lbDepartamento);
-            this.panel1.Controls.Add(this.lbLocalidad);
-            this.panel1.Controls.Add(this.lbAltura);
-            this.panel1.Controls.Add(this.lbPiso);
-            this.panel1.Controls.Add(this.lbCalle);
             this.panel1.Controls.Add(this.BtnVovler);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.dgvDetalle);
@@ -269,115 +287,202 @@
             this.panel1.TabIndex = 39;
             this.panel1.Visible = false;
             // 
-            // label2
+            // panel9
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(344, 138);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 20);
-            this.label2.TabIndex = 52;
-            this.label2.Text = "Departamento:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(44, 77);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 20);
-            this.label3.TabIndex = 51;
-            this.label3.Text = "Localidad:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(188, 138);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 20);
-            this.label4.TabIndex = 50;
-            this.label4.Text = "Altura:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(44, 136);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 20);
-            this.label5.TabIndex = 49;
-            this.label5.Text = "Piso:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(44, 104);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 20);
-            this.label1.TabIndex = 48;
-            this.label1.Text = "Calle:";
+            this.panel9.Controls.Add(this.lbDepartamento);
+            this.panel9.Controls.Add(this.lbdpto);
+            this.panel9.Location = new System.Drawing.Point(304, 136);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(342, 29);
+            this.panel9.TabIndex = 59;
             // 
             // lbDepartamento
             // 
             this.lbDepartamento.AutoSize = true;
+            this.lbDepartamento.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbDepartamento.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbDepartamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbDepartamento.Location = new System.Drawing.Point(460, 139);
+            this.lbDepartamento.Location = new System.Drawing.Point(115, 0);
             this.lbDepartamento.Name = "lbDepartamento";
             this.lbDepartamento.Size = new System.Drawing.Size(106, 20);
             this.lbDepartamento.TabIndex = 47;
             this.lbDepartamento.Text = "Departamento";
             // 
-            // lbLocalidad
+            // lbdpto
             // 
-            this.lbLocalidad.AutoSize = true;
-            this.lbLocalidad.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbLocalidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbLocalidad.Location = new System.Drawing.Point(129, 77);
-            this.lbLocalidad.Name = "lbLocalidad";
-            this.lbLocalidad.Size = new System.Drawing.Size(74, 20);
-            this.lbLocalidad.TabIndex = 46;
-            this.lbLocalidad.Text = "Localidad";
+            this.lbdpto.AutoSize = true;
+            this.lbdpto.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbdpto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbdpto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbdpto.Location = new System.Drawing.Point(0, 0);
+            this.lbdpto.Name = "lbdpto";
+            this.lbdpto.Size = new System.Drawing.Size(115, 20);
+            this.lbdpto.TabIndex = 52;
+            this.lbdpto.Text = "Departamento:";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.lbAltura);
+            this.panel8.Controls.Add(this.lbalt);
+            this.panel8.Location = new System.Drawing.Point(162, 136);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(136, 30);
+            this.panel8.TabIndex = 58;
             // 
             // lbAltura
             // 
             this.lbAltura.AutoSize = true;
+            this.lbAltura.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbAltura.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbAltura.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbAltura.Location = new System.Drawing.Point(249, 138);
+            this.lbAltura.Location = new System.Drawing.Point(57, 0);
             this.lbAltura.Name = "lbAltura";
             this.lbAltura.Size = new System.Drawing.Size(49, 20);
             this.lbAltura.TabIndex = 45;
             this.lbAltura.Text = "Altura";
             // 
+            // lbalt
+            // 
+            this.lbalt.AutoSize = true;
+            this.lbalt.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbalt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbalt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbalt.Location = new System.Drawing.Point(0, 0);
+            this.lbalt.Name = "lbalt";
+            this.lbalt.Size = new System.Drawing.Size(57, 20);
+            this.lbalt.TabIndex = 50;
+            this.lbalt.Text = "Altura:";
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.lbPiso);
+            this.panel7.Controls.Add(this.lbpis);
+            this.panel7.Location = new System.Drawing.Point(44, 134);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(112, 32);
+            this.panel7.TabIndex = 57;
+            // 
             // lbPiso
             // 
             this.lbPiso.AutoSize = true;
+            this.lbPiso.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbPiso.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbPiso.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbPiso.Location = new System.Drawing.Point(94, 138);
+            this.lbPiso.Location = new System.Drawing.Point(42, 0);
             this.lbPiso.Name = "lbPiso";
             this.lbPiso.Size = new System.Drawing.Size(36, 20);
             this.lbPiso.TabIndex = 44;
             this.lbPiso.Text = "Piso";
             // 
+            // lbpis
+            // 
+            this.lbpis.AutoSize = true;
+            this.lbpis.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbpis.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbpis.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbpis.Location = new System.Drawing.Point(0, 0);
+            this.lbpis.Name = "lbpis";
+            this.lbpis.Size = new System.Drawing.Size(42, 20);
+            this.lbpis.TabIndex = 49;
+            this.lbpis.Text = "Piso:";
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.lbCalle);
+            this.panel6.Controls.Add(this.lbCal);
+            this.panel6.Location = new System.Drawing.Point(44, 105);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(956, 28);
+            this.panel6.TabIndex = 56;
+            // 
             // lbCalle
             // 
             this.lbCalle.AutoSize = true;
+            this.lbCalle.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbCalle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbCalle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbCalle.Location = new System.Drawing.Point(96, 104);
+            this.lbCalle.Location = new System.Drawing.Point(46, 0);
             this.lbCalle.Name = "lbCalle";
             this.lbCalle.Size = new System.Drawing.Size(50, 20);
             this.lbCalle.TabIndex = 43;
             this.lbCalle.Text = "label1";
+            // 
+            // lbCal
+            // 
+            this.lbCal.AutoSize = true;
+            this.lbCal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbCal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbCal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbCal.Location = new System.Drawing.Point(0, 0);
+            this.lbCal.Name = "lbCal";
+            this.lbCal.Size = new System.Drawing.Size(46, 20);
+            this.lbCal.TabIndex = 48;
+            this.lbCal.Text = "Calle:";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.lbLocalidad);
+            this.panel5.Controls.Add(this.lbloc);
+            this.panel5.Location = new System.Drawing.Point(44, 80);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(956, 24);
+            this.panel5.TabIndex = 55;
+            // 
+            // lbLocalidad
+            // 
+            this.lbLocalidad.AutoSize = true;
+            this.lbLocalidad.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbLocalidad.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbLocalidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbLocalidad.Location = new System.Drawing.Point(79, 0);
+            this.lbLocalidad.Name = "lbLocalidad";
+            this.lbLocalidad.Size = new System.Drawing.Size(74, 20);
+            this.lbLocalidad.TabIndex = 46;
+            this.lbLocalidad.Text = "Localidad";
+            // 
+            // lbloc
+            // 
+            this.lbloc.AutoSize = true;
+            this.lbloc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbloc.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbloc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbloc.Location = new System.Drawing.Point(0, 0);
+            this.lbloc.Name = "lbloc";
+            this.lbloc.Size = new System.Drawing.Size(79, 20);
+            this.lbloc.TabIndex = 51;
+            this.lbloc.Text = "Localidad:";
+            // 
+            // BtnMod
+            // 
+            this.BtnMod.BackColor = System.Drawing.Color.White;
+            this.BtnMod.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnMod.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnMod.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
+            this.BtnMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMod.Location = new System.Drawing.Point(734, 567);
+            this.BtnMod.Name = "BtnMod";
+            this.BtnMod.Size = new System.Drawing.Size(128, 39);
+            this.BtnMod.TabIndex = 54;
+            this.BtnMod.Text = "Modificar Venta";
+            this.BtnMod.UseVisualStyleBackColor = false;
+            this.BtnMod.Visible = false;
+            this.BtnMod.Click += new System.EventHandler(this.BtnMod_Click);
+            // 
+            // BtnCancelarVenta
+            // 
+            this.BtnCancelarVenta.BackColor = System.Drawing.Color.White;
+            this.BtnCancelarVenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCancelarVenta.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnCancelarVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
+            this.BtnCancelarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancelarVenta.Location = new System.Drawing.Point(579, 567);
+            this.BtnCancelarVenta.Name = "BtnCancelarVenta";
+            this.BtnCancelarVenta.Size = new System.Drawing.Size(128, 39);
+            this.BtnCancelarVenta.TabIndex = 53;
+            this.BtnCancelarVenta.Text = "Cancelar Venta";
+            this.BtnCancelarVenta.UseVisualStyleBackColor = false;
+            this.BtnCancelarVenta.Visible = false;
+            this.BtnCancelarVenta.Click += new System.EventHandler(this.BtnCancelarVenta_Click);
             // 
             // BtnVovler
             // 
@@ -512,6 +617,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.BtnCancelModificar);
             this.panel3.Controls.Add(this.lbStock);
             this.panel3.Controls.Add(this.txbStock);
             this.panel3.Controls.Add(this.lbSubTtoal);
@@ -525,12 +631,27 @@
             this.panel3.Controls.Add(this.txbTotal);
             this.panel3.Controls.Add(this.numpCantidad);
             this.panel3.Controls.Add(this.cboProductos);
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.dgvdet);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1000, 675);
             this.panel3.TabIndex = 53;
             this.panel3.Visible = false;
+            // 
+            // BtnCancelModificar
+            // 
+            this.BtnCancelModificar.BackColor = System.Drawing.Color.White;
+            this.BtnCancelModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCancelModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnCancelModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
+            this.BtnCancelModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancelModificar.Location = new System.Drawing.Point(675, 570);
+            this.BtnCancelModificar.Name = "BtnCancelModificar";
+            this.BtnCancelModificar.Size = new System.Drawing.Size(141, 36);
+            this.BtnCancelModificar.TabIndex = 55;
+            this.BtnCancelModificar.Text = "Cancelar Modificacion";
+            this.BtnCancelModificar.UseVisualStyleBackColor = false;
+            this.BtnCancelModificar.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbStock
             // 
@@ -566,7 +687,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panel4.Controls.Add(this.pictureBox2);
-            this.panel4.Controls.Add(this.lbVender);
+            this.panel4.Controls.Add(this.lvmodificarventa);
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(349, 56);
@@ -582,16 +703,16 @@
             this.pictureBox2.TabIndex = 39;
             this.pictureBox2.TabStop = false;
             // 
-            // lbVender
+            // lvmodificarventa
             // 
-            this.lbVender.AutoSize = true;
-            this.lbVender.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbVender.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbVender.Location = new System.Drawing.Point(73, 9);
-            this.lbVender.Name = "lbVender";
-            this.lbVender.Size = new System.Drawing.Size(264, 38);
-            this.lbVender.TabIndex = 21;
-            this.lbVender.Text = "Modificar Venta";
+            this.lvmodificarventa.AutoSize = true;
+            this.lvmodificarventa.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lvmodificarventa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lvmodificarventa.Location = new System.Drawing.Point(73, 9);
+            this.lvmodificarventa.Name = "lvmodificarventa";
+            this.lvmodificarventa.Size = new System.Drawing.Size(264, 38);
+            this.lvmodificarventa.TabIndex = 21;
+            this.lvmodificarventa.Text = "Modificar Venta";
             // 
             // BtnSig
             // 
@@ -606,6 +727,7 @@
             this.BtnSig.TabIndex = 50;
             this.BtnSig.Text = "Siguiente";
             this.BtnSig.UseVisualStyleBackColor = false;
+            this.BtnSig.Click += new System.EventHandler(this.BtnSig_Click);
             // 
             // BtnAgregar
             // 
@@ -620,6 +742,7 @@
             this.BtnAgregar.TabIndex = 49;
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // lbDetalle
             // 
@@ -690,13 +813,15 @@
             this.cboProductos.Name = "cboProductos";
             this.cboProductos.Size = new System.Drawing.Size(198, 23);
             this.cboProductos.TabIndex = 42;
+            this.cboProductos.SelectionChangeCommitted += new System.EventHandler(this.cboProductos_SelectionChangeCommitted);
+            this.cboProductos.SelectedValueChanged += new System.EventHandler(this.cboProductos_SelectedValueChanged);
             // 
-            // dataGridView1
+            // dgvdet
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.dgvdet.AllowUserToAddRows = false;
+            this.dgvdet.AllowUserToDeleteRows = false;
+            this.dgvdet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.dgvdet.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -704,9 +829,9 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvdet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvdet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvdet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
             this.Nombre,
             this.detalle,
@@ -716,15 +841,17 @@
             this.Cantidad,
             this.Precio,
             this.Tot,
-            this.dataGridViewButtonColumn2});
-            this.dataGridView1.Location = new System.Drawing.Point(36, 180);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(932, 333);
-            this.dataGridView1.TabIndex = 41;
+            this.action});
+            this.dgvdet.Location = new System.Drawing.Point(36, 180);
+            this.dgvdet.Name = "dgvdet";
+            this.dgvdet.ReadOnly = true;
+            this.dgvdet.RowHeadersVisible = false;
+            this.dgvdet.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvdet.RowTemplate.Height = 25;
+            this.dgvdet.Size = new System.Drawing.Size(932, 333);
+            this.dgvdet.TabIndex = 41;
+            this.dgvdet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdet_CellContentClick);
+            this.dgvdet.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvdet_CellFormatting);
             // 
             // Codigo
             // 
@@ -784,20 +911,20 @@
             this.Tot.Name = "Tot";
             this.Tot.ReadOnly = true;
             // 
-            // dataGridViewButtonColumn2
+            // action
             // 
-            this.dataGridViewButtonColumn2.HeaderText = "Accion";
-            this.dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
-            this.dataGridViewButtonColumn2.ReadOnly = true;
-            this.dataGridViewButtonColumn2.Text = "Quitar";
-            this.dataGridViewButtonColumn2.UseColumnTextForButtonValue = true;
-            this.dataGridViewButtonColumn2.Width = 70;
+            this.action.HeaderText = "Accion";
+            this.action.Name = "action";
+            this.action.ReadOnly = true;
+            this.action.Text = "Quitar";
+            this.action.UseColumnTextForButtonValue = true;
+            this.action.Width = 70;
             // 
             // picreset
             // 
             this.picreset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picreset.Image = global::CapaPresentacion.Properties.Resources.reset;
-            this.picreset.Location = new System.Drawing.Point(422, 124);
+            this.picreset.Location = new System.Drawing.Point(409, 124);
             this.picreset.Name = "picreset";
             this.picreset.Size = new System.Drawing.Size(38, 33);
             this.picreset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -812,7 +939,7 @@
             this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
             this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscar.Location = new System.Drawing.Point(333, 132);
+            this.BtnBuscar.Location = new System.Drawing.Point(320, 132);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(71, 25);
             this.BtnBuscar.TabIndex = 60;
@@ -822,7 +949,7 @@
             // 
             // txbbusqueda
             // 
-            this.txbbusqueda.Location = new System.Drawing.Point(198, 133);
+            this.txbbusqueda.Location = new System.Drawing.Point(185, 133);
             this.txbbusqueda.Name = "txbbusqueda";
             this.txbbusqueda.Size = new System.Drawing.Size(121, 23);
             this.txbbusqueda.TabIndex = 59;
@@ -833,28 +960,13 @@
             this.RbtCodigo.Checked = true;
             this.RbtCodigo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RbtCodigo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RbtCodigo.Location = new System.Drawing.Point(31, 133);
+            this.RbtCodigo.Location = new System.Drawing.Point(18, 133);
             this.RbtCodigo.Name = "RbtCodigo";
             this.RbtCodigo.Size = new System.Drawing.Size(113, 24);
             this.RbtCodigo.TabIndex = 61;
             this.RbtCodigo.TabStop = true;
             this.RbtCodigo.Text = "Nro Factura";
             this.RbtCodigo.UseVisualStyleBackColor = true;
-            // 
-            // BtnCancelarVenta
-            // 
-            this.BtnCancelarVenta.BackColor = System.Drawing.Color.White;
-            this.BtnCancelarVenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCancelarVenta.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnCancelarVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
-            this.BtnCancelarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCancelarVenta.Location = new System.Drawing.Point(747, 567);
-            this.BtnCancelarVenta.Name = "BtnCancelarVenta";
-            this.BtnCancelarVenta.Size = new System.Drawing.Size(128, 39);
-            this.BtnCancelarVenta.TabIndex = 53;
-            this.BtnCancelarVenta.Text = "Cancelar Venta";
-            this.BtnCancelarVenta.UseVisualStyleBackColor = false;
-            this.BtnCancelarVenta.Click += new System.EventHandler(this.BtnCancelarVenta_Click);
             // 
             // ConsultaVentas
             // 
@@ -880,7 +992,16 @@
             this.pnlHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
@@ -890,7 +1011,7 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numpCantidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvdet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picreset)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -921,20 +1042,11 @@
         private TextBox txbbusqueda;
         private RadioButton RbtCodigo;
         private PictureBox pictureBox1;
-        private DataGridViewTextBoxColumn Nroventa;
-        private DataGridViewTextBoxColumn Cliente;
-        private DataGridViewTextBoxColumn fecha;
-        private DataGridViewTextBoxColumn Formapedido;
-        private DataGridViewTextBoxColumn Vendedor;
-        private DataGridViewTextBoxColumn Descuento;
-        private DataGridViewTextBoxColumn Total;
-        private DataGridViewButtonColumn Ticket;
-        private DataGridViewButtonColumn Accion;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label1;
+        private Label lbdpto;
+        private Label lbloc;
+        private Label lbalt;
+        private Label lbpis;
+        private Label lbCal;
         private Label lbDepartamento;
         private Label lbLocalidad;
         private Label lbAltura;
@@ -946,7 +1058,7 @@
         private Label lbSubTtoal;
         private Panel panel4;
         private PictureBox pictureBox2;
-        private Label lbVender;
+        private Label lvmodificarventa;
         private Button BtnSig;
         private Button BtnAgregar;
         private Label lbDetalle;
@@ -956,7 +1068,19 @@
         private TextBox txbTotal;
         private NumericUpDown numpCantidad;
         private ComboBox cboProductos;
-        private DataGridView dataGridView1;
+        private DataGridView dgvdet;
+        private Button BtnCancelarVenta;
+        private DataGridViewTextBoxColumn Nroventa;
+        private DataGridViewTextBoxColumn Cliente;
+        private DataGridViewTextBoxColumn fecha;
+        private DataGridViewTextBoxColumn Formapedido;
+        private DataGridViewTextBoxColumn Vendedor;
+        private DataGridViewTextBoxColumn Descuento;
+        private DataGridViewTextBoxColumn Total;
+        private DataGridViewTextBoxColumn Estado;
+        private DataGridViewButtonColumn Ticket;
+        private DataGridViewButtonColumn Accion;
+        private Button BtnMod;
         private DataGridViewTextBoxColumn Codigo;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn detalle;
@@ -966,7 +1090,12 @@
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn Tot;
-        private DataGridViewButtonColumn dataGridViewButtonColumn2;
-        private Button BtnCancelarVenta;
+        private DataGridViewButtonColumn action;
+        private Button BtnCancelModificar;
+        private Panel panel9;
+        private Panel panel8;
+        private Panel panel7;
+        private Panel panel6;
+        private Panel panel5;
     }
 }

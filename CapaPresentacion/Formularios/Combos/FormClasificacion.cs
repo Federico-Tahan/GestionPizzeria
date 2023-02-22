@@ -328,5 +328,28 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
         {
 
         }
+
+        private void dgvClasi_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvClasi.Columns[e.ColumnIndex].Name == "Accion")
+            {
+                // Obtener el valor de la celda
+                object value = e.Value;
+
+                if (SeleccionIdioma.i.IdIdioma == 2)
+                {
+                    // Comprobar el valor y establecer el texto del botón en consecuencia
+                    if (value != null && value.ToString() == "accion")
+                    {
+                        e.Value = "Details";
+                    }
+                    else
+                    {
+                        e.Value = "Details";
+                    }
+                }
+
+            }
+        }
     }
 }

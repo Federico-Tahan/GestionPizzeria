@@ -666,7 +666,8 @@ go
 create or alter procedure SP_ObtenerFactura
 as
 	select nro_factura, CONVERT(VARCHAR, fecha, 108)'Hora',CONVERT(VARCHAR, fecha, 105)'Fecha', f.nombre + SPACE(1) + f.apellido'Nombre_Completo'
-	, e.nombre + SPACE(1) + e.apellido 'Nombre_CompletoUsuario', fc.forma_compra,fe.forma_entrega, d.porcentaje_descuento,fecha,loc.localidad,f.altura,f.piso,f.departamento,f.calle
+	, e.nombre + SPACE(1) + e.apellido 'Nombre_CompletoUsuario', fc.forma_compra,fe.forma_entrega, d.porcentaje_descuento,fecha,loc.localidad,f.altura,f.piso,f.departamento,f.calle,f.baja_logica,loc.id_localidad
+	, f.nombre, f.apellido,f.id_forma_entrega,f.id_forma_compra,s.DNI
 	from Factura f
 	left join Descuento d on f.id_descuento = d.id_descuento
 	left join Cliente c on c.id_cliente = f.id_cliente
@@ -675,6 +676,7 @@ as
 	join Empleado e on e.id_empleado = u.id_empleado
 	join forma_entrega fe on fe.id_forma_entrega = f.id_forma_entrega
 	join Forma_compra fc on fc.id_forma_compra = f.id_forma_compra
+	left join Socio s on s.id_socio = c.id_socio
 	order by nro_factura desc
 go
 
@@ -958,13 +960,116 @@ go
 
 
 
-select * from Factura
+create or alter procedure SP_CancelarVenta(
+	@id_fac int
+)as
+	UPDATE producto
+	SET stock = stock + cantidad,
+		baja_logica = 0
+	FROM Producto t1
+	INNER JOIN detalle_factura t2 ON t1.id_producto = t2.id_producto
+	where t2.nro_factura = @id_fac
+
+	update Factura
+	set baja_logica = 1
+	where @id_fac  = nro_factura
+go
 
 
+create or alter procedure SP_ModVenta(
+	@id_Factura int,
+	@id_cliente int,
+	@id_usuario int,
+	@id_forma_compra int,
+	@id_forma_entrega int,
+	@tienedescuento int,
+	@id_usuario_admin int,
+	@nombre varchar(50),
+	@apellido varchar(50),
+	@id_localidad int,
+	@calle varchar(500),
+	@altura int,
+	@piso int,
+	@departamento varchar(50)
+)as
+	declare @diaweek int
+	if (DATEPART(DW,GETDATE()) = 0)
+		begin
+			set @diaweek = 7
+		end
+	else
+		begin
+			set @diaweek = DATEPART(DW,GETDATE() - 1)
+		end
+
+	declare @clienteestado int
+	if(@id_cliente = 0)
+	begin
+		set @clienteestado = null
+	end
+	else
+	begin
+		set @clienteestado = @id_cliente
+	end
+
+	if(@tienedescuento = 0)
+	begin 
+		update Factura
+		set id_cliente = @clienteestado,
+			id_usuario = @id_usuario,
+			id_forma_compra = @id_forma_compra,
+			id_forma_entrega = @id_forma_entrega,
+			id_descuento = @diaweek,
+			baja_logica = 0,
+			nombre = @nombre,
+			apellido = @apellido,
+			id_localidad = @id_localidad,
+			calle = @calle,
+			altura = @altura,
+			piso = @piso,
+			departamento = @departamento
+		where nro_factura = @id_Factura
+	end
+	else
+	begin
+			update Factura
+		set id_cliente = @clienteestado,
+			id_usuario = @id_usuario,
+			id_forma_compra = @id_forma_compra,
+			id_forma_entrega = @id_forma_entrega,
+			id_descuento = null,
+			baja_logica = 0,
+			nombre = @nombre,
+			apellido = @apellido,
+			id_localidad = @id_localidad,
+			calle = @calle,
+			altura = @altura,
+			piso = @piso,
+			departamento = @departamento
+		where nro_factura = @id_Factura
+	end
+
+	insert into Bitacora values(@id_usuario_admin,GETDATE(),'Modificacion de venta')
+
+go
+
+create or alter procedure SP_CancelarVentaMod(
+	@id_fac int
+)as
+	UPDATE producto
+	SET stock = stock + cantidad,
+		baja_logica = 0
+	FROM Producto t1
+	INNER JOIN detalle_factura t2 ON t1.id_producto = t2.id_producto
+	where t2.nro_factura = @id_fac
+
+	delete detalle_factura
+	where @id_fac = nro_factura
+go
 
 
-
-
+	
+	select * from factura
 
 DBCC CHECKIDENT ('a', RESEED,0) 
 select * from Cliente
@@ -1004,7 +1109,7 @@ alter column id_cliente int
 
 
 
-
+select * from Factura
 
 
 

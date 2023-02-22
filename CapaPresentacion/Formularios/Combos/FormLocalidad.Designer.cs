@@ -249,6 +249,7 @@
             this.dgvClasi.Size = new System.Drawing.Size(554, 305);
             this.dgvClasi.TabIndex = 49;
             this.dgvClasi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClasi_CellContentClick);
+            this.dgvClasi.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvClasi_CellFormatting);
             // 
             // Codigolocalidad
             // 

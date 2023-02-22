@@ -73,7 +73,7 @@
             // 
             // txbDNI
             // 
-            this.txbDNI.Location = new System.Drawing.Point(72, 249);
+            this.txbDNI.Location = new System.Drawing.Point(289, 244);
             this.txbDNI.Name = "txbDNI";
             this.txbDNI.Size = new System.Drawing.Size(108, 23);
             this.txbDNI.TabIndex = 0;
@@ -84,7 +84,7 @@
             this.lbDNI.AutoSize = true;
             this.lbDNI.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbDNI.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbDNI.Location = new System.Drawing.Point(72, 223);
+            this.lbDNI.Location = new System.Drawing.Point(289, 218);
             this.lbDNI.Name = "lbDNI";
             this.lbDNI.Size = new System.Drawing.Size(42, 23);
             this.lbDNI.TabIndex = 33;
@@ -96,7 +96,7 @@
             this.lbnombre.AutoSize = true;
             this.lbnombre.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbnombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbnombre.Location = new System.Drawing.Point(72, 308);
+            this.lbnombre.Location = new System.Drawing.Point(74, 287);
             this.lbnombre.Name = "lbnombre";
             this.lbnombre.Size = new System.Drawing.Size(85, 23);
             this.lbnombre.TabIndex = 34;
@@ -109,7 +109,7 @@
             this.btnConfirmarVenta.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnConfirmarVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
             this.btnConfirmarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmarVenta.Location = new System.Drawing.Point(328, 482);
+            this.btnConfirmarVenta.Location = new System.Drawing.Point(236, 535);
             this.btnConfirmarVenta.Name = "btnConfirmarVenta";
             this.btnConfirmarVenta.Size = new System.Drawing.Size(115, 39);
             this.btnConfirmarVenta.TabIndex = 41;
@@ -124,7 +124,7 @@
             this.pnlBarra.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBarra.Location = new System.Drawing.Point(0, 0);
             this.pnlBarra.Name = "pnlBarra";
-            this.pnlBarra.Size = new System.Drawing.Size(769, 35);
+            this.pnlBarra.Size = new System.Drawing.Size(579, 35);
             this.pnlBarra.TabIndex = 42;
             this.pnlBarra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBarra_MouseDown);
             // 
@@ -133,7 +133,7 @@
             this.Salir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Salir.Dock = System.Windows.Forms.DockStyle.Right;
             this.Salir.Image = global::CapaPresentacion.Properties.Resources.close;
-            this.Salir.Location = new System.Drawing.Point(734, 0);
+            this.Salir.Location = new System.Drawing.Point(544, 0);
             this.Salir.Name = "Salir";
             this.Salir.Size = new System.Drawing.Size(35, 35);
             this.Salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -164,7 +164,7 @@
             // txbTotal
             // 
             this.txbTotal.Enabled = false;
-            this.txbTotal.Location = new System.Drawing.Point(671, 408);
+            this.txbTotal.Location = new System.Drawing.Point(479, 454);
             this.txbTotal.Name = "txbTotal";
             this.txbTotal.Size = new System.Drawing.Size(69, 23);
             this.txbTotal.TabIndex = 47;
@@ -174,7 +174,7 @@
             this.lbtotal.AutoSize = true;
             this.lbtotal.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbtotal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbtotal.Location = new System.Drawing.Point(622, 408);
+            this.lbtotal.Location = new System.Drawing.Point(430, 454);
             this.lbtotal.Name = "lbtotal";
             this.lbtotal.Size = new System.Drawing.Size(42, 18);
             this.lbtotal.TabIndex = 46;
@@ -185,7 +185,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(648, 373);
+            this.label5.Location = new System.Drawing.Point(456, 419);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(21, 18);
             this.label5.TabIndex = 50;
@@ -194,7 +194,7 @@
             // txbDescuento
             // 
             this.txbDescuento.Enabled = false;
-            this.txbDescuento.Location = new System.Drawing.Point(706, 373);
+            this.txbDescuento.Location = new System.Drawing.Point(514, 419);
             this.txbDescuento.Name = "txbDescuento";
             this.txbDescuento.Size = new System.Drawing.Size(34, 23);
             this.txbDescuento.TabIndex = 49;
@@ -204,7 +204,7 @@
             this.lbdto.AutoSize = true;
             this.lbdto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbdto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbdto.Location = new System.Drawing.Point(604, 373);
+            this.lbdto.Location = new System.Drawing.Point(412, 419);
             this.lbdto.Name = "lbdto";
             this.lbdto.Size = new System.Drawing.Size(38, 18);
             this.lbdto.TabIndex = 48;
@@ -213,7 +213,7 @@
             // txbSubtotal
             // 
             this.txbSubtotal.Enabled = false;
-            this.txbSubtotal.Location = new System.Drawing.Point(671, 330);
+            this.txbSubtotal.Location = new System.Drawing.Point(479, 376);
             this.txbSubtotal.Name = "txbSubtotal";
             this.txbSubtotal.Size = new System.Drawing.Size(69, 23);
             this.txbSubtotal.TabIndex = 52;
@@ -223,7 +223,7 @@
             this.lbsubtotal.AutoSize = true;
             this.lbsubtotal.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbsubtotal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbsubtotal.Location = new System.Drawing.Point(595, 335);
+            this.lbsubtotal.Location = new System.Drawing.Point(403, 381);
             this.lbsubtotal.Name = "lbsubtotal";
             this.lbsubtotal.Size = new System.Drawing.Size(69, 18);
             this.lbsubtotal.TabIndex = 51;
@@ -274,7 +274,7 @@
             this.lbTCliente.AutoSize = true;
             this.lbTCliente.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbTCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbTCliente.Location = new System.Drawing.Point(521, 148);
+            this.lbTCliente.Location = new System.Drawing.Point(67, 218);
             this.lbTCliente.Name = "lbTCliente";
             this.lbTCliente.Size = new System.Drawing.Size(149, 23);
             this.lbTCliente.TabIndex = 58;
@@ -283,7 +283,7 @@
             // cboTipoCliente
             // 
             this.cboTipoCliente.FormattingEnabled = true;
-            this.cboTipoCliente.Location = new System.Drawing.Point(526, 174);
+            this.cboTipoCliente.Location = new System.Drawing.Point(72, 244);
             this.cboTipoCliente.Name = "cboTipoCliente";
             this.cboTipoCliente.Size = new System.Drawing.Size(194, 23);
             this.cboTipoCliente.TabIndex = 57;
@@ -297,7 +297,7 @@
             this.btnverificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnverificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LemonChiffon;
             this.btnverificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnverificar.Location = new System.Drawing.Point(199, 250);
+            this.btnverificar.Location = new System.Drawing.Point(416, 245);
             this.btnverificar.Name = "btnverificar";
             this.btnverificar.Size = new System.Drawing.Size(67, 22);
             this.btnverificar.TabIndex = 59;
@@ -308,16 +308,16 @@
             // 
             // txbNombre
             // 
-            this.txbNombre.Location = new System.Drawing.Point(72, 334);
+            this.txbNombre.Location = new System.Drawing.Point(74, 313);
             this.txbNombre.Name = "txbNombre";
-            this.txbNombre.Size = new System.Drawing.Size(124, 23);
+            this.txbNombre.Size = new System.Drawing.Size(155, 23);
             this.txbNombre.TabIndex = 60;
             // 
             // txbApelldio
             // 
-            this.txbApelldio.Location = new System.Drawing.Point(220, 334);
+            this.txbApelldio.Location = new System.Drawing.Point(242, 313);
             this.txbApelldio.Name = "txbApelldio";
-            this.txbApelldio.Size = new System.Drawing.Size(128, 23);
+            this.txbApelldio.Size = new System.Drawing.Size(155, 23);
             this.txbApelldio.TabIndex = 62;
             // 
             // lbapellido
@@ -325,7 +325,7 @@
             this.lbapellido.AutoSize = true;
             this.lbapellido.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbapellido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbapellido.Location = new System.Drawing.Point(220, 308);
+            this.lbapellido.Location = new System.Drawing.Point(242, 287);
             this.lbapellido.Name = "lbapellido";
             this.lbapellido.Size = new System.Drawing.Size(89, 23);
             this.lbapellido.TabIndex = 61;
@@ -333,9 +333,9 @@
             // 
             // txbCalle
             // 
-            this.txbCalle.Location = new System.Drawing.Point(72, 408);
+            this.txbCalle.Location = new System.Drawing.Point(76, 388);
             this.txbCalle.Name = "txbCalle";
-            this.txbCalle.Size = new System.Drawing.Size(124, 23);
+            this.txbCalle.Size = new System.Drawing.Size(153, 23);
             this.txbCalle.TabIndex = 64;
             // 
             // lbcalle
@@ -343,7 +343,7 @@
             this.lbcalle.AutoSize = true;
             this.lbcalle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbcalle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbcalle.Location = new System.Drawing.Point(72, 382);
+            this.lbcalle.Location = new System.Drawing.Point(76, 362);
             this.lbcalle.Name = "lbcalle";
             this.lbcalle.Size = new System.Drawing.Size(60, 23);
             this.lbcalle.TabIndex = 63;
@@ -351,16 +351,16 @@
             // 
             // nupAltura
             // 
-            this.nupAltura.Location = new System.Drawing.Point(220, 409);
+            this.nupAltura.Location = new System.Drawing.Point(242, 389);
             this.nupAltura.Name = "nupAltura";
             this.nupAltura.Size = new System.Drawing.Size(59, 23);
             this.nupAltura.TabIndex = 65;
             // 
             // txDepto
             // 
-            this.txDepto.Location = new System.Drawing.Point(401, 408);
+            this.txDepto.Location = new System.Drawing.Point(76, 453);
             this.txDepto.Name = "txDepto";
-            this.txDepto.Size = new System.Drawing.Size(145, 23);
+            this.txDepto.Size = new System.Drawing.Size(153, 23);
             this.txDepto.TabIndex = 67;
             // 
             // lbdepartamento
@@ -368,7 +368,7 @@
             this.lbdepartamento.AutoSize = true;
             this.lbdepartamento.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbdepartamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbdepartamento.Location = new System.Drawing.Point(401, 382);
+            this.lbdepartamento.Location = new System.Drawing.Point(76, 427);
             this.lbdepartamento.Name = "lbdepartamento";
             this.lbdepartamento.Size = new System.Drawing.Size(145, 23);
             this.lbdepartamento.TabIndex = 66;
@@ -376,7 +376,7 @@
             // 
             // nupPiso
             // 
-            this.nupPiso.Location = new System.Drawing.Point(309, 409);
+            this.nupPiso.Location = new System.Drawing.Point(242, 454);
             this.nupPiso.Name = "nupPiso";
             this.nupPiso.Size = new System.Drawing.Size(59, 23);
             this.nupPiso.TabIndex = 68;
@@ -386,7 +386,7 @@
             this.lbaltura.AutoSize = true;
             this.lbaltura.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbaltura.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbaltura.Location = new System.Drawing.Point(214, 382);
+            this.lbaltura.Location = new System.Drawing.Point(236, 362);
             this.lbaltura.Name = "lbaltura";
             this.lbaltura.Size = new System.Drawing.Size(65, 23);
             this.lbaltura.TabIndex = 69;
@@ -397,7 +397,7 @@
             this.lbpiso.AutoSize = true;
             this.lbpiso.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbpiso.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbpiso.Location = new System.Drawing.Point(308, 382);
+            this.lbpiso.Location = new System.Drawing.Point(241, 427);
             this.lbpiso.Name = "lbpiso";
             this.lbpiso.Size = new System.Drawing.Size(46, 23);
             this.lbpiso.TabIndex = 70;
@@ -408,7 +408,7 @@
             this.lblocalidad.AutoSize = true;
             this.lblocalidad.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblocalidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblocalidad.Location = new System.Drawing.Point(401, 299);
+            this.lblocalidad.Location = new System.Drawing.Point(403, 278);
             this.lblocalidad.Name = "lblocalidad";
             this.lblocalidad.Size = new System.Drawing.Size(104, 23);
             this.lblocalidad.TabIndex = 72;
@@ -417,7 +417,7 @@
             // cboLocalidad
             // 
             this.cboLocalidad.FormattingEnabled = true;
-            this.cboLocalidad.Location = new System.Drawing.Point(401, 334);
+            this.cboLocalidad.Location = new System.Drawing.Point(403, 313);
             this.cboLocalidad.Name = "cboLocalidad";
             this.cboLocalidad.Size = new System.Drawing.Size(145, 23);
             this.cboLocalidad.TabIndex = 71;
@@ -427,7 +427,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.ClientSize = new System.Drawing.Size(769, 537);
+            this.ClientSize = new System.Drawing.Size(579, 601);
             this.Controls.Add(this.lblocalidad);
             this.Controls.Add(this.cboLocalidad);
             this.Controls.Add(this.lbpiso);

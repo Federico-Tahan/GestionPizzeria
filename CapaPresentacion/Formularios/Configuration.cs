@@ -188,6 +188,8 @@ namespace CapaPresentacion.Formularios
             lbrutarestauracion.Text = Rec.RutadeRestauracion;
             btnRestauracion.Text = Rec.Restauracion;
             button4.Text = Rec.Seleccionar;
+            lbbitacora.Text = Rec.Bitacora;
+            BtnGuardar.Text = Rec.Guardar;
 
         }
 

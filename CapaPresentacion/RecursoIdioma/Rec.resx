@@ -159,6 +159,15 @@
   <data name="BtnCambiarIdioma" xml:space="preserve">
     <value>Idioma</value>
   </data>
+  <data name="BtnCancelarVenta" xml:space="preserve">
+    <value>Cancelar Venta</value>
+  </data>
+  <data name="BtnCancelModificar" xml:space="preserve">
+    <value>Cancelar Modificacion</value>
+  </data>
+  <data name="BtnCerrarConfirmacionVenta" xml:space="preserve">
+    <value>Cerrar Confirmacion de venta</value>
+  </data>
   <data name="BtnCliente" xml:space="preserve">
     <value>Cliente</value>
   </data>
@@ -170,6 +179,9 @@
   </data>
   <data name="BtnGestion" xml:space="preserve">
     <value>Gestión</value>
+  </data>
+  <data name="BtnModificarVenta" xml:space="preserve">
+    <value>Modificar Venta</value>
   </data>
   <data name="BtnProducto" xml:space="preserve">
     <value>Productos</value>
@@ -192,8 +204,14 @@
   <data name="Calle" xml:space="preserve">
     <value>Calle</value>
   </data>
+  <data name="cancelada" xml:space="preserve">
+    <value>Cancelada</value>
+  </data>
   <data name="Cancelar" xml:space="preserve">
     <value>Cancelar</value>
+  </data>
+  <data name="CancelarVenta" xml:space="preserve">
+    <value>Desea Cancelar la Venta?</value>
   </data>
   <data name="Cantidad" xml:space="preserve">
     <value>Cantidad</value>
@@ -314,6 +332,9 @@
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="Estado" xml:space="preserve">
+    <value>Estado</value>
   </data>
   <data name="Fecha" xml:space="preserve">
     <value>Fecha</value>
@@ -464,6 +485,9 @@
   </data>
   <data name="MessageModificacionTipoProdExtio" xml:space="preserve">
     <value>Modificacion de Tipo de Producto realizada con Exito.</value>
+  </data>
+  <data name="MessageModifyExito" xml:space="preserve">
+    <value>Modificada con exito</value>
   </data>
   <data name="MessageModTIpoProdNoExITO" xml:space="preserve">
     <value>Modificacion de Tipo de Producto no se ha realizado con Exito.</value>
@@ -758,6 +782,9 @@
   </data>
   <data name="Usuarios" xml:space="preserve">
     <value>Usuarios</value>
+  </data>
+  <data name="VentaCancelada" xml:space="preserve">
+    <value>Venta Cancelada</value>
   </data>
   <data name="VentaDiaria" xml:space="preserve">
     <value>Ventas del Dia</value>

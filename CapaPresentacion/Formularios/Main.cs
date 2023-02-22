@@ -14,6 +14,8 @@ using CapaNegocio.Implementacion;
 using CapaNegocio.Interfaces;
 using Microsoft.VisualBasic.Logging;
 using CapaPresentacion.RecursoIdioma;
+using System.Globalization;
+
 namespace CapaPresentacion.Formularios
 {
     public partial class Main : Form
@@ -249,13 +251,13 @@ namespace CapaPresentacion.Formularios
             {
 
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
-                MessageHelper.ChangeLanguage("en-US");
 
-            }
+                CultureInfo.CurrentCulture = new CultureInfo("en-US");
+            }   
             else
             {
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-AR");
-                MessageHelper.ChangeLanguage("es-ES");
+                CultureInfo.CurrentCulture = new CultureInfo("es-ES");
 
 
             }

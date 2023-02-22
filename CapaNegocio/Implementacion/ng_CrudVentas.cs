@@ -28,6 +28,16 @@ namespace CapaNegocio.Implementacion
             return lg.BuscarClienteSocioDni(c);
         }
 
+        public bool CancelarVenta(int i)
+        {
+            return lg.CancelFactura(i);
+        }
+
+        public bool ModVenta(Factura f, Usuarios u)
+        {
+            return lg.ModVenta(f, u);
+        }
+
         public Configuracion TraerConfig()
         {
             return lg.TraerConfig();

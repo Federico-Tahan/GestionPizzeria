@@ -137,6 +137,7 @@
             this.dgvUnidadMedida.Size = new System.Drawing.Size(555, 292);
             this.dgvUnidadMedida.TabIndex = 54;
             this.dgvUnidadMedida.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUnidadMedida_CellContentClick);
+            this.dgvUnidadMedida.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvUnidadMedida_CellFormatting);
             // 
             // CodigoTipoProd
             // 
