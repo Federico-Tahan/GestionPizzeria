@@ -350,6 +350,24 @@ namespace CapaPresentacion.Formularios.Venta
 
                 return false;
             }
+            else if (txbNombre.Text == "")
+            {
+                MessageBox.Show(Rec.MessageValidacionNombre);
+
+                return false;
+            }
+            else if (txbApelldio.Text == "")
+            {
+                MessageBox.Show(Rec.MessageValidacionApellido);
+
+                return false;
+            }
+            else if (Convert.ToInt32(cboLocalidad.SelectedValue) == 0)
+            {
+                MessageBox.Show(Rec.MessageSedebeCargarLoc  );
+
+                return false;
+            }
             return true;
 
         }

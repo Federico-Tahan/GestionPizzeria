@@ -122,6 +122,7 @@ namespace CapaDatos.Datos.Implementacion
 
         public bool EmailSender(Cliente c)
         {
+            bool correcto = false;
             try
             {
                 con = lg.TraerConfiguracion();
@@ -147,18 +148,39 @@ namespace CapaDatos.Datos.Implementacion
                     Credentials = new NetworkCredential(fromAddress, fromPassword)
                 };
 
+
                 // Creación del objeto MailMessage
                 MailMessage message = new MailMessage(fromAddress, toAddress, subject, body);
 
+                smtp.SendCompleted += (sender, e) =>
+                {
+                    if (e.Cancelled)
+                    {
+                        correcto = false;
+
+                    }
+                    else if (e.Error != null)
+                    {
+                        correcto = false;
+
+                    }
+                    else
+                    {
+                        correcto = true;
+                    }
+
+                    // Liberar recursos utilizados por el objeto MailMessage
+                    message.Dispose();
+                };
                 // Envío del correo electrónico
                 smtp.Send(message);
                 return true;
             }catch(Exception ex)
             {
 
-                return false;
+                correcto= false;
             }
-            
+            return correcto;
         }
     
 
