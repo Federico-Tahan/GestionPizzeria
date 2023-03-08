@@ -16,6 +16,7 @@ using CapaCapaNegocio.Interfaces;
 using System.Collections;
 using Microsoft.Identity.Client;
 using CapaPresentacion.RecursoIdioma;
+using CapaPresentacion.Formularios.Combos;
 
 namespace CapaPresentacion.Formularios
 {
@@ -26,6 +27,7 @@ namespace CapaPresentacion.Formularios
         ing_Cbos lcbo = new ng_Cbos();
         List<Usuarios> lUsuaris= new List<Usuarios>();  
         Usuarios user = new Usuarios();
+        bool chkestado = true;
         bool banderaBaja;
         bool ChKActual;
         public CrudUsuarios()
@@ -36,12 +38,47 @@ namespace CapaPresentacion.Formularios
         private void CrudUsuarios_Load(object sender, EventArgs e)
         {
             lUsuaris.Clear();
-            lUsuaris = lg.ObtenerUsuarios(dgvselectedcondicion);
-            Cargar_Dgv(lUsuaris);
-            cargar_cboRoles(CboRoles, "Rol", "id_rol");
+            if (LogIn.u.Rol.Id_Rol == 1 || LogIn.u.Rol.Id_Rol == 2 || LogIn.u.Rol.Id_Rol == 3)
+            {
+                lUsuaris = lg.ObtenerUsuarios(dgvselectedcondicion);
+                Cargar_Dgv(lUsuaris);
+            }
+            else
+            {
+                lUsuaris = lg.ObtenerUsuario(LogIn.u);
+
+                Cargar_Dgv(lUsuaris);
+                btnNuevo.Enabled = false;
+                rbtTodos.Enabled = false;
+                RbtActivos.Enabled = false;
+                RbtEliminados.Enabled = false;
+                RbtAlias.Enabled = false;
+                RbtDNI.Enabled = false;
+                RbtNombre.Enabled = false;
+                RbtAlias.Enabled = false;
+                RbtCodigo.Enabled = false;
+                txbbusqueda.Enabled = false;
+                BtnBuscar.Enabled = false;
+                picreset.Enabled = false;
+                btnLocalidad.Enabled = false;
+            }
+
+            if (SeleccionIdioma.i.IdIdioma == 2)
+            {
+                cargar_cboRoles(CboRoles, "RolesEN", "id_rol");
+
+            }
+            else
+            {
+                cargar_cboRoles(CboRoles, "Rol", "id_rol");
+
+            }
+            cargar_cboLocalidad(cboloclaidad, "NLocalidad", "idLocalidad");
             DetectarIdioma();
             AplicarIdioma();
         }
+
+
         private void Botones(bool a)
         {
             BtnCancelar.Enabled = a;
@@ -67,16 +104,31 @@ namespace CapaPresentacion.Formularios
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
+            if (LogIn.u.Rol.Id_Rol == 1 || (LogIn.u.Rol.Id_Rol == 2) || LogIn.u.Rol.Id_Rol == 3)
+            {
+                habilitar(true);
+                picContraseña.Enabled = true;
+                picLimpiar.Enabled = true;
+                chkActivo.Enabled = true;
+                TxbAlias.Enabled = true;
+                TxbContraseña.Enabled = true;
+                txbDireccion.Enabled = true;
+                txbDepto.Enabled = true;
+                nupaltura.Enabled = true;
+                nupPiso.Enabled = true;
+                cboloclaidad.Enabled = true;
+                TxbTelefono.Enabled = true;
+                CboRoles.Enabled = true;
+            }
+            else
+            {
+                picContraseña.Enabled = true;
+                TxbContraseña.Enabled = true;
+
+            }
+
             Botones(false);
-            habilitar(true);
-            picContraseña.Enabled = true;
-            picLimpiar.Enabled = true;
-            chkActivo.Enabled = true;
-            TxbAlias.Enabled= true;
-            TxbContraseña.Enabled = true;
-            txbDireccion.Enabled = true;
-            TxbTelefono.Enabled = true;
-            CboRoles.Enabled = true;
+
             BtnCancelar.Enabled = true;
             BtnGuardar.Enabled = true;
         }
@@ -90,7 +142,31 @@ namespace CapaPresentacion.Formularios
             Limpiar();
             pnlCrud.Visible = false;
             Botones(false);
-            btnNuevo.Enabled = true;
+            user = new Usuarios();
+            chkestado = true;
+
+            if (LogIn.u.Rol.Id_Rol != 1 && LogIn.u.Rol.Id_Rol != 2)
+            {
+                lUsuaris = lg.ObtenerUsuario(LogIn.u);
+
+                Cargar_Dgv(lUsuaris);
+                btnNuevo.Enabled = false;
+                rbtTodos.Enabled = false;
+                RbtActivos.Enabled = false;
+                RbtEliminados.Enabled = false;
+                RbtAlias.Enabled = false;
+                RbtDNI.Enabled = false;
+                RbtNombre.Enabled = false;
+                RbtAlias.Enabled = false;
+                RbtCodigo.Enabled = false;
+                txbbusqueda.Enabled = false;
+                BtnBuscar.Enabled = false;
+                picreset.Enabled = false;
+            }
+            else
+            {
+                btnNuevo.Enabled = true;
+            }
         }
 
         private void Limpiar()
@@ -100,6 +176,10 @@ namespace CapaPresentacion.Formularios
                 txbApellido.Text = string.Empty;
                 txbCod.Text = string.Empty;
                 txbDireccion.Text = string.Empty;
+                txbDepto.Text = string.Empty;
+                nupaltura.Value = 0; 
+                nupPiso.Value = 0;
+                cboloclaidad.SelectedIndex = -1;
                 txbNombre.Text = string.Empty;
                 TxbAlias.Text = string.Empty;
                 TxbContraseña.Text = string.Empty;
@@ -118,6 +198,10 @@ namespace CapaPresentacion.Formularios
                 TxbTelefono.Text = string.Empty;
                 CboRoles.SelectedIndex = -1;
                 chkActivo.Checked = true;
+                txbDepto.Text = string.Empty;
+                nupaltura.Value = 0;
+                nupPiso.Value = 0;
+                cboloclaidad.SelectedIndex = -1;
             }
 
 
@@ -144,6 +228,9 @@ namespace CapaPresentacion.Formularios
             Limpiar();
             pnlCrud.Visible = false;
             Botones(false);
+            user = new Usuarios();
+            chkestado = true;
+
             btnNuevo.Enabled = true;
         }
 
@@ -157,24 +244,53 @@ namespace CapaPresentacion.Formularios
 
             foreach (Usuarios u in lUsuaris)
             {
-                if (u.Baja_Logica == 1)
+                if (SeleccionIdioma.i.IdIdioma == 2)
                 {
-                    if (u.FechaBaja == DateTime.MinValue)
+
+
+                    string rolidioma;
+                    rolidioma = cambioIdiomaNombre(u.Rol.Rol);
+                    if (u.Baja_Logica == 1)
                     {
-                        dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Alias, u.Rol.Rol, u.FechaAlta.ToShortDateString(), " ", "No");
+                        if (u.FechaBaja == DateTime.MinValue)
+                        {
+                            dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Empleado.Direccion, u.Empleado.Altura, u.Empleado.Piso, u.Empleado.Departamento, u.Empleado.Loc.NLocalidad, u.Alias, rolidioma, u.FechaAlta.ToShortDateString(), " ", Rec.No);
+
+                        }
+                        else
+                        {
+                            dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Empleado.Direccion, u.Empleado.Altura, u.Empleado.Piso, u.Empleado.Departamento, u.Empleado.Loc.NLocalidad, u.Alias, rolidioma, u.FechaAlta.ToShortDateString(), u.FechaBaja.ToShortDateString(), Rec.No);
+
+                        }
 
                     }
                     else
                     {
-                        dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Alias, u.Rol.Rol, u.FechaAlta.ToShortDateString(), u.FechaBaja.ToShortDateString(), "No");
+                        dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Empleado.Direccion, u.Empleado.Altura, u.Empleado.Piso, u.Empleado.Departamento, u.Empleado.Loc.NLocalidad, u.Alias, rolidioma, u.FechaAlta.ToShortDateString(), ' ', Rec.Si);
 
                     }
-
                 }
                 else
                 {
-                    dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Alias, u.Rol.Rol, u.FechaAlta.ToShortDateString(), ' ', "Si");
+                    if (u.Baja_Logica == 1)
+                    {
+                        if (u.FechaBaja == DateTime.MinValue)
+                        {
+                            dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Empleado.Direccion, u.Empleado.Altura, u.Empleado.Piso, u.Empleado.Departamento, u.Empleado.Loc.NLocalidad, u.Alias, u.Rol.Rol, u.FechaAlta.ToShortDateString(), " ", Rec.No);
 
+                        }
+                        else
+                        {
+                            dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Empleado.Direccion, u.Empleado.Altura, u.Empleado.Piso, u.Empleado.Departamento, u.Empleado.Loc.NLocalidad, u.Alias, u.Rol.Rol, u.FechaAlta.ToShortDateString(), u.FechaBaja.ToShortDateString(), Rec.No);
+
+                        }
+
+                    }
+                    else
+                    {
+                        dgvUsuarios.Rows.Add(u.ID_Usuario, u.Empleado.DNI, u.Empleado.Nombre + ' ' + u.Empleado.Apellido, u.Empleado.Direccion, u.Empleado.Altura, u.Empleado.Piso, u.Empleado.Departamento, u.Empleado.Loc.NLocalidad, u.Alias, u.Rol.Rol, u.FechaAlta.ToShortDateString(), ' ', Rec.Si);
+
+                    }
                 }
             }
         }
@@ -182,7 +298,7 @@ namespace CapaPresentacion.Formularios
         private void Click_Detalle(object sender, DataGridViewCellEventArgs e)
         {
             user = new Usuarios();
-            if (dgvUsuarios.Columns[e.ColumnIndex].Name == "accion")
+            if (dgvUsuarios.Columns[e.ColumnIndex].Name == "accion" && dgvUsuarios.Rows.Count != 0)
             {
                 picContraseña.Tag = "activar";
                 TxbContraseña.UseSystemPasswordChar = true;
@@ -219,6 +335,10 @@ namespace CapaPresentacion.Formularios
             txbApellido.Text = user.Empleado.Apellido;
             txbCod.Text = user.ID_Usuario.ToString();
             txbDireccion.Text = user.Empleado.Direccion;
+            txbDepto.Text = user.Empleado.Departamento;
+            nupaltura.Value = user.Empleado.Altura;
+            cboloclaidad.SelectedValue = user.Empleado.Loc.idLocalidad;
+            nupPiso.Value = user.Empleado.Piso;
             txbNombre.Text = user.Empleado.Nombre;
             TxbAlias.Text = user.Alias;
             TxbContraseña.Text = user.Contraseña;
@@ -231,11 +351,13 @@ namespace CapaPresentacion.Formularios
             {
                 chkActivo.Checked = true;
                 ChKActual = true;
+                chkestado = true;
             }
             else
             {
                 chkActivo.Checked = false;
                 ChKActual = false;
+                chkestado = false;
 
             }
         }
@@ -251,115 +373,272 @@ namespace CapaPresentacion.Formularios
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            
-            if (Validaciones())
+            if (chkestado && !chkActivo.Checked)
             {
-                string aliasActual;
-                Usuarios us = new Usuarios();
-                Empleado emp = new Empleado();
-                aliasActual = user.Alias;
-                AbstraerUsuario(emp,us);
-                
-                if (lg.BuscarUsuario(user.ID_Usuario))
+                if (MessageBox.Show(Rec.messageDarBajUsuario, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    us.ID_Usuario = user.ID_Usuario;
-                    emp.Id_Empleado = Convert.ToInt32(txbIDEmpleado.Text);
-                    us.Empleado = emp;
-                    if (us.ID_Usuario == LogIn.u.ID_Usuario && us.Baja_Logica == 1)
+                    if (Validaciones())
                     {
+                        string aliasActual;
+                        Usuarios us = new Usuarios();
+                        Empleado emp = new Empleado();
+                        aliasActual = user.Alias;
+                        AbstraerUsuario(emp, us);
 
-                        MessageBox.Show(Rec.MessageUsuarioNopuededarsedebaja, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
-                    else
-                    {
-                        if (aliasActual == us.Alias)
+                        if (lg.BuscarUsuario(user.ID_Usuario))
                         {
-
-                            if (lg.ModificarUsuario(us,LogIn.u))
+                            us.ID_Usuario = user.ID_Usuario;
+                            emp.Id_Empleado = Convert.ToInt32(txbIDEmpleado.Text);
+                            us.Empleado = emp;
+                            if (us.ID_Usuario == LogIn.u.ID_Usuario && us.Baja_Logica == 1)
                             {
 
-                                MessageBox.Show(Rec.MessageUsuarioModificado);
-                                Cargar_Usuario(user.ID_Usuario);
-                                lUsuaris.Clear();
-                                lUsuaris = lg.ObtenerUsuarios(0);
-                                RbtActivos.Checked = true;
-                                Botones(false);
-                                btnNuevo.Enabled = true;
-                                Cargar_Dgv(lUsuaris);
-                                Limpiar();
-                                pnlCrud.Visible = false;
-                                user = new Usuarios();
-                            }
-                        }
-                        else if (!lg.BuscarAliasUsuario(us.Alias))
-                        {
-
-                            if (lg.ModificarUsuario(us,LogIn.u))
-                            {
-
-                                MessageBox.Show(Rec.MessageUsuarioModificado);
-                                Cargar_Usuario(user.ID_Usuario);
-                                lUsuaris.Clear();
-                                lUsuaris = lg.ObtenerUsuarios(0);
-                                RbtActivos.Checked = true;
-                                Botones(false);
-                                btnNuevo.Enabled = true;
-                                Cargar_Dgv(lUsuaris);
-                                Limpiar();
-                                pnlCrud.Visible = false;
-                                user = new Usuarios();
-
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show(Rec.MessageAliasIngresadoyaregistrado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                        }
-                    }
-                }
-                else
-                {
-                    if (!lg.BuscarAliasUsuario(us.Alias))
-                    {
-                        if (!lg.BuscarDniUsuario(us.Empleado.DNI))
-                        {
-                            if (lg.AltaUsuario(us,LogIn.u))
-                            {
-                                MessageBox.Show(Rec.MessageUsuarioAgregadoCorrectamente);
-                                Cargar_Usuario(user.ID_Usuario);
-                                lUsuaris.Clear();
-                                lUsuaris = lg.ObtenerUsuarios(0);
-                                RbtActivos.Checked = true;
-                                Botones(false);
-                                btnNuevo.Enabled = true;
-                                Cargar_Dgv(lUsuaris);
-                                Limpiar();
-                                pnlCrud.Visible = false;
-                                user = new Usuarios();
+                                MessageBox.Show(Rec.MessageUsuarioNopuededarsedebaja, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                             }
                             else
                             {
-                                MessageBox.Show(Rec.messageNosepudoagregarusuario,Rec.CapError,MessageBoxButtons.OK,MessageBoxIcon.Error);
+                                if (aliasActual == us.Alias)
+                                {
 
+                                    if (lg.ModificarUsuario(us, LogIn.u))
+                                    {
+
+                                        MessageBox.Show(Rec.MessageUsuarioModificado);
+                                        Cargar_Usuario(user.ID_Usuario);
+                                        lUsuaris.Clear();
+                                        lUsuaris = lg.ObtenerUsuarios(0);
+                                        RbtActivos.Checked = true;
+                                        Botones(false);
+                                        btnNuevo.Enabled = true;
+                                        Cargar_Dgv(lUsuaris);
+                                        Limpiar();
+                                        pnlCrud.Visible = false;
+                                        user = new Usuarios();
+                                    }
+                                }
+                                else if (!lg.BuscarAliasUsuario(us.Alias))
+                                {
+
+                                    if (lg.ModificarUsuario(us, LogIn.u))
+                                    {
+
+                                        MessageBox.Show(Rec.MessageUsuarioModificado);
+                                        Cargar_Usuario(user.ID_Usuario);
+                                        lUsuaris.Clear();
+                                        lUsuaris = lg.ObtenerUsuarios(0);
+                                        RbtActivos.Checked = true;
+                                        Botones(false);
+                                        btnNuevo.Enabled = true;
+                                        Cargar_Dgv(lUsuaris);
+                                        Limpiar();
+                                        pnlCrud.Visible = false;
+                                        user = new Usuarios();
+
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show(Rec.MessageAliasIngresadoyaregistrado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (!lg.BuscarAliasUsuario(us.Alias))
+                            {
+                                if (!lg.BuscarDniUsuario(us.Empleado.DNI))
+                                {
+                                    if (lg.AltaUsuario(us, LogIn.u))
+                                    {
+                                        MessageBox.Show(Rec.MessageUsuarioAgregadoCorrectamente);
+                                        Cargar_Usuario(user.ID_Usuario);
+                                        lUsuaris.Clear();
+                                        lUsuaris = lg.ObtenerUsuarios(0);
+                                        RbtActivos.Checked = true;
+                                        Botones(false);
+                                        btnNuevo.Enabled = true;
+                                        Cargar_Dgv(lUsuaris);
+                                        Limpiar();
+                                        pnlCrud.Visible = false;
+                                        user = new Usuarios();
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(Rec.messageNosepudoagregarusuario, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show(Rec.MessageboxDniyaregistrado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show(Rec.MessageAliasIngresadoyaregistrado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+                        }
+
+                        if (LogIn.u.Rol.Id_Rol != 1 && LogIn.u.Rol.Id_Rol != 2 && LogIn.u.Rol.Id_Rol != 3)
+                        {
+                            lUsuaris = lg.ObtenerUsuario(LogIn.u);
+
+                            Cargar_Dgv(lUsuaris);
+                            btnNuevo.Enabled = false;
+                            rbtTodos.Enabled = false;
+                            RbtActivos.Enabled = false;
+                            RbtEliminados.Enabled = false;
+                            RbtAlias.Enabled = false;
+                            RbtDNI.Enabled = false;
+                            RbtNombre.Enabled = false;
+                            RbtAlias.Enabled = false;
+                            RbtCodigo.Enabled = false;
+                            txbbusqueda.Enabled = false;
+                            BtnBuscar.Enabled = false;
+                            picreset.Enabled = false;
+                        }
+
+                    }
+
+                }
+            }
+            else
+            {
+                if (Validaciones())
+                {
+                    string aliasActual;
+                    Usuarios us = new Usuarios();
+                    Empleado emp = new Empleado();
+                    aliasActual = user.Alias;
+                    AbstraerUsuario(emp, us);
+
+                    if (lg.BuscarUsuario(user.ID_Usuario))
+                    {
+                        us.ID_Usuario = user.ID_Usuario;
+                        emp.Id_Empleado = Convert.ToInt32(txbIDEmpleado.Text);
+                        us.Empleado = emp;
+                        if (us.ID_Usuario == LogIn.u.ID_Usuario && us.Baja_Logica == 1)
+                        {
+
+                            MessageBox.Show(Rec.MessageUsuarioNopuededarsedebaja, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                        else
+                        {
+                            if (aliasActual == us.Alias)
+                            {
+
+                                if (lg.ModificarUsuario(us, LogIn.u))
+                                {
+
+                                    MessageBox.Show(Rec.MessageUsuarioModificado);
+                                    Cargar_Usuario(user.ID_Usuario);
+                                    lUsuaris.Clear();
+                                    lUsuaris = lg.ObtenerUsuarios(0);
+                                    RbtActivos.Checked = true;
+                                    Botones(false);
+                                    btnNuevo.Enabled = true;
+                                    Cargar_Dgv(lUsuaris);
+                                    Limpiar();
+                                    pnlCrud.Visible = false;
+                                    user = new Usuarios();
+                                }
+                            }
+                            else if (!lg.BuscarAliasUsuario(us.Alias))
+                            {
+
+                                if (lg.ModificarUsuario(us, LogIn.u))
+                                {
+
+                                    MessageBox.Show(Rec.MessageUsuarioModificado);
+                                    Cargar_Usuario(user.ID_Usuario);
+                                    lUsuaris.Clear();
+                                    lUsuaris = lg.ObtenerUsuarios(0);
+                                    RbtActivos.Checked = true;
+                                    Botones(false);
+                                    btnNuevo.Enabled = true;
+                                    Cargar_Dgv(lUsuaris);
+                                    Limpiar();
+                                    pnlCrud.Visible = false;
+                                    user = new Usuarios();
+
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show(Rec.MessageAliasIngresadoyaregistrado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (!lg.BuscarAliasUsuario(us.Alias))
+                        {
+                            if (!lg.BuscarDniUsuario(us.Empleado.DNI))
+                            {
+                                if (lg.AltaUsuario(us, LogIn.u))
+                                {
+                                    MessageBox.Show(Rec.MessageUsuarioAgregadoCorrectamente);
+                                    Cargar_Usuario(user.ID_Usuario);
+                                    lUsuaris.Clear();
+                                    lUsuaris = lg.ObtenerUsuarios(0);
+                                    RbtActivos.Checked = true;
+                                    Botones(false);
+                                    btnNuevo.Enabled = true;
+                                    Cargar_Dgv(lUsuaris);
+                                    Limpiar();
+                                    pnlCrud.Visible = false;
+                                    user = new Usuarios();
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show(Rec.messageNosepudoagregarusuario, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show(Rec.MessageboxDniyaregistrado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
                         }
                         else
                         {
-                            MessageBox.Show(Rec.MessageboxDniyaregistrado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Rec.MessageAliasIngresadoyaregistrado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                     }
-                    else
+
+                    if (LogIn.u.Rol.Id_Rol != 1 && LogIn.u.Rol.Id_Rol != 2 && LogIn.u.Rol.Id_Rol != 3)
                     {
-                        MessageBox.Show(Rec.MessageAliasIngresadoyaregistrado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        lUsuaris = lg.ObtenerUsuario(LogIn.u);
+
+                        Cargar_Dgv(lUsuaris);
+                        btnNuevo.Enabled = false;
+                        rbtTodos.Enabled = false;
+                        RbtActivos.Enabled = false;
+                        RbtEliminados.Enabled = false;
+                        RbtAlias.Enabled = false;
+                        RbtDNI.Enabled = false;
+                        RbtNombre.Enabled = false;
+                        RbtAlias.Enabled = false;
+                        RbtCodigo.Enabled = false;
+                        txbbusqueda.Enabled = false;
+                        BtnBuscar.Enabled = false;
+                        picreset.Enabled = false;
                     }
 
                 }
-               
+
             }
         }
 
@@ -410,7 +689,31 @@ namespace CapaPresentacion.Formularios
                 MessageBox.Show(Rec.MessageValidacionRoles, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
+            if (cboloclaidad.SelectedIndex == -1)
+            {
+                MessageBox.Show(Rec.MessageSedebeCargarLoc, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (nupaltura.Value == 0)
+            {
+                MessageBox.Show(Rec.validacionAltura, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (TxbDni.Text.Length > 8)
+            {
+                MessageBox.Show(Rec.validacionDNI, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (txbNombre.Text.Length > 30)
+            {
+                MessageBox.Show(Rec.ValidacionLengNombre, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (txbApellido.Text.Length > 30)
+            {
+                MessageBox.Show(Rec.ValidacionLengApellido, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             try
             {
                 Convert.ToInt64(TxbDni.Text);
@@ -439,9 +742,15 @@ namespace CapaPresentacion.Formularios
         private void AbstraerUsuario(Empleado e, Usuarios u)
         {
             Roles r = new Roles();
+            Localidad l = new Localidad();
+            l.idLocalidad = Convert.ToInt32(cboloclaidad.SelectedValue);
             e.Nombre = txbNombre.Text;
             e.Apellido = txbApellido.Text;
             e.Direccion = txbDireccion.Text;
+            e.Altura = Convert.ToInt32(nupaltura.Value);
+            e.Piso = Convert.ToInt32(nupPiso.Value);
+            e.Departamento = txbDepto.Text;
+            e.Loc = l;
             e.DNI = Convert.ToInt64(TxbDni.Text);
             e.Telefono = Convert.ToInt64(TxbTelefono.Text);
             e.FechaNacimiento = dateTimePicker1.Value;
@@ -485,6 +794,10 @@ namespace CapaPresentacion.Formularios
             txbIDEmpleado.Enabled = a;
             dateTimePicker1.Enabled = a;
             chkActivo.Enabled = a;
+            txbDepto.Enabled = a;
+            nupaltura.Enabled = a;
+            nupPiso.Enabled =a;
+            cboloclaidad.Enabled =a;
         }
 
         private void RbtActivos_CheckedChanged(object sender, EventArgs e)
@@ -658,7 +971,7 @@ namespace CapaPresentacion.Formularios
             lbNombre.Text = Rec.Nombre;
             lbApellido.Text = Rec.Apellido;
             lbdni.Text = Rec.DNI;
-            lbDireccion.Text = Rec.Direccion;
+            lbDireccion.Text = Rec.Calle;
             lbTel.Text = Rec.Telefono;
             lbFechaNac.Text = Rec.FechaNacimineto;
             lbalias.Text = Rec.Alias;
@@ -672,13 +985,23 @@ namespace CapaPresentacion.Formularios
             dgvUsuarios.Columns[0].HeaderText = Rec.CodigoUsuario;
             dgvUsuarios.Columns[1].HeaderText = Rec.DNI;
             dgvUsuarios.Columns[2].HeaderText = Rec.NombreCompleto;
-            dgvUsuarios.Columns[3].HeaderText = Rec.Alias;
-            dgvUsuarios.Columns[4].HeaderText = Rec.Rol;
-            dgvUsuarios.Columns[5].HeaderText = Rec.FechaAlta;
-            dgvUsuarios.Columns[6].HeaderText = Rec.FechaBaja;
-            dgvUsuarios.Columns[7].HeaderText = Rec.Activo;
-            dgvUsuarios.Columns[8].HeaderText = Rec.Detalle;
+            dgvUsuarios.Columns[3].HeaderText = Rec.Calle;
+            dgvUsuarios.Columns[4].HeaderText = Rec.Altura;
+            dgvUsuarios.Columns[5].HeaderText = Rec.Piso;
+            dgvUsuarios.Columns[6].HeaderText = Rec.Departamento;
+            dgvUsuarios.Columns[7].HeaderText = Rec.localidad;
 
+            dgvUsuarios.Columns[8].HeaderText = Rec.Alias;
+            dgvUsuarios.Columns[9].HeaderText = Rec.Rol;
+            dgvUsuarios.Columns[10].HeaderText = Rec.FechaAlta;
+            dgvUsuarios.Columns[11].HeaderText = Rec.FechaBaja;
+            dgvUsuarios.Columns[12].HeaderText = Rec.Activo;
+            dgvUsuarios.Columns[13].HeaderText = Rec.Detalle;
+            btnLocalidad.Text = Rec.localidad;
+            lbAltura.Text = Rec.Altura;
+            lbpiso.Text = Rec.Piso;
+            lbDepartamento.Text = Rec.Departamento;
+            lblocalidad.Text = Rec.localidad;
 
         }
         private void DetectarIdioma()
@@ -716,6 +1039,100 @@ namespace CapaPresentacion.Formularios
                 }
 
             }
+        }
+        private void cargar_cboLocalidad(ComboBox cbo, string display, string value)
+        {
+            cbo.DataSource = lcbo.Localidad();
+            cbo.DisplayMember = display;
+            cbo.ValueMember = value;
+            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbo.SelectedIndex = -1;
+        }
+
+        private void btnLocalidad_Click(object sender, EventArgs e)
+        {
+            FormLocalidad fm = new FormLocalidad();
+            fm.ShowDialog();
+            if (fm.DialogResult == DialogResult.OK)
+            {
+                cargar_cboLocalidad(cboloclaidad, "NLocalidad", "idLocalidad");
+
+            }
+        }
+
+        private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar < 0 || e.KeyChar > 127)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txbApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar < 0 || e.KeyChar > 127)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txbDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar < 0 || e.KeyChar > 127)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxbTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxbDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private string cambioIdiomaNombre(string a)
+        {
+            string aa = "";
+            if (a == "Gerente")
+            {
+                aa = "Manager";
+            }else if (a == "Representante Tècnico")
+            {
+                aa = "Technical Representative";
+
+            }
+            else if (a == "Administrativo")
+            {
+                aa = "Administrative";
+
+
+            }
+            else if (a == "Contador")
+            {
+                aa = "Accountant";
+
+            }
+            else if (a == "Encargados")
+            {
+                aa = "supervisor";
+
+            }
+            else if (a == "Vendedores")
+            {
+                aa = "Sellers";
+
+            }
+            return aa;
         }
     }
 }

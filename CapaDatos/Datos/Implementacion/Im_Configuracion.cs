@@ -12,7 +12,7 @@ namespace CapaDatos.Datos.Implementacion
 
     public class Im_Configuracion : IConfiguracion
     {
-        public bool ActualizarDescuentosConfig(List<Descuento> d, Configuracion c)
+        public bool ActualizarDescuentosConfig(List<Descuento> d, Configuracion c, Usuarios u)
         {
             try
             {
@@ -26,6 +26,8 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@dia7", d[6].PorcentajeDescuento);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@descuentoSocio", c.DescuentoSocios);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@descuentoPresencial", c.DescuentoPresencial);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
+
                 HelperDB.ObtenerInstancia().updatear_db("SP_ActualizarConfigDescuentos");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -36,7 +38,7 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
-        public bool ActualizarRedes(Configuracion c)
+        public bool ActualizarRedes(Configuracion c, Usuarios u)
         {
             try
             {
@@ -47,6 +49,7 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@twitter", c.Twitter);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@youtube", c.Youtube);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@contraseña", c.Contraseña);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("id_usuario", u.ID_Usuario);
                 HelperDB.ObtenerInstancia().updatear_db("SP_Actualizar_Redes");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;

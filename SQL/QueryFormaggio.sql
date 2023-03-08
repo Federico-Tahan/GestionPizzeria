@@ -98,7 +98,8 @@ Create table Roles
 id_rol int identity (1,1) not null,
 roles varchar(50) not null,
 descripcion varchar(600) not null,
-baja_logica int
+baja_logica int,
+ROLES_EN varchar(50)
 constraint pk_id_rol primary key (id_rol)
 )
 go
@@ -111,6 +112,10 @@ direccion varchar(150) not null,
 fecha_nac datetime not null,
 telefono bigint not null,
 baja_logica int,
+id_localidad int,
+altura int,
+piso int,
+departamento varchar(100),
 constraint pk_id_empleado primary key (id_empleado)
 )
 go
@@ -158,6 +163,8 @@ forma_entrega varchar(50) not null,
 constraint pk_id_forma_entrega primary key (id_forma_entrega)
 )
 go
+
+
 Create table Factura
 (
 nro_factura int identity(1,1) not null,
@@ -175,8 +182,10 @@ calle varchar(500),
 altura int,
 piso int,
 departamento varchar(50),
+dni bigint,
+telefono bigint,
+descuento money,
 Constraint pk_id_nro_factura primary key (nro_factura),
-constraint fk_id_cliente foreign key (id_cliente) references cliente,
 constraint fk_id_usuarios foreign key (id_usuario) references usuarios,
 constraint fk_id_forma_compra foreign key (id_forma_compra) references forma_compra,
 constraint fk_id_forma_entrega foreign key (id_forma_entrega) references forma_entrega,

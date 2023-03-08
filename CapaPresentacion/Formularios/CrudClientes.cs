@@ -22,6 +22,7 @@ namespace CapaPresentacion.Formularios
 {
     public partial class CrudClientes : Form
     {
+        int edit = 0;
         ing_Cliente lg = new ng_Cliente();
         ing_Cbos lcbo = new ng_Cbos();
         Cliente cliente = new Cliente();
@@ -39,7 +40,6 @@ namespace CapaPresentacion.Formularios
         {
             lClientes = lg.TraerClientes();
             cargarDgv(lClientes);
-            cargar_cboTipOclIENTE(CboTipoCliente, "TipoCliente", "Id_TipoCliente");
             cargar_cboLocalidad(cboloclaidad,"NLocalidad", "idLocalidad");
             DetectarIdioma();
             AplicarIdioma();
@@ -60,16 +60,18 @@ namespace CapaPresentacion.Formularios
             BtnCancelar.Enabled = true;
             BtnGuardar.Enabled = true;
             habilitar(true);
+            edit = 0;
         }
 
         private void picbajar_Click(object sender, EventArgs e)
         {
             TxbDni.Text = string.Empty;
-
+            BtnBorrar.Enabled = false;
             Limpiar();
             pnlCrud.Visible = false;
             Botones(false);
             btnNuevo.Enabled = true;
+            edit = 0;
 
         }
 
@@ -84,7 +86,7 @@ namespace CapaPresentacion.Formularios
             s = new Socio();
             cliente.socio = s;
             cliente.TipoCliente = tp;
-            if (dgvCliente.Columns[e.ColumnIndex].Name == "Acciones")
+            if (dgvCliente.Columns[e.ColumnIndex].Name == "Acciones" && dgvCliente.Rows.Count != 0)
             {
                 pnlCrud.Visible = true;
                 cliente.IdCliente = Convert.ToInt32(dgvCliente.CurrentRow.Cells[0].Value);
@@ -94,6 +96,14 @@ namespace CapaPresentacion.Formularios
                 {
                     TxbDni.Visible = false;
                     TxbEmail.Visible= false;
+                }
+                if (LogIn.u.Rol.Id_Rol == 1 || LogIn.u.Rol.Id_Rol == 3 || LogIn.u.Rol.Id_Rol == 5 || LogIn.u.Rol.Id_Rol == 6)
+                {
+                    BtnBorrar.Enabled = true;
+                }
+                else
+                {
+                    BtnBorrar.Enabled = false;
                 }
                 habilitar(false);
                 picLimpiar.Enabled = false;
@@ -113,7 +123,6 @@ namespace CapaPresentacion.Formularios
             nupaltura.Value = cliente.Altura;
             nupPiso.Value = cliente.Piso;
             cboloclaidad.SelectedValue = cliente.locali.idLocalidad;
-            CboTipoCliente.SelectedValue = cliente.TipoCliente.Id_TipoCliente;
             if (cliente.socio.Baja_logica == 0)
             {
                 TxbDni.Visible = true;
@@ -137,7 +146,6 @@ namespace CapaPresentacion.Formularios
             TxbDirec.Enabled = a;
             texboxnumero.Enabled = a;
             TxbDni.Enabled = a;
-            CboTipoCliente.Enabled = a;
             TxbDni.Enabled = a;
             TxbEmail.Enabled = a;
             nupPiso.Enabled = a;
@@ -153,13 +161,8 @@ namespace CapaPresentacion.Formularios
             BtnCancelar.Enabled = true;
             BtnGuardar.Enabled = true;
             habilitar(true);
-            txbNombre.Enabled = false;
-            TxbApellido.Enabled = false;
-            if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 1)
-            {
-                TxbDni.Enabled = false;
-
-            }
+            BtnBorrar.Enabled = false;
+            edit = 1;
 
         }
 
@@ -170,6 +173,9 @@ namespace CapaPresentacion.Formularios
             pnlCrud.Visible = false;
             Botones(false);
             btnNuevo.Enabled = true;
+            BtnBorrar.Enabled = false;
+            edit = 0;
+
 
         }
 
@@ -181,7 +187,6 @@ namespace CapaPresentacion.Formularios
                 TxbApellido.Text = string.Empty;
                 TxbDni.Text = string.Empty;
                 TxbEmail.Text = string.Empty;
-                CboTipoCliente.SelectedIndex = -1;
                 TxbDirec.Text = string.Empty;
                 texboxnumero.Text = string.Empty;
                 txbDepto.Text = string.Empty;
@@ -192,7 +197,6 @@ namespace CapaPresentacion.Formularios
             else
             {
                 TxbEmail.Text = string.Empty;
-                CboTipoCliente.SelectedIndex = -1;
                 TxbDirec.Text = string.Empty;
                 texboxnumero.Text = string.Empty;
                 txbDepto.Text = string.Empty;
@@ -217,11 +221,11 @@ namespace CapaPresentacion.Formularios
             {
                 if (c.socio.Baja_logica == 1 || c.socio.Baja_logica == 2)
                 {
-                    dgvCliente.Rows.Add(c.IdCliente, " ",c.Nombre + " "+ c.Apellido," ",c.Direccion, c.Altura,c.Departamento,c.Piso,c.Telefono,"No");
+                    dgvCliente.Rows.Add(c.IdCliente, " ",c.Nombre + " "+ c.Apellido," ",c.Direccion, c.Altura, c.Piso,c.Departamento,c.Telefono,Rec.No);
 
                 }else if (c.socio.Baja_logica == 0)
                 {
-                    dgvCliente.Rows.Add(c.IdCliente, c.socio.DNI, c.Nombre + " " + c.Apellido, c.socio.FechaAdhesion.ToShortDateString(), c.Direccion, c.Altura, c.Departamento, c.Piso, c.Telefono, "Si");
+                    dgvCliente.Rows.Add(c.IdCliente, c.socio.DNI, c.Nombre + " " + c.Apellido, c.socio.FechaAdhesion.ToShortDateString(), c.Direccion, c.Altura, c.Piso, c.Departamento, c.Telefono, Rec.Si);
 
                 }
 
@@ -374,13 +378,6 @@ namespace CapaPresentacion.Formularios
                 return false;
 
             }
-            else if (CboTipoCliente.SelectedIndex == -1)
-            {
-                MessageBox.Show(Rec.MessageValidacionTipoCli, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return false;
-
-            }
             else if (cboloclaidad.SelectedIndex == -1)
             {
                 MessageBox.Show(Rec.MesssageValidacionLoc, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -389,8 +386,6 @@ namespace CapaPresentacion.Formularios
 
             }
 
-            if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 1)
-            {
                 if (TxbEmail.Text == "" || EsEmail(TxbEmail.Text) is false)
                 {
                     MessageBox.Show(Rec.MessageValidacionEmailCli, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -405,8 +400,28 @@ namespace CapaPresentacion.Formularios
                     return false;
 
                 }
+                if (TxbDni.Text.Length > 8)
+                {
+                    MessageBox.Show(Rec.validacionDNI, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (TxbEmail.Text.Length > 50)
+                {
+                    MessageBox.Show(Rec.validacionLengEmail, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            if (txbNombre.Text.Length > 30)
+            {
+                MessageBox.Show(Rec.ValidacionLengNombre, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (TxbApellido.Text.Length > 30)
+            {
+                MessageBox.Show(Rec.ValidacionLengApellido, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
 
-                try
+            try
                 {
                     Convert.ToInt64(TxbDni.Text);
                 }
@@ -417,51 +432,12 @@ namespace CapaPresentacion.Formularios
 
                 }
 
-            }
-
             return true;
         }
 
         private void CboTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 1)
-            {
-                lbdni.Visible = true;
-                lbEmail.Visible = true;
-                TxbEmail.Visible = true;
-                TxbDni.Visible = true;
-                if (cliente.socio.DNI == 0)
-                {
-                    TxbDni.Text = string.Empty;
-                    TxbEmail.Text = string.Empty;
-                    TxbDni.Enabled = true;
-
-                }
-                else
-                {
-                    TxbDni.Text = cliente.socio.DNI.ToString();
-                    TxbEmail.Text = cliente.socio.Email;
-                    TxbDni.Enabled = false;
-                }
-
-            }
-            else
-            {
-                lbdni.Visible = false;
-                lbEmail.Visible = false;
-                TxbEmail.Visible = false;
-                TxbDni.Visible = false;
-                if (cliente.socio.DNI == 0)
-                {
-                    TxbDni.Text = string.Empty;
-                    TxbEmail.Text = string.Empty;
-                }
-                else
-                {
-                    TxbDni.Text = cliente.socio.DNI.ToString();
-                    TxbEmail.Text = cliente.socio.Email;
-                }
-            }
+            
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -482,78 +458,90 @@ namespace CapaPresentacion.Formularios
                 cli.IdCliente = cliente.IdCliente;
 
 
-                if (lg.BuscarClienteSocioDni(cli) )
+
+                if (edit == 1)
                 {
-                    if (txbNombre.Enabled is true && cli.socio.DNI != 0) //Verificar que no se ingrese con un DNI registrado
+                    if (lg.BuscarClienteSocioDni(cli))
                     {
-                        MessageBox.Show(Rec.MessageboxDniyaregistrado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else if (lg.ModificacionCliente(cli,LogIn.u)) //Modifica los datos del socio, ya que accedio al apartado Editar.
-                    {
-                        if (cli.socio.Email != "" && cli.socio.Email != cliente.socio.Email)
+                        if (cliente.socio.DNI == cli.socio.DNI)
                         {
-
-
-                            if (lg.EmailSender(cli))
+                            if (lg.ModificacionCliente(cli, LogIn.u))
                             {
-                                MessageBox.Show(Rec.MessageEmailEnviado,"", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                MessageBox.Show(Rec.MessageEmailNoEnviado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                if (cli.socio.Email != "" && cli.socio.Email != cliente.socio.Email)
+                                {
 
+
+                                    if (lg.EmailSender(cli))
+                                    {
+                                        MessageBox.Show(Rec.MessageEmailEnviado, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(Rec.MessageEmailNoEnviado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    }
+                                }
+                                MessageBox.Show(Rec.MessageClienteModificado);
+                                lClientes = lg.TraerClientes();
+                                cargarDgv(lClientes);
+                                Botones(false);
+                                Limpiar();
+                                btnNuevo.Enabled = true;
+                                pnlCrud.Visible = false;
+                                BtnBorrar.Enabled = false;
+                                edit = 0;
+                                cliente = new Cliente();
+                                s = new Socio();
+                                cliente.socio = s;
                             }
                         }
-                        MessageBox.Show(Rec.MessageClienteModificado);
-                        lClientes = lg.TraerClientes();
-                        cargarDgv(lClientes);
-                        Botones(false);
-                        Limpiar();
-                        btnNuevo.Enabled = true;
-                        pnlCrud.Visible = false;
-                        rbtTodos.Checked = true;
-                    }
-                }
-                else if (lg.BuscarCliente(cliente))
-                {
-                    if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 1)
-                    {
-                        if (lg.AltaSocio(cli, LogIn.u))
+                        else
                         {
-                            if (cli.socio.Email != "")
+                            MessageBox.Show(Rec.MessageboxDniyaregistrado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+                    }
+                    else
+                    {
+                        if (lg.ModificacionCliente(cli, LogIn.u))
+                        {
+                            if (cli.socio.Email != "" && cli.socio.Email != cliente.socio.Email)
                             {
 
-                            
-                            if (lg.EmailSender(cli))
-                            {
+
+                                if (lg.EmailSender(cli))
+                                {
                                     MessageBox.Show(Rec.MessageEmailEnviado, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                                 else
-                            {
+                                {
                                     MessageBox.Show(Rec.MessageEmailNoEnviado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 }
-                                MessageBox.Show(Rec.MessageSocioDadoAlta);
                             }
-                        }
-                    }else if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 2)
-                    {
-                        if (lg.ModificacionCliente(cli, LogIn.u)) 
-                        {
                             MessageBox.Show(Rec.MessageClienteModificado);
+                            lClientes = lg.TraerClientes();
+                            cargarDgv(lClientes);
+                            Botones(false);
+                            Limpiar();
+                            btnNuevo.Enabled = true;
+                            pnlCrud.Visible = false;
+                            BtnBorrar.Enabled = false;
+                            edit = 0;
+                            cliente = new Cliente();
+                            s = new Socio();
+                            cliente.socio = s;
                         }
                     }
-                    lClientes = lg.TraerClientes();
-                    cargarDgv(lClientes);
-                    Botones(false);
-                    Limpiar();
-                    btnNuevo.Enabled = true;
-                    pnlCrud.Visible = false;
-                    rbtTodos.Checked = true;
                 }
                 else
                 {
-                    if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 1)
+                    if (lg.BuscarClienteSocioDni(cli))
+                    {
+                        MessageBox.Show(Rec.MessageboxDniyaregistrado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    else
                     {
                         if (lg.AltaClienteSocio(cli, LogIn.u))
                         {
@@ -561,32 +549,28 @@ namespace CapaPresentacion.Formularios
                             MessageBox.Show(Rec.MessageSocioDadoAlta);
                             if (lg.EmailSender(cli))
                             {
-                                MessageBox.Show(Rec.MessageEmailEnviado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show(Rec.MessageEmailEnviado, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
                                 MessageBox.Show(Rec.MessageEmailNoEnviado, Rec.CapError, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             }
+                            lClientes = lg.TraerClientes();
+                            cargarDgv(lClientes);
+                            Botones(false);
+                            Limpiar();
+                            btnNuevo.Enabled = true;
+                            BtnBorrar.Enabled = false;
+                            pnlCrud.Visible = false;
+                            edit = 0;
+                            cliente = new Cliente();
+                            s = new Socio();
+                            cliente.socio = s;
+
                         }
                     }
-                    else if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 2)
-                    {
-                        if (lg.AltaClienteNosocio(cli, LogIn.u))
-                        {
-                            MessageBox.Show(Rec.MessageClienteDadoAlta);
-                        }
-                    }
-                    lClientes = lg.TraerClientes();
-                    cargarDgv(lClientes);
-                    Botones(false);
-                    Limpiar();
-                    btnNuevo.Enabled = true;
-                    pnlCrud.Visible = false;
                 }
-                cliente = new Cliente();
-                s = new Socio();
-                cliente.socio = s;
             }
         }
 
@@ -596,12 +580,11 @@ namespace CapaPresentacion.Formularios
             cli.Nombre = txbNombre.Text;
             cli.Apellido= TxbApellido.Text;
             cli.Direccion= TxbDirec.Text;
-            cli.TipoCliente.Id_TipoCliente = Convert.ToInt32(CboTipoCliente.SelectedValue);
-            if (Convert.ToInt32(CboTipoCliente.SelectedValue) == 1)
-            {
+            cli.TipoCliente.Id_TipoCliente = 1;
+
                 cli.socio.DNI = Convert.ToInt64(TxbDni.Text);
                 cli.socio.Email = TxbEmail.Text;
-            }
+
             cli.Altura = Convert.ToInt32(nupaltura.Value);
             cli.Piso = Convert.ToInt32(nupPiso.Value);
             cli.Departamento = txbDepto.Text;
@@ -671,16 +654,12 @@ namespace CapaPresentacion.Formularios
             BtnCancelar.Text = Rec.Cancelar;
             BtnGuardar.Text = Rec.Guardar;
             lbNombre.Text = Rec.Nombre;
-            rbtTodos.Text = Rec.Todos;
-            RbtSocios.Text = Rec.Socios;
-            RbtNoSocios.Text = Rec.NoSocios;
             RbtDni.Text = Rec.DNI;
             RbtNombre.Text = Rec.Nombre;
             BtnBuscar.Text = Rec.Buscar;
             lbApellido.Text = Rec.Apellido;
-            TxbDireccion.Text = Rec.Direccion;
+            TxbDireccion.Text = Rec.Calle;
             TxbTelefono.Text = Rec.Telefono;
-            lbtipocliente.Text = Rec.TipodeCliente;
             lbdni.Text = Rec.DNI;
             lbEmail.Text = Rec.Email;
             btnLocalidad.Text = Rec.localidad;
@@ -688,6 +667,8 @@ namespace CapaPresentacion.Formularios
             lbpiso.Text = Rec.Piso;
             lbDepartamento.Text = Rec.Departamento;
             lblocalidad.Text = Rec.localidad;
+            BtnBorrar.Text = Rec.Borrar;
+
 
 
 
@@ -701,14 +682,12 @@ namespace CapaPresentacion.Formularios
             dgvCliente.Columns[6].HeaderText = Rec.Departamento;
             dgvCliente.Columns[7].HeaderText = Rec.Piso;
             dgvCliente.Columns[8].HeaderText = Rec.Telefono;
-            dgvCliente.Columns[9].HeaderText = Rec.Socio;
-            dgvCliente.Columns[10].HeaderText = Rec.Detalle;
+            dgvCliente.Columns[9].HeaderText = Rec.Detalle;
 
         }
 
         private void picreset_Click(object sender, EventArgs e)
         {
-            rbtTodos.Checked = true;
             lClientes = lg.TraerClientes();
             cargarDgv(lClientes);
 
@@ -765,6 +744,74 @@ namespace CapaPresentacion.Formularios
                     }
                 }
 
+            }
+        }
+
+        private void BtnBorrar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(Rec.MessageDarBajaCliente) == DialogResult.Yes)
+            {
+                if (lg.EliminarCliente(cliente.IdCliente, LogIn.u))
+                {
+                    MessageBox.Show(Rec.deshaderirextio);
+                    lClientes = lg.TraerClientes();
+                    cargarDgv(lClientes);
+                    Botones(false);
+                    Limpiar();
+                    btnNuevo.Enabled = true;
+                    pnlCrud.Visible = false;
+                    cliente = new Cliente();
+                    s = new Socio();
+                    cliente.socio = s;
+                    BtnBorrar.Enabled = false;
+
+                }
+                else
+                {
+                    MessageBox.Show(Rec.deshaderirnoexti);
+
+                }
+            }
+
+        }
+
+        private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar < 0 || e.KeyChar > 127)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxbApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar < 0 || e.KeyChar > 127)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxbDirec_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar < 0 || e.KeyChar > 127)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void texboxnumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxbDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

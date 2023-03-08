@@ -83,7 +83,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
                 AbstraerUnidadMedida();
                 if (tp.IdUnidadMedida != 0)
                 {
-                    if (lg.ModificacionUnidadMedida(tp))
+                    if (lg.ModificacionUnidadMedida(tp, LogIn.u))
                     {
                         MessageBox.Show(Rec.MessageModUMEXito);
                     }
@@ -101,7 +101,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
                 }
                 else
                 {
-                    if (lg.AltaUnidadMedida(tp))
+                    if (lg.AltaUnidadMedida(tp, LogIn.u))
                     {
                         MessageBox.Show(Rec.MessageAltaUMExito);
                     }
@@ -197,11 +197,11 @@ namespace CapaPresentacion.Formularios.CombosProducto
             {
                 if (p.Baja_Logica == 0)
                 {
-                    dgvUnidadMedida.Rows.Add(p.IdUnidadMedida, p.Unidad_Medida, "Si");
+                    dgvUnidadMedida.Rows.Add(p.IdUnidadMedida, p.Unidad_Medida, Rec.Si);
                 }
                 else
                 {
-                    dgvUnidadMedida.Rows.Add(p.IdUnidadMedida, p.Unidad_Medida, "No");
+                    dgvUnidadMedida.Rows.Add(p.IdUnidadMedida, p.Unidad_Medida, Rec.No);
                 }
 
 

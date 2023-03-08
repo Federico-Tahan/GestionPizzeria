@@ -18,24 +18,24 @@ namespace CapaNegocio.Implementacion
             lg = new Im_TipoProdClasiUnidadMed();
         }
 
-        public bool AltaClasificacion(Clasificacion c)
+        public bool AltaClasificacion(Clasificacion c, Usuarios u)
         {
-            return lg.AltaClasificacion(c);
+            return lg.AltaClasificacion(c, u);
         }
 
-        public bool AltaLocalidad(Localidad md)
+        public bool AltaLocalidad(Localidad md, Usuarios u)
         {
-            return lg.AltaLocalidad(md);
+            return lg.AltaLocalidad(md, u);
         }
 
-        public bool AltaTipoProducto(TipoProducto tp)
+        public bool AltaTipoProducto(TipoProducto tp, Usuarios u)
         {
-            return lg.AltaTipoProducto(tp);
+            return lg.AltaTipoProducto(tp, u);
         }
 
-        public bool AltaUnidadMedida(UnidadMedida md)
+        public bool AltaUnidadMedida(UnidadMedida md, Usuarios u)
         {
-            return lg.AltaUnidadMedida(md);
+            return lg.AltaUnidadMedida(md, u);
         }
 
         public List<Clasificacion> GetClasificacion(int a)
@@ -58,24 +58,24 @@ namespace CapaNegocio.Implementacion
             return lg.GetUnidadMedida(a);
         }
 
-        public bool ModificacionClasificacion(Clasificacion c)
+        public bool ModificacionClasificacion(Clasificacion c, Usuarios u)
         {
-            return lg.ModificacionClasificacion(c);
+            return lg.ModificacionClasificacion(c, u);
         }
 
-        public bool ModificacionTipoProducto(TipoProducto tp)
+        public bool ModificacionTipoProducto(TipoProducto tp, Usuarios u)
         {
-            return lg.ModificacionTipoProducto(tp);
+            return lg.ModificacionTipoProducto(tp, u);
         }
 
-        public bool ModificacionUnidadMedida(UnidadMedida md)
+        public bool ModificacionUnidadMedida(UnidadMedida md, Usuarios u)
         {
-            return lg.ModificacionUnidadMedida(md);
+            return lg.ModificacionUnidadMedida(md, u);
         }
 
-        public bool ModLocalidad(Localidad md)
+        public bool ModLocalidad(Localidad md, Usuarios u)
         {
-            return lg.ModLocalidad(md);
+            return lg.ModLocalidad(md,u);
         }
     }
 }

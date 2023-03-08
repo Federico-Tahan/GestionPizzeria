@@ -20,14 +20,14 @@ namespace CapaNegocio.Implementacion
             lg = new Im_Configuracion();
         }
 
-        public bool ActualizarDescuentosConfig(List<Descuento> d, Configuracion c)
+        public bool ActualizarDescuentosConfig(List<Descuento> d, Configuracion c, Usuarios u)
         {
-            return lg.ActualizarDescuentosConfig(d,c);
+            return lg.ActualizarDescuentosConfig(d,c,u);
         }
 
-        public bool ActualizarRedes(Configuracion c)
+        public bool ActualizarRedes(Configuracion c, Usuarios u)
         {
-            return lg.ActualizarRedes(c);
+            return lg.ActualizarRedes(c,u);
         }
 
         public SqlConnection Conexion()

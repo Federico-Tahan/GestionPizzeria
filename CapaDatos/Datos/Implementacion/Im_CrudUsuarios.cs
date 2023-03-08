@@ -20,6 +20,11 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", u.Empleado.Nombre);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@apellido", u.Empleado.Apellido);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@direccion", u.Empleado.Direccion);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@altura", u.Empleado.Altura);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@piso", u.Empleado.Piso);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@departamento", u.Empleado.Departamento);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@localidad", u.Empleado.Loc.idLocalidad);
+
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@fecha_nacimiento", u.Empleado.FechaNacimiento);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@telefono", u.Empleado.Telefono);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@alias", u.Alias);
@@ -109,6 +114,10 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@apellido", u.Empleado.Apellido);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@dni", u.Empleado.DNI);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@fecha_nac", u.Empleado.FechaNacimiento);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@departamento", u.Empleado.Departamento);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@altura", u.Empleado.Altura);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@piso", u.Empleado.Piso);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_localidad", u.Empleado.Loc.idLocalidad);
 
                 HelperDB.ObtenerInstancia().updatear_db("SP_Actualizar_UsuarioEmpleado");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -133,6 +142,7 @@ namespace CapaDatos.Datos.Implementacion
                 Usuarios usuario = new Usuarios();
                 Empleado e = new Empleado();
                 Roles r = new Roles();
+                Localidad l = new Localidad();
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
                 {
                     e.Id_Empleado = HelperDB.ObtenerInstancia().Dr.GetInt32(0);
@@ -202,6 +212,32 @@ namespace CapaDatos.Datos.Implementacion
                     usuario.FechaBaja = HelperDB.ObtenerInstancia().Dr.GetDateTime(15);
 
                 }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(16))
+                {
+                    e.Altura = HelperDB.ObtenerInstancia().Dr.GetInt32(16);
+
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(17))
+                {
+                    e.Piso = HelperDB.ObtenerInstancia().Dr.GetInt32(17);
+
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(18))
+                {
+                    e.Departamento= HelperDB.ObtenerInstancia().Dr.GetString(18);
+
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(19))
+                {
+                    l.idLocalidad = HelperDB.ObtenerInstancia().Dr.GetInt32(19);
+
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(20))
+                {
+                    l.NLocalidad = HelperDB.ObtenerInstancia().Dr.GetString(20);
+
+                }
+                e.Loc = l;
                 usuario.Empleado = e;
                 usuario.Rol = r;
                 lUsuarios.Add(usuario);
@@ -268,6 +304,123 @@ namespace CapaDatos.Datos.Implementacion
             }
 
 
+        }
+
+        public List<Usuarios> ObtenerUsuario(Usuarios u)
+        {
+            List<Usuarios> lUsuarios = new List<Usuarios>();
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_user", u.ID_Usuario);
+            HelperDB.ObtenerInstancia().LeerDB("SP_Obtener_usuario");
+            HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+
+            while (HelperDB.ObtenerInstancia().Dr.Read())
+            {
+                Usuarios usuario = new Usuarios();
+                Empleado e = new Empleado();
+                Roles r = new Roles();
+                Localidad l = new Localidad();
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
+                {
+                    e.Id_Empleado = HelperDB.ObtenerInstancia().Dr.GetInt32(0);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(1))
+                {
+                    usuario.ID_Usuario = HelperDB.ObtenerInstancia().Dr.GetInt32(1);
+
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(2))
+                {
+                    e.DNI = HelperDB.ObtenerInstancia().Dr.GetInt64(2);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(3))
+                {
+                    e.Nombre = HelperDB.ObtenerInstancia().Dr.GetString(3);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(4))
+                {
+                    e.Apellido = HelperDB.ObtenerInstancia().Dr.GetString(4);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(5))
+                {
+                    e.Direccion = HelperDB.ObtenerInstancia().Dr.GetString(5);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(6))
+                {
+                    e.FechaNacimiento = HelperDB.ObtenerInstancia().Dr.GetDateTime(6);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(7))
+                {
+                    e.Telefono = HelperDB.ObtenerInstancia().Dr.GetInt64(7);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(8))
+                {
+                    e.Baja_logica = HelperDB.ObtenerInstancia().Dr.GetInt32(8);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(9))
+                {
+                    usuario.Alias = HelperDB.ObtenerInstancia().Dr.GetString(9);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(10))
+                {
+                    usuario.Contraseña = encrypt.Desencriptar(HelperDB.ObtenerInstancia().Dr.GetString(10));
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(11))
+                {
+                    r.Id_Rol = HelperDB.ObtenerInstancia().Dr.GetInt32(11);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(12))
+                {
+                    usuario.Baja_Logica = HelperDB.ObtenerInstancia().Dr.GetInt32(12);
+
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(13))
+                {
+                    r.Rol = HelperDB.ObtenerInstancia().Dr.GetString(13);
+
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(14))
+                {
+                    usuario.FechaAlta = HelperDB.ObtenerInstancia().Dr.GetDateTime(14);
+
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(15))
+                {
+                    usuario.FechaBaja = HelperDB.ObtenerInstancia().Dr.GetDateTime(15);
+
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(16))
+                {
+                    e.Altura = HelperDB.ObtenerInstancia().Dr.GetInt32(16);
+
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(17))
+                {
+                    e.Piso = HelperDB.ObtenerInstancia().Dr.GetInt32(17);
+
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(18))
+                {
+                    e.Departamento = HelperDB.ObtenerInstancia().Dr.GetString(18);
+
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(19))
+                {
+                    l.idLocalidad = HelperDB.ObtenerInstancia().Dr.GetInt32(19);
+
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(20))
+                {
+                    l.NLocalidad = HelperDB.ObtenerInstancia().Dr.GetString(20);
+
+                }
+                e.Loc = l;
+                usuario.Empleado = e;
+                usuario.Rol = r;
+                lUsuarios.Add(usuario);
+            }
+            HelperDB.ObtenerInstancia().close();
+            return lUsuarios;
         }
     }
 }

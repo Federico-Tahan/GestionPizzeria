@@ -90,7 +90,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
                 AbstraerTipoPruducto();
                 if (tp.IdTipoProducto != 0)
                 {
-                    if (lg.ModificacionTipoProducto(tp))
+                    if (lg.ModificacionTipoProducto(tp, LogIn.u))
                     {
                         MessageBox.Show(Rec.MessageModificacionTipoProdExtio);
                     }
@@ -108,7 +108,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
                 }
                 else
                 {
-                    if (lg.AltaTipoProducto(tp))
+                    if (lg.AltaTipoProducto(tp, LogIn.u))
                     {
                         MessageBox.Show(Rec.MessageAltaTipoProdExito);
                     }
@@ -159,11 +159,11 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             {
                 if (p.Baja_logica == 0)
                 {
-                    dgvTipoProd.Rows.Add(p.IdTipoProducto, p.Tipo_producto, "Si");
+                    dgvTipoProd.Rows.Add(p.IdTipoProducto, p.Tipo_producto, Rec.Si);
                 }
                 else
                 {
-                    dgvTipoProd.Rows.Add(p.IdTipoProducto, p.Tipo_producto, "No");
+                    dgvTipoProd.Rows.Add(p.IdTipoProducto, p.Tipo_producto, Rec.No);
                 }
 
 

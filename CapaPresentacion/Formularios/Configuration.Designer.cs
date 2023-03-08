@@ -119,7 +119,7 @@
             this.txtRestauracion.Multiline = true;
             this.txtRestauracion.Name = "txtRestauracion";
             this.txtRestauracion.Size = new System.Drawing.Size(278, 27);
-            this.txtRestauracion.TabIndex = 5;
+            this.txtRestauracion.TabIndex = 3;
             // 
             // button3
             // 
@@ -132,7 +132,7 @@
             this.button3.Location = new System.Drawing.Point(389, 113);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(80, 31);
-            this.button3.TabIndex = 10;
+            this.button3.TabIndex = 1;
             this.button3.Text = "Seleccionar";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -180,7 +180,7 @@
             this.BtnRespaldo.Location = new System.Drawing.Point(175, 146);
             this.BtnRespaldo.Name = "BtnRespaldo";
             this.BtnRespaldo.Size = new System.Drawing.Size(80, 31);
-            this.BtnRespaldo.TabIndex = 24;
+            this.BtnRespaldo.TabIndex = 2;
             this.BtnRespaldo.Text = "Respaldo";
             this.BtnRespaldo.UseVisualStyleBackColor = false;
             this.BtnRespaldo.Click += new System.EventHandler(this.BtnRespaldo_Click);
@@ -196,7 +196,7 @@
             this.btnRestauracion.Location = new System.Drawing.Point(654, 152);
             this.btnRestauracion.Name = "btnRestauracion";
             this.btnRestauracion.Size = new System.Drawing.Size(88, 31);
-            this.btnRestauracion.TabIndex = 26;
+            this.btnRestauracion.TabIndex = 5;
             this.btnRestauracion.Text = "Restauracion";
             this.btnRestauracion.UseVisualStyleBackColor = false;
             this.btnRestauracion.Click += new System.EventHandler(this.btnRestauracion_Click);
@@ -212,7 +212,7 @@
             this.button4.Location = new System.Drawing.Point(847, 109);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(80, 31);
-            this.button4.TabIndex = 25;
+            this.button4.TabIndex = 4;
             this.button4.Text = "Seleccionar";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -285,7 +285,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 71);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(998, 227);
-            this.panel3.TabIndex = 29;
+            this.panel3.TabIndex = 1;
             // 
             // picpass
             // 
@@ -305,7 +305,7 @@
             this.txbContraseña.Location = new System.Drawing.Point(131, 147);
             this.txbContraseña.Name = "txbContraseña";
             this.txbContraseña.Size = new System.Drawing.Size(174, 23);
-            this.txbContraseña.TabIndex = 42;
+            this.txbContraseña.TabIndex = 4;
             this.txbContraseña.UseSystemPasswordChar = true;
             // 
             // lbcontraseña
@@ -330,7 +330,7 @@
             this.BtnGuardar.Location = new System.Drawing.Point(855, 180);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(80, 31);
-            this.BtnGuardar.TabIndex = 40;
+            this.BtnGuardar.TabIndex = 7;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
@@ -340,14 +340,14 @@
             this.TxbTwitter.Location = new System.Drawing.Point(761, 97);
             this.TxbTwitter.Name = "TxbTwitter";
             this.TxbTwitter.Size = new System.Drawing.Size(174, 23);
-            this.TxbTwitter.TabIndex = 39;
+            this.TxbTwitter.TabIndex = 3;
             // 
             // TxbYoutube
             // 
             this.TxbYoutube.Location = new System.Drawing.Point(475, 151);
             this.TxbYoutube.Name = "TxbYoutube";
             this.TxbYoutube.Size = new System.Drawing.Size(174, 23);
-            this.TxbYoutube.TabIndex = 38;
+            this.TxbYoutube.TabIndex = 5;
             // 
             // label10
             // 
@@ -365,7 +365,7 @@
             this.TxbInstagram.Location = new System.Drawing.Point(475, 97);
             this.TxbInstagram.Name = "TxbInstagram";
             this.TxbInstagram.Size = new System.Drawing.Size(174, 23);
-            this.TxbInstagram.TabIndex = 36;
+            this.TxbInstagram.TabIndex = 2;
             // 
             // label9
             // 
@@ -383,14 +383,14 @@
             this.TxbFacebook.Location = new System.Drawing.Point(765, 151);
             this.TxbFacebook.Name = "TxbFacebook";
             this.TxbFacebook.Size = new System.Drawing.Size(174, 23);
-            this.TxbFacebook.TabIndex = 34;
+            this.TxbFacebook.TabIndex = 6;
             // 
             // TxbEmail
             // 
             this.TxbEmail.Location = new System.Drawing.Point(131, 93);
             this.TxbEmail.Name = "TxbEmail";
             this.TxbEmail.Size = new System.Drawing.Size(174, 23);
-            this.TxbEmail.TabIndex = 33;
+            this.TxbEmail.TabIndex = 1;
             // 
             // label8
             // 
@@ -477,7 +477,7 @@
             this.BtnVer.Location = new System.Drawing.Point(458, 83);
             this.BtnVer.Name = "BtnVer";
             this.BtnVer.Size = new System.Drawing.Size(69, 30);
-            this.BtnVer.TabIndex = 41;
+            this.BtnVer.TabIndex = 0;
             this.BtnVer.Text = "Ver";
             this.BtnVer.UseVisualStyleBackColor = false;
             this.BtnVer.Click += new System.EventHandler(this.BtnVer_Click);

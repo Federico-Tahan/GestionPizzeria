@@ -47,10 +47,11 @@ namespace CapaPresentacion.Formularios.Venta
 
         private void ConsultaVentas_Load(object sender, EventArgs e)
         {
-            lFacturas = lg.TraerFactura();
-            cargarDgv();
+            TraerFacturas();
             DetectarIdioma();
             AplicarIdioma();
+            RolCancelarMod();
+            AplicarRol();
         }
 
         private void cargarDgv()
@@ -63,14 +64,26 @@ namespace CapaPresentacion.Formularios.Venta
                 Descuento d = new Descuento();
                 d.PorcentajeDescuento = c.descuento.PorcentajeDescuento;
                 facturacarga.descuento = d;
+                string dni = "";
+                string tel = "";
+
+                if (c.cliente.socio.DNI != 0)
+                {
+                    dni = c.cliente.socio.DNI.ToString();
+                }
+                if (c.cliente.tel != 0)
+                {
+                    tel = c.cliente.tel.ToString();
+                }
+
                 if (c.BajaLogica == 0)
                 {
-                    dgvProd.Rows.Add(c.IdFactura, c.cliente.NombreCompleto, c.Fecha.ToShortDateString(), c.Forma_Compra.Forma_Compra, c.Usuario.Empleado.NombreCompleto, c.descuento.PorcentajeDescuento, "$" + facturacarga.Calcular_total());
+                    dgvProd.Rows.Add(c.IdFactura, c.cliente.NombreCompleto, c.Fecha.ToShortDateString(),dni,tel, c.Forma_Compra.Forma_Compra, c.Usuario.Empleado.NombreCompleto, c.descuento.PorcentajeDescuento, "$" + facturacarga.Calcular_total());
 
                 }
                 else
                 {
-                    dgvProd.Rows.Add(c.IdFactura, c.cliente.NombreCompleto, c.Fecha.ToShortDateString(), c.Forma_Compra.Forma_Compra, c.Usuario.Empleado.NombreCompleto, c.descuento.PorcentajeDescuento, "$" + facturacarga.Calcular_total(), Rec.cancelada);
+                    dgvProd.Rows.Add(c.IdFactura, c.cliente.NombreCompleto, c.Fecha.ToShortDateString(), dni,tel, c.Forma_Compra.Forma_Compra, c.Usuario.Empleado.NombreCompleto, c.descuento.PorcentajeDescuento, "$" + facturacarga.Calcular_total(), Rec.cancelada);
 
                 }
 
@@ -92,7 +105,7 @@ namespace CapaPresentacion.Formularios.Venta
 
         private void dgvProd_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvProd.Columns[e.ColumnIndex].Name == "Accion")
+            if (dgvProd.Columns[e.ColumnIndex].Name == "Accion" && dgvProd.Rows.Count !=0)
             {
                 CargarFactura(Convert.ToInt32(dgvProd.CurrentRow.Cells[0].Value));
                 facturaselected.DetalleFacturas = lg.TraerDetalles(facturaselected.IdFactura);
@@ -104,7 +117,21 @@ namespace CapaPresentacion.Formularios.Venta
                 lbPiso.Text = facturaselected.cliente.Piso.ToString();
                 lbCalle.Text = facturaselected.cliente.Direccion;
                 lbLocalidad.Text = facturaselected.cliente.locali.NLocalidad;
+                if (facturaselected.cliente.socio.DNI == 0)
+                {
+                    labdni.Text = "";
+
+                }
+                else
+                {
+                    labdni.Text = facturaselected.cliente.socio.DNI.ToString();
+
+                }
+                lbname.Text = facturaselected.cliente.NombreCompleto;
+                label5labformaentrega.Text = facturaselected.FormaEntrega.Forma_Entrega;
+                labtipocompra.Text = facturaselected.Forma_Compra.Forma_Compra;
                 lbDepartamento.Text = facturaselected.cliente.Departamento;
+                labtelefono.Text = facturaselected.cliente.tel.ToString();
                 Det.Text = Rec.DetalleFacturaN +" " +facturaselected.IdFactura;
                 if (facturaselected.BajaLogica == 0)
                 {
@@ -117,6 +144,8 @@ namespace CapaPresentacion.Formularios.Venta
                     BtnMod.Visible = false;
                 }
                 panel1.Visible = true;
+                RolCancelarMod();
+
 
             }
             else if (dgvProd.Columns[e.ColumnIndex].Name == "Ticket")
@@ -131,9 +160,25 @@ namespace CapaPresentacion.Formularios.Venta
                 Ticket.Hora = "Hora de Compra: " + facturaselected.Fecha.Hour +":" + facturaselected.Fecha.Minute + ":" +facturaselected.Fecha.Second;
                 Ticket.listaProducto = facturaselected.DetalleFacturas;
                 Ticket.logotipo = Properties.Resources.LogoTest;
-                Ticket.Empleado = "Vendedor: " +facturaselected.Usuario.Empleado.NombreCompleto;
-                Ticket.InfoCuit = "                                               Hai Pianto SRL 20-39123943-7";
-                Ticket.NroFac = "Nro de Factura: "+ facturaselected.IdFactura.ToString();
+                Ticket.Empleado = facturaselected.Usuario.Empleado.NombreCompleto;
+                Ticket.NombreEmpresa = "                                                                                           Hai Pianto SRL";
+                Ticket.Cuit = "                                                                                          20-39123943-7";
+                Ticket.NroFac = facturaselected.IdFactura.ToString();
+                Ticket.Localidad = facturaselected.Locali.NLocalidad;
+                Ticket.Nombre = facturaselected.cliente.Nombre + " " + facturaselected.cliente.Apellido;
+                Ticket.TipoCommpra = facturaselected.Forma_Compra.Forma_Compra;
+                Ticket.FomraEntrega = facturaselected.FormaEntrega.Forma_Entrega;
+                Ticket.Departamento = facturaselected.cliente.Departamento.ToString();
+                Ticket.Piso = facturaselected.cliente.Piso.ToString();
+                Ticket.Calle = facturaselected.cliente.Direccion;
+                Ticket.Telefono = facturaselected.cliente.tel.ToString();
+                Ticket.Altura = facturaselected.cliente.Altura.ToString();
+
+                if (facturaselected.cliente.socio.DNI != 0)
+                {
+                    Ticket.DNI = facturaselected.cliente.socio.DNI.ToString();
+                }
+
                 Ticket.imprimir(Ticket);
 
             }
@@ -202,8 +247,7 @@ namespace CapaPresentacion.Formularios.Venta
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            lFacturas = lg.TraerFactura();
-            cargarDgv();
+            TraerFacturas();
             if (RbtCodigo.Checked)
             {
                 if (txbbusqueda.Text != "")
@@ -239,32 +283,72 @@ namespace CapaPresentacion.Formularios.Venta
                 {
                     MessageBox.Show(Rec.MessageCargarCodigoParafiltrar);
                 }
+            }else if (RbtVendedor.Checked)
+            {
+                try
+                {
+                    Convert.ToString(txbbusqueda.Text);
+                    List<DataGridViewRow> temp = new List<DataGridViewRow>();
+
+                    foreach (DataGridViewRow row in dgvProd.Rows)
+                    {
+                        if (Convert.ToString(row.Cells["Vendedor"].Value) != Convert.ToString(txbbusqueda.Text))
+                        {
+                            temp.Add(row);
+                        }
+
+                    }
+
+                    foreach (DataGridViewRow row in temp)
+                    {
+
+                        dgvProd.Rows.Remove(row);
+
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(Rec.MessageCargarCodigoParafiltrar);
+
+                }
             }
+            else
+            {
+                MessageBox.Show(Rec.MessageCargarCodigoParafiltrar);
+            }
+        
         }
 
         private void picreset_Click(object sender, EventArgs e)
         {
-            lFacturas = lg.TraerFactura();
-            cargarDgv();
+            TraerFacturas();
         }
 
 
         private void AplicarIdioma()
         {
             lbVentas.Text = Rec.Ventas;
-            RbtCodigo.Text = Rec.NroFactura;
+            RbtVendedor.Text = Rec.NroFactura;
             BtnBuscar.Text = Rec.Aplicar;
+            lbNombre.Text = Rec.Nombre;
+            lbDNI.Text = Rec.DNI;
+            lbTipoCompra.Text = Rec.TipodeCompra;
+            lbTipoEntrega.Text = Rec.TipodeEntrega;
+            lbtel.Text = Rec.Telefono;
             dgvProd.Columns[0].HeaderText = Rec.NroFactura;
             dgvProd.Columns[1].HeaderText = Rec.NombreCliente;
             dgvProd.Columns[2].HeaderText = Rec.Fecha;
-            dgvProd.Columns[3].HeaderText = Rec.FormaDePedido;
-            dgvProd.Columns[4].HeaderText = Rec.DGVNombreVendedor;
-            dgvProd.Columns[5].HeaderText = Rec.Descuento;
-            dgvProd.Columns[6].HeaderText = Rec.Total;
-            dgvProd.Columns[7].HeaderText = Rec.Estado;
+            dgvProd.Columns[3].HeaderText = Rec.DNI;
+            dgvProd.Columns[4].HeaderText = Rec.Telefono;
 
-            dgvProd.Columns[8].HeaderText = Rec.Ticket;
-            dgvProd.Columns[9].HeaderText = Rec.Accion;
+            dgvProd.Columns[5].HeaderText = Rec.FormaDePedido;
+            dgvProd.Columns[6].HeaderText = Rec.DGVNombreVendedor;
+            dgvProd.Columns[7].HeaderText = Rec.Descuento;
+            dgvProd.Columns[8].HeaderText = Rec.Total;
+            dgvProd.Columns[9].HeaderText = Rec.Estado;
+
+            dgvProd.Columns[10].HeaderText = Rec.Ticket;
+            dgvProd.Columns[11].HeaderText = Rec.Accion;
             dgvDetalle.Columns[0].HeaderText = Rec.NroProd;
             dgvDetalle.Columns[1].HeaderText = Rec.Nombre;
             dgvDetalle.Columns[2].HeaderText = Rec.Detalle;
@@ -303,6 +387,9 @@ namespace CapaPresentacion.Formularios.Venta
             dgvdet.Columns[9].HeaderText = Rec.Accion;
             BtnMod.Text = Rec.BtnModificarVenta;
             BtnSig.Text = Rec.Siguiente;
+            RbtVendedor.Text = Rec.DGVNombreVendedor;
+
+            RbtCodigo.Text = Rec.NroFactura;
         }
         private void DetectarIdioma()
         {
@@ -322,12 +409,11 @@ namespace CapaPresentacion.Formularios.Venta
         {
             if (MessageBox.Show(Rec.CancelarVenta,"",MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (lg.CancelarVenta(facturaselected.IdFactura))
+                if (lg.CancelarVenta(facturaselected.IdFactura,LogIn.u))
                 {
                     MessageBox.Show(Rec.VentaCancelada);
                     dgvDetalle.Rows.Clear();
-                    lFacturas = lg.TraerFactura();
-                    cargarDgv();
+                    TraerFacturas();
                     panel1.Visible = false;
                     facturaselected = new Factura();
                 }
@@ -493,7 +579,7 @@ namespace CapaPresentacion.Formularios.Venta
         private void dgvdet_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             df = new DetalleFactura();
-            if (dgvdet.Columns[e.ColumnIndex].Name == "action")
+            if (dgvdet.Columns[e.ColumnIndex].Name == "action" && dgvdet.Rows.Count != 0)
             {
                 CargarDetalleSelected(Convert.ToInt32(dgvdet.CurrentRow.Cells[0].Value));
                 f.remover(df);
@@ -549,8 +635,7 @@ namespace CapaPresentacion.Formularios.Venta
                     txbTotal.Text = "";
                     panel1.Visible = false;
                     panel3.Visible = false;
-                    lFacturas = lg.TraerFactura();
-                    cargarDgv();
+                    TraerFacturas();
                 }
 
             }
@@ -595,6 +680,37 @@ namespace CapaPresentacion.Formularios.Venta
                     }
                 }
 
+            }
+        }
+
+        private void RolCancelarMod()
+        {
+            if (LogIn.u.Rol.Id_Rol != 1 && LogIn.u.Rol.Id_Rol != 3 && LogIn.u.Rol.Id_Rol != 5 )
+            {
+                BtnCancelarVenta.Visible = false;
+                BtnMod.Visible = false;
+            }
+        }
+
+        private void TraerFacturas()
+        {
+            if (LogIn.u.Rol.Id_Rol == 6)
+            {
+                lFacturas = lg.TraerFactura(LogIn.u.ID_Usuario);
+                cargarDgv();
+            }
+            else
+            {
+                lFacturas = lg.TraerFactura(0);
+                cargarDgv();
+            }
+        }
+
+        private void AplicarRol()
+        {
+            if (LogIn.u.Rol.Id_Rol != 1 && LogIn.u.Rol.Id_Rol != 3 && LogIn.u.Rol.Id_Rol != 5 && LogIn.u.Rol.Id_Rol != 2)
+            {
+                RbtVendedor.Visible = false;
             }
         }
     }

@@ -28,9 +28,9 @@ namespace CapaNegocio.Implementacion
             return lg.BuscarClienteSocioDni(c);
         }
 
-        public bool CancelarVenta(int i)
+        public bool CancelarVenta(int i, Usuarios u)
         {
-            return lg.CancelFactura(i);
+            return lg.CancelFactura(i,u);
         }
 
         public bool ModVenta(Factura f, Usuarios u)
@@ -48,9 +48,9 @@ namespace CapaNegocio.Implementacion
             return lg.TraerDetalles(a);
         }
 
-        public List<Factura> TraerFactura()
+        public List<Factura> TraerFactura(int a)
         {
-            return lg.TraerFactura();
+            return lg.TraerFactura(a);
         }
     }
 }

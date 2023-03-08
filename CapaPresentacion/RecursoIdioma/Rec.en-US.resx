@@ -153,6 +153,9 @@
   <data name="Bitacora" xml:space="preserve">
     <value>Logbook</value>
   </data>
+  <data name="Borrar" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="BtnAgregar" xml:space="preserve">
     <value>Add</value>
   </data>
@@ -300,6 +303,12 @@
   <data name="DescuentodelaSemana" xml:space="preserve">
     <value>Discount of the Week</value>
   </data>
+  <data name="deshaderirextio" xml:space="preserve">
+    <value>Successfully terminated client</value>
+  </data>
+  <data name="deshaderirnoexti" xml:space="preserve">
+    <value>Problem undoing the client.</value>
+  </data>
   <data name="Detalle" xml:space="preserve">
     <value>Detail</value>
   </data>
@@ -428,6 +437,15 @@
   </data>
   <data name="MessageConfirmarVenta" xml:space="preserve">
     <value>Would you like to confirm the sale?</value>
+  </data>
+  <data name="MessageDarBajaCliente" xml:space="preserve">
+    <value>Do you want to unsubscribe the Client?</value>
+  </data>
+  <data name="messageDarBajProd" xml:space="preserve">
+    <value>Do you want to cancel this Product?</value>
+  </data>
+  <data name="messageDarBajUsuario" xml:space="preserve">
+    <value>Do you want to unsubscribe this User?</value>
   </data>
   <data name="MessageDebecargarClasi" xml:space="preserve">
     <value>You must upload the classification</value>
@@ -568,7 +586,7 @@
     <value>You must enter the user password.</value>
   </data>
   <data name="MessageValidacionDireccion" xml:space="preserve">
-    <value>You must enter the user's address.</value>
+    <value>You must enter the user's street</value>
   </data>
   <data name="MessageValidacionDireccionCli" xml:space="preserve">
     <value>The customer's address must be added.</value>
@@ -788,6 +806,21 @@
   </data>
   <data name="Usuarios" xml:space="preserve">
     <value>Users</value>
+  </data>
+  <data name="validacionAltura" xml:space="preserve">
+    <value>The height of the house must be loaded</value>
+  </data>
+  <data name="validacionDNI" xml:space="preserve">
+    <value>You must upload a valid ID</value>
+  </data>
+  <data name="ValidacionLengApellido" xml:space="preserve">
+    <value>The maximum length for a LastName is 20 digits.</value>
+  </data>
+  <data name="validacionLengEmail" xml:space="preserve">
+    <value>The maximum size of the acceptable Email is 40 digits.</value>
+  </data>
+  <data name="ValidacionLengNombre" xml:space="preserve">
+    <value>The maximum size for a name is 20 digits.</value>
   </data>
   <data name="VentaCancelada" xml:space="preserve">
     <value>Sale canceled</value>

@@ -169,6 +169,15 @@ namespace CapaPresentacion.RecursoIdioma {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Borrar.
+        /// </summary>
+        internal static string Borrar {
+            get {
+                return ResourceManager.GetString("Borrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Agregar.
         /// </summary>
         internal static string BtnAgregar {
@@ -340,7 +349,7 @@ namespace CapaPresentacion.RecursoIdioma {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Desea Cancelar la Venta?.
+        ///   Looks up a localized string similar to ¿Desea Cancelar la Venta?.
         /// </summary>
         internal static string CancelarVenta {
             get {
@@ -606,6 +615,24 @@ namespace CapaPresentacion.RecursoIdioma {
         internal static string DescuentodelaSemana {
             get {
                 return ResourceManager.GetString("DescuentodelaSemana", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cliente deshaderido con Exito.
+        /// </summary>
+        internal static string deshaderirextio {
+            get {
+                return ResourceManager.GetString("deshaderirextio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Problema al deshaderir al cliente..
+        /// </summary>
+        internal static string deshaderirnoexti {
+            get {
+                return ResourceManager.GetString("deshaderirnoexti", resourceCulture);
             }
         }
         
@@ -988,11 +1015,38 @@ namespace CapaPresentacion.RecursoIdioma {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Desea confirmar la Venta?.
+        ///   Looks up a localized string similar to ¿Desea confirmar la Venta?.
         /// </summary>
         internal static string MessageConfirmarVenta {
             get {
                 return ResourceManager.GetString("MessageConfirmarVenta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desea dar de baja el Cliente?.
+        /// </summary>
+        internal static string MessageDarBajaCliente {
+            get {
+                return ResourceManager.GetString("MessageDarBajaCliente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desea dar de baja este Producto?.
+        /// </summary>
+        internal static string messageDarBajProd {
+            get {
+                return ResourceManager.GetString("messageDarBajProd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desea dar de baja este Usuario?.
+        /// </summary>
+        internal static string messageDarBajUsuario {
+            get {
+                return ResourceManager.GetString("messageDarBajUsuario", resourceCulture);
             }
         }
         
@@ -1060,7 +1114,7 @@ namespace CapaPresentacion.RecursoIdioma {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Desea cerrar Sesion?.
+        ///   Looks up a localized string similar to ¿Desea cerrar Sesion?.
         /// </summary>
         internal static string MessageDeseaCerrarSesion {
             get {
@@ -1411,7 +1465,7 @@ namespace CapaPresentacion.RecursoIdioma {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Debe ingresar la direccion del usuario..
+        ///   Looks up a localized string similar to Debe ingresar la Calle del usuario..
         /// </summary>
         internal static string MessageValidacionDireccion {
             get {
@@ -2055,6 +2109,51 @@ namespace CapaPresentacion.RecursoIdioma {
         internal static string Usuarios {
             get {
                 return ResourceManager.GetString("Usuarios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Se debe cargar la Altura.
+        /// </summary>
+        internal static string validacionAltura {
+            get {
+                return ResourceManager.GetString("validacionAltura", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe cargar un DNI valido.
+        /// </summary>
+        internal static string validacionDNI {
+            get {
+                return ResourceManager.GetString("validacionDNI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El tamaño maximo para un apellido es de 20 digitos.
+        /// </summary>
+        internal static string ValidacionLengApellido {
+            get {
+                return ResourceManager.GetString("ValidacionLengApellido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El temaño maximo del Email aceptable es de 40 digitos.
+        /// </summary>
+        internal static string validacionLengEmail {
+            get {
+                return ResourceManager.GetString("validacionLengEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El tamaño maximo para un nombre es de 20 digitos.
+        /// </summary>
+        internal static string ValidacionLengNombre {
+            get {
+                return ResourceManager.GetString("ValidacionLengNombre", resourceCulture);
             }
         }
         

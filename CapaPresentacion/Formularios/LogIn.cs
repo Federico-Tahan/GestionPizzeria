@@ -145,6 +145,12 @@ namespace CapaPresentacion
 
         private void BloqueoCuenta()
         {
+            string txbmin;
+            txbmin = txbUsuario.Text.ToLower();
+            if (txbmin != "admin")
+            {
+
+
             if (log.BuscarAliasUsuario(txbUsuario.Text))
             {
 
@@ -192,7 +198,12 @@ namespace CapaPresentacion
                 AliasAnterior = txbUsuario.Text;
 
             }
-
+            }
+            else
+            {
+                cont = 0;
+                AliasAnterior = txbUsuario.Text; 
+            }
         }
 
         private void DetectarIdioma()

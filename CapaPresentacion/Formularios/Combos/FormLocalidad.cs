@@ -78,7 +78,7 @@ namespace CapaPresentacion.Formularios.Combos
 
                     if (cla.idLocalidad != 0)
                     {
-                        if (lg.ModLocalidad(cla))
+                        if (lg.ModLocalidad(cla, LogIn.u))
                         {
                             MessageBox.Show(Rec.ModLocalildadExito);
                         }
@@ -96,7 +96,7 @@ namespace CapaPresentacion.Formularios.Combos
                     }
                     else
                     {
-                        if (lg.AltaLocalidad(cla))
+                        if (lg.AltaLocalidad(cla, LogIn.u))
                         {
                             MessageBox.Show(Rec.AltaLocalidadExito);
                         }
@@ -127,11 +127,11 @@ namespace CapaPresentacion.Formularios.Combos
             {
                 if (p.BajaLogica == 0)
                 {
-                    dgvClasi.Rows.Add(p.idLocalidad, p.NLocalidad, "Si");
+                    dgvClasi.Rows.Add(p.idLocalidad, p.NLocalidad, Rec.Si);
                 }
                 else
                 {
-                    dgvClasi.Rows.Add(p.idLocalidad, p.NLocalidad, "No");
+                    dgvClasi.Rows.Add(p.idLocalidad, p.NLocalidad, Rec.No);
                 }
 
 

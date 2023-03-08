@@ -19,6 +19,8 @@ namespace CapaNegocio.Interfaces
         bool BuscarClienteSocioDni(Cliente c);
         bool BuscarCliente(Cliente c);
         bool EmailSender(Cliente c);
+        bool EliminarCliente(int c, Usuarios u);
+
 
 
     }

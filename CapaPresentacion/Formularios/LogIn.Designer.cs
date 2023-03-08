@@ -113,7 +113,7 @@
             this.btncambiaridioma.Location = new System.Drawing.Point(9, 469);
             this.btncambiaridioma.Name = "btncambiaridioma";
             this.btncambiaridioma.Size = new System.Drawing.Size(100, 27);
-            this.btncambiaridioma.TabIndex = 42;
+            this.btncambiaridioma.TabIndex = 4;
             this.btncambiaridioma.Text = "Cambiar Idioma";
             this.btncambiaridioma.UseVisualStyleBackColor = false;
             this.btncambiaridioma.Click += new System.EventHandler(this.btncambiaridioma_Click);

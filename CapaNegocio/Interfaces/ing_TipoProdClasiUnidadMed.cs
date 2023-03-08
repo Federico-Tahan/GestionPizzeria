@@ -12,15 +12,15 @@ namespace CapaNegocio.Interfaces
         List<TipoProducto> GetTipoProductos(int a);
         List<Clasificacion> GetClasificacion(int a);
         List<UnidadMedida> GetUnidadMedida(int a);
-        bool AltaClasificacion(Clasificacion c);
-        bool ModificacionClasificacion(Clasificacion c);
-        bool AltaTipoProducto(TipoProducto tp);
-        bool ModificacionTipoProducto(TipoProducto tp);
-        bool AltaUnidadMedida(UnidadMedida md);
-        bool ModificacionUnidadMedida(UnidadMedida md);
+        bool AltaClasificacion(Clasificacion c, Usuarios u);
+        bool ModificacionClasificacion(Clasificacion c, Usuarios u);
+        bool AltaTipoProducto(TipoProducto tp, Usuarios u);
+        bool ModificacionTipoProducto(TipoProducto tp, Usuarios u);
+        bool AltaUnidadMedida(UnidadMedida md, Usuarios u);
+        bool ModificacionUnidadMedida(UnidadMedida md, Usuarios u);
         List<Localidad> GetLocalidad(int a);
 
-        bool AltaLocalidad(Localidad md);
-        bool ModLocalidad(Localidad md);
+        bool AltaLocalidad(Localidad md, Usuarios u);
+        bool ModLocalidad(Localidad md, Usuarios u);
     }
 }

@@ -86,6 +86,10 @@ namespace CapaDatos.Datos.Implementacion
                 {
                     rl.BajaLogica = HelperDB.ObtenerInstancia().Dr.GetInt32(3);
                 }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(4))
+                {
+                    rl.RolesEN = HelperDB.ObtenerInstancia().Dr.GetString(4);
+                }
                 td.Add(rl);
             }
             HelperDB.ObtenerInstancia().close();
@@ -199,7 +203,10 @@ namespace CapaDatos.Datos.Implementacion
             HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@dni", a);
             HelperDB.ObtenerInstancia().LeerDB("SP_TraerClientesCbo");
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
-            HelperDB.ObtenerInstancia().Dr.Read();
+            if(HelperDB.ObtenerInstancia().Dr.Read())
+            {
+
+            
                 Localidad l = new Localidad();
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(0))
                 {
@@ -237,9 +244,13 @@ namespace CapaDatos.Datos.Implementacion
                 {
                     rl.socio.Baja_logica = HelperDB.ObtenerInstancia().Dr.GetInt32(8);
                 }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(9))
+                {
+                    rl.Telefono= HelperDB.ObtenerInstancia().Dr.GetString(9);
+                }
             rl.locali = l;
             HelperDB.ObtenerInstancia().close();
-
+            }
             return rl;
         }
 

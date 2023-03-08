@@ -153,6 +153,9 @@
   <data name="Bitacora" xml:space="preserve">
     <value>Bitacora</value>
   </data>
+  <data name="Borrar" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
   <data name="BtnAgregar" xml:space="preserve">
     <value>Agregar</value>
   </data>
@@ -211,7 +214,7 @@
     <value>Cancelar</value>
   </data>
   <data name="CancelarVenta" xml:space="preserve">
-    <value>Desea Cancelar la Venta?</value>
+    <value>¿Desea Cancelar la Venta?</value>
   </data>
   <data name="Cantidad" xml:space="preserve">
     <value>Cantidad</value>
@@ -299,6 +302,12 @@
   </data>
   <data name="DescuentodelaSemana" xml:space="preserve">
     <value>Descuento de la Semana</value>
+  </data>
+  <data name="deshaderirextio" xml:space="preserve">
+    <value>Cliente deshaderido con Exito</value>
+  </data>
+  <data name="deshaderirnoexti" xml:space="preserve">
+    <value>Problema al deshaderir al cliente.</value>
   </data>
   <data name="Detalle" xml:space="preserve">
     <value>Detalle</value>
@@ -427,7 +436,16 @@
     <value>Cliente modificado con Exito.</value>
   </data>
   <data name="MessageConfirmarVenta" xml:space="preserve">
-    <value>Desea confirmar la Venta?</value>
+    <value>¿Desea confirmar la Venta?</value>
+  </data>
+  <data name="MessageDarBajaCliente" xml:space="preserve">
+    <value>Desea dar de baja el Cliente?</value>
+  </data>
+  <data name="messageDarBajProd" xml:space="preserve">
+    <value>Desea dar de baja este Producto?</value>
+  </data>
+  <data name="messageDarBajUsuario" xml:space="preserve">
+    <value>Desea dar de baja este Usuario?</value>
   </data>
   <data name="MessageDebecargarClasi" xml:space="preserve">
     <value>Debe Cargar la Clasifiacion</value>
@@ -451,7 +469,7 @@
     <value>Actualizado con Exito.</value>
   </data>
   <data name="MessageDeseaCerrarSesion" xml:space="preserve">
-    <value>Desea cerrar Sesion?</value>
+    <value>¿Desea cerrar Sesion?</value>
   </data>
   <data name="MessageDNInopertenece" xml:space="preserve">
     <value>El DNI no pertenece a un Socio.</value>
@@ -568,7 +586,7 @@
     <value>Debe ingresar la contraseña del usuario.</value>
   </data>
   <data name="MessageValidacionDireccion" xml:space="preserve">
-    <value>Debe ingresar la direccion del usuario.</value>
+    <value>Debe ingresar la Calle del usuario.</value>
   </data>
   <data name="MessageValidacionDireccionCli" xml:space="preserve">
     <value>Se debe agregar la direccion del cliente.</value>
@@ -782,6 +800,21 @@
   </data>
   <data name="Usuarios" xml:space="preserve">
     <value>Usuarios</value>
+  </data>
+  <data name="validacionAltura" xml:space="preserve">
+    <value>Se debe cargar la Altura</value>
+  </data>
+  <data name="validacionDNI" xml:space="preserve">
+    <value>Debe cargar un DNI valido</value>
+  </data>
+  <data name="ValidacionLengApellido" xml:space="preserve">
+    <value>El tamaño maximo para un apellido es de 20 digitos</value>
+  </data>
+  <data name="validacionLengEmail" xml:space="preserve">
+    <value>El temaño maximo del Email aceptable es de 40 digitos</value>
+  </data>
+  <data name="ValidacionLengNombre" xml:space="preserve">
+    <value>El tamaño maximo para un nombre es de 20 digitos</value>
   </data>
   <data name="VentaCancelada" xml:space="preserve">
     <value>Venta Cancelada</value>

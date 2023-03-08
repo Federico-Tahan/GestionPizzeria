@@ -10,12 +10,14 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_TipoProdClasiUnidadMed : ITipoProdClasiUnidadMed
     {
-        public bool AltaClasificacion(Clasificacion c)
+        public bool AltaClasificacion(Clasificacion c, Usuarios u)
         {
             try
             {
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", c.clasificacion);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
+
                 HelperDB.ObtenerInstancia().updatear_db("SP_AltaClasificacion");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -26,12 +28,14 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
-        public bool AltaLocalidad(Localidad md)
+        public bool AltaLocalidad(Localidad md, Usuarios u)
         {
             try
             {
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", md.NLocalidad);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
+
                 HelperDB.ObtenerInstancia().updatear_db("SP_AltaLocalidad");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -42,12 +46,14 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
-        public bool AltaTipoProducto(TipoProducto tp)
+        public bool AltaTipoProducto(TipoProducto tp, Usuarios u)
         {
             try
             {
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", tp.Tipo_producto);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
+
                 HelperDB.ObtenerInstancia().updatear_db("SP_AltaTipoProd");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -58,12 +64,14 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
-        public bool AltaUnidadMedida(UnidadMedida md)
+        public bool AltaUnidadMedida(UnidadMedida md, Usuarios u)
         {
             try
             {
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", md.Unidad_Medida);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
+
                 HelperDB.ObtenerInstancia().updatear_db("SP_AltaUnidadMed");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -194,7 +202,7 @@ namespace CapaDatos.Datos.Implementacion
             return lunidadmed;
         }
 
-        public bool ModificacionClasificacion(Clasificacion c)
+        public bool ModificacionClasificacion(Clasificacion c, Usuarios u)
         {
             try
             {
@@ -202,6 +210,8 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id", c.IdClasificacion);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", c.clasificacion);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", c.BajaLogica);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
+
                 HelperDB.ObtenerInstancia().updatear_db("SP_MODClasificacion");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -212,7 +222,7 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
-        public bool ModificacionTipoProducto(TipoProducto tp)
+        public bool ModificacionTipoProducto(TipoProducto tp, Usuarios u)
         {
             try
             {
@@ -220,6 +230,8 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id", tp.IdTipoProducto);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", tp.Tipo_producto);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", tp.Baja_logica);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
+
                 HelperDB.ObtenerInstancia().updatear_db("SP_MODTipoProd");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -230,7 +242,7 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
-        public bool ModificacionUnidadMedida(UnidadMedida md)
+        public bool ModificacionUnidadMedida(UnidadMedida md, Usuarios u)
         {
             try
             {
@@ -238,6 +250,8 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id", md.IdUnidadMedida);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", md.Unidad_Medida);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", md.Baja_Logica);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
+
                 HelperDB.ObtenerInstancia().updatear_db("SP_MODUnidadMed");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;
@@ -248,7 +262,7 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
-        public bool ModLocalidad(Localidad md)
+        public bool ModLocalidad(Localidad md, Usuarios u)
         {
             try
             {
@@ -256,6 +270,7 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id", md.idLocalidad);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@nombre", md.NLocalidad);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@baja_logica", md.BajaLogica);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario", u.ID_Usuario);
                 HelperDB.ObtenerInstancia().updatear_db("SP_ModLocalidad");
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
                 return true;

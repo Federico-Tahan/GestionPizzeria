@@ -36,6 +36,9 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@altura", f.cliente.Altura);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@piso", f.cliente.Piso);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@departamento", f.cliente.Departamento);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@dni", f.cliente.socio.DNI);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@telefono", f.cliente.tel);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@descuento", f.descuento.PorcentajeDescuento);
 
                 SqlParameter pOut = new SqlParameter();
                 pOut.ParameterName = "@IDFACTURA";
@@ -106,6 +109,9 @@ namespace CapaDatos.Datos.Implementacion
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@altura", f.cliente.Altura);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@piso", f.cliente.Piso);
                 HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@departamento", f.cliente.Departamento);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@telefono", f.cliente.tel);
+                HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@descuento", f.descuento.PorcentajeDescuento);
+
                 HelperDB.ObtenerInstancia().Command.CommandText = "SP_ModVenta";
                 HelperDB.ObtenerInstancia().Command.ExecuteNonQuery();
 
@@ -160,10 +166,11 @@ namespace CapaDatos.Datos.Implementacion
             return false;
         }
 
-        public bool CancelFactura(int i)
+        public bool CancelFactura(int i, Usuarios u)
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
             HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_fac", i);
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_usuario",u.ID_Usuario);
             HelperDB.ObtenerInstancia().updatear_db("SP_CancelarVenta");
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
             return true;
@@ -277,10 +284,11 @@ namespace CapaDatos.Datos.Implementacion
 
         }
 
-        public List<Factura> TraerFactura()
+        public List<Factura> TraerFactura(int a)
         {
             List<Factura> lfactura = new List<Factura>();
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
+            HelperDB.ObtenerInstancia().Command.Parameters.AddWithValue("@id_vendedor", a);
             HelperDB.ObtenerInstancia().LeerDB("SP_ObtenerFactura");
 
             while (HelperDB.ObtenerInstancia().Dr.Read())
@@ -359,6 +367,10 @@ namespace CapaDatos.Datos.Implementacion
                 if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(20))
                 {
                    s.DNI  = HelperDB.ObtenerInstancia().Dr.GetInt64(20);
+                }
+                if (!HelperDB.ObtenerInstancia().Dr.IsDBNull(21))
+                {
+                    c.tel = HelperDB.ObtenerInstancia().Dr.GetInt64(21);
                 }
                 f.descuento = d;
                 f.FormaEntrega = fe;

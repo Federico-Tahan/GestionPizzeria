@@ -36,6 +36,7 @@ namespace CapaPresentacion.Formularios
             CargarRedes();
             DetectarIdioma();
             AplicarIdioma();
+            aplicarRoles();
         }
 
         private void CargarRedes()
@@ -52,7 +53,7 @@ namespace CapaPresentacion.Formularios
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             AbstraerRedes();
-            if (lg.ActualizarRedes(c))
+            if (lg.ActualizarRedes(c, LogIn.u))
             {
                 MessageBox.Show(Rec.MessageRedesActualizadas);
                 c = lg.TraerConfiguracion();
@@ -204,6 +205,14 @@ namespace CapaPresentacion.Formularios
             {
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-AR");
 
+            }
+        }
+
+        private void aplicarRoles()
+        {
+            if (LogIn.u.Rol.Id_Rol != 1 && LogIn.u.Rol.Id_Rol != 2)
+            {
+                panel1.Visible= false;
             }
         }
     }

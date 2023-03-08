@@ -174,7 +174,7 @@
             this.BtnBuscar.Location = new System.Drawing.Point(314, 147);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(71, 23);
-            this.BtnBuscar.TabIndex = 51;
+            this.BtnBuscar.TabIndex = 2;
             this.BtnBuscar.Text = "Aplicar";
             this.BtnBuscar.UseVisualStyleBackColor = false;
             this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
@@ -184,7 +184,7 @@
             this.txbbusqueda.Location = new System.Drawing.Point(176, 146);
             this.txbbusqueda.Name = "txbbusqueda";
             this.txbbusqueda.Size = new System.Drawing.Size(121, 23);
-            this.txbbusqueda.TabIndex = 50;
+            this.txbbusqueda.TabIndex = 1;
             // 
             // RbtCodigo
             // 
@@ -195,7 +195,7 @@
             this.RbtCodigo.Location = new System.Drawing.Point(30, 143);
             this.RbtCodigo.Name = "RbtCodigo";
             this.RbtCodigo.Size = new System.Drawing.Size(140, 24);
-            this.RbtCodigo.TabIndex = 52;
+            this.RbtCodigo.TabIndex = 0;
             this.RbtCodigo.TabStop = true;
             this.RbtCodigo.Text = "Codigo Usuario";
             this.RbtCodigo.UseVisualStyleBackColor = true;

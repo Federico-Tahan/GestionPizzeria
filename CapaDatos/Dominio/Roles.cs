@@ -12,5 +12,6 @@ namespace CapaDatos.Dominio
         public int BajaLogica { get; set; }
         public string Descripcion { get; set; }
         public string Rol { get; set; }
+        public string RolesEN { get; set; }
     }
 }

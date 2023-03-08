@@ -85,11 +85,11 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             {
                 if (p.BajaLogica == 0)
                 {
-                    dgvClasi.Rows.Add(p.IdClasificacion, p.clasificacion, "Si");
+                    dgvClasi.Rows.Add(p.IdClasificacion, p.clasificacion, Rec.Si);
                 }
                 else
                 {
-                    dgvClasi.Rows.Add(p.IdClasificacion, p.clasificacion, "No");
+                    dgvClasi.Rows.Add(p.IdClasificacion, p.clasificacion,Rec.No);
                 }
 
 
@@ -122,7 +122,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
                 {
                     if (cla.IdClasificacion != 0)
                     {
-                        if (lg.ModificacionClasificacion(cla))
+                        if (lg.ModificacionClasificacion(cla,LogIn.u))
                         {
                             MessageBox.Show(Rec.ModClasiConExtio);
                         }
@@ -140,7 +140,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
                     }
                     else
                     {
-                        if (lg.AltaClasificacion(cla))
+                        if (lg.AltaClasificacion(cla, LogIn.u))
                         {
                             MessageBox.Show(Rec.AltaClasiExito);
                         }

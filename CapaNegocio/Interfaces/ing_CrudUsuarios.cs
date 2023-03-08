@@ -19,6 +19,8 @@ namespace CapaNegocio.Interfaces
         bool buscarId(int id, string alias);
         bool BloquearUsuario(string Alias);
         bool UsuarioAltaoBaja(string Alias);
+        List<Usuarios> ObtenerUsuario(Usuarios u);
+
 
 
     }

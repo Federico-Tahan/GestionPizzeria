@@ -11,9 +11,9 @@ namespace CapaDatos.Datos.Interfaces
     public interface IConfiguracion
     {
         List<Descuento> TraerDescuentos();
-        bool ActualizarDescuentosConfig(List<Descuento> d, Configuracion c);
+        bool ActualizarDescuentosConfig(List<Descuento> d, Configuracion c, Usuarios u);
         Configuracion TraerConfiguracion();
-        bool ActualizarRedes(Configuracion c);
+        bool ActualizarRedes(Configuracion c, Usuarios u);
 
         SqlConnection Conexion();
     }

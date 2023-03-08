@@ -12,9 +12,9 @@ namespace CapaNegocio.Interfaces
         bool AltaVenta(Factura f,Usuarios u);
         Configuracion TraerConfig();
         bool BuscarClienteSocioDni(Cliente c);
-        List<Factura> TraerFactura();
+        List<Factura> TraerFactura(int a);
         List<DetalleFactura> TraerDetalles(int a);
-        bool CancelarVenta(int i);
+        bool CancelarVenta(int i, Usuarios u);
         bool ModVenta(Factura f, Usuarios u);
     }
 }

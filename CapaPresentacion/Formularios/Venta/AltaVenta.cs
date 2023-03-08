@@ -190,7 +190,8 @@ namespace CapaPresentacion.Formularios.Venta
         private void Boton_Quitar(object sender, DataGridViewCellEventArgs e)
         {
             df = new DetalleFactura();
-            if (dgvDetalle.Columns[e.ColumnIndex].Name == "Accion")
+
+            if (dgvDetalle.Columns[e.ColumnIndex].Name == "Accion" && f.DetalleFacturas.Count != 0)
             {
                 CargarDetalleSelected(Convert.ToInt32(dgvDetalle.CurrentRow.Cells[0].Value));
                 f.remover(df);

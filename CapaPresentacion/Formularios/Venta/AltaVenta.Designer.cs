@@ -174,7 +174,7 @@
             this.cboProductos.Location = new System.Drawing.Point(37, 144);
             this.cboProductos.Name = "cboProductos";
             this.cboProductos.Size = new System.Drawing.Size(198, 23);
-            this.cboProductos.TabIndex = 22;
+            this.cboProductos.TabIndex = 0;
             this.cboProductos.SelectionChangeCommitted += new System.EventHandler(this.cboProductos_SelectionChangeCommitted);
             this.cboProductos.SelectedValueChanged += new System.EventHandler(this.Producto_Cambia);
             // 
@@ -188,7 +188,7 @@
             0});
             this.numpCantidad.Name = "numpCantidad";
             this.numpCantidad.Size = new System.Drawing.Size(99, 23);
-            this.numpCantidad.TabIndex = 23;
+            this.numpCantidad.TabIndex = 1;
             // 
             // txbTotal
             // 
@@ -203,7 +203,7 @@
             this.txbDetalle.Location = new System.Drawing.Point(384, 143);
             this.txbDetalle.Name = "txbDetalle";
             this.txbDetalle.Size = new System.Drawing.Size(212, 23);
-            this.txbDetalle.TabIndex = 30;
+            this.txbDetalle.TabIndex = 2;
             // 
             // lbproducto
             // 
@@ -248,7 +248,7 @@
             this.BtnAgregar.Location = new System.Drawing.Point(618, 137);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(78, 30);
-            this.BtnAgregar.TabIndex = 35;
+            this.BtnAgregar.TabIndex = 3;
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = false;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
@@ -263,7 +263,7 @@
             this.BtnSig.Location = new System.Drawing.Point(848, 571);
             this.BtnSig.Name = "BtnSig";
             this.BtnSig.Size = new System.Drawing.Size(120, 36);
-            this.BtnSig.TabIndex = 36;
+            this.BtnSig.TabIndex = 4;
             this.BtnSig.Text = "Siguiente";
             this.BtnSig.UseVisualStyleBackColor = false;
             this.BtnSig.Click += new System.EventHandler(this.BtnSig_Click);

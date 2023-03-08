@@ -14,8 +14,8 @@ namespace CapaDatos.Datos.Interfaces
         bool BuscarClienteSocioDni(Cliente c);
 
         List<DetalleFactura> TraerDetalles(int a);
-        List<Factura> TraerFactura();
-        bool CancelFactura(int i);
+        List<Factura> TraerFactura(int a);
+        bool CancelFactura(int i, Usuarios u);
         bool ModVenta(Factura f, Usuarios u);
     }
 }

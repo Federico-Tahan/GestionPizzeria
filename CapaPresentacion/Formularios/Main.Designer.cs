@@ -52,10 +52,6 @@
             this.BtnCliente = new System.Windows.Forms.Button();
             this.picMain = new System.Windows.Forms.PictureBox();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lbVentasDelDiaa = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lbRecauddoDiario = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.lbventasdelmes = new System.Windows.Forms.Label();
@@ -63,10 +59,14 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.LbVetnasdelMes = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lbVentasDelDiaa = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.lbventasdeldia = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbRecauddoDiario = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lbrecaudodiario = new System.Windows.Forms.Label();
             this.lb = new System.Windows.Forms.Label();
@@ -86,16 +86,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
             this.pnlMain.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -166,6 +166,7 @@
             this.submenu2.Name = "submenu2";
             this.submenu2.Size = new System.Drawing.Size(218, 142);
             this.submenu2.TabIndex = 22;
+            this.submenu2.TabStop = true;
             this.submenu2.Visible = false;
             // 
             // btnDescuentos
@@ -184,7 +185,7 @@
             this.btnDescuentos.Location = new System.Drawing.Point(0, 96);
             this.btnDescuentos.Name = "btnDescuentos";
             this.btnDescuentos.Size = new System.Drawing.Size(218, 46);
-            this.btnDescuentos.TabIndex = 16;
+            this.btnDescuentos.TabIndex = 7;
             this.btnDescuentos.Text = "Descuentos";
             this.btnDescuentos.UseVisualStyleBackColor = false;
             this.btnDescuentos.Click += new System.EventHandler(this.btnDescuentos_Click);
@@ -205,7 +206,7 @@
             this.BtnProductos.Location = new System.Drawing.Point(0, 48);
             this.BtnProductos.Name = "BtnProductos";
             this.BtnProductos.Size = new System.Drawing.Size(218, 48);
-            this.BtnProductos.TabIndex = 15;
+            this.BtnProductos.TabIndex = 6;
             this.BtnProductos.Text = "Productos";
             this.BtnProductos.UseVisualStyleBackColor = false;
             this.BtnProductos.Click += new System.EventHandler(this.BtnProductos_Click);
@@ -226,7 +227,7 @@
             this.BtnUsuarios.Location = new System.Drawing.Point(0, 0);
             this.BtnUsuarios.Name = "BtnUsuarios";
             this.BtnUsuarios.Size = new System.Drawing.Size(218, 48);
-            this.BtnUsuarios.TabIndex = 14;
+            this.BtnUsuarios.TabIndex = 5;
             this.BtnUsuarios.Text = "Usuarios";
             this.BtnUsuarios.UseVisualStyleBackColor = false;
             this.BtnUsuarios.Click += new System.EventHandler(this.BtnUsuarios_Click);
@@ -248,7 +249,7 @@
             this.btnGestion.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.btnGestion.Name = "btnGestion";
             this.btnGestion.Size = new System.Drawing.Size(218, 47);
-            this.btnGestion.TabIndex = 21;
+            this.btnGestion.TabIndex = 4;
             this.btnGestion.Text = "Gestión";
             this.btnGestion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGestion.UseVisualStyleBackColor = false;
@@ -263,6 +264,7 @@
             this.pnlSubmenu.Name = "pnlSubmenu";
             this.pnlSubmenu.Size = new System.Drawing.Size(218, 91);
             this.pnlSubmenu.TabIndex = 16;
+            this.pnlSubmenu.TabStop = true;
             this.pnlSubmenu.Visible = false;
             // 
             // btnConsultar
@@ -280,8 +282,8 @@
             this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConsultar.Location = new System.Drawing.Point(0, 46);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(218, 40);
-            this.btnConsultar.TabIndex = 15;
+            this.btnConsultar.Size = new System.Drawing.Size(218, 45);
+            this.btnConsultar.TabIndex = 3;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
@@ -302,7 +304,7 @@
             this.btnVender.Location = new System.Drawing.Point(0, 0);
             this.btnVender.Name = "btnVender";
             this.btnVender.Size = new System.Drawing.Size(218, 46);
-            this.btnVender.TabIndex = 14;
+            this.btnVender.TabIndex = 2;
             this.btnVender.Text = "Vender";
             this.btnVender.UseVisualStyleBackColor = false;
             this.btnVender.Click += new System.EventHandler(this.btnVender_Click);
@@ -324,7 +326,7 @@
             this.btnAdmin.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(218, 53);
-            this.btnAdmin.TabIndex = 15;
+            this.btnAdmin.TabIndex = 1;
             this.btnAdmin.Text = "Ventas";
             this.btnAdmin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdmin.UseVisualStyleBackColor = false;
@@ -340,7 +342,8 @@
             this.panel1.Location = new System.Drawing.Point(0, 543);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(218, 98);
-            this.panel1.TabIndex = 10;
+            this.panel1.TabIndex = 3;
+            this.panel1.TabStop = true;
             // 
             // panel11
             // 
@@ -384,7 +387,7 @@
             this.lbCierre.Location = new System.Drawing.Point(94, 54);
             this.lbCierre.Name = "lbCierre";
             this.lbCierre.Size = new System.Drawing.Size(84, 16);
-            this.lbCierre.TabIndex = 11;
+            this.lbCierre.TabIndex = 8;
             this.lbCierre.Text = "Cerrar Sesión";
             this.lbCierre.Click += new System.EventHandler(this.lbCierre_Click);
             // 
@@ -414,7 +417,7 @@
             this.BtnCliente.Location = new System.Drawing.Point(0, 117);
             this.BtnCliente.Name = "BtnCliente";
             this.BtnCliente.Size = new System.Drawing.Size(218, 53);
-            this.BtnCliente.TabIndex = 5;
+            this.BtnCliente.TabIndex = 0;
             this.BtnCliente.Text = "Clientes";
             this.BtnCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnCliente.UseVisualStyleBackColor = false;
@@ -436,8 +439,6 @@
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.DarkGreen;
-            this.pnlMain.Controls.Add(this.panel5);
-            this.pnlMain.Controls.Add(this.panel3);
             this.pnlMain.Controls.Add(this.panel6);
             this.pnlMain.Controls.Add(this.panel4);
             this.pnlMain.Controls.Add(this.panel2);
@@ -448,50 +449,12 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(998, 641);
             this.pnlMain.TabIndex = 3;
+            this.pnlMain.SizeChanged += new System.EventHandler(this.pnlMain_SizeChanged_1);
             this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.panel5.Controls.Add(this.lbVentasDelDiaa);
-            this.panel5.Location = new System.Drawing.Point(779, 256);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(184, 34);
-            this.panel5.TabIndex = 1;
-            // 
-            // lbVentasDelDiaa
-            // 
-            this.lbVentasDelDiaa.AutoSize = true;
-            this.lbVentasDelDiaa.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbVentasDelDiaa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbVentasDelDiaa.Location = new System.Drawing.Point(29, 5);
-            this.lbVentasDelDiaa.Name = "lbVentasDelDiaa";
-            this.lbVentasDelDiaa.Size = new System.Drawing.Size(123, 21);
-            this.lbVentasDelDiaa.TabIndex = 0;
-            this.lbVentasDelDiaa.Text = "Ventas del Dia";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.panel3.Controls.Add(this.lbRecauddoDiario);
-            this.panel3.Location = new System.Drawing.Point(779, 64);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(184, 34);
-            this.panel3.TabIndex = 1;
-            // 
-            // lbRecauddoDiario
-            // 
-            this.lbRecauddoDiario.AutoSize = true;
-            this.lbRecauddoDiario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbRecauddoDiario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbRecauddoDiario.Location = new System.Drawing.Point(31, 6);
-            this.lbRecauddoDiario.Name = "lbRecauddoDiario";
-            this.lbRecauddoDiario.Size = new System.Drawing.Size(130, 21);
-            this.lbRecauddoDiario.TabIndex = 0;
-            this.lbRecauddoDiario.Text = "Recaudo Diario";
             // 
             // panel6
             // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.panel10);
             this.panel6.Controls.Add(this.pictureBox4);
@@ -553,13 +516,36 @@
             // 
             // panel4
             // 
+            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.pictureBox3);
-            this.panel4.Location = new System.Drawing.Point(779, 254);
+            this.panel4.Location = new System.Drawing.Point(779, 239);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(184, 170);
             this.panel4.TabIndex = 10;
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel5.Controls.Add(this.lbVentasDelDiaa);
+            this.panel5.Location = new System.Drawing.Point(-1, 1);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(184, 34);
+            this.panel5.TabIndex = 1;
+            // 
+            // lbVentasDelDiaa
+            // 
+            this.lbVentasDelDiaa.AutoSize = true;
+            this.lbVentasDelDiaa.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbVentasDelDiaa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbVentasDelDiaa.Location = new System.Drawing.Point(29, 5);
+            this.lbVentasDelDiaa.Name = "lbVentasDelDiaa";
+            this.lbVentasDelDiaa.Size = new System.Drawing.Size(123, 21);
+            this.lbVentasDelDiaa.TabIndex = 0;
+            this.lbVentasDelDiaa.Text = "Ventas del Dia";
             // 
             // panel8
             // 
@@ -593,13 +579,36 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.panel9);
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(779, 64);
+            this.panel2.Location = new System.Drawing.Point(779, 45);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(184, 162);
             this.panel2.TabIndex = 9;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel3.Controls.Add(this.lbRecauddoDiario);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(184, 34);
+            this.panel3.TabIndex = 1;
+            // 
+            // lbRecauddoDiario
+            // 
+            this.lbRecauddoDiario.AutoSize = true;
+            this.lbRecauddoDiario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbRecauddoDiario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbRecauddoDiario.Location = new System.Drawing.Point(31, 6);
+            this.lbRecauddoDiario.Name = "lbRecauddoDiario";
+            this.lbRecauddoDiario.Size = new System.Drawing.Size(130, 21);
+            this.lbRecauddoDiario.TabIndex = 0;
+            this.lbRecauddoDiario.Text = "Recaudo Diario";
             // 
             // panel9
             // 
@@ -644,6 +653,8 @@
             // 
             // lbfecha
             // 
+            this.lbfecha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lbfecha.AutoSize = true;
             this.lbfecha.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbfecha.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -655,6 +666,8 @@
             // 
             // lbHora
             // 
+            this.lbHora.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lbHora.AutoSize = true;
             this.lbHora.Font = new System.Drawing.Font("Century Gothic", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbHora.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -698,10 +711,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
@@ -709,10 +718,14 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

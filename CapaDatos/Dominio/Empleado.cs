@@ -18,5 +18,9 @@ namespace CapaDatos.Dominio
         public DateTime FechaNacimiento { get; set; }
         public int Baja_logica { get; set; }
         public string NombreCompleto { get; set; }
+        public int Altura { get; set; }
+        public int Piso { get; set; }
+        public string Departamento { get; set; }
+        public Localidad Loc { get; set; }
     }
 }

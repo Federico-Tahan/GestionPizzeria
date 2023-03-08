@@ -19,5 +19,6 @@ namespace CapaDatos.Datos.Interfaces
         bool BuscarCliente(Cliente c);
 
         bool EmailSender(Cliente c);
+        bool EliminarCliente(int c, Usuarios u);
     }
 }

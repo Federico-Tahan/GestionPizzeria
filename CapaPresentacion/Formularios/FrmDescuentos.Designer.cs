@@ -65,6 +65,13 @@
             this.lbMartes = new System.Windows.Forms.Label();
             this.lblunes = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.pnlDescento.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -85,6 +92,13 @@
             // pnlDescento
             // 
             this.pnlDescento.BackColor = System.Drawing.Color.DarkGreen;
+            this.pnlDescento.Controls.Add(this.label14);
+            this.pnlDescento.Controls.Add(this.label6);
+            this.pnlDescento.Controls.Add(this.label5);
+            this.pnlDescento.Controls.Add(this.label4);
+            this.pnlDescento.Controls.Add(this.label3);
+            this.pnlDescento.Controls.Add(this.label2);
+            this.pnlDescento.Controls.Add(this.label1);
             this.pnlDescento.Controls.Add(this.panel2);
             this.pnlDescento.Controls.Add(this.panel1);
             this.pnlDescento.Controls.Add(this.pnlHeader);
@@ -114,7 +128,6 @@
             this.pnlDescento.Controls.Add(this.lbMartes);
             this.pnlDescento.Controls.Add(this.lblunes);
             this.pnlDescento.Controls.Add(this.pictureBox1);
-            this.pnlDescento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDescento.Location = new System.Drawing.Point(0, 0);
             this.pnlDescento.Name = "pnlDescento";
             this.pnlDescento.Size = new System.Drawing.Size(998, 676);
@@ -226,7 +239,7 @@
             this.ChkCompraspresenciales.Location = new System.Drawing.Point(628, 229);
             this.ChkCompraspresenciales.Name = "ChkCompraspresenciales";
             this.ChkCompraspresenciales.Size = new System.Drawing.Size(256, 29);
-            this.ChkCompraspresenciales.TabIndex = 45;
+            this.ChkCompraspresenciales.TabIndex = 8;
             this.ChkCompraspresenciales.Text = "Compras Presenciales";
             this.ChkCompraspresenciales.UseVisualStyleBackColor = false;
             // 
@@ -240,7 +253,7 @@
             this.chkSocio.Location = new System.Drawing.Point(628, 185);
             this.chkSocio.Name = "chkSocio";
             this.chkSocio.Size = new System.Drawing.Size(95, 29);
-            this.chkSocio.TabIndex = 44;
+            this.chkSocio.TabIndex = 7;
             this.chkSocio.Text = "Socios";
             this.chkSocio.UseVisualStyleBackColor = true;
             // 
@@ -254,7 +267,7 @@
             this.BtnRestablecer.Location = new System.Drawing.Point(520, 588);
             this.BtnRestablecer.Name = "BtnRestablecer";
             this.BtnRestablecer.Size = new System.Drawing.Size(89, 36);
-            this.BtnRestablecer.TabIndex = 42;
+            this.BtnRestablecer.TabIndex = 10;
             this.BtnRestablecer.Text = "Restablecer";
             this.BtnRestablecer.UseVisualStyleBackColor = false;
             this.BtnRestablecer.Click += new System.EventHandler(this.BtnRestablecer_Click);
@@ -269,7 +282,7 @@
             this.BtnConfirmar.Location = new System.Drawing.Point(397, 588);
             this.BtnConfirmar.Name = "BtnConfirmar";
             this.BtnConfirmar.Size = new System.Drawing.Size(90, 36);
-            this.BtnConfirmar.TabIndex = 4;
+            this.BtnConfirmar.TabIndex = 9;
             this.BtnConfirmar.Text = "Confirmar";
             this.BtnConfirmar.UseVisualStyleBackColor = false;
             this.BtnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
@@ -281,7 +294,7 @@
             this.np7.Location = new System.Drawing.Point(341, 513);
             this.np7.Name = "np7";
             this.np7.Size = new System.Drawing.Size(74, 19);
-            this.np7.TabIndex = 38;
+            this.np7.TabIndex = 6;
             // 
             // np6
             // 
@@ -289,7 +302,7 @@
             this.np6.Location = new System.Drawing.Point(341, 457);
             this.np6.Name = "np6";
             this.np6.Size = new System.Drawing.Size(74, 23);
-            this.np6.TabIndex = 37;
+            this.np6.TabIndex = 5;
             // 
             // np5
             // 
@@ -297,7 +310,7 @@
             this.np5.Location = new System.Drawing.Point(341, 406);
             this.np5.Name = "np5";
             this.np5.Size = new System.Drawing.Size(74, 23);
-            this.np5.TabIndex = 36;
+            this.np5.TabIndex = 4;
             // 
             // np3
             // 
@@ -305,7 +318,7 @@
             this.np3.Location = new System.Drawing.Point(341, 294);
             this.np3.Name = "np3";
             this.np3.Size = new System.Drawing.Size(74, 23);
-            this.np3.TabIndex = 35;
+            this.np3.TabIndex = 2;
             // 
             // np4
             // 
@@ -313,7 +326,7 @@
             this.np4.Location = new System.Drawing.Point(341, 351);
             this.np4.Name = "np4";
             this.np4.Size = new System.Drawing.Size(74, 23);
-            this.np4.TabIndex = 35;
+            this.np4.TabIndex = 3;
             // 
             // np2
             // 
@@ -321,7 +334,7 @@
             this.np2.Location = new System.Drawing.Point(341, 242);
             this.np2.Name = "np2";
             this.np2.Size = new System.Drawing.Size(74, 23);
-            this.np2.TabIndex = 34;
+            this.np2.TabIndex = 1;
             // 
             // np1
             // 
@@ -329,7 +342,7 @@
             this.np1.Location = new System.Drawing.Point(341, 183);
             this.np1.Name = "np1";
             this.np1.Size = new System.Drawing.Size(74, 23);
-            this.np1.TabIndex = 33;
+            this.np1.TabIndex = 0;
             // 
             // label13
             // 
@@ -495,6 +508,76 @@
             this.pictureBox1.TabIndex = 47;
             this.pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(421, 185);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(12, 15);
+            this.label1.TabIndex = 53;
+            this.label1.Text = "*";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(421, 250);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(12, 15);
+            this.label2.TabIndex = 54;
+            this.label2.Text = "*";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(421, 296);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(12, 15);
+            this.label3.TabIndex = 55;
+            this.label3.Text = "*";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(421, 357);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(12, 15);
+            this.label4.TabIndex = 56;
+            this.label4.Text = "*";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(421, 412);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(12, 15);
+            this.label5.TabIndex = 57;
+            this.label5.Text = "*";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(421, 463);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(12, 15);
+            this.label6.TabIndex = 58;
+            this.label6.Text = "*";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(421, 517);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(12, 15);
+            this.label14.TabIndex = 59;
+            this.label14.Text = "*";
+            // 
             // FrmDescuentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -567,5 +650,12 @@
         private PictureBox pictureBox4;
         private Panel panel2;
         private Panel panel1;
+        private Label label14;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
     }
 }

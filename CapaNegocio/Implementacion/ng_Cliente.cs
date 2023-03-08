@@ -46,6 +46,11 @@ namespace CapaNegocio.Implementacion
             return lg.BuscarClienteSocioDni(c);
         }
 
+        public bool EliminarCliente(int c, Usuarios u)
+        {
+            return lg.EliminarCliente(c,u);
+        }
+
         public bool EmailSender(Cliente c)
         {
             return lg.EmailSender(c);

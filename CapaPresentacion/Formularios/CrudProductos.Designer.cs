@@ -46,19 +46,30 @@
             this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlCrud = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbPrecio = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lbstock = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbTipoProd = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbClasificacion = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbNombre = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbUnidad = new System.Windows.Forms.Label();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.lbNroProd = new System.Windows.Forms.Label();
             this.TxbCodigoProducto = new System.Windows.Forms.TextBox();
             this.nupStock = new System.Windows.Forms.NumericUpDown();
-            this.lbstock = new System.Windows.Forms.Label();
             this.picLimpiar = new System.Windows.Forms.PictureBox();
             this.picbajar = new System.Windows.Forms.PictureBox();
-            this.lbUnidad = new System.Windows.Forms.Label();
             this.lbDesc = new System.Windows.Forms.Label();
-            this.lbClasificacion = new System.Windows.Forms.Label();
-            this.lbTipoProd = new System.Windows.Forms.Label();
-            this.lbPrecio = new System.Windows.Forms.Label();
-            this.lbNombre = new System.Windows.Forms.Label();
             this.cboUnidadMeidda = new System.Windows.Forms.ComboBox();
             this.cboTipoProd = new System.Windows.Forms.ComboBox();
             this.cboClasificacion = new System.Windows.Forms.ComboBox();
@@ -81,6 +92,12 @@
             this.BtnTipoProd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
             this.pnlCrud.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLimpiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbajar)).BeginInit();
@@ -104,7 +121,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(144, 560);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(139, 42);
-            this.btnNuevo.TabIndex = 15;
+            this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -124,7 +141,7 @@
             this.BtnEditar.Location = new System.Drawing.Point(346, 560);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(139, 42);
-            this.BtnEditar.TabIndex = 16;
+            this.BtnEditar.TabIndex = 7;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = false;
             this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
@@ -144,7 +161,7 @@
             this.BtnCancelar.Location = new System.Drawing.Point(538, 560);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(139, 42);
-            this.BtnCancelar.TabIndex = 18;
+            this.BtnCancelar.TabIndex = 8;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -164,7 +181,7 @@
             this.BtnGuardar.Location = new System.Drawing.Point(717, 560);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(139, 42);
-            this.BtnGuardar.TabIndex = 19;
+            this.BtnGuardar.TabIndex = 9;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
@@ -202,7 +219,7 @@
             this.dgvProd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvProd.RowTemplate.Height = 25;
             this.dgvProd.Size = new System.Drawing.Size(932, 383);
-            this.dgvProd.TabIndex = 20;
+            this.dgvProd.TabIndex = 5;
             this.dgvProd.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProd_CellFormatting);
             this.dgvProd.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Click_Detalle);
             // 
@@ -281,19 +298,19 @@
             // pnlCrud
             // 
             this.pnlCrud.BackColor = System.Drawing.Color.OliveDrab;
+            this.pnlCrud.Controls.Add(this.panel7);
+            this.pnlCrud.Controls.Add(this.panel6);
+            this.pnlCrud.Controls.Add(this.panel5);
+            this.pnlCrud.Controls.Add(this.panel4);
+            this.pnlCrud.Controls.Add(this.panel3);
+            this.pnlCrud.Controls.Add(this.panel2);
             this.pnlCrud.Controls.Add(this.chkActivo);
             this.pnlCrud.Controls.Add(this.lbNroProd);
             this.pnlCrud.Controls.Add(this.TxbCodigoProducto);
             this.pnlCrud.Controls.Add(this.nupStock);
-            this.pnlCrud.Controls.Add(this.lbstock);
             this.pnlCrud.Controls.Add(this.picLimpiar);
             this.pnlCrud.Controls.Add(this.picbajar);
-            this.pnlCrud.Controls.Add(this.lbUnidad);
             this.pnlCrud.Controls.Add(this.lbDesc);
-            this.pnlCrud.Controls.Add(this.lbClasificacion);
-            this.pnlCrud.Controls.Add(this.lbTipoProd);
-            this.pnlCrud.Controls.Add(this.lbPrecio);
-            this.pnlCrud.Controls.Add(this.lbNombre);
             this.pnlCrud.Controls.Add(this.cboUnidadMeidda);
             this.pnlCrud.Controls.Add(this.cboTipoProd);
             this.pnlCrud.Controls.Add(this.cboClasificacion);
@@ -302,9 +319,189 @@
             this.pnlCrud.Controls.Add(this.txbNombre);
             this.pnlCrud.Location = new System.Drawing.Point(43, 102);
             this.pnlCrud.Name = "pnlCrud";
-            this.pnlCrud.Size = new System.Drawing.Size(932, 443);
+            this.pnlCrud.Size = new System.Drawing.Size(932, 430);
             this.pnlCrud.TabIndex = 21;
             this.pnlCrud.Visible = false;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label6);
+            this.panel7.Controls.Add(this.lbPrecio);
+            this.panel7.Location = new System.Drawing.Point(58, 293);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(100, 35);
+            this.panel7.TabIndex = 32;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label6.Location = new System.Drawing.Point(57, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(12, 15);
+            this.label6.TabIndex = 68;
+            this.label6.Text = "*";
+            // 
+            // lbPrecio
+            // 
+            this.lbPrecio.AutoSize = true;
+            this.lbPrecio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbPrecio.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbPrecio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbPrecio.Location = new System.Drawing.Point(0, 0);
+            this.lbPrecio.Name = "lbPrecio";
+            this.lbPrecio.Size = new System.Drawing.Size(57, 19);
+            this.lbPrecio.TabIndex = 14;
+            this.lbPrecio.Text = "Precio";
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.lbstock);
+            this.panel6.Location = new System.Drawing.Point(179, 301);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(127, 24);
+            this.panel6.TabIndex = 31;
+            // 
+            // lbstock
+            // 
+            this.lbstock.AutoSize = true;
+            this.lbstock.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbstock.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbstock.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbstock.Location = new System.Drawing.Point(0, 0);
+            this.lbstock.Name = "lbstock";
+            this.lbstock.Size = new System.Drawing.Size(50, 19);
+            this.lbstock.TabIndex = 22;
+            this.lbstock.Text = "Stock";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.lbTipoProd);
+            this.panel5.Location = new System.Drawing.Point(333, 193);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(200, 27);
+            this.panel5.TabIndex = 30;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label4.Location = new System.Drawing.Point(139, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(12, 15);
+            this.label4.TabIndex = 68;
+            this.label4.Text = "*";
+            // 
+            // lbTipoProd
+            // 
+            this.lbTipoProd.AutoSize = true;
+            this.lbTipoProd.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbTipoProd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbTipoProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbTipoProd.Location = new System.Drawing.Point(0, 0);
+            this.lbTipoProd.Name = "lbTipoProd";
+            this.lbTipoProd.Size = new System.Drawing.Size(139, 19);
+            this.lbTipoProd.TabIndex = 15;
+            this.lbTipoProd.Text = "Tipo de Producto";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.lbClasificacion);
+            this.panel4.Location = new System.Drawing.Point(333, 68);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(200, 23);
+            this.panel4.TabIndex = 29;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label3.Location = new System.Drawing.Point(109, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(12, 15);
+            this.label3.TabIndex = 68;
+            this.label3.Text = "*";
+            // 
+            // lbClasificacion
+            // 
+            this.lbClasificacion.AutoSize = true;
+            this.lbClasificacion.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbClasificacion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbClasificacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbClasificacion.Location = new System.Drawing.Point(0, 0);
+            this.lbClasificacion.Name = "lbClasificacion";
+            this.lbClasificacion.Size = new System.Drawing.Size(109, 19);
+            this.lbClasificacion.TabIndex = 16;
+            this.lbClasificacion.Text = "Clasificacion";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.lbNombre);
+            this.panel3.Location = new System.Drawing.Point(58, 68);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(171, 25);
+            this.panel3.TabIndex = 28;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(73, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(12, 15);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "*";
+            // 
+            // lbNombre
+            // 
+            this.lbNombre.AutoSize = true;
+            this.lbNombre.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbNombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbNombre.Location = new System.Drawing.Point(0, 0);
+            this.lbNombre.Name = "lbNombre";
+            this.lbNombre.Size = new System.Drawing.Size(73, 19);
+            this.lbNombre.TabIndex = 13;
+            this.lbNombre.Text = "Nombre";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.lbUnidad);
+            this.panel2.Location = new System.Drawing.Point(58, 197);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 23);
+            this.panel2.TabIndex = 27;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label2.Location = new System.Drawing.Point(131, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(12, 15);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "*";
+            // 
+            // lbUnidad
+            // 
+            this.lbUnidad.AutoSize = true;
+            this.lbUnidad.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbUnidad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbUnidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbUnidad.Location = new System.Drawing.Point(0, 0);
+            this.lbUnidad.Name = "lbUnidad";
+            this.lbUnidad.Size = new System.Drawing.Size(131, 19);
+            this.lbUnidad.TabIndex = 18;
+            this.lbUnidad.Text = "Unidad Medida";
             // 
             // chkActivo
             // 
@@ -316,7 +513,7 @@
             this.chkActivo.Location = new System.Drawing.Point(287, 331);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(77, 23);
-            this.chkActivo.TabIndex = 26;
+            this.chkActivo.TabIndex = 8;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
@@ -338,7 +535,7 @@
             this.TxbCodigoProducto.Location = new System.Drawing.Point(603, 100);
             this.TxbCodigoProducto.Name = "TxbCodigoProducto";
             this.TxbCodigoProducto.Size = new System.Drawing.Size(140, 23);
-            this.TxbCodigoProducto.TabIndex = 24;
+            this.TxbCodigoProducto.TabIndex = 2;
             this.TxbCodigoProducto.Visible = false;
             // 
             // nupStock
@@ -351,18 +548,7 @@
             0});
             this.nupStock.Name = "nupStock";
             this.nupStock.Size = new System.Drawing.Size(72, 23);
-            this.nupStock.TabIndex = 23;
-            // 
-            // lbstock
-            // 
-            this.lbstock.AutoSize = true;
-            this.lbstock.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbstock.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbstock.Location = new System.Drawing.Point(179, 300);
-            this.lbstock.Name = "lbstock";
-            this.lbstock.Size = new System.Drawing.Size(50, 19);
-            this.lbstock.TabIndex = 22;
-            this.lbstock.Text = "Stock";
+            this.nupStock.TabIndex = 7;
             // 
             // picLimpiar
             // 
@@ -388,17 +574,6 @@
             this.picbajar.TabStop = false;
             this.picbajar.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // lbUnidad
-            // 
-            this.lbUnidad.AutoSize = true;
-            this.lbUnidad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbUnidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbUnidad.Location = new System.Drawing.Point(58, 195);
-            this.lbUnidad.Name = "lbUnidad";
-            this.lbUnidad.Size = new System.Drawing.Size(131, 19);
-            this.lbUnidad.TabIndex = 18;
-            this.lbUnidad.Text = "Unidad Medida";
-            // 
             // lbDesc
             // 
             this.lbDesc.AutoSize = true;
@@ -410,57 +585,13 @@
             this.lbDesc.TabIndex = 17;
             this.lbDesc.Text = "Descripcion";
             // 
-            // lbClasificacion
-            // 
-            this.lbClasificacion.AutoSize = true;
-            this.lbClasificacion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbClasificacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbClasificacion.Location = new System.Drawing.Point(333, 67);
-            this.lbClasificacion.Name = "lbClasificacion";
-            this.lbClasificacion.Size = new System.Drawing.Size(109, 19);
-            this.lbClasificacion.TabIndex = 16;
-            this.lbClasificacion.Text = "Clasificacion";
-            // 
-            // lbTipoProd
-            // 
-            this.lbTipoProd.AutoSize = true;
-            this.lbTipoProd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbTipoProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbTipoProd.Location = new System.Drawing.Point(333, 195);
-            this.lbTipoProd.Name = "lbTipoProd";
-            this.lbTipoProd.Size = new System.Drawing.Size(139, 19);
-            this.lbTipoProd.TabIndex = 15;
-            this.lbTipoProd.Text = "Tipo de Producto";
-            // 
-            // lbPrecio
-            // 
-            this.lbPrecio.AutoSize = true;
-            this.lbPrecio.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbPrecio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbPrecio.Location = new System.Drawing.Point(58, 299);
-            this.lbPrecio.Name = "lbPrecio";
-            this.lbPrecio.Size = new System.Drawing.Size(57, 19);
-            this.lbPrecio.TabIndex = 14;
-            this.lbPrecio.Text = "Precio";
-            // 
-            // lbNombre
-            // 
-            this.lbNombre.AutoSize = true;
-            this.lbNombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbNombre.Location = new System.Drawing.Point(58, 68);
-            this.lbNombre.Name = "lbNombre";
-            this.lbNombre.Size = new System.Drawing.Size(73, 19);
-            this.lbNombre.TabIndex = 13;
-            this.lbNombre.Text = "Nombre";
-            // 
             // cboUnidadMeidda
             // 
             this.cboUnidadMeidda.FormattingEnabled = true;
             this.cboUnidadMeidda.Location = new System.Drawing.Point(58, 226);
             this.cboUnidadMeidda.Name = "cboUnidadMeidda";
             this.cboUnidadMeidda.Size = new System.Drawing.Size(215, 23);
-            this.cboUnidadMeidda.TabIndex = 12;
+            this.cboUnidadMeidda.TabIndex = 3;
             // 
             // cboTipoProd
             // 
@@ -468,7 +599,7 @@
             this.cboTipoProd.Location = new System.Drawing.Point(333, 226);
             this.cboTipoProd.Name = "cboTipoProd";
             this.cboTipoProd.Size = new System.Drawing.Size(215, 23);
-            this.cboTipoProd.TabIndex = 11;
+            this.cboTipoProd.TabIndex = 4;
             // 
             // cboClasificacion
             // 
@@ -476,7 +607,7 @@
             this.cboClasificacion.Location = new System.Drawing.Point(333, 99);
             this.cboClasificacion.Name = "cboClasificacion";
             this.cboClasificacion.Size = new System.Drawing.Size(215, 23);
-            this.cboClasificacion.TabIndex = 10;
+            this.cboClasificacion.TabIndex = 1;
             this.cboClasificacion.SelectionChangeCommitted += new System.EventHandler(this.cboClasificacion_SelectionChangeCommitted);
             // 
             // txbDescripcion
@@ -484,7 +615,7 @@
             this.txbDescripcion.Location = new System.Drawing.Point(603, 226);
             this.txbDescripcion.Name = "txbDescripcion";
             this.txbDescripcion.Size = new System.Drawing.Size(265, 128);
-            this.txbDescripcion.TabIndex = 9;
+            this.txbDescripcion.TabIndex = 5;
             this.txbDescripcion.Text = "";
             // 
             // numpPrecio
@@ -498,14 +629,14 @@
             0});
             this.numpPrecio.Name = "numpPrecio";
             this.numpPrecio.Size = new System.Drawing.Size(88, 23);
-            this.numpPrecio.TabIndex = 8;
+            this.numpPrecio.TabIndex = 6;
             // 
             // txbNombre
             // 
             this.txbNombre.Location = new System.Drawing.Point(58, 99);
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(215, 23);
-            this.txbNombre.TabIndex = 7;
+            this.txbNombre.TabIndex = 0;
             // 
             // pnlHeader
             // 
@@ -547,7 +678,7 @@
             this.RbtActivos.Location = new System.Drawing.Point(694, 118);
             this.RbtActivos.Name = "RbtActivos";
             this.RbtActivos.Size = new System.Drawing.Size(87, 25);
-            this.RbtActivos.TabIndex = 23;
+            this.RbtActivos.TabIndex = 2;
             this.RbtActivos.TabStop = true;
             this.RbtActivos.Text = "Activos";
             this.RbtActivos.UseVisualStyleBackColor = true;
@@ -561,7 +692,7 @@
             this.RbtEliminados.Location = new System.Drawing.Point(787, 118);
             this.RbtEliminados.Name = "RbtEliminados";
             this.RbtEliminados.Size = new System.Drawing.Size(100, 25);
-            this.RbtEliminados.TabIndex = 24;
+            this.RbtEliminados.TabIndex = 3;
             this.RbtEliminados.Text = "Inactivos";
             this.RbtEliminados.UseVisualStyleBackColor = true;
             this.RbtEliminados.CheckedChanged += new System.EventHandler(this.RbtEliminados_CheckedChanged);
@@ -574,7 +705,7 @@
             this.rbtTodos.Location = new System.Drawing.Point(902, 118);
             this.rbtTodos.Name = "rbtTodos";
             this.rbtTodos.Size = new System.Drawing.Size(73, 25);
-            this.rbtTodos.TabIndex = 25;
+            this.rbtTodos.TabIndex = 4;
             this.rbtTodos.Text = "Todos";
             this.rbtTodos.UseVisualStyleBackColor = true;
             this.rbtTodos.CheckedChanged += new System.EventHandler(this.rbtTodos_CheckedChanged);
@@ -589,7 +720,7 @@
             this.BtnLogin.Location = new System.Drawing.Point(395, 119);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(71, 23);
-            this.BtnLogin.TabIndex = 28;
+            this.BtnLogin.TabIndex = 1;
             this.BtnLogin.Text = "Buscar";
             this.BtnLogin.UseVisualStyleBackColor = false;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
@@ -611,7 +742,7 @@
             this.rbtNombre.Location = new System.Drawing.Point(92, 14);
             this.rbtNombre.Name = "rbtNombre";
             this.rbtNombre.Size = new System.Drawing.Size(91, 25);
-            this.rbtNombre.TabIndex = 26;
+            this.rbtNombre.TabIndex = 1;
             this.rbtNombre.TabStop = true;
             this.rbtNombre.Text = "Nombre";
             this.rbtNombre.UseVisualStyleBackColor = true;
@@ -624,7 +755,7 @@
             this.rbtCodigo.Location = new System.Drawing.Point(3, 14);
             this.rbtCodigo.Name = "rbtCodigo";
             this.rbtCodigo.Size = new System.Drawing.Size(86, 25);
-            this.rbtCodigo.TabIndex = 25;
+            this.rbtCodigo.TabIndex = 0;
             this.rbtCodigo.TabStop = true;
             this.rbtCodigo.Text = "Codigo";
             this.rbtCodigo.UseVisualStyleBackColor = true;
@@ -634,7 +765,7 @@
             this.txbbusqueda.Location = new System.Drawing.Point(239, 118);
             this.txbbusqueda.Name = "txbbusqueda";
             this.txbbusqueda.Size = new System.Drawing.Size(149, 23);
-            this.txbbusqueda.TabIndex = 33;
+            this.txbbusqueda.TabIndex = 0;
             // 
             // btnUnidadMedida
             // 
@@ -650,7 +781,7 @@
             this.btnUnidadMedida.Location = new System.Drawing.Point(864, 0);
             this.btnUnidadMedida.Name = "btnUnidadMedida";
             this.btnUnidadMedida.Size = new System.Drawing.Size(127, 28);
-            this.btnUnidadMedida.TabIndex = 34;
+            this.btnUnidadMedida.TabIndex = 2;
             this.btnUnidadMedida.Text = "Unidad Medida";
             this.btnUnidadMedida.UseVisualStyleBackColor = false;
             this.btnUnidadMedida.Click += new System.EventHandler(this.btnUnidadMedida_Click);
@@ -669,7 +800,7 @@
             this.BtnClasificacion.Location = new System.Drawing.Point(731, 0);
             this.BtnClasificacion.Name = "BtnClasificacion";
             this.BtnClasificacion.Size = new System.Drawing.Size(127, 28);
-            this.BtnClasificacion.TabIndex = 35;
+            this.BtnClasificacion.TabIndex = 1;
             this.BtnClasificacion.Text = "Clasificacion";
             this.BtnClasificacion.UseVisualStyleBackColor = false;
             this.BtnClasificacion.Click += new System.EventHandler(this.BtnClasificacion_Click);
@@ -688,7 +819,7 @@
             this.BtnTipoProd.Location = new System.Drawing.Point(598, 0);
             this.BtnTipoProd.Name = "BtnTipoProd";
             this.BtnTipoProd.Size = new System.Drawing.Size(127, 28);
-            this.BtnTipoProd.TabIndex = 36;
+            this.BtnTipoProd.TabIndex = 0;
             this.BtnTipoProd.Text = "Tipo Producto";
             this.BtnTipoProd.UseVisualStyleBackColor = false;
             this.BtnTipoProd.Click += new System.EventHandler(this.BtnTipoProd_Click);
@@ -723,6 +854,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).EndInit();
             this.pnlCrud.ResumeLayout(false);
             this.pnlCrud.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLimpiar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbajar)).EndInit();
@@ -788,5 +931,16 @@
         private DataGridViewTextBoxColumn monto;
         private DataGridViewTextBoxColumn Activo;
         private DataGridViewButtonColumn accion;
+        private Panel panel7;
+        private Label label6;
+        private Panel panel6;
+        private Panel panel5;
+        private Label label4;
+        private Panel panel4;
+        private Label label3;
+        private Panel panel3;
+        private Label label1;
+        private Panel panel2;
+        private Label label2;
     }
 }

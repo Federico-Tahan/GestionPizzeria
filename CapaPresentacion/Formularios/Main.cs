@@ -21,6 +21,8 @@ namespace CapaPresentacion.Formularios
     public partial class Main : Form
     {
         Form FormActual;
+        private int PreviousWidth = 0;
+        private int PreviousHeight = 0;
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -46,6 +48,15 @@ namespace CapaPresentacion.Formularios
             }
             FormActual = Formhijo;
             Formhijo.TopLevel = false;
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                Formhijo.WindowState= FormWindowState.Maximized;
+            }
+            else
+            {
+                Formhijo.WindowState = FormWindowState.Normal;
+
+            }
             Formhijo.Dock = DockStyle.Fill;
             pnlMain.Controls.Add(Formhijo);
             pnlMain.Tag = Formhijo;
@@ -56,6 +67,7 @@ namespace CapaPresentacion.Formularios
 
         private void Main_Load(object sender, EventArgs e)
         {
+            
             DetectarIdioma();
             AplicarIdioma();
             lbUsuario.Text = LogIn.u.Empleado.Nombre + " " + LogIn.u.Empleado.Apellido;
@@ -63,6 +75,7 @@ namespace CapaPresentacion.Formularios
             lbrecaudodiario.Text = dt.RecaudadoDiario().ToString();
             lbventasdeldia.Text = dt.VentasdelDia().ToString();
             lbventasdelmes.Text = dt.VentasdelMes().ToString();
+            VentaRol();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -188,6 +201,9 @@ namespace CapaPresentacion.Formularios
             lbrecaudodiario.Text = dt.RecaudadoDiario().ToString();
             lbventasdeldia.Text = dt.VentasdelDia().ToString();
             lbventasdelmes.Text = dt.VentasdelMes().ToString();
+            this.Size = new Size(1216, 676);
+            pnlMain.Size = new Size(998, 641);
+
         }
 
         private void lbCierre_Click(object sender, EventArgs e)
@@ -215,14 +231,16 @@ namespace CapaPresentacion.Formularios
             {
                 btnVender.Visible = false;
                 BtnCliente.Visible = false;
-                btnGestion.Visible = false;
                 picConfig.Visible = false;
+                btnDescuentos.Visible = false;  
+                BtnProductos.Visible = false;
 
             }else if (LogIn.u.Rol.Id_Rol == 5)
             {
                 picConfig.Visible = false;
-                BtnProductos.Visible = false;
-                BtnUsuarios.Visible = false;
+                lbrecaudodiario.Visible = false;
+                lbventasdeldia.Visible = false;
+                lbventasdelmes.Visible = false;
                 btnGestion.Visible = true;
 
             }
@@ -230,7 +248,9 @@ namespace CapaPresentacion.Formularios
             {
                 picConfig.Visible = false;
                 BtnProductos.Visible = false;
-                BtnUsuarios.Visible = false;
+                lbrecaudodiario.Visible = false;
+                lbventasdeldia.Visible = false;
+                lbventasdelmes.Visible = false;
                 btnGestion.Visible = true;
 
 
@@ -240,7 +260,8 @@ namespace CapaPresentacion.Formularios
                 lbrecaudodiario.Visible = false;
                 lbventasdeldia.Visible = false;
                 lbventasdelmes.Visible = false;
-                btnConsultar.Visible = false;
+                btnVender.Visible = true;
+
 
             }
         }
@@ -277,6 +298,72 @@ namespace CapaPresentacion.Formularios
             lbVentasDelDiaa.Text = Rec.VentaDiaria;
             LbVetnasdelMes.Text = Rec.VentasMes;
             btnConsultar.Text = Rec.BtnConsultar;
+        }
+
+        private void VentaRol()
+        {
+            if (LogIn.u.Rol.Id_Rol != 1 && LogIn.u.Rol.Id_Rol != 6 && LogIn.u.Rol.Id_Rol != 5 && LogIn.u.Rol.Id_Rol != 2)
+            {
+                btnVender.Visible = false;
+            }
+        }
+
+
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+
+            }
+        }
+
+        private void Main_Resize(object sender, EventArgs e)
+        {
+        }
+
+        private void pictureBox5_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void pnlMain_Resize(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlMain_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox5_Click_2(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void pictureBox5_Click_3(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+
+        }
+
+        private void pictureBox5_Click_4(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+
+        }
+        private Dictionary<Control, Point> originalSizes = new Dictionary<Control, Point>();
+
+        private void pnlMain_SizeChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

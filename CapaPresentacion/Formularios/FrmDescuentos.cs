@@ -16,6 +16,9 @@ namespace CapaPresentacion.Formularios
 {
     public partial class FrmDescuentos : Form
     {
+        bool modifiBeneficio = false;
+        bool modifidescuento = false;
+
         ing_Configuracion lg = new ng_Configuracion();
         List<Descuento> ld = new List<Descuento>();
         Configuracion c = new Configuracion();
@@ -83,7 +86,7 @@ namespace CapaPresentacion.Formularios
             List<Descuento> lDescuento = new List<Descuento>();
 
             AbstraerInfo(lDescuento);
-            if (lg.ActualizarDescuentosConfig(lDescuento, c))
+            if (lg.ActualizarDescuentosConfig(lDescuento, c,LogIn.u))
             {
                 MessageBox.Show(Rec.MessageDescuentoActualizado);
                 ld = lg.TraerDescuentos();
@@ -191,6 +194,10 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-    
+
+        private void chkSocio_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

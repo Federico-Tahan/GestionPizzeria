@@ -53,6 +53,11 @@ namespace CapaNegocio.Implementacion
             return lg.ModificarUsuario(u,admin);
         }
 
+        public List<Usuarios> ObtenerUsuario(Usuarios u)
+        {
+            return lg.ObtenerUsuario(u);
+        }
+
         public List<Usuarios> ObtenerUsuarios(int a)
         {
             return lg.ObtenerUsuarios(a);

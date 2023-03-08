@@ -22,6 +22,7 @@ namespace CapaDatos.Dominio
         public string Departamento { get; set; }
         public int Piso { get; set; }
         public Localidad locali { get; set; }
+        public long tel { get; set; }
 
     }
 }

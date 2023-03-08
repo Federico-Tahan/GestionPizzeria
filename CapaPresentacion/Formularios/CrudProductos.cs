@@ -27,6 +27,7 @@ namespace CapaPresentacion.Formularios
         ing_CrudProductos lg = new ng_CrudProductos();
         List<Producto> lproductos = new List<Producto>();   
         Producto prodSelect = new Producto();
+        bool chkestado = true;
         DataGridViewButtonColumn customButtonColumn = new DataGridViewButtonColumn();
         public CrudProductos()
         {
@@ -70,7 +71,10 @@ namespace CapaPresentacion.Formularios
             Limpiar();
             pnlCrud.Visible = false;
             Botones(false);
+            prodSelect = new Producto();
+            chkestado = true;
             btnNuevo.Enabled = true;
+
         }
 
         private void Limpiar()
@@ -83,6 +87,8 @@ namespace CapaPresentacion.Formularios
             chkActivo.Checked = true;
             numpPrecio.Value = 0;
             nupStock.Value = 0;
+            prodSelect = new Producto();
+            chkestado = true;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -90,6 +96,8 @@ namespace CapaPresentacion.Formularios
             Limpiar();
             pnlCrud.Visible = false;
             Botones(false);
+            prodSelect = new Producto();
+            chkestado = true;
             btnNuevo.Enabled = true;
         }
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -143,14 +151,14 @@ namespace CapaPresentacion.Formularios
                 {
                     baj = Rec.Si;
                 }
-               dgvProd.Rows.Add(p.Id_producto,p.Nombre,p.Detalle,p.Tipo_producto.Tipo_producto,p.Unidadmedida.Unidad_Medida,p.clasificacion.clasificacion,p.Stock,p.Precio,baj,Properties.Resources.transparencia__2_);
+               dgvProd.Rows.Add(p.Id_producto,p.Nombre,p.Detalle,p.Tipo_producto.Tipo_producto,p.Unidadmedida.Unidad_Medida,p.clasificacion.clasificacion,p.Stock,p.Precio,baj,Rec.Detalle);
 
             }
         }
 
         private void Click_Detalle(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (dgvProd.Columns[e.ColumnIndex].Name == "accion")
+            if (dgvProd.Columns[e.ColumnIndex].Name == "accion" && dgvProd.Rows.Count != 0)
             {
                 prodSelect = new Producto();
                 Clasificacion c = new Clasificacion();
@@ -171,6 +179,7 @@ namespace CapaPresentacion.Formularios
                 {
                     lbPrecio.Visible = false;
                     numpPrecio.Visible = false;
+                    label6.Visible = false;
                 }
                 pnlCrud.Visible = true;
 
@@ -188,10 +197,12 @@ namespace CapaPresentacion.Formularios
             if (producto.Baja_logica == 0)
             {
                 chkActivo.Checked = true;
+                chkestado = true;
             }
             else
             {
                 chkActivo.Checked = false;
+                chkestado = false;
             }
             nupStock.Value = producto.Stock;
             numpPrecio.Value = producto.Precio;
@@ -231,80 +242,176 @@ namespace CapaPresentacion.Formularios
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (Validacion())
+            if (chkestado && !chkActivo.Checked)
             {
-                Producto prod = new Producto();
-                AbstraerProducto(prod);
-                if (!(prod.clasificacion.IdClasificacion == 2))
+                if (MessageBox.Show(Rec.messageDarBajProd, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (prodSelect.Id_producto != 0)
+                    if (Validacion())
                     {
-                        prod.Id_producto = prodSelect.Id_producto;
-                        if (lg.Modificacion(prod, LogIn.u))
+                        Producto prod = new Producto();
+                        AbstraerProducto(prod);
+                        if (!(prod.clasificacion.IdClasificacion == 2))
                         {
-                            MessageBox.Show(Rec.MessageProdModificado);
-                            lproductos = lg.GetProductos(0);
-                            cargarDgv(lproductos);
-                            Botones(false);
-                            Limpiar();
-                            btnNuevo.Enabled = true;
-                            pnlCrud.Visible = false;
-                            RbtActivos.Checked = true;
-                            prodSelect = new Producto();
+                            if (prodSelect.Id_producto != 0)
+                            {
+                                prod.Id_producto = prodSelect.Id_producto;
+                                if (lg.Modificacion(prod, LogIn.u))
+                                {
+                                    MessageBox.Show(Rec.MessageProdModificado);
+                                    lproductos = lg.GetProductos(0);
+                                    cargarDgv(lproductos);
+                                    Botones(false);
+                                    Limpiar();
+                                    btnNuevo.Enabled = true;
+                                    pnlCrud.Visible = false;
+                                    RbtActivos.Checked = true;
+                                    prodSelect = new Producto();
+                                }
+                            }
+                            else
+                            {
+                                if (lg.AltaProducto(prod, LogIn.u))
+                                {
+                                    MessageBox.Show(Rec.MessageProdAlta);
+                                    lproductos = lg.GetProductos(0);
+                                    cargarDgv(lproductos);
+                                    Botones(false);
+                                    Limpiar();
+                                    btnNuevo.Enabled = true;
+                                    pnlCrud.Visible = false;
+                                    RbtActivos.Checked = true;
+                                }
+                            }
                         }
-                    }
-                    else
-                    {
-                        if (lg.AltaProducto(prod, LogIn.u))
+                        else
                         {
-                            MessageBox.Show(Rec.MessageProdAlta);
-                            lproductos = lg.GetProductos(0);
-                            cargarDgv(lproductos);
-                            Botones(false);
-                            Limpiar();
-                            btnNuevo.Enabled = true;
-                            pnlCrud.Visible = false;
-                            RbtActivos.Checked = true;
+                            if (prodSelect.Id_producto != 0)
+                            {
+                                prod.Id_producto = prodSelect.Id_producto;
+                                if (lg.ModificacionIngrediente(prod, LogIn.u))
+                                {
+                                    MessageBox.Show(Rec.MessageIngredienteModif);
+                                    lproductos = lg.GetProductos(0);
+                                    cargarDgv(lproductos);
+                                    Botones(false);
+                                    Limpiar();
+                                    btnNuevo.Enabled = true;
+                                    pnlCrud.Visible = false;
+                                    RbtActivos.Checked = true;
+                                    prodSelect = new Producto();
+                                    lbPrecio.Visible = true;
+                                    numpPrecio.Visible = true;
+                                    label6.Visible = true;
+                                }
+                            }
+                            else
+                            {
+                                if (lg.AltaIngrediente(prod, LogIn.u))
+                                {
+                                    MessageBox.Show(Rec.MessageIngredienteAlta);
+                                    lproductos = lg.GetProductos(0);
+                                    cargarDgv(lproductos);
+                                    Botones(false);
+                                    Limpiar();
+                                    btnNuevo.Enabled = true;
+                                    pnlCrud.Visible = false;
+                                    RbtActivos.Checked = true;
+                                    lbPrecio.Visible = true;
+                                    numpPrecio.Visible = true;
+                                    label6.Visible = true;
+
+                                }
+                            }
                         }
+
+
                     }
-                }else
-                {
-                    if (prodSelect.Id_producto != 0)
-                    {
-                        prod.Id_producto = prodSelect.Id_producto;
-                        if (lg.ModificacionIngrediente(prod, LogIn.u))
-                        {
-                            MessageBox.Show(Rec.MessageIngredienteModif);
-                            lproductos = lg.GetProductos(0);
-                            cargarDgv(lproductos);
-                            Botones(false);
-                            Limpiar();
-                            btnNuevo.Enabled = true;
-                            pnlCrud.Visible = false;
-                            RbtActivos.Checked = true;
-                            prodSelect = new Producto();
-                            lbPrecio.Visible = true;
-                            numpPrecio.Visible = true;
-                        }
-                    }
-                    else
-                    {
-                        if (lg.AltaIngrediente(prod, LogIn.u))
-                        {
-                            MessageBox.Show(Rec.MessageIngredienteAlta);
-                            lproductos = lg.GetProductos(0);
-                            cargarDgv(lproductos);
-                            Botones(false);
-                            Limpiar();
-                            btnNuevo.Enabled = true;
-                            pnlCrud.Visible = false;
-                            RbtActivos.Checked = true;
-                            lbPrecio.Visible = true;
-                            numpPrecio.Visible = true;
-                        }
-                    }
+
                 }
-                
+
+            }
+            else
+            {
+                if (Validacion())
+                {
+                    Producto prod = new Producto();
+                    AbstraerProducto(prod);
+                    if (!(prod.clasificacion.IdClasificacion == 2))
+                    {
+                        if (prodSelect.Id_producto != 0)
+                        {
+                            prod.Id_producto = prodSelect.Id_producto;
+                            if (lg.Modificacion(prod, LogIn.u))
+                            {
+                                MessageBox.Show(Rec.MessageProdModificado);
+                                lproductos = lg.GetProductos(0);
+                                cargarDgv(lproductos);
+                                Botones(false);
+                                Limpiar();
+                                btnNuevo.Enabled = true;
+                                pnlCrud.Visible = false;
+                                RbtActivos.Checked = true;
+                                prodSelect = new Producto();
+                            }
+                        }
+                        else
+                        {
+                            if (lg.AltaProducto(prod, LogIn.u))
+                            {
+                                MessageBox.Show(Rec.MessageProdAlta);
+                                lproductos = lg.GetProductos(0);
+                                cargarDgv(lproductos);
+                                Botones(false);
+                                Limpiar();
+                                btnNuevo.Enabled = true;
+                                pnlCrud.Visible = false;
+                                RbtActivos.Checked = true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (prodSelect.Id_producto != 0)
+                        {
+                            prod.Id_producto = prodSelect.Id_producto;
+                            if (lg.ModificacionIngrediente(prod, LogIn.u))
+                            {
+                                MessageBox.Show(Rec.MessageIngredienteModif);
+                                lproductos = lg.GetProductos(0);
+                                cargarDgv(lproductos);
+                                Botones(false);
+                                Limpiar();
+                                btnNuevo.Enabled = true;
+                                pnlCrud.Visible = false;
+                                RbtActivos.Checked = true;
+                                prodSelect = new Producto();
+                                lbPrecio.Visible = true;
+                                numpPrecio.Visible = true;
+                                label6.Visible = true;
+                            }
+                        }
+                        else
+                        {
+                            if (lg.AltaIngrediente(prod, LogIn.u))
+                            {
+                                MessageBox.Show(Rec.MessageIngredienteAlta);
+                                lproductos = lg.GetProductos(0);
+                                cargarDgv(lproductos);
+                                Botones(false);
+                                Limpiar();
+                                btnNuevo.Enabled = true;
+                                pnlCrud.Visible = false;
+                                RbtActivos.Checked = true;
+                                lbPrecio.Visible = true;
+                                numpPrecio.Visible = true;
+                                label6.Visible = true;
+
+                            }
+                        }
+                    }
+
+
+                }
 
             }
         }
@@ -406,7 +513,7 @@ namespace CapaPresentacion.Formularios
 
                 foreach (DataGridViewRow row in dgvProd.Rows)
                 {
-                    if (Convert.ToString(row.Cells["nombreprod"].Value) != txbbusqueda.Text)
+                    if (Convert.ToString(row.Cells["nombreprod"].Value).ToLower() != txbbusqueda.Text.ToLower())
                     {
                         temp.Add(row);
                     }
@@ -542,11 +649,15 @@ namespace CapaPresentacion.Formularios
             {
                 lbPrecio.Visible = true;
                 numpPrecio.Visible = true;
+                label6.Visible = true;
+
             }
             else
             {
                 lbPrecio.Visible = false;
                 numpPrecio.Visible = false;
+                label6.Visible = false;
+
             }
         }
 
