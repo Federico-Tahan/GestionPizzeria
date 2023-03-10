@@ -10,6 +10,7 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_Cbos : ICbos
     {
+        //Trae en una lista todas las localidades 
         public List<Localidad> Localidades()
         {
             List<Localidad> td = new List<Localidad>();
@@ -35,6 +36,7 @@ namespace CapaDatos.Datos.Implementacion
             return td;
         }
 
+        //Trae en una lista todas las clasificaciones
         public List<Clasificacion> ObtenerClasificacion()
         {
             List<Clasificacion> td = new List<Clasificacion>();
@@ -59,7 +61,7 @@ namespace CapaDatos.Datos.Implementacion
 
             return td;
         }
-
+        //Trae en unalista todos los CBO
         public List<Roles> ObtenerRoles()
         {
             List<Roles> td = new List<Roles>();
@@ -97,6 +99,7 @@ namespace CapaDatos.Datos.Implementacion
             return td;
         }
 
+        //Trae en una lista todos los tipos de producto
         public List<TipoProducto> ObtenerTipoProducto()
         {
             List<TipoProducto> td = new List<TipoProducto>();
@@ -122,6 +125,7 @@ namespace CapaDatos.Datos.Implementacion
             return td;
         }
 
+        //Trae en una lista todas las uniades de medida
         public List<UnidadMedida> ObtenerUnidadMedida()
         {
             List<UnidadMedida> td = new List<UnidadMedida>();
@@ -147,6 +151,7 @@ namespace CapaDatos.Datos.Implementacion
             return td;
         }
 
+        //Trae en una lista todos las formas de compra
         public List<FormaCompra> TipoCompra()
         {
             List<FormaCompra> td = new List<FormaCompra>();
@@ -171,7 +176,7 @@ namespace CapaDatos.Datos.Implementacion
 
             return td;
         }
-
+        //Trae en una lista todas las forma de entrega
         public List<FormaEntrega> TipoEntregas()
         {
             List<FormaEntrega> td = new List<FormaEntrega>();
@@ -197,6 +202,7 @@ namespace CapaDatos.Datos.Implementacion
             return td;
         }
 
+        //Trae un cliente al que se le pase el DNI, se usaba para cargar un CBO con sus datos. ACTUALMENTE DESACTIVADA LA OPCION
         public Cliente TraerClientesCbo(long a,Cliente rl)
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -253,7 +259,7 @@ namespace CapaDatos.Datos.Implementacion
             }
             return rl;
         }
-
+        //Trae en una lista los tipos de cliente
         public List<Tipo_Cliente> TraerTipoClientes()
         {
             List<Tipo_Cliente> td = new List<Tipo_Cliente>();

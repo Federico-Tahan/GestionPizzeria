@@ -40,6 +40,7 @@ namespace CapaPresentacion.Formularios
             InitializeComponent();
         }
 
+        //abre el form en el panel del centro
         public void AbrirFormEnPanel(Form Formhijo)
         {
             if (FormActual != null)
@@ -64,7 +65,7 @@ namespace CapaPresentacion.Formularios
             Formhijo.BringToFront();
             Formhijo.Show();
         }
-
+        //detecta y applica idioma, carga textos 
         private void Main_Load(object sender, EventArgs e)
         {
             
@@ -77,13 +78,14 @@ namespace CapaPresentacion.Formularios
             lbventasdelmes.Text = dt.VentasdelMes().ToString();
             VentaRol();
         }
+        //actualiza la hora y fecha
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lbHora.Text = DateTime.Now.ToLongTimeString();
             lbfecha.Text = DateTime.Now.ToString("dddd MMMM  yyyy");
         }
-
+        //mueve el form
         private void pnlBarra_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -94,11 +96,12 @@ namespace CapaPresentacion.Formularios
         { 
         }
 
+        //menu visible si apreta botones
         private void button3_Click(object sender, EventArgs e)
         {
             pnlSubmenu.Visible = !pnlSubmenu.Visible;
         }
-
+        //sale del fom
         private void Salir_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Rec.MessageCerrarPrograma, Rec.CapCerrar, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -108,12 +111,13 @@ namespace CapaPresentacion.Formularios
                 
             }
         }
-
+        //minizmiza formulario 
         private void Minimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
 
         }
+        //menu visible si apreta botones
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
@@ -121,58 +125,58 @@ namespace CapaPresentacion.Formularios
             submenu2.Visible = false;
 
         }
-
         private void BtnBackUp_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new Configuration());
         }
-
+        //entra a descuento
         private void btnDescuento_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new FrmDescuentos());
 
         }
-
+        //abre panel gestion
         private void btnGestion_Click(object sender, EventArgs e)
         {
             submenu2.Visible = !submenu2.Visible;
             pnlSubmenu.Visible = false;
         }
-
         private void BtnFacturas_Click(object sender, EventArgs e)
         {
         }
-
+        //entra crud cliente
         private void BtnCliente_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new CrudClientes());
             hidemenus();
         }
+        //BOTON DE CONFIGURACION
 
         private void picConfig_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new Configuration());
 
         }
+        //entra crud descuento
 
         private void btnDescuentos_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new FrmDescuentos());
 
         }
-
+        //entra crud prodcuto
         private void BtnProductos_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new CrudProductos());
 
         }
-
+        //entra crud usuario
         private void BtnUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new CrudUsuarios());
 
         }
-
+        //entra crud vender
         private void btnVender_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new AltaVenta());
@@ -188,12 +192,13 @@ namespace CapaPresentacion.Formularios
         {
 
         }
+        //oculta submenues
         private void hidemenus()
         {
             pnlSubmenu.Visible = false;
             submenu2.Visible = false;
         }
-
+        //vuelve al main
         private void picMain_Click(object sender, EventArgs e)
         {
             pnlMain.Controls.Remove(FormActual);
@@ -205,7 +210,7 @@ namespace CapaPresentacion.Formularios
             pnlMain.Size = new Size(998, 641);
 
         }
-
+        //cierra sesion
         private void lbCierre_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Rec.MessageDeseaCerrarSesion,Rec.CapCerrarSesion,MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -217,13 +222,13 @@ namespace CapaPresentacion.Formularios
             }
 
         }
-
+        //entra a consulta de ventas
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new ConsultaVentas());
 
         }
-
+        //aplica visiblidad dependiendo los roles
 
         private void visibilidadRoles()
         {
@@ -265,7 +270,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //detecta idioma
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)
@@ -283,7 +288,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //aplica idioma
         private void AplicarIdioma()
         {
             BtnCliente.Text = Rec.BtnCliente;
@@ -299,7 +304,7 @@ namespace CapaPresentacion.Formularios
             LbVetnasdelMes.Text = Rec.VentasMes;
             btnConsultar.Text = Rec.BtnConsultar;
         }
-
+        //aplica roles
         private void VentaRol()
         {
             if (LogIn.u.Rol.Id_Rol != 1 && LogIn.u.Rol.Id_Rol != 6 && LogIn.u.Rol.Id_Rol != 5 && LogIn.u.Rol.Id_Rol != 2)

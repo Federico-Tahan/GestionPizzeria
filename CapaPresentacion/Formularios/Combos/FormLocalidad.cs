@@ -17,7 +17,7 @@ namespace CapaPresentacion.Formularios.Combos
 {
     public partial class FormLocalidad : Form
     {
-
+        //permite arrasttrar el formulario 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -32,6 +32,7 @@ namespace CapaPresentacion.Formularios.Combos
             InitializeComponent();
         }
 
+        //habilita botones necesarios y habiltia txb
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             habilitarBtn(true);
@@ -42,6 +43,7 @@ namespace CapaPresentacion.Formularios.Combos
             panel1.Visible = true;
             chkActivo.Visible = false;
         }
+        //habilita o deshanbilita los botones
         private void habilitarBtn(bool a)
         {
             btnNuevo.Enabled = a;
@@ -50,7 +52,7 @@ namespace CapaPresentacion.Formularios.Combos
             BtnGuardar.Enabled = a;
             BtnEditar.Enabled = a;
         }
-
+        //btn editar habilita y deshabiltia botones
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             habilitarBtn(false);
@@ -60,7 +62,7 @@ namespace CapaPresentacion.Formularios.Combos
             chkActivo.Enabled = true;
             txbClasificacion.Enabled = true;
         }
-
+        //Btn cancelar cancela la accion y cierra el panel y lo limpia
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             habilitarBtn(false);
@@ -68,7 +70,7 @@ namespace CapaPresentacion.Formularios.Combos
             panel1.Visible = false;
             txbClasificacion.Text = string.Empty;
         }
-
+        //btn guardar guarda loscambios en la BD, verifica si se esta modificando o agregando
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (txbClasificacion.Text != string.Empty)
@@ -118,7 +120,7 @@ namespace CapaPresentacion.Formularios.Combos
                 MessageBox.Show(Rec.MessageSedebeCargarLoc);
             }
         }
-
+        //carga la dgv con la lista
         private void cargarDgv(List<Localidad> list)
         {
             dgvClasi.Rows.Clear();
@@ -137,7 +139,7 @@ namespace CapaPresentacion.Formularios.Combos
 
             }
         }
-
+        //abstrae el objeto
         private void AbstraerLocalidad()
         {
             cla.NLocalidad = txbClasificacion.Text;
@@ -150,7 +152,7 @@ namespace CapaPresentacion.Formularios.Combos
                 cla.BajaLogica = 1;
             }
         }
-
+        //cierra el formulario
         private void Salir_Click(object sender, EventArgs e)
         {   
             this.DialogResult = DialogResult.OK; 
@@ -162,7 +164,7 @@ namespace CapaPresentacion.Formularios.Combos
         {
 
         }
-
+        //trae lista, carga dgv y aplica cambios de idioma
         private void FormLocalidad_Load(object sender, EventArgs e)
         {
             list = lg.GetLocalidad(0);
@@ -170,7 +172,7 @@ namespace CapaPresentacion.Formularios.Combos
             DetectarIdioma();
             AplicarIdioma();
         }
-
+        //igual q boton cancelar
         private void picbajar_Click(object sender, EventArgs e)
         {
             txbClasificacion.Text = string.Empty;
@@ -178,7 +180,7 @@ namespace CapaPresentacion.Formularios.Combos
             habilitarBtn(false);
             btnNuevo.Enabled = true;
         }
-
+        //pRESIONA EL BOTON DETALLEY CARGA LOS DATSO AL PANEL DEL FORMULARIO 
         private void dgvClasi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             cla = new Localidad();
@@ -204,6 +206,7 @@ namespace CapaPresentacion.Formularios.Combos
             }
         }
 
+        //carga los datos de la localidad seleccionada a un objeto
         private void CargarLocalidad(int c)
         {
             foreach (Localidad u in list)
@@ -215,25 +218,23 @@ namespace CapaPresentacion.Formularios.Combos
                 }
             }
         }
-
+        //rbt activo carga los activos los no activo y todos
         private void RbtActivo_CheckedChanged(object sender, EventArgs e)
         {
             list = lg.GetLocalidad(0);
             cargarDgv(list);
         }
-
         private void RbtNoActivo_CheckedChanged(object sender, EventArgs e)
         {
             list = lg.GetLocalidad(1);
             cargarDgv(list);
         }
-
         private void rbtTodos_CheckedChanged(object sender, EventArgs e)
         {
             list = lg.GetLocalidad(2);
             cargarDgv(list);
         }
-
+        //filtro de busqueda segun lo seleccionado y verifica lo que se ingresa
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             if (txbBusqeuda.Text != "")
@@ -270,7 +271,7 @@ namespace CapaPresentacion.Formularios.Combos
                 MessageBox.Show(Rec.MessageCargarCodigoParafiltrar);
             }
         }
-
+        //detecta el idioma conel que se ingreso
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)
@@ -284,7 +285,7 @@ namespace CapaPresentacion.Formularios.Combos
 
             }
         }
-
+        //aplica el texto segun el idioma
         private void AplicarIdioma()
         {
             lbclasificacion.Text = Rec.localidad;
@@ -305,7 +306,7 @@ namespace CapaPresentacion.Formularios.Combos
             dgvClasi.Columns[3].HeaderText = Rec.Accion;
 
         }
-
+        //cambia el idioma del boton de dgv
         private void dgvClasi_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvClasi.Columns[e.ColumnIndex].Name == "Accion")

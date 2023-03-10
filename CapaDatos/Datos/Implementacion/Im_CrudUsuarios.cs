@@ -11,6 +11,8 @@ namespace CapaDatos.Datos.Implementacion
     public class Im_CrudUsuarios : CrudUsuarios
     {
         Encriptacion encrypt = new Encriptacion();
+
+        //da de alta un usuario y y recibe un Usuario para que se registre en al bitacora
         public bool AltaUsuario(Usuarios u, Usuarios admin)
         {
             try
@@ -44,6 +46,7 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
+        //busca para ver si existe el dni que se ingresa
         public bool BuscarDniUsuario(long dni)
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -61,6 +64,7 @@ namespace CapaDatos.Datos.Implementacion
             return false;
         }
 
+        //busca el alias a ver si ya existe
         public bool BuscarAliasUsuario(string alias)
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -77,7 +81,7 @@ namespace CapaDatos.Datos.Implementacion
             HelperDB.ObtenerInstancia().close();
             return false;
         }
-
+        //busca un usuario
         public bool BuscarUsuario(int id)
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -95,6 +99,7 @@ namespace CapaDatos.Datos.Implementacion
             return false;
         }
 
+        //nmodifica un usuario y recibe un Usuario para que se registre en al bitacora
         public bool ModificarUsuario(Usuarios u, Usuarios admin)
         {
             try
@@ -129,6 +134,7 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
+        //trae los usuarios y tiene condiciones para ver si es activo o intactivo o todosd
         public List<Usuarios> ObtenerUsuarios(int a)
         {
             List<Usuarios> lUsuarios = new List<Usuarios>();
@@ -246,6 +252,7 @@ namespace CapaDatos.Datos.Implementacion
             return lUsuarios;
         }
 
+        //busca el usuario por id y alias
         public bool buscarId(int id, string alias)
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -264,6 +271,7 @@ namespace CapaDatos.Datos.Implementacion
             return false;
         }
 
+        //bloquea el usuario
         public bool BloquearUsuario(string Alias)
         {
             try
@@ -279,7 +287,7 @@ namespace CapaDatos.Datos.Implementacion
                 return false;
             }
         }
-
+        //da de baja el usuario
         public bool UsuarioAltaoBaja(string Alias)
         {
                 HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -305,7 +313,7 @@ namespace CapaDatos.Datos.Implementacion
 
 
         }
-
+        //trae los usuarios en una lista
         public List<Usuarios> ObtenerUsuario(Usuarios u)
         {
             List<Usuarios> lUsuarios = new List<Usuarios>();

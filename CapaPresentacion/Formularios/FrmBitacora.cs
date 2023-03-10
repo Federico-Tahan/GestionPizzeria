@@ -22,6 +22,7 @@ namespace CapaPresentacion.Formularios_es
         Bitacora bitacora = new Bitacora();
         ing_Bitacora lg = new ng_bitacora();
 
+        //mover formulario
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -30,13 +31,13 @@ namespace CapaPresentacion.Formularios_es
         {
             InitializeComponent();
         }
-
+        //mover formulario
         private void pnlBarra_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
+        //trae bitacora, aplica idioma
         private void Bitacora_Load(object sender, EventArgs e)
         {
             bitacora = lg.ObtenerBitacora();
@@ -44,7 +45,7 @@ namespace CapaPresentacion.Formularios_es
             DetectarIdioma();
             AplicarIdioma();
         }
-
+        //carga dgv 
         private void CargarDgv()
         {
             dgvBitacora.Rows.Clear();
@@ -55,7 +56,7 @@ namespace CapaPresentacion.Formularios_es
                 dgvBitacora.Rows.Add(u.user.ID_Usuario,u.user.Empleado.Nombre + " " + u.user.Empleado.Apellido, u.Fecha_accion,u.Accion);
             }
         }
-
+        //sale del form
         private void Salir_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Rec.MessageCerrarBitacora, Rec.CapCerrar, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -63,7 +64,7 @@ namespace CapaPresentacion.Formularios_es
                 this.Close();
             }
         }
-
+        //
         private void RbtCodigo_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -83,7 +84,7 @@ namespace CapaPresentacion.Formularios_es
         {
 
         }
-
+        //resetea los filtros de busqueda
         private void picreset_Click(object sender, EventArgs e)
         {
             txbbusqueda.Visible = true;
@@ -92,7 +93,7 @@ namespace CapaPresentacion.Formularios_es
             bitacora = lg.ObtenerBitacora();
             CargarDgv();
         }
-
+        //aplica filtros dependiendo el rbt que se ingreso
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             if (RbtCodigo.Checked)
@@ -133,7 +134,7 @@ namespace CapaPresentacion.Formularios_es
             }
            
         }
-
+        //aplica el txt dependiendo idioma
         public void AplicarIdioma()
         {
             RbtCodigo.Text = Rec.CodigoUsuario;
@@ -146,7 +147,7 @@ namespace CapaPresentacion.Formularios_es
 
 
         }
-
+        //detecta el idioma que se ingreso
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)

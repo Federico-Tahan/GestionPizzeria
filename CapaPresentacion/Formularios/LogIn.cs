@@ -27,7 +27,7 @@ namespace CapaPresentacion
         private ing_Logeo lg = new ng_Logeo();
         public static Usuarios u = new Usuarios();
         string AliasAnterior = "";
-
+        //mover formulario
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -36,19 +36,19 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-
+        //aplicar idiomas
         private void LogIn_Load(object sender, EventArgs e)
         {
             DetectarIdioma();
             AplicarIdioma();
         }
-
+        //mover formularios
         private void pnlBarra_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
+        //salir form
         private void Salir_Click(object sender, EventArgs e)
         {
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
@@ -58,12 +58,12 @@ namespace CapaPresentacion
                 Program.select.Close();
             }
         }
-
+        //minimizar form
         private void Minimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
+        //valida y obtiene usuario si las credenciales son validas
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             if (validacion())
@@ -89,6 +89,7 @@ namespace CapaPresentacion
             }
         }
 
+        //boton mostrar contraseña
         private void picpass_Click(object sender, EventArgs e)
         {
             if (picpass.Tag != "Desactivar")
@@ -105,7 +106,7 @@ namespace CapaPresentacion
             }
 
         }
-
+        //valida que se ingresen los campos
         private bool validacion()
         {
             if (txbUsuario.Text == "")
@@ -123,18 +124,18 @@ namespace CapaPresentacion
             return true;
 
         }
-
+        //abstrae usuario
         private void AbstraerUsuario(Usuarios u)
         {
             u.Alias = txbUsuario.Text;
             u.Contraseña = txbContraseña.Text;
         }
-
+        //cierra form
         public void Cerrar()
         {
             this.Close();
         }
-
+        //aplicar iioma
         public void AplicarIdioma()
         {
             lbContraseña.Text = Rec.Contraseña;
@@ -142,7 +143,7 @@ namespace CapaPresentacion
             BtnLogin.Text = Rec.IniciarSesion;
             btncambiaridioma.Text = Rec.BtnCambiarIdioma;
         }
-
+        //bloquea la cuenta si se ingresa 3 veces mal a excepcion del adimin
         private void BloqueoCuenta()
         {
             string txbmin;
@@ -205,7 +206,7 @@ namespace CapaPresentacion
                 AliasAnterior = txbUsuario.Text; 
             }
         }
-
+        //detecta idioma
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)
@@ -229,7 +230,7 @@ namespace CapaPresentacion
 
             }
         }
-
+        //volver para cambiar idioma
         private void btncambiaridioma_Click(object sender, EventArgs e)
         {
             this.Close();

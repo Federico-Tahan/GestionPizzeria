@@ -12,6 +12,8 @@ namespace CapaDatos.Datos.Implementacion
 
     public class Im_Configuracion : IConfiguracion
     {
+
+        //Se envian los datos de "Configuracion" para realizar la modificacion de esta y recibe un Usuario para que se registre en la bitacora
         public bool ActualizarDescuentosConfig(List<Descuento> d, Configuracion c, Usuarios u)
         {
             try
@@ -38,6 +40,7 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
+        //Actualiza las redes del local
         public bool ActualizarRedes(Configuracion c, Usuarios u)
         {
             try
@@ -60,11 +63,13 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
+        //me envia la conexion a donde la llame, la use para realiar el backup y restore
         public SqlConnection Conexion()
         {
             return HelperDB.ObtenerInstancia().conexion();
         }
 
+        //Trae los dato de la configuracion
         public Configuracion TraerConfiguracion()
         {
             Configuracion c = new Configuracion();
@@ -85,7 +90,7 @@ namespace CapaDatos.Datos.Implementacion
             HelperDB.ObtenerInstancia().close();
             return c;
         }
-
+        //Trae todos los descuentos
         public List<Descuento> TraerDescuentos()
         {
             List<Descuento> LDescuento = new List<Descuento>();

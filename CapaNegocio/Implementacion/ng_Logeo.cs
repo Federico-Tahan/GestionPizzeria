@@ -10,7 +10,7 @@ using CapaDatos.Dominio;
 using CapaNegocio.Interfaces;
 
 namespace CapaNegocio.Implementacion
-{
+{//puente entre el back y el front
     public class ng_Logeo : ing_Logeo
     {
         public Logeo lg;

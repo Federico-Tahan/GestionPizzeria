@@ -17,7 +17,7 @@ namespace CapaPresentacion.Formularios
     {
         public static LogIn log;
         public static Idioma i;
-
+        //permite que se mueva el form
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -30,13 +30,14 @@ namespace CapaPresentacion.Formularios
         {
             InitializeComponent();
         }
+        //permite que se mueva el form
 
         private void pnlBarra_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
+        //carga español como idioma seleccionado
         private void picEspaña_Click(object sender, EventArgs e)
         {
             i = new Idioma();
@@ -46,7 +47,7 @@ namespace CapaPresentacion.Formularios
             log.Show();
             this.Hide();
         }
-
+        //carga ingles como idioma seleccionado
         private void picIngles_Click(object sender, EventArgs e)
         {
             i = new Idioma();
@@ -60,8 +61,10 @@ namespace CapaPresentacion.Formularios
         private void SeleccionIdioma_Load(object sender, EventArgs e)
         {
             piclogo.Image = Properties.Resources.pizzalogograndee;
-        }
 
+
+        }
+        //sale del form
         private void Salir_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Rec.MessageCerrarPrograma, Rec.CapCerrar, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -70,7 +73,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //minimiza form
         private void Minimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;

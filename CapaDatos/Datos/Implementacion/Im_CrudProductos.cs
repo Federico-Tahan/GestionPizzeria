@@ -10,6 +10,7 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_CrudProductos : CrudProductos
     {
+        //Realiza el alta de producto y recibe un Usuario para que se registre en al bitacora
         public bool AltaProducto(Producto p, Usuarios u)
         {
             try
@@ -33,6 +34,8 @@ namespace CapaDatos.Datos.Implementacion
                 return false;
             }
         }
+
+        //realiza el alta de un ingrediente y recibe un Usuario para que se registre en al bitacora
         public bool AltaIngrediente(Producto p, Usuarios u)
         {
             try
@@ -56,6 +59,7 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
+        //obitene los productos y tiene 3 estados  0 todos los activos 1 los no acitvos y 2 todos
         public List<Producto> GetProductos(int cond)
         {
             List<Producto> lproducto = new List<Producto>();
@@ -127,6 +131,7 @@ namespace CapaDatos.Datos.Implementacion
             return lproducto;
         }
 
+        //modifica un producto y recibe un Usuario para que se registre en al bitacora
         public bool Modificacion(Producto p,Usuarios u)
         {
             try
@@ -151,6 +156,8 @@ namespace CapaDatos.Datos.Implementacion
                 return false;
             }
         }
+
+        //modifica un ingrediente y recibe un Usuario para que se registre en al bitacora
         public bool ModificacionIngrediente(Producto p, Usuarios u)
         {
             try

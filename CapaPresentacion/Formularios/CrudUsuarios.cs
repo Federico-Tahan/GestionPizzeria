@@ -35,6 +35,8 @@ namespace CapaPresentacion.Formularios
             InitializeComponent();
         }
 
+        //dependiendo el rol se mostrara todos los datos o solo el dato del usuario que inicio sesion, y tambien se dejará editar todo o solo la contraseña, dependiendo el rol
+        //carga los roles a ingles si es necesario y carga cbo de localidades
         private void CrudUsuarios_Load(object sender, EventArgs e)
         {
             lUsuaris.Clear();
@@ -79,6 +81,7 @@ namespace CapaPresentacion.Formularios
         }
 
 
+        //habilita o deshabilita btn
         private void Botones(bool a)
         {
             BtnCancelar.Enabled = a;
@@ -86,7 +89,7 @@ namespace CapaPresentacion.Formularios
             BtnEditar.Enabled = a;
             BtnGuardar.Enabled = a;
         }
-
+        //Carga el formulario todo limpio y con botones activados y desactivados para cargar un nuevo usuario
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             picContraseña.Tag = "activar";
@@ -102,6 +105,7 @@ namespace CapaPresentacion.Formularios
             user = new Usuarios();
         }
 
+        //habilita txb dependiendo el rol y botones
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             if (LogIn.u.Rol.Id_Rol == 1 || (LogIn.u.Rol.Id_Rol == 2) || LogIn.u.Rol.Id_Rol == 3)
@@ -136,7 +140,7 @@ namespace CapaPresentacion.Formularios
         private void BtnBorrar_Click(object sender, EventArgs e)
         {
         }
-
+        //limpia controles y objeto para cancelar la modificacion
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             Limpiar();
@@ -169,6 +173,7 @@ namespace CapaPresentacion.Formularios
             }
         }
 
+        //limpia campos
         private void Limpiar()
         {
             if (txbNombre.Enabled)
@@ -206,7 +211,7 @@ namespace CapaPresentacion.Formularios
 
 
         }
-
+        //muestra o no la contraseña
         private void picContraseña_Click(object sender, EventArgs e)
         {
             if (picContraseña.Tag != "Desactivar")
@@ -222,7 +227,7 @@ namespace CapaPresentacion.Formularios
                 picContraseña.Image = Properties.Resources.mostrar;
             }
         }
-
+        //funciona igual que el btn cancelar
         private void picBajar_Click(object sender, EventArgs e)
         {
             Limpiar();
@@ -233,11 +238,12 @@ namespace CapaPresentacion.Formularios
 
             btnNuevo.Enabled = true;
         }
-
+        // limpia los campos
         private void picLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
+        //carga el dgv con los usuarios de la lista
         private void Cargar_Dgv(List<Usuarios> lUsuaris)
         {
             dgvUsuarios.Rows.Clear();
@@ -294,7 +300,7 @@ namespace CapaPresentacion.Formularios
                 }
             }
         }
-
+        //carga el panel con el formulario con los datos del usuario seleccionado
         private void Click_Detalle(object sender, DataGridViewCellEventArgs e)
         {
             user = new Usuarios();
@@ -317,7 +323,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        // carga los datos de la lista con el usuario seleccionado
         private void Cargar_Usuario(int cod)
         {
             foreach (Usuarios u in lUsuaris)
@@ -329,7 +335,7 @@ namespace CapaPresentacion.Formularios
                 }
             }
         }
-
+        //carga el panel de usuario
         private void Cargar_PanelUsuarios()
         {
             txbApellido.Text = user.Empleado.Apellido;
@@ -361,7 +367,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //carga cbo roles
         private void cargar_cboRoles(ComboBox cbo, string display, string value)
         {
             cbo.DataSource = lcbo.ObtenerRoles();
@@ -370,7 +376,8 @@ namespace CapaPresentacion.Formularios
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbo.SelectedIndex = -1;
         }
-
+        //Btn Guardar, verifica si desea dar de baja un usuario, si quiere darse de baja el mismo no podrá y verifica si el alias y dni usado existe o no y realiza el alta
+        //o modficacion segun lo requiera
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (chkestado && !chkActivo.Checked)
@@ -641,7 +648,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //validacion de datos
         private bool Validaciones()
         {
             if (txbNombre.Text == string.Empty)
@@ -738,7 +745,7 @@ namespace CapaPresentacion.Formularios
 
             return true;
         }
-
+        //abstraer usuario
         private void AbstraerUsuario(Empleado e, Usuarios u)
         {
             Roles r = new Roles();
@@ -779,7 +786,7 @@ namespace CapaPresentacion.Formularios
             u.Alias = TxbAlias.Text;
             u.Contraseña = TxbContraseña.Text;
         }
-
+        //habilitar campos
 
         private void habilitar(bool a)
         {
@@ -799,7 +806,7 @@ namespace CapaPresentacion.Formularios
             nupPiso.Enabled =a;
             cboloclaidad.Enabled =a;
         }
-
+        //segun rbt este acitvo mostrara en la dgv
         private void RbtActivos_CheckedChanged(object sender, EventArgs e)
         {
             lUsuaris.Clear();
@@ -823,7 +830,7 @@ namespace CapaPresentacion.Formularios
             lUsuaris = lg.ObtenerUsuarios(dgvselectedcondicion);
             Cargar_Dgv(lUsuaris);
         }
-
+        //BOTON BUSCAR!!, realiza la busqueda segun la opcion seleccionada, 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             lUsuaris.Clear();
@@ -938,7 +945,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //reseta los filtros anteriores y carga como estaba al principio
         private void picreset_Click(object sender, EventArgs e)
         {
             lUsuaris.Clear();
@@ -957,6 +964,7 @@ namespace CapaPresentacion.Formularios
         {
 
         }
+        //aplica idioma 
         public void AplicarIdioma()
         {
             lbusuarios.Text = Rec.Usuarios;
@@ -1004,6 +1012,7 @@ namespace CapaPresentacion.Formularios
             lblocalidad.Text = Rec.localidad;
 
         }
+        //detecta idioma seleccionado
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)
@@ -1017,7 +1026,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //aplica idioma a los botones de la dgv
         private void dgvUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvUsuarios.Columns[e.ColumnIndex].Name == "accion")
@@ -1040,6 +1049,8 @@ namespace CapaPresentacion.Formularios
 
             }
         }
+
+        //carga cbo de localidad
         private void cargar_cboLocalidad(ComboBox cbo, string display, string value)
         {
             cbo.DataSource = lcbo.Localidad();
@@ -1048,7 +1059,7 @@ namespace CapaPresentacion.Formularios
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbo.SelectedIndex = -1;
         }
-
+        //abre form para cargar nueva localidad si es necesario
         private void btnLocalidad_Click(object sender, EventArgs e)
         {
             FormLocalidad fm = new FormLocalidad();
@@ -1059,7 +1070,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //solo permite cargar letras
         private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsDigit(e.KeyChar) || e.KeyChar < 0 || e.KeyChar > 127)
@@ -1067,6 +1078,7 @@ namespace CapaPresentacion.Formularios
                 e.Handled = true;
             }
         }
+        //solo permite cargar letras
 
         private void txbApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1075,6 +1087,7 @@ namespace CapaPresentacion.Formularios
                 e.Handled = true;
             }
         }
+        //solo permite cargar letras
 
         private void txbDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1083,6 +1096,7 @@ namespace CapaPresentacion.Formularios
                 e.Handled = true;
             }
         }
+        //solo permite cargar numeros
 
         private void TxbTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1091,6 +1105,7 @@ namespace CapaPresentacion.Formularios
                 e.Handled = true;
             }
         }
+        //solo permite cargar numeros
 
         private void TxbDni_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1099,7 +1114,7 @@ namespace CapaPresentacion.Formularios
                 e.Handled = true;
             }
         }
-
+        //cambia idioma a los roles
         private string cambioIdiomaNombre(string a)
         {
             string aa = "";

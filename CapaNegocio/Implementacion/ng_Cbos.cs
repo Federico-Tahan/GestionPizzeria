@@ -10,7 +10,7 @@ using CapaDatos.Datos.Interfaces;
 using CapaDatos.Dominio;
 
 namespace CapaNegocio.Implementacion
-{
+{//puente entre el back y el front
     public class ng_Cbos : ing_Cbos
     {
 

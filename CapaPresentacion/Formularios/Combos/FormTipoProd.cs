@@ -18,6 +18,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
 {
     public partial class FormTipoProd : Form
     {
+        //permite arrastrar el formualrio
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -31,6 +32,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
         {
             InitializeComponent();
         }
+        //permite arrastrar el formualrio
 
         private void pnlBarra_MouseDown(object sender, MouseEventArgs e)
         {
@@ -38,6 +40,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        //trae los tipo prod carga dgv y aplica idioma
         private void FormTipoProd_Load(object sender, EventArgs e)
         {
             listTipoProd = lg.GetTipoProductos(0);
@@ -46,6 +49,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             AplicarIdioma();
         }
 
+        //btn nuevo habiltia  limpia campos y botones
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             habilitarBtn(true);
@@ -55,7 +59,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             chkActivo.Visible = false; chkActivo.Enabled = true;
             panel1.Visible = true;
         }
-
+        //habilita y deshabiltia botones
         private void habilitarBtn(bool a)
         {
             btnNuevo.Enabled = a;
@@ -64,7 +68,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             BtnGuardar.Enabled = a;
             BtnEditar.Enabled = a;
         }
-
+        //btn editar, habilita campos y botones
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             habilitarBtn(false);
@@ -74,7 +78,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             chkActivo.Enabled = true;
             TxbTipoProd.Enabled = true;
         }
-
+        //btn cierra el panel limpia campos y habilita botones
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             habilitarBtn(false);
@@ -82,7 +86,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             panel1.Visible= false;
             TxbTipoProd.Text= string.Empty;
         }
-
+        //bton guardar realiza cambios en la BD verifica si se modifica o se insertan nuevos, vlaidaciones 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (TxbTipoProd.Text != string.Empty)
@@ -131,7 +135,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
                 MessageBox.Show(Rec.MessageDebeCargarTipoProducto);
             }
         }
-
+        //abstrae tipo producto
         private void AbstraerTipoPruducto()
         {
             tp.Tipo_producto = TxbTipoProd.Text;
@@ -144,13 +148,14 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
                 tp.Baja_logica = 1;
             }
         }
-
+        //cierra formulario
         private void Salir_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
 
             this.Close();
         }
+        //carga dgv con la lista
         private void cargarDgv(List<TipoProducto> lp)
         {
             dgvTipoProd.Rows.Clear();
@@ -169,7 +174,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
 
             }
         }
-
+        //boton bajar funciona igual que cancelar
         private void picbajar_Click(object sender, EventArgs e)
         {
             TxbTipoProd.Text = string.Empty;
@@ -177,7 +182,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             habilitarBtn(false);
             btnNuevo.Enabled = true;
         }
-
+        //rbt depende la opcioon carga activo no activo o todos
         private void RbtActivo_CheckedChanged(object sender, EventArgs e)
         {
             listTipoProd = lg.GetTipoProductos(0);
@@ -195,7 +200,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             listTipoProd = lg.GetTipoProductos(2);
             cargarDgv(listTipoProd);
         }
-
+        //filtros depende que oopcion se selecciona filtra y verifica datps
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             if (txbBusqeuda.Text != "")
@@ -232,7 +237,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
                 MessageBox.Show(Rec.MessageCargarCodigoParafiltrar);
             }
         }
-
+        //carga el producto que se eselecciona al panel de formualrio 
         private void dgvTipoProd_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             tp = new TipoProducto();
@@ -256,7 +261,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
                 BtnEditar.Enabled = true;
             }
         }
-
+        //carga el objeto seleccioando a un obvjeto
         private void CargarTipoProd(int c)
         {
             foreach (TipoProducto u in listTipoProd)
@@ -268,7 +273,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
                 }
             }
         }
-
+        //detectamos idioma
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)
@@ -282,7 +287,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
 
             }
         }
-
+        //aplicamos idioma
         private void AplicarIdioma()
         {
             btnNuevo.Text = Rec.Nuevo;
@@ -302,7 +307,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             dgvTipoProd.Columns[2].HeaderText = Rec.Activo;
             dgvTipoProd.Columns[3].HeaderText = Rec.Accion;
         }
-
+        //aplica idioma en botones dgv
         private void dgvTipoProd_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvTipoProd.Columns[e.ColumnIndex].Name == "Accion")

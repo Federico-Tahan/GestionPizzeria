@@ -10,6 +10,7 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_DatosExtra : IDatosExtra
     {
+        //trae los datos que estan en el MAIN 
         public decimal RecaudadoDiario()
         {
             DatosExtra dt = new DatosExtra();

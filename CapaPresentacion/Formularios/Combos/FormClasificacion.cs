@@ -19,6 +19,8 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
 {
     public partial class FormClasificacion : Form
     {
+        //permite que se pueda arrastrar el formulario
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -33,12 +35,14 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             InitializeComponent();
         }
 
+        //permite que se pueda arrastrar el formulario
         private void pnlBarra_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        //Boton nuevo habilita los botones y deshabilita los texbox y botnoes necesarios
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             habilitarBtn(true);
@@ -50,6 +54,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             chkActivo.Visible = false;
 
         }
+        //Boton Editar habilita los botones y deshabilita los texbox y botnoes necesarios
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
@@ -60,6 +65,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             chkActivo.Enabled = true;
             txbClasificacion.Enabled = true;
         }
+        //Boton cancelar deshabilita los botnoes necesariosy cierrra el panel del formulario
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
@@ -68,6 +74,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             panel1.Visible = false;
             txbClasificacion.Text = string.Empty;
         }
+        //habilita o deshabilita los botones
         private void habilitarBtn(bool a)
         {
             btnNuevo.Enabled = a;
@@ -76,7 +83,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             BtnGuardar.Enabled = a;
             BtnEditar.Enabled = a;
         }
-
+        //carga la datagrid view con los datos de la lista
         private void cargarDgv(List<Clasificacion> lp)
         {
             dgvClasi.Rows.Clear();
@@ -96,6 +103,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             }
         }
 
+        //load se trae la lista, carga la dgv y se cambia el idioma dependiendo el seleccionado
         private void FormClasificacion_Load(object sender, EventArgs e)
         {
             list = lg.GetClasificacion(0);
@@ -104,6 +112,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             AplicarIdioma();
         }
 
+        //cerrar formulario
         private void Salir_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
@@ -112,6 +121,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
 
         }
 
+        //guardar verifica los datos, ve que no se este modificando los primros dos clasificaciones que son improtantes y chekea si hay que actualizar o generar un nueva clasificacion
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (txbClasificacion.Text != string.Empty)
@@ -176,6 +186,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             }
         }
 
+        //al hacer click en boton de detalles se cargara los datos de la clasificacion seleccioanda y se abrira el panel del formulario con los datos de esa clasi cargados, se activaran los botones
         private void dgvClasi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             cla = new Clasificacion();
@@ -201,6 +212,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             }
         }
 
+        //carga la clasificacion seleccionada a un objeto cla
         private void CargarClasificacion(int c)
         {
             foreach (Clasificacion u in list)
@@ -213,6 +225,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             }
         }
 
+        //boton de bajar, funciona igual qque el cancelar
         private void picbajar_Click(object sender, EventArgs e)
         {
             txbClasificacion.Text = string.Empty;
@@ -220,7 +233,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             habilitarBtn(false);
             btnNuevo.Enabled = true;
         }
-
+        //abstrae los datos del objeto
         private void AbstraerClasificacion()
         {
             cla.clasificacion = txbClasificacion.Text;
@@ -234,24 +247,27 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             }
         }
 
+        //rbt si presiona activo
         private void RbtActivo_CheckedChanged(object sender, EventArgs e)
         {
             list = lg.GetClasificacion(0);
             cargarDgv(list);
         }
+        //rbt si presiona No activo
 
         private void RbtNoActivo_CheckedChanged(object sender, EventArgs e)
         {
             list = lg.GetClasificacion(1);
             cargarDgv(list);
         }
+        //rbt si presiona Todos
 
         private void rbtTodos_CheckedChanged(object sender, EventArgs e)
         {
             list = lg.GetClasificacion(2);
             cargarDgv(list);
         }
-
+        //Filtro, corrobora la opcion ingresada y que cumpla con el tipo de dato 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             if (txbBusqeuda.Text != "")
@@ -289,6 +305,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             }
         }
 
+        //detecta el idioma seleccionado y lo cambia
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)
@@ -303,6 +320,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
             }
         }
 
+        //asignacion de texto a los controles
         private void AplicarIdioma()
         {
             lbclasificacion.Text = Rec.Clasificacion;
@@ -328,7 +346,7 @@ namespace CapaPresentacion.Formularios_es.CombosProducto
         {
 
         }
-
+        //cambia el texto al idioma seleccionado del boton dgv
         private void dgvClasi_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvClasi.Columns[e.ColumnIndex].Name == "Accion")

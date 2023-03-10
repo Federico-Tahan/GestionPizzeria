@@ -36,6 +36,7 @@ namespace CapaPresentacion.Formularios
             cliente.socio = s;
         }
 
+        //trae la lista de los socios, carga cbo y aplica idioma
         private void CrudClubSocial_Load(object sender, EventArgs e)
         {
             lClientes = lg.TraerClientes();
@@ -45,7 +46,7 @@ namespace CapaPresentacion.Formularios
             AplicarIdioma();
 
         }
-
+        //limpia campos, abre panel de formulario y activa y desactiva botones
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             cliente = new Cliente();
@@ -62,7 +63,7 @@ namespace CapaPresentacion.Formularios
             habilitar(true);
             edit = 0;
         }
-
+        //baja panel, activa y desactiva botones y limpia datos
         private void picbajar_Click(object sender, EventArgs e)
         {
             TxbDni.Text = string.Empty;
@@ -79,7 +80,7 @@ namespace CapaPresentacion.Formularios
         {
 
         }
-
+        //carga el cliente seleccionado al panel de formulario para ver el detalle
         private void Click_Acciones(object sender, DataGridViewCellEventArgs e)
         {
             cliente = new Cliente();
@@ -112,7 +113,7 @@ namespace CapaPresentacion.Formularios
                 pnlCrud.Visible = true;
             }
         }
-
+        //carga panel cliente
         private void CargarPanelCliente()
         {
             txbNombre.Text = cliente.Nombre;
@@ -131,7 +132,7 @@ namespace CapaPresentacion.Formularios
                 TxbEmail.Text = cliente.socio.Email;
             }
         }
-
+        //acvtiva botones o desactiva
         private void Botones(bool a)
         {
             BtnCancelar.Enabled = a;
@@ -139,6 +140,7 @@ namespace CapaPresentacion.Formularios
             BtnEditar.Enabled = a;
             BtnGuardar.Enabled = a;
         }
+        //habilita o deshabilita campos
         private void habilitar(bool a)
         {
             txbNombre.Enabled = a;
@@ -154,7 +156,7 @@ namespace CapaPresentacion.Formularios
             cboloclaidad.Enabled = a;
         }
 
-
+        //habilita y desabilita botones y campso para realizra correcta eidicion
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             Botones(false);
@@ -165,7 +167,7 @@ namespace CapaPresentacion.Formularios
             edit = 1;
 
         }
-
+        //cancela la edicion y limpia datos 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             TxbDni.Text = string.Empty;
@@ -178,7 +180,7 @@ namespace CapaPresentacion.Formularios
 
 
         }
-
+        //metodo para limpiar campos
         private void Limpiar()
         {
             if (TxbDni.Enabled)
@@ -206,13 +208,13 @@ namespace CapaPresentacion.Formularios
             }
 
         }
-
+        //boton limpiar
         private void picLimpar_Click(object sender, EventArgs e)
         {
             Limpiar();
 
         }
-
+        //cargar dgv con lista de clientes
         private void cargarDgv(List<Cliente> lClientes)
         {
             dgvCliente.Rows.Clear();
@@ -231,7 +233,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //opcion no ACTIVA, se usaba para cargar socios no socios y todos
         private void rbtTodos_CheckedChanged(object sender, EventArgs e)
         {
             lClientes = lg.TraerClientes();
@@ -286,6 +288,7 @@ namespace CapaPresentacion.Formularios
             }
         }
 
+        //aplica filtros de busqueda segun se encesite
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             lClientes = lg.TraerClientes();
@@ -364,7 +367,7 @@ namespace CapaPresentacion.Formularios
             
         }
 
-
+        //valida campos requeridos
         private bool Validacion()
         {
             if (txbNombre.Text == "")
@@ -434,6 +437,7 @@ namespace CapaPresentacion.Formularios
 
             return true;
         }
+        //opcion no habiltiada, dependiendo tipo de cliente cargaba ciertos datos 
 
         private void CboTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -445,6 +449,7 @@ namespace CapaPresentacion.Formularios
 
         }
 
+        //valida que los datos esten biem, si se quiere modificar o insertar y si DNI esta en uso o no, luego de hacer un correcto guardado se enviara el email con terminos y condiciones
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (Validacion())
@@ -573,7 +578,7 @@ namespace CapaPresentacion.Formularios
                 }
             }
         }
-
+        //abstrae el objeto cliente
         private void AbstraerCliente(Cliente cli)
         {
             Localidad l = new Localidad();
@@ -593,7 +598,7 @@ namespace CapaPresentacion.Formularios
             cli.Telefono = texboxnumero.Text;
         }
 
-
+        //carga cliente de la lsita a el objeto
         private void CargarCliente(int c)
         {
             foreach (Cliente u in lClientes)
@@ -605,6 +610,7 @@ namespace CapaPresentacion.Formularios
                 }
             }
         }
+        //carga cbo localidad
 
         private void cargar_cboLocalidad(ComboBox cbo, string display, string value)
         {
@@ -614,7 +620,7 @@ namespace CapaPresentacion.Formularios
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbo.SelectedIndex = -1;
         }
-
+        //carga cbo tipo cliente, NO HABILITADO
         private void cargar_cboTipOclIENTE(ComboBox cbo, string display, string value)
         {
             cbo.DataSource = lcbo.TipoClientes();
@@ -624,7 +630,7 @@ namespace CapaPresentacion.Formularios
             cbo.SelectedIndex = -1;
         }
 
-
+        //verifica que el campo se ingrese un emai
         public bool EsEmail(string comprobarEmail)
         {
             string emailFormato;
@@ -645,7 +651,7 @@ namespace CapaPresentacion.Formularios
                 return false;
             }
         }
-
+        //aplica texto segun diioma
         public void AplicarIdioma()
         {
             lbClientes.Text = Rec.Clientes;
@@ -685,13 +691,14 @@ namespace CapaPresentacion.Formularios
             dgvCliente.Columns[9].HeaderText = Rec.Detalle;
 
         }
-
+        //reinicia filtros de busqueda
         private void picreset_Click(object sender, EventArgs e)
         {
             lClientes = lg.TraerClientes();
             cargarDgv(lClientes);
 
         }
+        //detecta idioma
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)
@@ -705,14 +712,14 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //NO HABILITADO
         private void chkDepa_CheckedChanged(object sender, EventArgs e)
         {
             lbpiso.Visible = !lbpiso.Visible;
             nupPiso.Visible = !lbpiso.Visible;
 
         }
-
+        //btn localidad, permite cargar una nueva si no esta cargada
         private void btnLocalidad_Click(object sender, EventArgs e)
         {
             FormLocalidad fm = new FormLocalidad(); 
@@ -723,7 +730,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //dgv cliente cambia el nombre del boton al idioma seleccionado
         private void dgvCliente_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvCliente.Columns[e.ColumnIndex].Name == "Acciones")
@@ -746,7 +753,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //borra el cliente
         private void BtnBorrar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Rec.MessageDarBajaCliente) == DialogResult.Yes)
@@ -774,7 +781,7 @@ namespace CapaPresentacion.Formularios
             }
 
         }
-
+        //verifica que se cargue texto
         private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsDigit(e.KeyChar) || e.KeyChar < 0 || e.KeyChar > 127)
@@ -782,6 +789,7 @@ namespace CapaPresentacion.Formularios
                 e.Handled = true;
             }
         }
+        //verifica que se cargue texto
 
         private void TxbApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -790,6 +798,7 @@ namespace CapaPresentacion.Formularios
                 e.Handled = true;
             }
         }
+        //verifica que se cargue texto
 
         private void TxbDirec_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -798,6 +807,7 @@ namespace CapaPresentacion.Formularios
                 e.Handled = true;
             }
         }
+        //verifica que se cargue numeor
 
         private void texboxnumero_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -806,6 +816,7 @@ namespace CapaPresentacion.Formularios
                 e.Handled = true;
             }
         }
+        //verifica que se cargue numero
 
         private void TxbDni_KeyPress(object sender, KeyPressEventArgs e)
         {

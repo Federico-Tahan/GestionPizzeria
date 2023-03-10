@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CapaNegocio.Interfaces
 {
     public interface ing_TipoProdClasiUnidadMed
-    {
+    {//las interfaces sirven para crear metodos abstractos y en donde se le aplique la herencia se firma como un contrato en el cual deben estar estos metodos si o si
         List<TipoProducto> GetTipoProductos(int a);
         List<Clasificacion> GetClasificacion(int a);
         List<UnidadMedida> GetUnidadMedida(int a);

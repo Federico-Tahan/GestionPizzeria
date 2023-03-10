@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaNegocio.Implementacion
-{
+{//puente entre el back y el front
     public class ng_CrudProductos: ing_CrudProductos
     {
         CrudProductos lg;

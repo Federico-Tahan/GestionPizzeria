@@ -32,6 +32,7 @@ namespace CapaPresentacion.Formularios.Venta
 
         }
 
+        //carga el cbo con los productos activos
         private void cargar_cboProductos(ComboBox cbo, string display, string value)
         {
             cbo.DataSource = lproductos;
@@ -39,6 +40,7 @@ namespace CapaPresentacion.Formularios.Venta
             cbo.ValueMember = value;
             cbo.SelectedIndex = -1;
         }
+        //verifica que haya productos cargados en la venta y abre nuevo formulario para confirmar venta
         private void BtnSig_Click(object sender, EventArgs e)
         {
             if (f.DetalleFacturas.Count !=0)
@@ -68,6 +70,7 @@ namespace CapaPresentacion.Formularios.Venta
 
         }
         
+        //detecta idioma y deja valores por vacios
         private void AltaVenta_Load(object sender, EventArgs e)
         {
             DetectarIdioma();
@@ -79,6 +82,7 @@ namespace CapaPresentacion.Formularios.Venta
             txbDetalle.Text = "";
         }
 
+        //cuando cambia el producto, detecta el stock de este mismo y lo carga en el txb
         private void Producto_Cambia(object sender, EventArgs e)
         {
             try
@@ -91,6 +95,7 @@ namespace CapaPresentacion.Formularios.Venta
             }catch(Exception ex) { }
         }
 
+        //cargar el producto seleccionado a un objeto
         private void CargarProductoSelected(int id)
         {
             productoSelected = new Producto();
@@ -104,6 +109,7 @@ namespace CapaPresentacion.Formularios.Venta
             }
         }
 
+        //carga que detalle se selecciono par aluego borrarlo
         private void CargarDetalleSelected(int id)
         {
             df = new DetalleFactura();
@@ -116,7 +122,7 @@ namespace CapaPresentacion.Formularios.Venta
                 }
             }
         }
-
+        //cuando se cambia de producto actualiza stock restante en el txb
         private void cboProductos_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (cboProductos.SelectedIndex != -1)
@@ -125,7 +131,7 @@ namespace CapaPresentacion.Formularios.Venta
                 txbStock.Text = productoSelected.Stock.ToString();
             }
         }
-
+        //valida que no se cargue mas stock del disponible
         private bool validacionStock()
         {
             if(Convert.ToInt32(numpCantidad.Value) > productoSelected.Stock)
@@ -139,7 +145,7 @@ namespace CapaPresentacion.Formularios.Venta
             }
             return true;
         }
-
+        //verifica que todoss los datos esten bien y se carga el producto a la dgv y lista de detalles
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             if (validacionStock())
@@ -164,7 +170,7 @@ namespace CapaPresentacion.Formularios.Venta
             }
         }
 
-
+        //abstrae detalle
         private void AbstraerDetalle()
         {
             df = new DetalleFactura();
@@ -174,7 +180,7 @@ namespace CapaPresentacion.Formularios.Venta
             df.Cantidad = Convert.ToInt32(numpCantidad.Value);
 
         }
-
+        //carga la dgv de venta con el los productos
         private void CargarDgvVenta()
         {
             dgvDetalle.Rows.Clear();
@@ -186,7 +192,7 @@ namespace CapaPresentacion.Formularios.Venta
                     "$ "+ com.Cantidad * com.Precio);
             }
         }
-
+        //quita de la dgv y la lista detalle el detalle seleccioando, actualiza totales y stock
         private void Boton_Quitar(object sender, DataGridViewCellEventArgs e)
         {
             df = new DetalleFactura();
@@ -200,7 +206,7 @@ namespace CapaPresentacion.Formularios.Venta
                 df = new DetalleFactura();
             }
         }
-
+        //detecta idioma
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)
@@ -214,7 +220,7 @@ namespace CapaPresentacion.Formularios.Venta
 
             }
         }
-
+        //aplica idioma
         private void AplicarIdioma()
         {
             lbVender.Text = Rec.BtnVender;
@@ -238,7 +244,7 @@ namespace CapaPresentacion.Formularios.Venta
 
 
         }
-
+        //cambia idioma de boton dgv
         private void dgvDetalle_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvDetalle.Columns[e.ColumnIndex].Name == "Accion")

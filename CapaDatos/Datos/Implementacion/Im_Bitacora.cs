@@ -10,6 +10,7 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_Bitacora : IBitacora
     {
+        //Trae los datos de la bitacora
         public Bitacora ObtenerBitacora()
         {
             Bitacora td = new Bitacora();

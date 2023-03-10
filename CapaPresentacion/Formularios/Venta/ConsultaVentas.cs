@@ -44,7 +44,7 @@ namespace CapaPresentacion.Formularios.Venta
         {
 
         }
-
+        //trae todas las facturas, dependiendo el rol permite visiblidad de cosas, y aplica cambio de idioma
         private void ConsultaVentas_Load(object sender, EventArgs e)
         {
             TraerFacturas();
@@ -53,7 +53,7 @@ namespace CapaPresentacion.Formularios.Venta
             RolCancelarMod();
             AplicarRol();
         }
-
+        //carga dgv de facturas
         private void cargarDgv()
         {
             dgvProd.Rows.Clear();
@@ -90,6 +90,8 @@ namespace CapaPresentacion.Formularios.Venta
 
             }
         }
+        //carga dgv de detalle de facturas
+
         private void cargarDgvDet()
         {
             dgvDetalle.Rows.Clear();
@@ -102,7 +104,10 @@ namespace CapaPresentacion.Formularios.Venta
 
             }
         }
+        //DGV FACTURA!, si presiona accion cargara todos los datos en el panel siguiente mostrando los datos de la factura y detalles de esta, permitiendo dependiendo el rol
+        // y el estado modificarla y cancelarla
 
+        //si se presiona TICKET, se formara una factura con los datos de la factura permitiendo imprimirla 
         private void dgvProd_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvProd.Columns[e.ColumnIndex].Name == "Accion" && dgvProd.Rows.Count !=0)
@@ -183,6 +188,7 @@ namespace CapaPresentacion.Formularios.Venta
 
             }
         }
+        //carga cbo de productos
         private void cargar_cboProductos(ComboBox cbo, string display, string value)
         {
             cbo.DataSource = LProductosCargados;
@@ -191,7 +197,7 @@ namespace CapaPresentacion.Formularios.Venta
             cbo.SelectedIndex = -1;
         }
 
-
+        //combina la lista de los producots activos con la lista de los productos comprados y su stock, para poder realizar una modificacion 
         private void CombinarListas()
         {
             LProductosCargados = new List<Producto>();
@@ -225,7 +231,7 @@ namespace CapaPresentacion.Formularios.Venta
             cargar_cboProductos(cboProductos, "Nombre", "Id_producto");
 
         }
-
+        //carga la factura seleccionada a un objeto
         private void CargarFactura(int c)
         {
             foreach (Factura u in lFacturas)
@@ -237,14 +243,14 @@ namespace CapaPresentacion.Formularios.Venta
                 }
             }
         }
-
+        //vuelve y limpia datos
         private void BtnVovler_Click(object sender, EventArgs e)
         {
             dgvDetalle.Rows.Clear();
             panel1.Visible = false;
             facturaselected = new Factura();
         }
-
+        //permite realizar filtro de busqueda dependiendo la seleccion
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             TraerFacturas();
@@ -318,12 +324,12 @@ namespace CapaPresentacion.Formularios.Venta
             }
         
         }
-
+        //permite reinciar estos filtros
         private void picreset_Click(object sender, EventArgs e)
         {
             TraerFacturas();
         }
-
+        //aplica idioma 
 
         private void AplicarIdioma()
         {
@@ -391,6 +397,7 @@ namespace CapaPresentacion.Formularios.Venta
 
             RbtCodigo.Text = Rec.NroFactura;
         }
+        //detecta el idioma
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)
@@ -404,7 +411,7 @@ namespace CapaPresentacion.Formularios.Venta
 
             }
         }
-
+        //cancel ala venta y restablece el stock de esta
         private void BtnCancelarVenta_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Rec.CancelarVenta,"",MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -420,6 +427,7 @@ namespace CapaPresentacion.Formularios.Venta
             }
         }
 
+        //cambia el idioma de los botones de dgv de facutra
         private void dgvProd_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvProd.Columns[e.ColumnIndex].Name == "Accion")
@@ -463,6 +471,7 @@ namespace CapaPresentacion.Formularios.Venta
             }
         }
 
+        //permite la modificacion de la venta si es que esta disponible para esta facutra
         private void BtnMod_Click(object sender, EventArgs e)
         {
             panel3.Visible = true;
@@ -479,6 +488,7 @@ namespace CapaPresentacion.Formularios.Venta
 
 
         }
+        //actualiza el producto y el stock del cbo producots
 
         private void cboProductos_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -492,6 +502,7 @@ namespace CapaPresentacion.Formularios.Venta
             }
             catch (Exception ex) { }
         }
+        //actualiza el producto y el stock del cbo producots
 
         private void cboProductos_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -501,7 +512,7 @@ namespace CapaPresentacion.Formularios.Venta
                 txbStock.Text = productoSelected.Stock.ToString();
             }
         }
-
+        //carga el producto seleccionado a un objeto
         private void CargarProductoSelected(int id)
         {
             productoSelected = new Producto();
@@ -514,7 +525,7 @@ namespace CapaPresentacion.Formularios.Venta
                 }
             }
         }
-
+        //valida que stock este dentro del margen, datos del producto esten correctos
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             if (validacionStock())
@@ -538,7 +549,7 @@ namespace CapaPresentacion.Formularios.Venta
                 }
             }
         }
-
+        //carga el dgv  de la modificacion de la venta con los productos adquiridos
         private void CargarDgvVenta()
         {
             dgvdet.Rows.Clear();
@@ -551,6 +562,7 @@ namespace CapaPresentacion.Formularios.Venta
             }
         }
 
+        //valida que el stock ingresado este dentro del margen
         private bool validacionStock()
         {
             if (Convert.ToInt32(numpCantidad.Value) > productoSelected.Stock)
@@ -565,7 +577,7 @@ namespace CapaPresentacion.Formularios.Venta
             }
             return true;
         }
-
+        //abstrae el detalle
         private void AbstraerDetalle()
         {
             df = new DetalleFactura();
@@ -575,7 +587,7 @@ namespace CapaPresentacion.Formularios.Venta
             df.Cantidad = Convert.ToInt32(numpCantidad.Value);
 
         }
-
+        //remove el producto seleccionado de la dgv y lista y actualiza totales
         private void dgvdet_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             df = new DetalleFactura();
@@ -588,6 +600,7 @@ namespace CapaPresentacion.Formularios.Venta
                 df = new DetalleFactura();
             }
         }
+        //carga el detalle seleccionado en objeto
         private void CargarDetalleSelected(int id)
         {
             df = new DetalleFactura();
@@ -600,7 +613,7 @@ namespace CapaPresentacion.Formularios.Venta
                 }
             }
         }
-
+        //verifica que todos los datos esten correcots para continuar con la  venta
         private void BtnSig_Click(object sender, EventArgs e)
         {
             if (f.DetalleFacturas.Count != 0)
@@ -660,6 +673,7 @@ namespace CapaPresentacion.Formularios.Venta
 
         }
 
+        //cambia idioma de los botones la dgv
         private void dgvdet_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvdet.Columns[e.ColumnIndex].Name == "action")
@@ -682,7 +696,7 @@ namespace CapaPresentacion.Formularios.Venta
 
             }
         }
-
+        //dependiendo el rol aplica visibilidad
         private void RolCancelarMod()
         {
             if (LogIn.u.Rol.Id_Rol != 1 && LogIn.u.Rol.Id_Rol != 3 && LogIn.u.Rol.Id_Rol != 5 )
@@ -691,7 +705,7 @@ namespace CapaPresentacion.Formularios.Venta
                 BtnMod.Visible = false;
             }
         }
-
+        //trae las facturas de solo los usuarios que sean solo vendedores, o de todos dependiendo el rol
         private void TraerFacturas()
         {
             if (LogIn.u.Rol.Id_Rol == 6)
@@ -705,6 +719,7 @@ namespace CapaPresentacion.Formularios.Venta
                 cargarDgv();
             }
         }
+        //dependiendo el rol aplica visibilidad
 
         private void AplicarRol()
         {

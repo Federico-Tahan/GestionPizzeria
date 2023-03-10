@@ -11,6 +11,7 @@ using Microsoft.Data.SqlClient;
 
 namespace CapaDatos.Datos
 {
+    //Clase con comandos para interacturar con la base de datos
     internal class HelperDB
     {
         SqlConnection conn = new SqlConnection(Properties.Resources.Connection);
@@ -20,6 +21,7 @@ namespace CapaDatos.Datos
 
         private static HelperDB instance;
 
+        //clase statica para tener solo una instancia en todo el proyecto 
         public static HelperDB ObtenerInstancia()
         {
             if (instance == null)
@@ -39,6 +41,8 @@ namespace CapaDatos.Datos
             get { return dr; }
             set { dr = value; }
         }
+
+        //lee las tablas con procedure que crees
         public SqlDataReader LeerDB(string procedure)
         {
             open();
@@ -47,6 +51,7 @@ namespace CapaDatos.Datos
             cmd.Parameters.Clear();
             return dr;
         }
+        //abre la BD
         public void open()
         {
             if (conn != null && conn.State == ConnectionState.Open)
@@ -64,12 +69,13 @@ namespace CapaDatos.Datos
             }
 
         }
-
+        //Cierr la BD
         public void close()
         {
             conn.Close();
         }
 
+        //Trae una consult con formato de tabla
         public DataTable tabla_db(string procedure)
         {
             DataTable table = new DataTable();
@@ -79,7 +85,7 @@ namespace CapaDatos.Datos
             cmd.Parameters.Clear();
             return table;
         }
-
+        //Actualiza o inserta datos
         public void updatear_db(string procedure)
         {
             open();
@@ -88,7 +94,7 @@ namespace CapaDatos.Datos
             cmd.Parameters.Clear();
             close();
         }
-
+        //trae el prox id 
         public int proximo_id(string procedure)
         {
             open();

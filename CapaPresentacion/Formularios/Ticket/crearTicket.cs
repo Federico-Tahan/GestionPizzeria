@@ -40,6 +40,7 @@ namespace ticket_o_factura
         private PrintDocument doc = new PrintDocument();
         private PrintPreviewDialog vista = new PrintPreviewDialog();
 
+        //crea la pagina de la factura y te la muestra
         public void imprimir(crearTicket  p)
         {
             doc.PrinterSettings.PrinterName = doc.DefaultPageSettings.PrinterSettings.PrinterName;
@@ -48,7 +49,7 @@ namespace ticket_o_factura
             vista.Document = doc;
             vista.Show();
         }
-
+        // dibuja sobre la hoja creada y pone los datos de la factura
         public void imprimeticket(object sender, PrintPageEventArgs e)
         {
 
@@ -170,6 +171,7 @@ namespace ticket_o_factura
 
         }
 
+        //espaciado
     
         public string espaciar(int tamaño, int valor)
         {

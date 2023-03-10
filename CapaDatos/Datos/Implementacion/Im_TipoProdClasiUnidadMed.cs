@@ -10,6 +10,7 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_TipoProdClasiUnidadMed : ITipoProdClasiUnidadMed
     {
+        //alta de la clasificacion y recibe un Usuario para que se registre en al bitacora
         public bool AltaClasificacion(Clasificacion c, Usuarios u)
         {
             try
@@ -27,7 +28,7 @@ namespace CapaDatos.Datos.Implementacion
                 return false;
             }
         }
-
+        //alta de la localidad y recibe un Usuario para que se registre en al bitacora
         public bool AltaLocalidad(Localidad md, Usuarios u)
         {
             try
@@ -45,7 +46,7 @@ namespace CapaDatos.Datos.Implementacion
                 return false;
             }
         }
-
+        //alta de tipo producto y recibe un Usuario para que se registre en al bitacora
         public bool AltaTipoProducto(TipoProducto tp, Usuarios u)
         {
             try
@@ -63,7 +64,7 @@ namespace CapaDatos.Datos.Implementacion
                 return false;
             }
         }
-
+        //alta de la unidad de medida y recibe un Usuario para que se registre en al bitacora
         public bool AltaUnidadMedida(UnidadMedida md, Usuarios u)
         {
             try
@@ -81,7 +82,7 @@ namespace CapaDatos.Datos.Implementacion
                 return false;
             }
         }
-
+        //trae todos los datos de clasificacion segun si esta activo o no
         public List<Clasificacion> GetClasificacion(int a)
         {
             List<Clasificacion> lclasificacion = new List<Clasificacion>();
@@ -111,7 +112,7 @@ namespace CapaDatos.Datos.Implementacion
             HelperDB.ObtenerInstancia().close();
             return lclasificacion;
         }
-
+        //trae la localidades segun si esta activo o no
         public List<Localidad> GetLocalidad(int a)
         {
             List<Localidad> lclasificacion = new List<Localidad>();
@@ -141,7 +142,7 @@ namespace CapaDatos.Datos.Implementacion
             HelperDB.ObtenerInstancia().close();
             return lclasificacion;
         }
-
+        //trae los tipos de producto segun si esta activo o no
         public List<TipoProducto> GetTipoProductos(int a)
         {
             List<TipoProducto> ltipoprod= new List<TipoProducto>();
@@ -171,7 +172,7 @@ namespace CapaDatos.Datos.Implementacion
             HelperDB.ObtenerInstancia().close();
             return ltipoprod;
         }
-
+        //trae la unidad de medida si esta activo o no
         public List<UnidadMedida> GetUnidadMedida(int a)
         {
             List<UnidadMedida> lunidadmed = new List<UnidadMedida>();
@@ -201,7 +202,7 @@ namespace CapaDatos.Datos.Implementacion
             HelperDB.ObtenerInstancia().close();
             return lunidadmed;
         }
-
+        //modifica la clasificacion y recibe un Usuario para que se registre en al bitacora
         public bool ModificacionClasificacion(Clasificacion c, Usuarios u)
         {
             try
@@ -221,7 +222,7 @@ namespace CapaDatos.Datos.Implementacion
                 return false;
             }
         }
-
+        //modifica el tipo de producto y recibe un Usuario para que se registre en al bitacora
         public bool ModificacionTipoProducto(TipoProducto tp, Usuarios u)
         {
             try
@@ -241,7 +242,7 @@ namespace CapaDatos.Datos.Implementacion
                 return false;
             }
         }
-
+        //modifca la unidad de medida y recibe un Usuario para que se registre en al bitacora
         public bool ModificacionUnidadMedida(UnidadMedida md, Usuarios u)
         {
             try
@@ -261,7 +262,7 @@ namespace CapaDatos.Datos.Implementacion
                 return false;
             }
         }
-
+        //modifica la locadlidad y recibe un Usuario para que se registre en al bitacora
         public bool ModLocalidad(Localidad md, Usuarios u)
         {
             try

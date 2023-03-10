@@ -26,10 +26,9 @@ namespace CapaPresentacion.Formularios
         public Configuration()
         {
             InitializeComponent();
-            //this.toolTip1.SetToolTip(this.picpreguntaguardar, "Debe seleccionar en donde quiere guardar el Back-Up de la Base de Datos.");
-            //this.toolTip1.SetToolTip(this.picpreguntarestablecer, "Debe seleccionar el Back-Up de la base de datos para restablecerla.");
         }
 
+        //trae configuracion , carga las redes y aplica idioma y roles
         private void Configuracion_Load(object sender, EventArgs e)
         {
             c= lg.TraerConfiguracion();
@@ -38,7 +37,7 @@ namespace CapaPresentacion.Formularios
             AplicarIdioma();
             aplicarRoles();
         }
-
+        //carga las redes
         private void CargarRedes()
         {
             TxbEmail.Text = c.Email;
@@ -49,7 +48,7 @@ namespace CapaPresentacion.Formularios
             txbContraseña.Text = c.Contraseña;
 
         }
-
+        //guarda la confgi de las redes
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             AbstraerRedes();
@@ -65,7 +64,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //abstrae las redes
         public void AbstraerRedes()
         {
             c = new Configuracion();
@@ -76,12 +75,14 @@ namespace CapaPresentacion.Formularios
             c.Youtube= TxbYoutube.Text;
             c.Contraseña = txbContraseña.Text;
         }
-
+        //muestra la bitacora
         private void BtnVer_Click(object sender, EventArgs e)
         {
             FrmBitacora b = new FrmBitacora();
             b.ShowDialog();
         }
+
+        //abre una carpeta para elegir donde guardar el archivo .bak
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -93,7 +94,7 @@ namespace CapaPresentacion.Formularios
                 BtnRespaldo.Show();
             }
         }
-
+        //realiza respaldo de la base de datos
         private void BtnRespaldo_Click(object sender, EventArgs e)
         {
             lg.Conexion().Open();
@@ -115,7 +116,7 @@ namespace CapaPresentacion.Formularios
                 lg.Conexion().Close();
             }
         }
-
+        //abre carpeta para buscar donde esta el archivo .bak
         private void button4_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -127,7 +128,7 @@ namespace CapaPresentacion.Formularios
                 btnRestauracion.Show();
             }
         }
-
+        //restaura la base de datos
         private void btnRestauracion_Click(object sender, EventArgs e)
         {
             lg.Conexion().Open();
@@ -158,7 +159,6 @@ namespace CapaPresentacion.Formularios
                 lg.Conexion().Close();
             }
         }
-
         private void picpass_Click(object sender, EventArgs e)
         {
             {
@@ -176,7 +176,7 @@ namespace CapaPresentacion.Formularios
                 }
             }
         }
-
+        //aplica idioma
         public void AplicarIdioma()
         {
             lbConfiguracion.Text = Rec.Configuracion;
@@ -193,7 +193,7 @@ namespace CapaPresentacion.Formularios
             BtnGuardar.Text = Rec.Guardar;
 
         }
-
+        //detecta el idioma
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)
@@ -207,7 +207,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //aplica visibilidad dependiendo los roles
         private void aplicarRoles()
         {
             if (LogIn.u.Rol.Id_Rol != 1 && LogIn.u.Rol.Id_Rol != 2)

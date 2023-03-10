@@ -40,13 +40,13 @@ namespace CapaPresentacion.Formularios.Venta
             fac = f;
             config = new Configuracion();
         }
-
+        //permite m,ovimniento del form
         private void pnlBarra_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
+        //sale del form
         private void Salir_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Rec.BtnCerrarConfirmacionVenta, Rec.CapCerrar, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -54,7 +54,7 @@ namespace CapaPresentacion.Formularios.Venta
                 this.Close();
             }
         }
-
+        //segun tipo de cliente visibiliza campos y comprueba si descuneto esta disponible
         private void cboTipoCliente_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
@@ -77,7 +77,7 @@ namespace CapaPresentacion.Formularios.Venta
             }
 
         }
-
+        //Carga cbo tipo de cliente
         private void cargar_cboTipOclIENTE(ComboBox cbo, string display, string value)
         {
             cbo.DataSource = cb.TipoClientes();
@@ -86,6 +86,8 @@ namespace CapaPresentacion.Formularios.Venta
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbo.SelectedIndex = -1;
         }
+        //Carga cbo tipo de compra
+
         private void cargar_cboTipoCompra(ComboBox cbo, string display, string value)
         {
             cbo.DataSource = cb.TipoCompra();
@@ -94,6 +96,8 @@ namespace CapaPresentacion.Formularios.Venta
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbo.SelectedIndex = -1;
         }
+        //Carga cbo tipo de entrega
+
         private void cargar_cboTipoEntrega(ComboBox cbo, string display, string value)
         {
             cbo.DataSource = cb.TipoEntregas();
@@ -102,6 +106,7 @@ namespace CapaPresentacion.Formularios.Venta
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbo.SelectedIndex = -1;
         }
+        //Carga cbos, trae configuracion para validar descuentos, aplica idioma y trae los clientes para verificar si son socios, el modo dependera si es una alta, o si se esta modificando una venta
 
         private void ConfirmacionVenta_Load(object sender, EventArgs e)
         {
@@ -125,7 +130,7 @@ namespace CapaPresentacion.Formularios.Venta
                 modo = 1;
             }
         }
-
+        //carga cbo de loclaidad
         private void cargar_cboLocalidad(ComboBox cbo, string display, string value)
         {
             cbo.DataSource = lcbo.Localidad();
@@ -135,6 +140,7 @@ namespace CapaPresentacion.Formularios.Venta
             cbo.SelectedIndex = -1;
         }
 
+        //realiza todas las validaciones para ver si se esta ingresadno una nueva venta o se esta modificando una y al confirmarse se cargan los datos a la dgv 
         private void btnConfirmarVenta_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Rec.MessageConfirmarVenta,Rec.CapConfirmacion,MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -224,7 +230,7 @@ namespace CapaPresentacion.Formularios.Venta
             }
         }
 
-
+        //calcula el total dependiendo descuento
         private void CalcularTotal()
         {
             if (config.DescuentoSocios == 0)
@@ -299,7 +305,7 @@ namespace CapaPresentacion.Formularios.Venta
                 }
             }
         }
-
+        //verifica si el dni es de un socio y si existe carga los datos
         private void btnverificar_Click(object sender, EventArgs e)
         {
             if (!(txbDNI.Text.Length > 8))
@@ -341,7 +347,7 @@ namespace CapaPresentacion.Formularios.Venta
             }
 
         }
-
+        //verifica si cumple con la configuracion de obtencion de beneficio y actualiza descuento y totales
         private void cbotipocompra_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (modo == 0)
@@ -351,6 +357,7 @@ namespace CapaPresentacion.Formularios.Venta
             }
 
         }
+        //verifica si cumple con la configuracion de obtencion de beneficio y actualiza descuento y totales
 
         private void cbotipoentrega_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -365,6 +372,7 @@ namespace CapaPresentacion.Formularios.Venta
         {
 
         }
+        //verifica si cumple con la configuracion de obtencion de beneficio y actualiza descuento y totales
 
         private void cboTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -383,7 +391,7 @@ namespace CapaPresentacion.Formularios.Venta
         {                
         }
 
-
+        //valida que los datos requeridos esten cargados
         private bool validacion()
         {
             if (Convert.ToInt32(cbotipocompra.SelectedValue) == 0)
@@ -450,7 +458,7 @@ namespace CapaPresentacion.Formularios.Venta
             return true;
 
         }
-
+        //detecta idioma
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)
@@ -464,7 +472,7 @@ namespace CapaPresentacion.Formularios.Venta
 
             }
         }
-
+        //aplica idioma
         private void AplicarIdioma()
         {
             lbtipocompra.Text = Rec.TipodeCompra;
@@ -483,7 +491,7 @@ namespace CapaPresentacion.Formularios.Venta
             lbpiso.Text = Rec.Piso;
             lbdepartamento.Text = Rec.Departamento;
         }
-
+        //carga los datos de la venta a modificar
         private void CargarDatos()
         {
 
@@ -522,7 +530,7 @@ namespace CapaPresentacion.Formularios.Venta
             txbSubtotal.Text = fac.Calcular_Subtotal().ToString();
 
         }
-
+        //permite que solo se ingrese texto
         private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsDigit(e.KeyChar) || e.KeyChar < 0 || e.KeyChar > 127)
@@ -530,6 +538,7 @@ namespace CapaPresentacion.Formularios.Venta
                 e.Handled = true;
             }
         }
+        //permite que solo se ingrese texto
 
         private void txbApelldio_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -538,6 +547,7 @@ namespace CapaPresentacion.Formularios.Venta
                 e.Handled = true;
             }
         }
+        //permite que solo se ingrese texto
 
         private void txbCalle_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -546,6 +556,7 @@ namespace CapaPresentacion.Formularios.Venta
                 e.Handled = true;
             }
         }
+        //permite que solo se ingrese numeros
 
         private void txbDNI_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -554,6 +565,7 @@ namespace CapaPresentacion.Formularios.Venta
                 e.Handled = true;
             }
         }
+        //permite que solo se ingrese numeros
 
         private void txbtelefono_KeyPress(object sender, KeyPressEventArgs e)
         {

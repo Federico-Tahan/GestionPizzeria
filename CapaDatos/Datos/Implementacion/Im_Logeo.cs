@@ -12,6 +12,7 @@ namespace CapaDatos.Datos.Implementacion
     {
         Encriptacion e = new Encriptacion();
 
+        //trae los datos del usuario ya logeado
         public Usuarios GetUsuario(Usuarios u)
         {
             try
@@ -76,6 +77,7 @@ namespace CapaDatos.Datos.Implementacion
             return u;
         }
 
+        //verifica si las credenciales estan bien
         public bool Logeado(Usuarios u)
         {
 
@@ -94,7 +96,7 @@ namespace CapaDatos.Datos.Implementacion
             HelperDB.ObtenerInstancia().close();
             return false;
         }
-
+        //registra el inicio  en la bitacora
         public void RegistroInicio(int usuario)
         {
             try
@@ -108,7 +110,7 @@ namespace CapaDatos.Datos.Implementacion
             {
             }
         }
-
+        //registra la salida en la bitacora
         public void RegistroSalida(int usuario)
         {
             try

@@ -15,6 +15,7 @@ namespace CapaDatos.Datos.Implementacion
         IConfiguracion lg = new Im_Configuracion();
         Configuracion con = new Configuracion();
 
+        //HACE EL ALTA DE CLIENTE QUE NO SEA SOCIO AL SISTEMA. ACTUALMENTE DESACTIVADO
         public bool AltaClienteNosocio(Cliente c, Usuarios u)
         {
             try
@@ -39,6 +40,9 @@ namespace CapaDatos.Datos.Implementacion
                 return false;
             }
         }
+
+        //HACE EL ALTA DE CLIENTES QUE SON SOCIOS AL SISTEMA, Se le envia los parametros con sus datos y ejecuta el updatearDB que hace el insert o modificacion recibe los datos del cliente
+        //y USUARIO para realizar un registro en la bitacora
 
         public bool AltaClienteSocio(Cliente c, Usuarios u)
         {
@@ -66,6 +70,7 @@ namespace CapaDatos.Datos.Implementacion
                 return false;
             }
         }
+        //Era parte de uso para AltaClienteNoSocio ya que podias convertirlo en socio pero Actuamente esta deshabilitada la opcion
 
         public bool AltaSocio(Cliente c, Usuarios u)
         {
@@ -86,6 +91,8 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
+        //se busca el cliente por id haber si existe
+
         public bool BuscarCliente(Cliente c)
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -102,6 +109,8 @@ namespace CapaDatos.Datos.Implementacion
             HelperDB.ObtenerInstancia().close();
             return false;
         }
+
+        //se busca el cliente por DNI haber si existe
 
         public bool BuscarClienteSocioDni(Cliente c)
         {
@@ -120,6 +129,8 @@ namespace CapaDatos.Datos.Implementacion
             return false;
         }
 
+        //Elimina el cliente y recibe el id, y el usuario para que se registre en la bitacora
+
         public bool EliminarCliente(int c, Usuarios u)
         {
             try
@@ -137,6 +148,7 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
+        //Envia Emails atravez del servidor de GMAIL
         public bool EmailSender(Cliente c)
         {
             bool correcto = false;
@@ -201,6 +213,7 @@ namespace CapaDatos.Datos.Implementacion
         }
     
 
+        //Modifica el cliente y recibe datos del usuario para que se registre en la bitacora
         public bool ModificacionCliente(Cliente c, Usuarios u)  
         {
             try
@@ -230,6 +243,7 @@ namespace CapaDatos.Datos.Implementacion
             }
         }
 
+        //Trae todos los clientes y los carga en una lista
         public List<Cliente> TraerClientes()
         {
             List<Cliente> lClientes = new List<Cliente>();

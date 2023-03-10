@@ -17,6 +17,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
 {
     public partial class FormUnidadMedida : Form
     {
+        //permite arrastrar el formualrio
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -29,7 +30,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
         {
             InitializeComponent();
         }
-
+        //carga lista dgv y aplica idioma
         private void FormUnidadMedida_Load(object sender, EventArgs e)
         {
             lUnidadMedida = lg.GetUnidadMedida(0);
@@ -37,7 +38,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
             DetectarIdioma();
             AplicarIdioma();
         }
-
+        //dhabilitas o deshabilita botones + campos en formualario
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             habilitarBtn(true);
@@ -49,6 +50,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
             chkActivo.Visible = false;
 
         }
+        //habilita o deshabiltia botones
         private void habilitarBtn(bool a)
         {
             btnNuevo.Enabled = a;
@@ -57,6 +59,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
             BtnGuardar.Enabled = a;
             BtnEditar.Enabled = a;
         }
+        //habilita botones y campos para editar
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
@@ -67,7 +70,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
             chkActivo.Enabled = true;
             TxbUnidadMedida.Enabled = true;
         }
-
+        //cierra el panel formulario y deja todo limpio
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             habilitarBtn(false);
@@ -75,7 +78,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
             panel1.Visible = false;
             TxbUnidadMedida.Text = string.Empty;
         }
-
+        //boton guardar, verifica si se modifica o se inserta nuevo, valida datos y abstrae objeto
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (TxbUnidadMedida.Text != string.Empty)
@@ -124,7 +127,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
                 MessageBox.Show(Rec.MessageDebecargarClasi);
             }
         }
-
+        //abstrae objeto
         private void AbstraerUnidadMedida()
         {
             tp.Unidad_Medida = TxbUnidadMedida.Text;
@@ -137,7 +140,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
                 tp.Baja_Logica = 1;
             }
         }
-
+        //igual que boton cancenlar
         private void picbajar_Click(object sender, EventArgs e)
         {
             TxbUnidadMedida.Text = string.Empty;
@@ -145,7 +148,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
             habilitarBtn(false);
             btnNuevo.Enabled = true;
         }
-
+        //carga el unidad de merdida seleccionada  al panel para ver detalle
         private void dgvUnidadMedida_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             tp = new UnidadMedida();
@@ -170,7 +173,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
                 BtnEditar.Enabled = true;
             }
         }
-
+        //carga objeto de unidad med
         private void CargarUnidadMedida(int c)
         {
             foreach (UnidadMedida u in lUnidadMedida)
@@ -182,13 +185,13 @@ namespace CapaPresentacion.Formularios.CombosProducto
                 }
             }
         }
-
+        //dependiedo si esta selecciionado activo no acitvo o todos se mostrara
         private void RbtActivo_CheckedChanged(object sender, EventArgs e)
         {
             lUnidadMedida = lg.GetUnidadMedida(0);
             cargarDgv(lUnidadMedida);
         }
-
+        //carga la datagrid
         private void cargarDgv(List<UnidadMedida> lp)
         {
             dgvUnidadMedida.Rows.Clear();
@@ -219,7 +222,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
             lUnidadMedida = lg.GetUnidadMedida(2);
             cargarDgv(lUnidadMedida);
         }
-
+        //filtros segun el seleccionado
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             if (txbBusqeuda.Text != "")
@@ -256,19 +259,19 @@ namespace CapaPresentacion.Formularios.CombosProducto
                 MessageBox.Show(Rec.MessageCargarCodigoParafiltrar);
             }
         }
-
+        //permite que se mueva el form
         private void pnlBarra_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
+        //cierra formaulario
         private void Salir_Click(object sender, EventArgs e)
         {
             DialogResult= DialogResult.OK;
             this.Close();
         }
-
+        //aplica el texto
         private void AplicarIdioma()
         {
             lbum.Text = Rec.UnidadMedida;
@@ -291,7 +294,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
 
 
         }
-
+        //detecta idioma
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)
@@ -305,7 +308,7 @@ namespace CapaPresentacion.Formularios.CombosProducto
 
             }
         }
-
+        //aplica idioma a btn dgv
         private void dgvUnidadMedida_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvUnidadMedida.Columns[e.ColumnIndex].Name == "Accion")

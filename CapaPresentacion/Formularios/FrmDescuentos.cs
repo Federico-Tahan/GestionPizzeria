@@ -32,6 +32,7 @@ namespace CapaPresentacion.Formularios
 
         }
 
+        //aplica roles trae descuentos y config y aplica idioma
         private void Descuentos_Load(object sender, EventArgs e)
         {
             Rol();
@@ -41,7 +42,7 @@ namespace CapaPresentacion.Formularios
             DetectarIdioma();
             AplicarIdioma();
         }
-
+        //carga los descuento y confing
         private void cargarConfiguracion()
         {
             np1.Value = ld[0].PorcentajeDescuento;
@@ -73,14 +74,14 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //restablece los datos desde cuando se abri el form
         private void BtnRestablecer_Click(object sender, EventArgs e)
         {
             ld = lg.TraerDescuentos();
             c = lg.TraerConfiguracion();
             cargarConfiguracion();
         }
-
+        //confirma y actualiza los datos
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
             List<Descuento> lDescuento = new List<Descuento>();
@@ -94,7 +95,7 @@ namespace CapaPresentacion.Formularios
                 cargarConfiguracion();
             }
         }
-
+        //abstraer la info
         public void AbstraerInfo(List<Descuento> lDescuento)
         {
             lDescuento.Clear();
@@ -143,7 +144,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //aplica idioma
         public void AplicarIdioma()
         {
             lblunes.Text = Rec.Lunes;
@@ -162,6 +163,7 @@ namespace CapaPresentacion.Formularios
             ChkCompraspresenciales.Text = Rec.ComprasPresenciales;
 
         }
+        //detecta idioma
         private void DetectarIdioma()
         {
             if (SeleccionIdioma.i.IdIdioma == 2)
@@ -175,7 +177,7 @@ namespace CapaPresentacion.Formularios
 
             }
         }
-
+        //aplica el rol y sus permisos
         private void Rol()
         {
             if (LogIn.u.Rol.Id_Rol == 6)

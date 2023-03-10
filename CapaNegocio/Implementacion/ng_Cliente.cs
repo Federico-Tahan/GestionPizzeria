@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio.Implementacion
 {
-
+    //puente entre el back y el front
 
     public class ng_Cliente : ing_Cliente
     {

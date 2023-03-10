@@ -12,6 +12,7 @@ namespace CapaDatos.Datos.Implementacion
 {
     public class Im_CrudVentas : CrudVentas
     {
+        //realiza la transaccion de la venta y si algo no esta bien hace un rollback para que simule como que no paso nada y recibe un Usuario para que se registre en al bitacora
         public bool AltaVenta(Factura f, Usuarios u)
         {
             bool bandera = false;
@@ -83,6 +84,7 @@ namespace CapaDatos.Datos.Implementacion
             return bandera;
         }
 
+        //modifca la venta de igual manera que el alta y recibe un Usuario para que se registre en al bitacora
         public bool ModVenta(Factura f, Usuarios u)
         {
             bool bandera = false;
@@ -149,6 +151,7 @@ namespace CapaDatos.Datos.Implementacion
             return bandera;
         }
 
+        //busca un cliente socio por dni
         public bool BuscarClienteSocioDni(Cliente c)
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -166,6 +169,7 @@ namespace CapaDatos.Datos.Implementacion
             return false;
         }
 
+        //cancela la factura con su id y recibe un Usuario para que se registre en al bitacora
         public bool CancelFactura(int i, Usuarios u)
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -175,6 +179,7 @@ namespace CapaDatos.Datos.Implementacion
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
             return true;
         }
+        //
         public bool CancelFacturaVenta(int i)
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -183,6 +188,7 @@ namespace CapaDatos.Datos.Implementacion
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
             return true;
         }
+        //Trae la configuracion para ver si la venta cumple con el descuento
         public Configuracion TraerConfig()
         {
             HelperDB.ObtenerInstancia().Command.Parameters.Clear();
@@ -209,7 +215,7 @@ namespace CapaDatos.Datos.Implementacion
 
             return rl;
         }
-
+        //trae los detalles en una lista con la condicion de acitvo desactiovo o todos
         public List<DetalleFactura> TraerDetalles(int a)
         {
             List<DetalleFactura> ldetalles = new List<DetalleFactura>();
@@ -283,7 +289,7 @@ namespace CapaDatos.Datos.Implementacion
             return ldetalles;
 
         }
-
+        //trae las facturas en una lista
         public List<Factura> TraerFactura(int a)
         {
             List<Factura> lfactura = new List<Factura>();
